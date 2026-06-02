@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getModuleById } from "@/data/content";
+import { lessonPath } from "@/lib/routes";
 
 type CourseDetailPageProps = {
   params: Promise<{
@@ -34,7 +35,7 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
           </CardHeader>
           <CardContent className="space-y-3">
             {courseModule.lessons.map((lesson) => (
-              <Link key={lesson.id} href={`/lessons/${lesson.id}`} className="block rounded-md border p-4 hover:bg-muted">
+              <Link key={lesson.id} href={lessonPath(lesson)} className="block rounded-md border p-4 hover:bg-muted">
                 <div className="flex items-center justify-between gap-4">
                   <div>
                     <p className="text-sm text-muted-foreground">{lesson.number}</p>

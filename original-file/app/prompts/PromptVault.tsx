@@ -7,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import type { PromptCategory, PromptTemplate, ToolDefinition } from "@/data/types";
+import { filterPrompts } from "@/lib/prompts";
 
 type PromptVaultProps = {
   categories: PromptCategory[];
@@ -24,17 +25,7 @@ export function PromptVault({ categories, prompts, tools }: PromptVaultProps) {
   const selectedPrompt = prompts.find((prompt) => prompt.id === selectedPromptId);
 
   const filteredPrompts = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
-
-    return prompts.filter((prompt) => {
-      const matchesCategory = category === "all" || prompt.category === category;
-      const matchesTool = tool === "all" || prompt.tools.includes(tool);
-      const matchesQuery =
-        normalizedQuery.length === 0 ||
-        [prompt.title, prompt.task, prompt.prompt, ...prompt.tags].join(" ").toLowerCase().includes(normalizedQuery);
-
-      return matchesCategory && matchesTool && matchesQuery;
-    });
+    return filterPrompts(prompts, { category, query, tool });
   }, [category, prompts, query, tool]);
 
   async function copyPrompt(prompt: PromptTemplate) {

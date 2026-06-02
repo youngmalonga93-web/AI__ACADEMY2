@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { modules, phases } from "@/data/content";
+import { coursePath } from "@/lib/routes";
 
 export default function CoursesPage() {
   return (
@@ -46,7 +47,7 @@ export default function CoursesPage() {
                 <span>{module.lessonCount} lessons planned</span>
               </div>
               <Button asChild>
-                <Link href={`/courses/${module.id}`}>Open module</Link>
+                <Link href={coursePath(module.id)}>Open module</Link>
               </Button>
             </CardContent>
           </Card>
