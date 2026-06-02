@@ -21,7 +21,7 @@
 17. [x] Implement profile creation on first login with role support for learner, mentor, and admin users.
 18. [x] Implement lesson progress tracking with completion state, percent complete, and dashboard summaries.
 19. [x] Add unit tests for extracted content utilities, filters, route helpers, and progress calculations.
-20. [ ] Add CI checks for type-checking, linting, tests, and production build.
+20. [x] Add CI checks for type-checking, linting, tests, and production build.
 
 ## Backlog
 
