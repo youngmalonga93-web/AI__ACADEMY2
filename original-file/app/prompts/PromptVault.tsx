@@ -28,20 +28,37 @@ export function PromptVault({ categories, prompts, tools }: PromptVaultProps) {
     return filterPrompts(prompts, { category, query, tool });
   }, [category, prompts, query, tool]);
 
+  function copyWithTextArea(text: string) {
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    textArea.setAttribute("readonly", "");
+    textArea.style.position = "fixed";
+    textArea.style.left = "-9999px";
+    textArea.style.top = "0";
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+
+    const didCopy = document.execCommand("copy");
+    document.body.removeChild(textArea);
+
+    return didCopy;
+  }
+
   async function copyPrompt(prompt: PromptTemplate) {
     try {
       if (navigator.clipboard?.writeText) {
-        await navigator.clipboard.writeText(prompt.prompt);
+        try {
+          await navigator.clipboard.writeText(prompt.prompt);
+        } catch {
+          if (!copyWithTextArea(prompt.prompt)) {
+            throw new Error("Clipboard fallback failed");
+          }
+        }
       } else {
-        const textArea = document.createElement("textarea");
-        textArea.value = prompt.prompt;
-        textArea.setAttribute("readonly", "");
-        textArea.style.position = "fixed";
-        textArea.style.left = "-9999px";
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textArea);
+        if (!copyWithTextArea(prompt.prompt)) {
+          throw new Error("Clipboard fallback failed");
+        }
       }
 
       setCopyStatus(`Copied ${prompt.title}`);

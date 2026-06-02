@@ -4,10 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "clean": "node scripts/clean.mjs",
+    "clean:next": "node scripts/clean-next.mjs",
+    "prebuild": "npm run clean:next",
     "build": "next build",
+    "postbuild": "node scripts/verify-chunks.mjs",
     "start": "next start",
     "lint": "next lint",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc -p tsconfig.typecheck.json --noEmit",
+    "validate:imports": "node scripts/validate-imports.mjs",
+    "precommit": "npm run typecheck && npm run validate:imports",
     "test": "vitest run",
     "seed:content": "tsx scripts/seed-content.ts"
   },
