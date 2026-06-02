@@ -29,6 +29,11 @@
 - [x] Upgrade dashboard progress with next lesson, module summaries, and recent completions.
 - [x] Upgrade course detail pages with live content and completion badges.
 - [x] Add course catalog search and filters for phase, difficulty, and tool.
+- [ ] Complete all modules to gold-standard lesson depth before Stripe.
+- [ ] Add lesson quizzes, rubrics, downloadable worksheets, and video placeholders.
+- [ ] Expand prompt vault to 100+ practical, career/business-ready prompts.
+- [ ] Add site-wide production QA pass for all links, empty states, and auth flows.
+- [ ] Add investor demo metrics and admin snapshot page.
 - [ ] Stripe Checkout integration.
 - [ ] Stripe Customer Portal integration.
 - [ ] Stripe webhook subscription sync.

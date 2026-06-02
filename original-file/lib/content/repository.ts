@@ -215,7 +215,10 @@ export async function getPromptVaultContent(): Promise<{
       tools: promptTools.filter((item) => item.prompt_template_id === prompt.id).map((item) => item.prompt_tool_id),
     }));
 
-    return { categories, prompts, tools };
+    const promptIds = new Set(prompts.map((prompt) => prompt.id));
+    const mergedPrompts = [...prompts, ...localPrompts.filter((prompt) => !promptIds.has(prompt.id))];
+
+    return { categories, prompts: mergedPrompts, tools };
   } catch {
     return { categories: localPromptCategories, prompts: localPrompts, tools: localTools };
   }

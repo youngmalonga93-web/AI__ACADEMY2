@@ -1,4 +1,5 @@
 import fullContent from "./full-content.json";
+import { additionalPrompts } from "./additional-prompts";
 import { moduleEnrichments } from "./enrichment";
 import type { CareerPath, Certification, CourseModule, Phase, PromptCategory, PromptTemplate, ToolDefinition } from "./types";
 
@@ -9,7 +10,7 @@ export const modules = fullContent.modules.map((module) => ({
 })) as CourseModule[];
 export const promptCategories = fullContent.promptCategories as PromptCategory[];
 export const tools = fullContent.tools as ToolDefinition[];
-export const prompts = fullContent.prompts as PromptTemplate[];
+export const prompts = [...(fullContent.prompts as PromptTemplate[]), ...additionalPrompts];
 export const certifications = fullContent.certifications as Certification[];
 export const careerPaths = fullContent.careerPaths as CareerPath[];
 
