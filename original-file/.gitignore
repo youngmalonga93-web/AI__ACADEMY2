@@ -5,6 +5,7 @@ dist/
 coverage/
 *.tsbuildinfo
 .next-dev*.log
+.codex/
 .env*
 !.env.example
 npm-debug.log*
