@@ -1,0 +1,33 @@
+import { describe, expect, it } from "vitest";
+import { getLessonBySlug, getModuleForLesson } from "../data/content";
+import { buildLessonMaterial } from "../lib/lesson-material";
+
+describe("lesson material", () => {
+  it("adds deep custom material for module one lessons", () => {
+    const lesson = getLessonBySlug("what-ai-really-is");
+    const courseModule = getModuleForLesson("what-ai-really-is");
+
+    expect(lesson).toBeDefined();
+    expect(courseModule).toBeDefined();
+
+    const material = buildLessonMaterial(lesson!, courseModule!);
+
+    expect(material.explanation.length).toBeGreaterThanOrEqual(4);
+    expect(material.workflow.length).toBeGreaterThanOrEqual(6);
+    expect(material.videoPlan.length).toBeGreaterThanOrEqual(5);
+    expect(material.worksheet.sections).toContain("Verification source");
+  });
+
+  it("keeps generic material available for later modules", () => {
+    const lesson = getLessonBySlug("anatomy-perfect-prompt");
+    const courseModule = getModuleForLesson("anatomy-perfect-prompt");
+
+    expect(lesson).toBeDefined();
+    expect(courseModule).toBeDefined();
+
+    const material = buildLessonMaterial(lesson!, courseModule!);
+
+    expect(material.worksheet.title).toBe("Anatomy of a Perfect Prompt Worksheet");
+    expect(material.videoPlan.length).toBe(5);
+  });
+});

@@ -26,6 +26,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
   }
 
   const material = buildLessonMaterial(lesson, courseModule);
+  const lessonIndex = courseModule.lessons.findIndex((item) => item.id === lesson.id);
+  const previousLesson = lessonIndex > 0 ? courseModule.lessons[lessonIndex - 1] : null;
+  const nextLesson = lessonIndex >= 0 && lessonIndex < courseModule.lessons.length - 1 ? courseModule.lessons[lessonIndex + 1] : null;
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -109,11 +112,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
           <CardContent className="space-y-3 text-sm leading-6 text-muted-foreground">
             <p>Use this structure when we produce the video lesson.</p>
             <ul className="space-y-2">
-              <li>1. Cold open: show the real problem this lesson solves.</li>
-              <li>2. Visual model: animate the core concept as a simple flow.</li>
-              <li>3. Tool demo: record the exact workflow in the AI tool.</li>
-              <li>4. Before/after: compare weak and strong outputs.</li>
-              <li>5. Assignment: show the deliverable learners must create.</li>
+              {material.videoPlan.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
             </ul>
           </CardContent>
         </Card>
@@ -152,6 +153,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
           </CardHeader>
           <CardContent className="space-y-4 text-sm leading-6 text-muted-foreground">
             <p>{material.deliverable}</p>
+            <div className="rounded-md border p-3">
+              <p className="font-medium text-foreground">{material.worksheet.title}</p>
+              <ul className="mt-2 space-y-2">
+                {material.worksheet.sections.map((section) => (
+                  <li key={section}>{section}</li>
+                ))}
+              </ul>
+            </div>
             <div>
               <p className="font-medium text-foreground">Reflection prompts</p>
               <ul className="mt-2 space-y-2">
@@ -180,6 +189,27 @@ export default async function LessonPage({ params }: LessonPageProps) {
         <Button asChild variant="secondary">
           <Link href={`/courses/${courseModule.id}`}>Back to module</Link>
         </Button>
+      </div>
+
+      <div className="grid gap-3 border-t pt-6 md:grid-cols-2">
+        {previousLesson ? (
+          <Button asChild variant="secondary">
+            <Link href={`/lessons/${previousLesson.id}`}>Previous: {previousLesson.title}</Link>
+          </Button>
+        ) : (
+          <Button asChild variant="secondary">
+            <Link href={`/courses/${courseModule.id}`}>Module overview</Link>
+          </Button>
+        )}
+        {nextLesson ? (
+          <Button asChild>
+            <Link href={`/lessons/${nextLesson.id}`}>Next: {nextLesson.title}</Link>
+          </Button>
+        ) : (
+          <Button asChild>
+            <Link href="/courses">Choose next module</Link>
+          </Button>
+        )}
       </div>
     </div>
   );
