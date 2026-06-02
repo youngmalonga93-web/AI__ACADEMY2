@@ -1,0 +1,3302 @@
+{
+  "phases": [
+    {
+      "id": "foundation",
+      "label": "Foundation",
+      "order": 1,
+      "accent": "#4ADE80"
+    },
+    {
+      "id": "intermediate",
+      "label": "Intermediate",
+      "order": 2,
+      "accent": "#FACC15"
+    },
+    {
+      "id": "advanced",
+      "label": "Advanced",
+      "order": 3,
+      "accent": "#F97316"
+    },
+    {
+      "id": "expert",
+      "label": "Expert",
+      "order": 4,
+      "accent": "#A78BFA"
+    }
+  ],
+  "modules": [
+    {
+      "id": 1,
+      "phase": "foundation",
+      "icon": "01",
+      "title": "The AI Operating System",
+      "subtitle": "Understand the intelligence revolution from first principles",
+      "duration": "6 hrs",
+      "difficulty": "Beginner",
+      "lessonCount": 12,
+      "objectives": [
+        "Understand what AI is and isn't at a fundamental level",
+        "Map the modern AI landscape with confidence",
+        "Install and configure your complete AI stack",
+        "Run your first meaningful AI interaction"
+      ],
+      "lessons": [
+        {
+          "id": "what-ai-really-is",
+          "moduleId": 1,
+          "number": "1.1",
+          "title": "What AI Really Is (And Isn't)",
+          "hook": "You've been lied to about AI — here's the truth",
+          "concept": "AI as probabilistic pattern matching, not magic. Narrow AI, LLMs, and the difference between intelligence and understanding.",
+          "application": "Understand exactly why ChatGPT confidently lies — and how to catch it every time",
+          "exercise": "Quiz an AI on 10 topics until it produces errors. Document every failure mode you find.",
+          "duration": "22 min"
+        },
+        {
+          "id": "ai-landscape-map",
+          "moduleId": 1,
+          "number": "1.2",
+          "title": "The AI Landscape Map",
+          "hook": "10,000 AI tools exist. Here's the only map you'll ever need.",
+          "concept": "Full taxonomy: LLMs, image gen, audio, video, agents, specialized models, multimodal systems. When to use each.",
+          "application": "Pick the correct tool for any task in under 60 seconds without analysis paralysis",
+          "exercise": "Map 10 real-world problems to the correct AI tool category. Check and refine your answers.",
+          "duration": "28 min"
+        },
+        {
+          "id": "how-llms-actually-work",
+          "moduleId": 1,
+          "number": "1.3",
+          "title": "How LLMs Actually Work",
+          "hook": "Understanding the engine makes you a dramatically better driver",
+          "concept": "Tokens, attention mechanisms, transformers — explained entirely through analogy. No math required.",
+          "application": "Predict AI behavior before you prompt. Stop being surprised by failures.",
+          "exercise": "Token-count 5 prompts. Optimize each for both quality and cost simultaneously.",
+          "duration": "35 min"
+        },
+        {
+          "id": "your-professional-ai-stack",
+          "moduleId": 1,
+          "number": "1.4",
+          "title": "Your Professional AI Stack",
+          "hook": "Pro operators use 6 core tools. Set them all up right now.",
+          "concept": "API keys, web interfaces, local vs cloud tradeoffs, cost management, security basics.",
+          "application": "A fully operational AI workspace producing real output within the hour",
+          "exercise": "Complete full workspace setup. Make your first successful API call and document it.",
+          "duration": "45 min"
+        },
+        {
+          "id": "context-windows-and-memory",
+          "moduleId": 1,
+          "number": "1.5",
+          "title": "Context Windows & Memory",
+          "hook": "Why AI forgets — and how to make it remember what matters",
+          "concept": "Context limits, conversation architecture, memory workarounds, state management patterns.",
+          "application": "Never lose important context in long AI working sessions again",
+          "exercise": "Design a context management system for your most complex recurring AI task.",
+          "duration": "30 min"
+        },
+        {
+          "id": "hallucination-and-verification",
+          "moduleId": 1,
+          "number": "1.6",
+          "title": "Hallucination & Verification",
+          "hook": "The failure mode that will make you look stupid in front of a client",
+          "concept": "Hallucination taxonomy, confidence calibration, systematic verification workflows.",
+          "application": "Catch AI errors before they reach anyone who matters",
+          "exercise": "Find and document 5 factual AI errors. Build a personal verification checklist.",
+          "duration": "25 min"
+        }
+      ],
+      "project": {
+        "title": "AI Capability Audit",
+        "description": "Systematically evaluate 10 AI tools against 20 real tasks from your work. Produce a ranked comparison report with justified selections.",
+        "deliverable": "A personal AI toolkit manifesto with tool selections, use cases, and cost estimates."
+      },
+      "tools": [
+        "ChatGPT-4o",
+        "Claude Sonnet",
+        "Gemini Ultra",
+        "Perplexity",
+        "You.com"
+      ],
+      "skills": [
+        "AI literacy",
+        "Tool selection",
+        "Cost awareness",
+        "Critical evaluation",
+        "Context management"
+      ],
+      "keyTakeaways": [
+        "AI is pattern matching at scale, not understanding",
+        "The right tool beats the best tool for everything",
+        "Verification is non-negotiable, not optional"
+      ],
+      "commonMistakes": [
+        "Treating AI output as ground truth",
+        "Using one tool for everything",
+        "Ignoring context management in long sessions"
+      ]
+    },
+    {
+      "id": 2,
+      "phase": "foundation",
+      "icon": "02",
+      "title": "Prompt Engineering Mastery",
+      "subtitle": "The single highest-leverage skill in the AI age",
+      "duration": "10 hrs",
+      "difficulty": "Beginner–Intermediate",
+      "lessonCount": 18,
+      "objectives": [
+        "Master all 8 major prompting frameworks",
+        "Build a professional reusable prompt library",
+        "Engineer prompts for consistent, production-quality output",
+        "Design system prompts and AI personas for any application"
+      ],
+      "lessons": [
+        {
+          "id": "anatomy-perfect-prompt",
+          "moduleId": 2,
+          "number": "2.1",
+          "title": "Anatomy of a Perfect Prompt",
+          "hook": "99% of bad AI output is the human's fault",
+          "concept": "RCIF framework: Role, Context, Instruction, Format, Constraints. How each transforms output quality.",
+          "application": "Turn any vague request into a precision instrument in under 2 minutes",
+          "exercise": "Rewrite 10 weak prompts using RCIF. Compare outputs side by side.",
+          "duration": "30 min"
+        },
+        {
+          "id": "chain-of-thought-prompting",
+          "moduleId": 2,
+          "number": "2.2",
+          "title": "Chain-of-Thought Prompting",
+          "hook": "Make AI show its work — get dramatically better answers",
+          "concept": "Step-by-step reasoning elicitation, tree of thought, self-consistency prompting.",
+          "application": "Complex analysis and problem-solving with reasoning you can audit",
+          "exercise": "Solve a real business case using CoT. Compare against non-CoT output.",
+          "duration": "35 min"
+        },
+        {
+          "id": "few-shot-and-zero-shot-mastery",
+          "moduleId": 2,
+          "number": "2.3",
+          "title": "Few-Shot & Zero-Shot Mastery",
+          "hook": "Train an AI to think exactly like you — without code",
+          "concept": "In-context learning, example injection, format cloning, style transfer.",
+          "application": "Brand-consistent content and specialized analysis every time",
+          "exercise": "Build a few-shot prompt that outputs perfectly in your professional voice.",
+          "duration": "40 min"
+        },
+        {
+          "id": "system-prompts-and-personas",
+          "moduleId": 2,
+          "number": "2.4",
+          "title": "System Prompts & Personas",
+          "hook": "Build a custom AI personality for every use case",
+          "concept": "System prompt architecture, persona design, behavioral constraints, instruction hierarchy.",
+          "application": "Custom AI assistants for sales, support, research, and analysis",
+          "exercise": "Engineer 3 distinct AI personas. Test each for consistency across 10 different inputs.",
+          "duration": "45 min"
+        },
+        {
+          "id": "prompt-chaining",
+          "moduleId": 2,
+          "number": "2.5",
+          "title": "Prompt Chaining & Pipelines",
+          "hook": "One prompt is a tool. A chain of prompts is a factory.",
+          "concept": "Sequential prompting, intermediate output capture, conditional logic, state passing.",
+          "application": "Multi-step content pipelines, research workflows, data transformation",
+          "exercise": "Build a 5-step research-to-published-post prompt chain on a real topic.",
+          "duration": "50 min"
+        },
+        {
+          "id": "structured-output-engineering",
+          "moduleId": 2,
+          "number": "2.6",
+          "title": "Structured Output Engineering",
+          "hook": "Make AI speak your exact data format every time",
+          "concept": "Structured outputs, JSON mode, XML, schema enforcement, API-ready outputs.",
+          "application": "AI outputs that plug directly into your existing data systems",
+          "exercise": "Engineer a prompt outputting nested JSON matching a real database schema.",
+          "duration": "35 min"
+        },
+        {
+          "id": "meta-prompting",
+          "moduleId": 2,
+          "number": "2.7",
+          "title": "Meta-Prompting",
+          "hook": "Use AI to write better prompts than you ever could alone",
+          "concept": "Prompt generation, evaluation frameworks, iterative AI-driven refinement.",
+          "application": "10× faster prompt evolution with AI doing the iteration work",
+          "exercise": "Use Claude to improve 5 existing prompts. Measure and document quality delta.",
+          "duration": "40 min"
+        },
+        {
+          "id": "prompt-security",
+          "moduleId": 2,
+          "number": "2.8",
+          "title": "Prompt Security",
+          "hook": "How attackers break AI systems — and how you stop them",
+          "concept": "Injection attacks, jailbreak taxonomy, adversarial inputs, defensive patterns.",
+          "application": "AI products that cannot be manipulated or broken by end users",
+          "exercise": "Red-team test a prompt system for 3 distinct attack types. Document defenses.",
+          "duration": "30 min"
+        }
+      ],
+      "project": {
+        "title": "Professional Prompt Library",
+        "description": "Build a library of 60 production-ready prompts across 12 business categories with documented variables, use cases, and quality benchmarks.",
+        "deliverable": "A living Notion/Airtable prompt library you'll use and expand throughout your career."
+      },
+      "tools": [
+        "Claude API",
+        "OpenAI Playground",
+        "PromptLayer",
+        "LangSmith",
+        "Anthropic Console"
+      ],
+      "skills": [
+        "Prompt architecture",
+        "Output control",
+        "Persona design",
+        "Chain design",
+        "Security"
+      ],
+      "keyTakeaways": [
+        "Every output quality problem is a prompt quality problem",
+        "System prompts are the foundation of every serious AI product",
+        "Prompt chaining transforms AI from a tool into a workflow"
+      ],
+      "commonMistakes": [
+        "Writing vague context-free prompts",
+        "Ignoring output format specification",
+        "Not testing across edge cases"
+      ]
+    },
+    {
+      "id": 3,
+      "phase": "foundation",
+      "icon": "03",
+      "title": "AI Productivity & Deep Work",
+      "subtitle": "Reclaim 3 hours every single day",
+      "duration": "8 hrs",
+      "difficulty": "Beginner",
+      "lessonCount": 14,
+      "objectives": [
+        "Automate email, calendar, and research with AI",
+        "Build a personal AI second brain",
+        "Create custom AI assistants for recurring tasks",
+        "Measure and achieve 10× personal output"
+      ],
+      "lessons": [
+        {
+          "id": "ai-augmented-workday",
+          "moduleId": 3,
+          "number": "3.1",
+          "title": "The AI-Augmented Workday",
+          "hook": "A day in the life of someone using AI properly — it's insane",
+          "concept": "AI integration mapping, workday audit, leverage point identification and prioritization.",
+          "application": "Find your 3 highest-ROI AI opportunities in under 45 minutes",
+          "exercise": "Record your full workday hour by hour. Identify every AI-replaceable task.",
+          "duration": "25 min"
+        },
+        {
+          "id": "ai-email-mastery",
+          "moduleId": 3,
+          "number": "3.2",
+          "title": "AI Email Mastery",
+          "hook": "Inbox zero every day in 20 minutes — with better replies",
+          "concept": "AI triage, tone-matched response generation, follow-up automation, template systems.",
+          "application": "Process 100 emails in the time it used to take to write 10 good ones",
+          "exercise": "Build an AI email system for your 10 most common email scenarios.",
+          "duration": "40 min"
+        },
+        {
+          "id": "ai-research-and-summarization",
+          "moduleId": 3,
+          "number": "3.3",
+          "title": "AI Research & Summarization",
+          "hook": "Read 50 documents, extract every insight, in under an hour",
+          "concept": "Document ingestion, layered summarization, cross-document synthesis, verification.",
+          "application": "Competitive intelligence and research at 10× speed with reliable quality",
+          "exercise": "Summarize and synthesize 5 dense industry reports. Document time saved.",
+          "duration": "45 min"
+        },
+        {
+          "id": "your-ai-second-brain",
+          "moduleId": 3,
+          "number": "3.4",
+          "title": "Your AI Second Brain",
+          "hook": "What if AI knew everything about your work, clients, and goals?",
+          "concept": "Personal RAG systems, custom GPTs, knowledge bases, retrieval-augmented assistants.",
+          "application": "An AI assistant that understands your full context in every conversation",
+          "exercise": "Build a personal knowledge base with AI query interface. Test it with 20 questions.",
+          "duration": "60 min"
+        },
+        {
+          "id": "ai-meeting-intelligence",
+          "moduleId": 3,
+          "number": "3.5",
+          "title": "AI Meeting Intelligence",
+          "hook": "Never take a note again. Get better insights than before.",
+          "concept": "Transcription AI, structured summarization, action extraction, CRM sync.",
+          "application": "Perfect meeting follow-ups and relationship intelligence automatically",
+          "exercise": "Process a real recorded meeting end-to-end through an AI pipeline.",
+          "duration": "35 min"
+        },
+        {
+          "id": "ai-accelerated-learning",
+          "moduleId": 3,
+          "number": "3.6",
+          "title": "AI-Accelerated Learning",
+          "hook": "Learn anything 5× faster with AI as your Socratic tutor",
+          "concept": "AI tutoring protocols, custom curriculum, spaced repetition, knowledge testing.",
+          "application": "Compress months of learning into focused weeks in any field",
+          "exercise": "Design and complete a 1-week AI-accelerated learning sprint.",
+          "duration": "40 min"
+        }
+      ],
+      "project": {
+        "title": "Personal AI Operating System",
+        "description": "Deploy your complete AI-augmented workflow: email, research, planning, meetings, and learning with AI at every step.",
+        "deliverable": "A running system saving a documented minimum of 10 hours per week."
+      },
+      "tools": [
+        "Notion AI",
+        "Otter.ai",
+        "ChatGPT",
+        "Zapier",
+        "Superhuman",
+        "NotebookLM"
+      ],
+      "skills": [
+        "Time reclamation",
+        "Workflow design",
+        "Knowledge management",
+        "Meeting intelligence"
+      ],
+      "keyTakeaways": [
+        "Start with your 3 highest-frequency tasks — that's where ROI is highest",
+        "Your AI second brain is worth more than any individual AI tool",
+        "Meeting intelligence compounds: each meeting gets better over time"
+      ],
+      "commonMistakes": [
+        "Trying to automate everything at once",
+        "Not maintaining the knowledge base",
+        "Skipping the measurement step"
+      ]
+    },
+    {
+      "id": 4,
+      "phase": "intermediate",
+      "icon": "04",
+      "title": "AI Content Engine",
+      "subtitle": "Build a content factory that never sleeps",
+      "duration": "12 hrs",
+      "difficulty": "Intermediate",
+      "lessonCount": 20,
+      "objectives": [
+        "Build automated end-to-end content pipelines",
+        "Master AI writing at industrial scale",
+        "Create multi-platform distribution systems",
+        "Monetize AI content ethically and profitably"
+      ],
+      "lessons": [
+        {
+          "id": "content-strategy-with-ai",
+          "moduleId": 4,
+          "number": "4.1",
+          "title": "Content Strategy with AI",
+          "hook": "How one person publishes 50 quality pieces per week",
+          "concept": "Content pillar mapping, AI ideation frameworks, editorial calendar automation, repurposing trees.",
+          "application": "Build a complete 90-day content calendar in under 2 hours",
+          "exercise": "Generate 30 high-quality content ideas from one topic using AI expansion.",
+          "duration": "40 min"
+        },
+        {
+          "id": "long-form-ai-writing",
+          "moduleId": 4,
+          "number": "4.2",
+          "title": "Long-Form AI Writing",
+          "hook": "Write a 5,000-word article that reads like a genuine expert wrote it",
+          "concept": "Outline engineering, section-by-section generation, voice consistency, polish workflows.",
+          "application": "Blog posts, whitepapers, and ebooks at any scale with consistent quality",
+          "exercise": "Write a complete, publication-ready 3,000-word piece with AI. Document the process.",
+          "duration": "60 min"
+        },
+        {
+          "id": "social-media-ai-systems",
+          "moduleId": 4,
+          "number": "4.3",
+          "title": "Social Media AI Systems",
+          "hook": "One idea → 50 posts across every platform. Automatically.",
+          "concept": "Platform-specific repurposing, algorithm-aware formatting, tone adaptation, scheduling.",
+          "application": "A full social presence operating near-autopilot",
+          "exercise": "Build a complete one-to-many repurposing workflow. Run one piece through it fully.",
+          "duration": "55 min"
+        },
+        {
+          "id": "ai-video-scripting",
+          "moduleId": 4,
+          "number": "4.4",
+          "title": "AI Video Scripting",
+          "hook": "The script is 80% of the video. Let AI write 80% of that.",
+          "concept": "Hook formula engineering, script structure, B-roll prompting, AI voiceover, editing pipeline.",
+          "application": "YouTube, TikTok, and course content at industrial scale",
+          "exercise": "Script, storyboard, and outline a complete video using only AI tools.",
+          "duration": "50 min"
+        },
+        {
+          "id": "ai-seo-domination",
+          "moduleId": 4,
+          "number": "4.5",
+          "title": "AI SEO Domination",
+          "hook": "Rank on Google before you publish using AI prediction",
+          "concept": "Semantic SEO, NLP optimization, AI keyword clustering, content gap analysis.",
+          "application": "Rank for hundreds of keywords with AI-assisted content strategy",
+          "exercise": "Create a fully SEO-optimized piece targeting a 5-keyword semantic cluster.",
+          "duration": "45 min"
+        },
+        {
+          "id": "ai-copywriting-for-conversion",
+          "moduleId": 4,
+          "number": "4.6",
+          "title": "AI Copywriting for Conversion",
+          "hook": "The AI ad that outperformed the human's by 340%",
+          "concept": "AIDA, PAS, hook formulas, conversion principles, A/B variation generation.",
+          "application": "Landing pages, ads, and email sequences that consistently convert",
+          "exercise": "Write 20 ad variations. Test and document which angles perform best.",
+          "duration": "40 min"
+        },
+        {
+          "id": "newsletter-and-email-at-scale",
+          "moduleId": 4,
+          "number": "4.7",
+          "title": "Newsletter & Email at Scale",
+          "hook": "Grow a newsletter with AI handling 70% of the work",
+          "concept": "Issue structure templates, personalization, subject line optimization, segmentation.",
+          "application": "A thriving newsletter that feels personally crafted at any list size",
+          "exercise": "Write a full newsletter issue in under 30 minutes using AI.",
+          "duration": "35 min"
+        }
+      ],
+      "project": {
+        "title": "Autonomous Content Machine",
+        "description": "Build an end-to-end system: idea → outline → draft → edit → publish → distribute across 5 platforms with AI at every step.",
+        "deliverable": "A live content engine producing 10+ pieces per week with documented minimal manual input."
+      },
+      "tools": [
+        "Claude",
+        "Jasper",
+        "Surfer SEO",
+        "Descript",
+        "Buffer",
+        "Canva AI",
+        "HeyGen",
+        "Beehiiv"
+      ],
+      "skills": [
+        "Content at scale",
+        "SEO",
+        "Platform strategy",
+        "Conversion copywriting",
+        "Newsletter growth"
+      ],
+      "keyTakeaways": [
+        "Content at scale requires systems, not just tools",
+        "Every piece should be repurposed at least 5 ways",
+        "Voice consistency is the #1 quality challenge at scale"
+      ],
+      "commonMistakes": [
+        "Publishing without human review",
+        "Ignoring platform-specific formats",
+        "Skipping SEO intent matching"
+      ]
+    },
+    {
+      "id": 5,
+      "phase": "intermediate",
+      "icon": "05",
+      "title": "AI Image, Video & Audio",
+      "subtitle": "The complete creative AI production toolkit",
+      "duration": "14 hrs",
+      "difficulty": "Intermediate",
+      "lessonCount": 22,
+      "objectives": [
+        "Master Midjourney, DALL-E, Stable Diffusion for professional output",
+        "Create cinematic AI video for commercial use",
+        "Produce professional audio with AI",
+        "Build end-to-end AI creative pipelines"
+      ],
+      "lessons": [
+        {
+          "id": "image-generation-fundamentals",
+          "moduleId": 5,
+          "number": "5.1",
+          "title": "Image Generation Fundamentals",
+          "hook": "The difference between a $50 stock photo and a $0.001 AI image is 10 words",
+          "concept": "Image prompt anatomy: subject, style, lighting, camera, mood, negative prompts, aspect ratios.",
+          "application": "Brand assets, mockups, and social imagery at zero marginal cost",
+          "exercise": "Recreate a specific professional stock photo using only AI prompting.",
+          "duration": "45 min"
+        },
+        {
+          "id": "midjourney-advanced-mastery",
+          "moduleId": 5,
+          "number": "5.2",
+          "title": "Midjourney Advanced Mastery",
+          "hook": "The techniques that separate amateur from professional AI imagery",
+          "concept": "Stylize, chaos, version params, image references, multi-prompts, seeds, --cref flag.",
+          "application": "Consistent brand imagery and product visualization at scale",
+          "exercise": "Create a 10-image brand mood board with full character and style consistency.",
+          "duration": "60 min"
+        },
+        {
+          "id": "stable-diffusion-and-controlnet",
+          "moduleId": 5,
+          "number": "5.3",
+          "title": "Stable Diffusion & ControlNet",
+          "hook": "Infinite free generation with total creative control",
+          "concept": "ComfyUI workflows, ControlNet for pose/structure, LoRA training, inpainting.",
+          "application": "Custom fine-tuned models for specific brands or visual styles",
+          "exercise": "Train a LoRA on a product. Generate 20 unique on-brand variations.",
+          "duration": "90 min"
+        },
+        {
+          "id": "ai-video-production",
+          "moduleId": 5,
+          "number": "5.4",
+          "title": "AI Video Production",
+          "hook": "Cinematic video without a camera, crew, or budget",
+          "concept": "Runway Gen-3, Kling, Sora, Pika 2.0 — prompting, directing, consistency.",
+          "application": "Ads, explainers, and social content at near-zero production cost",
+          "exercise": "Produce a complete 60-second branded video using only AI video tools.",
+          "duration": "75 min"
+        },
+        {
+          "id": "ai-voice-audio-and-music",
+          "moduleId": 5,
+          "number": "5.5",
+          "title": "AI Voice, Audio & Music",
+          "hook": "Clone your voice. Create any voice. Score anything for free.",
+          "concept": "ElevenLabs voice cloning, Suno/Udio music generation, audio enhancement.",
+          "application": "Courses, ads, podcasts, multilingual content at zero marginal cost",
+          "exercise": "Build a complete audio package: voiceover + music + sound design.",
+          "duration": "50 min"
+        },
+        {
+          "id": "ai-avatars-and-presenters",
+          "moduleId": 5,
+          "number": "5.6",
+          "title": "AI Avatars & Presenters",
+          "hook": "A digital version of you that presents while you sleep",
+          "concept": "HeyGen, D-ID, Synthesia — avatar creation, scripting, lip sync.",
+          "application": "Course videos, onboarding, multilingual content automatically",
+          "exercise": "Create a 3-minute product demo video using your AI avatar.",
+          "duration": "45 min"
+        },
+        {
+          "id": "creative-production-pipeline",
+          "moduleId": 5,
+          "number": "5.7",
+          "title": "Creative Production Pipeline",
+          "hook": "From brief to finished campaign asset in under 4 hours",
+          "concept": "Workflow orchestration, quality gates, brand consistency systems.",
+          "application": "Agency-quality creative at solo-operator speed and cost",
+          "exercise": "Build and run a complete campaign for a real product using only AI.",
+          "duration": "60 min"
+        }
+      ],
+      "project": {
+        "title": "Full AI Creative Campaign",
+        "description": "Create a complete campaign: hero images, 60-second video ad, audio spot, and 10 social assets — all AI-generated.",
+        "deliverable": "A production-ready creative campaign with 20+ assets, documented and ready to deploy."
+      },
+      "tools": [
+        "Midjourney",
+        "DALL-E 3",
+        "Stable Diffusion",
+        "Runway ML",
+        "ElevenLabs",
+        "HeyGen",
+        "Suno",
+        "Kling"
+      ],
+      "skills": [
+        "Visual art direction",
+        "Video production",
+        "Voice design",
+        "Creative strategy",
+        "Brand consistency"
+      ],
+      "keyTakeaways": [
+        "Prompting for images is a distinct skill from text prompting",
+        "Consistency is harder than quality in AI creative work",
+        "The pipeline matters as much as any individual tool"
+      ],
+      "commonMistakes": [
+        "Not establishing brand style parameters upfront",
+        "Ignoring resolution requirements",
+        "Skipping quality gates"
+      ]
+    },
+    {
+      "id": 6,
+      "phase": "intermediate",
+      "icon": "06",
+      "title": "AI Automation & No-Code",
+      "subtitle": "Build systems that generate value while you sleep",
+      "duration": "16 hrs",
+      "difficulty": "Intermediate",
+      "lessonCount": 24,
+      "objectives": [
+        "Build complex multi-step automations confidently",
+        "Connect AI to hundreds of apps",
+        "Create autonomous business systems",
+        "Design workflows that replace manual labor"
+      ],
+      "lessons": [
+        {
+          "id": "automation-architecture-thinking",
+          "moduleId": 6,
+          "number": "6.1",
+          "title": "Automation Architecture Thinking",
+          "hook": "Think in systems, not tasks — the mindset shift that changes everything",
+          "concept": "Triggers, actions, conditions, loops, error handling, idempotency, retry logic.",
+          "application": "Map any business process to an automatable workflow in minutes",
+          "exercise": "Draw automation diagrams for 3 real processes in your work or life.",
+          "duration": "35 min"
+        },
+        {
+          "id": "make-com-deep-dive",
+          "moduleId": 6,
+          "number": "6.2",
+          "title": "Make.com Deep Dive",
+          "hook": "The most powerful no-code automation platform most people ignore",
+          "concept": "Scenarios, routers, iterators, data transformers, webhooks, error handlers.",
+          "application": "Complex multi-step automations without writing a single line of code",
+          "exercise": "Build a lead capture → qualify → assign → notify automation end to end.",
+          "duration": "90 min"
+        },
+        {
+          "id": "zapier-ai-workflows",
+          "moduleId": 6,
+          "number": "6.3",
+          "title": "Zapier AI Workflows",
+          "hook": "Connect everything to AI with zero code and zero friction",
+          "concept": "Zaps, paths, filters, AI steps, code blocks, webhook triggers.",
+          "application": "Cross-platform AI-enhanced data sync and process automation",
+          "exercise": "Build a social mention → sentiment → CRM → response automation.",
+          "duration": "75 min"
+        },
+        {
+          "id": "n8n-the-self-hosted-powerhouse",
+          "moduleId": 6,
+          "number": "6.4",
+          "title": "n8n: The Self-Hosted Powerhouse",
+          "hook": "Own your automations completely. Pay nothing per run.",
+          "concept": "Node types, credential management, expressions, complex workflows.",
+          "application": "Enterprise-grade automations at zero per-run cost on your own infrastructure",
+          "exercise": "Build an n8n AI agent workflow from a completely blank canvas.",
+          "duration": "90 min"
+        },
+        {
+          "id": "ai-customer-service-automation",
+          "moduleId": 6,
+          "number": "6.5",
+          "title": "AI Customer Service Automation",
+          "hook": "Handle 80% of support tickets without a human — and customers prefer it",
+          "concept": "Chatbot design, escalation logic, knowledge base integration, sentiment routing.",
+          "application": "24/7 support that resolves issues instead of deflecting them",
+          "exercise": "Build a support bot handling 10 common scenarios end to end.",
+          "duration": "70 min"
+        },
+        {
+          "id": "document-and-data-automation",
+          "moduleId": 6,
+          "number": "6.6",
+          "title": "Document & Data Automation",
+          "hook": "Turn any document into structured data at any volume",
+          "concept": "OCR + AI, document parsing, extraction pipelines, report generation.",
+          "application": "Invoice processing, contract analysis, form automation",
+          "exercise": "Build an invoice → structured JSON → spreadsheet → report pipeline.",
+          "duration": "55 min"
+        },
+        {
+          "id": "ai-crm-automation",
+          "moduleId": 6,
+          "number": "6.7",
+          "title": "AI + CRM Automation",
+          "hook": "Your CRM should update itself. Here's how.",
+          "concept": "HubSpot + AI, pipeline automation, AI lead scoring, sequence triggers.",
+          "application": "Automatic scoring, follow-ups, and deal progression with no manual entry",
+          "exercise": "Build an AI-powered lead intelligence and nurture system in a real CRM.",
+          "duration": "60 min"
+        }
+      ],
+      "project": {
+        "title": "Autonomous Business Unit",
+        "description": "Build a complete automated function: lead capture, AI qualification, nurturing, support, and weekly reporting with AI at every step.",
+        "deliverable": "A running automation with documented ROI replacing 10+ hours of manual work weekly."
+      },
+      "tools": [
+        "Make.com",
+        "Zapier",
+        "n8n",
+        "Airtable",
+        "HubSpot",
+        "Typeform",
+        "Slack",
+        "Clay"
+      ],
+      "skills": [
+        "Automation architecture",
+        "No-code development",
+        "Systems thinking",
+        "Process design",
+        "ROI measurement"
+      ],
+      "keyTakeaways": [
+        "Best automations eliminate job functions, not just tasks",
+        "Error handling is 50% of production automation work",
+        "Start with the process you hate most — that's where ROI is highest"
+      ],
+      "commonMistakes": [
+        "Building without error handling",
+        "Not testing edge cases",
+        "Automating a broken process instead of fixing it first"
+      ]
+    },
+    {
+      "id": 7,
+      "phase": "intermediate",
+      "icon": "07",
+      "title": "AI Marketing & Sales",
+      "subtitle": "Build the world's most efficient revenue engine",
+      "duration": "14 hrs",
+      "difficulty": "Intermediate",
+      "lessonCount": 20,
+      "objectives": [
+        "Deploy AI across the full marketing and sales funnel",
+        "Build AI-powered sales systems that improve conversion",
+        "Create personalized campaigns at unlimited scale",
+        "Measure and optimize with AI analytics"
+      ],
+      "lessons": [
+        {
+          "id": "ai-market-research",
+          "moduleId": 7,
+          "number": "7.1",
+          "title": "AI Market Research",
+          "hook": "Know your customer better than they know themselves",
+          "concept": "Persona generation, pain point mining, competitor analysis, trend detection, ICP refinement.",
+          "application": "Launch products with AI-validated product-market fit",
+          "exercise": "Produce a complete market analysis for a product category using only AI.",
+          "duration": "50 min"
+        },
+        {
+          "id": "ai-paid-advertising",
+          "moduleId": 7,
+          "number": "7.2",
+          "title": "AI Paid Advertising",
+          "hook": "The system that cut cost-per-acquisition by 60%",
+          "concept": "Creative variation at scale, AI audience research, copy testing, performance prediction.",
+          "application": "Meta, Google, TikTok ads with AI-driven creative iteration",
+          "exercise": "Build a 20-variation ad creative test using AI for all copy and imagery.",
+          "duration": "55 min"
+        },
+        {
+          "id": "ai-email-marketing",
+          "moduleId": 7,
+          "number": "7.3",
+          "title": "AI Email Marketing",
+          "hook": "Personalized at the scale of a million subscribers",
+          "concept": "Dynamic segmentation, personalized content, subject line AI, send-time optimization.",
+          "application": "Campaigns that feel hand-written to every subscriber at any list size",
+          "exercise": "Build a fully AI-personalized 5-email nurture sequence.",
+          "duration": "45 min"
+        },
+        {
+          "id": "ai-sales-intelligence",
+          "moduleId": 7,
+          "number": "7.4",
+          "title": "AI Sales Intelligence",
+          "hook": "Your team should know everything before the first word",
+          "concept": "AI prospect research, intent data, conversation intelligence, objection libraries.",
+          "application": "Higher close rates with AI-prepared, fully-briefed sales reps",
+          "exercise": "Build an AI sales brief generator for any incoming lead.",
+          "duration": "50 min"
+        },
+        {
+          "id": "conversational-ai-for-sales",
+          "moduleId": 7,
+          "number": "7.5",
+          "title": "Conversational AI for Sales",
+          "hook": "The bot booking 30 qualified calls per month on autopilot",
+          "concept": "Qualification bot design, AI-driven follow-up, booking integration.",
+          "application": "A perpetual-motion lead qualification and meeting booking system",
+          "exercise": "Build a conversational bot that qualifies and books meetings.",
+          "duration": "60 min"
+        },
+        {
+          "id": "ai-analytics-and-bi",
+          "moduleId": 7,
+          "number": "7.6",
+          "title": "AI Analytics & BI",
+          "hook": "Talk to your data in plain English",
+          "concept": "Natural language querying, AI insight generation, anomaly detection, automated reporting.",
+          "application": "Instant executive dashboards and forecasting without SQL",
+          "exercise": "Build a natural language reporting interface for a real business metric.",
+          "duration": "45 min"
+        }
+      ],
+      "project": {
+        "title": "AI Revenue System",
+        "description": "Build a full-funnel AI system: awareness, lead capture, AI qualification, nurture, and conversion — fully instrumented for optimization.",
+        "deliverable": "A live revenue system outperforming the manual baseline with documented metrics."
+      },
+      "tools": [
+        "Instantly.ai",
+        "Clay",
+        "Apollo",
+        "AdCreative.ai",
+        "Klaviyo",
+        "Mutiny",
+        "Gong",
+        "Surfer SEO"
+      ],
+      "skills": [
+        "Growth marketing",
+        "Sales automation",
+        "Data analysis",
+        "Conversion optimization"
+      ],
+      "keyTakeaways": [
+        "Personalization at scale is the #1 AI competitive advantage",
+        "AI sales intelligence beats any CRM feature",
+        "The analytics step is where most AI revenue systems fail"
+      ],
+      "commonMistakes": [
+        "Over-automating before validating the manual process",
+        "Ignoring deliverability in AI email",
+        "Not A/B testing AI-generated creative"
+      ]
+    },
+    {
+      "id": 8,
+      "phase": "advanced",
+      "icon": "08",
+      "title": "AI Coding & Development",
+      "subtitle": "Build software 10× faster with AI as your engineering partner",
+      "duration": "20 hrs",
+      "difficulty": "Advanced",
+      "lessonCount": 28,
+      "objectives": [
+        "Build complete applications with AI assistance",
+        "Master every major AI coding tool",
+        "Deploy AI-powered products to production",
+        "Design AI-native software architecture"
+      ],
+      "lessons": [
+        {
+          "id": "the-ai-developer-mindset",
+          "moduleId": 8,
+          "number": "8.1",
+          "title": "The AI Developer Mindset",
+          "hook": "Coding is now about architecture and taste, not typing",
+          "concept": "AI as pair programmer, code reviewer, architecture partner, documentation engine.",
+          "application": "Ship more in a day than most developers ship in a week",
+          "exercise": "Rebuild a simple project using only AI-assisted coding — time it vs. your normal pace.",
+          "duration": "40 min"
+        },
+        {
+          "id": "github-copilot-mastery",
+          "moduleId": 8,
+          "number": "8.2",
+          "title": "GitHub Copilot Mastery",
+          "hook": "The shortcut that replaces 40% of your typing permanently",
+          "concept": "Copilot chat, inline completions, context optimization, custom instructions.",
+          "application": "Dramatically faster development across all languages",
+          "exercise": "Build a complete REST API using only Copilot completions.",
+          "duration": "60 min"
+        },
+        {
+          "id": "cursor-and-ai-native-ides",
+          "moduleId": 8,
+          "number": "8.3",
+          "title": "Cursor & AI-Native IDEs",
+          "hook": "The IDE that turned a non-developer into a product builder",
+          "concept": "Cursor Composer, full codebase chat, multi-file editing, large context.",
+          "application": "Build entire features from single natural language descriptions",
+          "exercise": "Build a complete feature from scratch using only Cursor Composer.",
+          "duration": "75 min"
+        },
+        {
+          "id": "claude-code-and-autonomous-coding",
+          "moduleId": 8,
+          "number": "8.4",
+          "title": "Claude Code & Autonomous Coding",
+          "hook": "Tell AI what to build. Come back to something running.",
+          "concept": "Claude Code CLI, agentic loops, file system interaction, test generation.",
+          "application": "Fully autonomous development for well-scoped tasks",
+          "exercise": "Write a spec for a module and let Claude Code build it autonomously.",
+          "duration": "90 min"
+        },
+        {
+          "id": "vibe-coding-and-rapid-prototyping",
+          "moduleId": 8,
+          "number": "8.5",
+          "title": "Vibe Coding & Rapid Prototyping",
+          "hook": "From idea to working prototype in 2 hours — no CS degree required",
+          "concept": "Bolt.new, Lovable, v0 — prompting UI, logic, database, and deployment together.",
+          "application": "MVPs, internal tools, client demos at zero development cost",
+          "exercise": "Build a complete SaaS interface from a written description in under 3 hours.",
+          "duration": "120 min"
+        },
+        {
+          "id": "ai-api-integration",
+          "moduleId": 8,
+          "number": "8.6",
+          "title": "AI API Integration",
+          "hook": "Add powerful AI features to any app in 30 minutes",
+          "concept": "REST APIs, streaming responses, function calling, tool use, structured outputs.",
+          "application": "AI features in any product regardless of tech stack",
+          "exercise": "Add 3 distinct AI features to an existing application via API.",
+          "duration": "60 min"
+        },
+        {
+          "id": "ai-pipelines-in-python",
+          "moduleId": 8,
+          "number": "8.7",
+          "title": "AI Pipelines in Python",
+          "hook": "LangChain, LlamaIndex, and the production AI engineering stack",
+          "concept": "Chain composition, retrieval, memory management, tool use, streaming, async.",
+          "application": "Production AI backends and pipelines at scale",
+          "exercise": "Build a multi-step pipeline with retrieval, memory, and tool use in Python.",
+          "duration": "90 min"
+        },
+        {
+          "id": "testing-evals-and-deploying-ai",
+          "moduleId": 8,
+          "number": "8.8",
+          "title": "Testing, Evals & Deploying AI",
+          "hook": "AI in production fails in ways regular code never does",
+          "concept": "Evals design, regression testing, latency, cost monitoring, observability.",
+          "application": "Reliable AI features that don't fail in production",
+          "exercise": "Build a complete eval suite for a real AI-powered feature.",
+          "duration": "60 min"
+        }
+      ],
+      "project": {
+        "title": "AI-Native SaaS Build",
+        "description": "Build a complete deployed SaaS: authentication, database, AI core feature, billing, and deployment to a real domain.",
+        "deliverable": "A live, publicly accessible AI-powered application with production-ready architecture."
+      },
+      "tools": [
+        "Cursor",
+        "GitHub Copilot",
+        "Claude Code",
+        "Bolt.new",
+        "Vercel",
+        "Supabase",
+        "LangChain",
+        "Railway"
+      ],
+      "skills": [
+        "Full-stack AI dev",
+        "API integration",
+        "Deployment",
+        "AI engineering",
+        "Eval design"
+      ],
+      "keyTakeaways": [
+        "Architecture decisions matter 10× more in AI systems",
+        "Evals are your most important investment",
+        "The gap between prototype and production is wider in AI"
+      ],
+      "commonMistakes": [
+        "Skipping evals entirely",
+        "Not handling API failures gracefully",
+        "Building without cost monitoring from day one"
+      ]
+    },
+    {
+      "id": 9,
+      "phase": "advanced",
+      "icon": "09",
+      "title": "AI Agents & Autonomous Systems",
+      "subtitle": "Build AI that acts, decides, and executes on its own",
+      "duration": "18 hrs",
+      "difficulty": "Advanced",
+      "lessonCount": 22,
+      "objectives": [
+        "Understand agent architecture and build production agents",
+        "Create multi-agent collaborative systems",
+        "Deploy autonomous business workflows",
+        "Build agentic products users trust"
+      ],
+      "lessons": [
+        {
+          "id": "agent-architecture-fundamentals",
+          "moduleId": 9,
+          "number": "9.1",
+          "title": "Agent Architecture Fundamentals",
+          "hook": "An AI agent isn't a chatbot. It's an autonomous employee.",
+          "concept": "Perception-Planning-Memory-Action loop, ReAct pattern, tool use, agent types.",
+          "application": "Understand any framework deeply and design any agent confidently",
+          "exercise": "Design a full architecture diagram for a customer service AI agent.",
+          "duration": "45 min"
+        },
+        {
+          "id": "building-with-langgraph",
+          "moduleId": 9,
+          "number": "9.2",
+          "title": "Building with LangGraph",
+          "hook": "The most powerful way to build production-grade agents",
+          "concept": "State machines, typed state, nodes, edges, conditional routing, human-in-the-loop.",
+          "application": "Complex multi-step agents with reliable logic and graceful error recovery",
+          "exercise": "Build a research agent that searches, reads, synthesizes, and formats a report.",
+          "duration": "90 min"
+        },
+        {
+          "id": "tool-use-and-function-calling",
+          "moduleId": 9,
+          "number": "9.3",
+          "title": "Tool Use & Function Calling",
+          "hook": "Give AI real hands — let it search, calculate, write, and execute",
+          "concept": "Tool definition schemas, parallel calls, error handling, chaining patterns.",
+          "application": "Agents that operate real software systems end to end",
+          "exercise": "Build a tool-using agent with web search, calculations, and email.",
+          "duration": "75 min"
+        },
+        {
+          "id": "memory-systems-for-agents",
+          "moduleId": 9,
+          "number": "9.4",
+          "title": "Memory Systems for Agents",
+          "hook": "Build an AI that remembers and improves over time",
+          "concept": "Short-term context, long-term vector memory, episodic and semantic memory.",
+          "application": "Personalized agents that improve with every interaction",
+          "exercise": "Add persistent vector memory to an agent. Test cross-session recall quality.",
+          "duration": "60 min"
+        },
+        {
+          "id": "multi-agent-orchestration",
+          "moduleId": 9,
+          "number": "9.5",
+          "title": "Multi-Agent Orchestration",
+          "hook": "One AI is impressive. Ten collaborating is transformative.",
+          "concept": "Supervisor-worker patterns, communication protocols, CrewAI, consensus.",
+          "application": "Complex knowledge work done autonomously with specialist agents",
+          "exercise": "Build a 4-agent research and writing team producing real reports.",
+          "duration": "90 min"
+        },
+        {
+          "id": "computer-use-agents",
+          "moduleId": 9,
+          "number": "9.6",
+          "title": "Computer Use Agents",
+          "hook": "AI that uses your computer like a human operator. It's here.",
+          "concept": "Anthropic Computer Use, browser agents, UI automation, screenshot reasoning.",
+          "application": "Automate any desktop or web workflow without APIs",
+          "exercise": "Build a computer use agent completing a real multi-step web task.",
+          "duration": "75 min"
+        },
+        {
+          "id": "agent-reliability-and-safety",
+          "moduleId": 9,
+          "number": "9.7",
+          "title": "Agent Reliability & Safety",
+          "hook": "An unreliable agent causes disasters — here's how to prevent them",
+          "concept": "Guardrails, human-in-the-loop design, rollback, monitoring, cost limits.",
+          "application": "Agents you can trust running autonomously in production",
+          "exercise": "Add a complete reliability and safety layer to an existing agent.",
+          "duration": "50 min"
+        }
+      ],
+      "project": {
+        "title": "Autonomous AI Employee",
+        "description": "Build and deploy a multi-tool agent that autonomously completes a complex recurring business task — research, execution, and reporting included.",
+        "deliverable": "A running agent completing a real workflow autonomously with full logging."
+      },
+      "tools": [
+        "LangGraph",
+        "CrewAI",
+        "AutoGen",
+        "Claude API",
+        "OpenAI Agents SDK",
+        "Composio",
+        "E2B"
+      ],
+      "skills": [
+        "Agent engineering",
+        "Multi-agent design",
+        "Autonomous workflow",
+        "Reliability",
+        "Safety"
+      ],
+      "keyTakeaways": [
+        "Agents fail differently from regular software — design for it",
+        "Human-in-the-loop is a feature, not a limitation",
+        "Memory architecture determines usefulness more than model capability"
+      ],
+      "commonMistakes": [
+        "Giving agents too much autonomy too fast",
+        "Not logging agent actions",
+        "Skipping the reliability layer until after a failure"
+      ]
+    },
+    {
+      "id": 10,
+      "phase": "advanced",
+      "icon": "10",
+      "title": "RAG & Knowledge Systems",
+      "subtitle": "Build AI that deeply knows your data",
+      "duration": "16 hrs",
+      "difficulty": "Advanced",
+      "lessonCount": 18,
+      "objectives": [
+        "Build production RAG systems from first principles",
+        "Implement vector databases at scale",
+        "Create enterprise AI knowledge bases",
+        "Deploy semantic search that actually works"
+      ],
+      "lessons": [
+        {
+          "id": "rag-architecture-deep-dive",
+          "moduleId": 10,
+          "number": "10.1",
+          "title": "RAG Architecture Deep Dive",
+          "hook": "Every serious AI product is built on this. Here's exactly how.",
+          "concept": "Ingestion, chunking, embedding, vector storage, retrieval, augmented generation — full pipeline.",
+          "application": "AI that knows your documents, products, and institutional knowledge",
+          "exercise": "Build a complete RAG pipeline from scratch with 3 document types.",
+          "duration": "60 min"
+        },
+        {
+          "id": "embeddings-and-semantic-search",
+          "moduleId": 10,
+          "number": "10.2",
+          "title": "Embeddings & Semantic Search",
+          "hook": "Semantic search is magic until you understand it — then it's power",
+          "concept": "Embedding models, cosine similarity, ANN algorithms, bi-encoders vs cross-encoders.",
+          "application": "Search that understands meaning and context, not just keywords",
+          "exercise": "Build a semantic search engine. Evaluate precision and recall.",
+          "duration": "75 min"
+        },
+        {
+          "id": "production-vector-databases",
+          "moduleId": 10,
+          "number": "10.3",
+          "title": "Production Vector Databases",
+          "hook": "Pinecone, Qdrant, Weaviate — which one and exactly why",
+          "concept": "Indexing strategies, metadata filtering, hybrid search, performance, cost.",
+          "application": "Production knowledge systems for thousands of documents with real users",
+          "exercise": "Set up a vector database with 1,000 real documents. Test and optimize.",
+          "duration": "60 min"
+        },
+        {
+          "id": "advanced-retrieval-strategies",
+          "moduleId": 10,
+          "number": "10.4",
+          "title": "Advanced Retrieval Strategies",
+          "hook": "Basic RAG is mediocre. Advanced RAG is a superpower.",
+          "concept": "Hybrid search, re-ranking, multi-query, HyDE, parent-child chunking.",
+          "application": "AI that retrieves precisely the right information consistently",
+          "exercise": "Implement and compare 4 retrieval strategies on identical queries.",
+          "duration": "90 min"
+        },
+        {
+          "id": "enterprise-knowledge-systems",
+          "moduleId": 10,
+          "number": "10.5",
+          "title": "Enterprise Knowledge Systems",
+          "hook": "Build AI that knows everything about a company at any scale",
+          "concept": "Document processing pipelines, access control, versioning, governance.",
+          "application": "Internal AI assistants trusted for business-critical questions",
+          "exercise": "Build an internal knowledge AI for a 500+ document corpus.",
+          "duration": "80 min"
+        }
+      ],
+      "project": {
+        "title": "Enterprise Knowledge AI",
+        "description": "Build a production RAG system: 500+ documents, hybrid search, re-ranking, and a polished chat interface.",
+        "deliverable": "A deployed knowledge AI you can immediately demo to enterprise clients."
+      },
+      "tools": [
+        "Pinecone",
+        "Qdrant",
+        "LlamaIndex",
+        "LangChain",
+        "OpenAI Embeddings",
+        "Cohere Rerank",
+        "Weaviate"
+      ],
+      "skills": [
+        "RAG engineering",
+        "Vector databases",
+        "Semantic search",
+        "Knowledge architecture",
+        "Retrieval optimization"
+      ],
+      "keyTakeaways": [
+        "Chunking strategy is the most underrated RAG decision",
+        "Hybrid search outperforms pure semantic search almost always",
+        "Evaluation is the only way to know if retrieval is working"
+      ],
+      "commonMistakes": [
+        "Fixed chunk sizes for all document types",
+        "Not filtering metadata before vector search",
+        "Skipping re-ranking in production"
+      ]
+    },
+    {
+      "id": 11,
+      "phase": "advanced",
+      "icon": "11",
+      "title": "AI Business Strategy",
+      "subtitle": "Transform any organization with AI at the strategic level",
+      "duration": "12 hrs",
+      "difficulty": "Advanced",
+      "lessonCount": 16,
+      "objectives": [
+        "Conduct rigorous AI audits and build transformation roadmaps",
+        "Deploy AI across entire organizations",
+        "Measure and communicate AI ROI",
+        "Lead AI transformation from strategy to execution"
+      ],
+      "lessons": [
+        {
+          "id": "ai-readiness-assessment",
+          "moduleId": 11,
+          "number": "11.1",
+          "title": "AI Readiness Assessment",
+          "hook": "Every business is at a different AI starting point — find yours",
+          "concept": "AI maturity model, data readiness, process auditability, team capability.",
+          "application": "Create credible AI transformation roadmaps for any organization",
+          "exercise": "Conduct a full AI readiness audit on a real or fictional business.",
+          "duration": "50 min"
+        },
+        {
+          "id": "ai-opportunity-identification",
+          "moduleId": 11,
+          "number": "11.2",
+          "title": "AI Opportunity Identification",
+          "hook": "The 5 places in every business where AI delivers highest ROI",
+          "concept": "Task classification, automation feasibility, value vs. effort matrix.",
+          "application": "A prioritized AI roadmap that justifies itself financially",
+          "exercise": "Map a business unit and identify all high-value AI insertion points.",
+          "duration": "45 min"
+        },
+        {
+          "id": "ai-change-management",
+          "moduleId": 11,
+          "number": "11.3",
+          "title": "AI Change Management",
+          "hook": "Technology isn't the hard part. People always are.",
+          "concept": "Adoption curve, training frameworks, fear mitigation, culture change.",
+          "application": "Successful org-wide AI rollouts without resistance and failure",
+          "exercise": "Design a change management plan for a real AI deployment scenario.",
+          "duration": "40 min"
+        },
+        {
+          "id": "ai-roi-and-business-cases",
+          "moduleId": 11,
+          "number": "11.4",
+          "title": "AI ROI & Business Cases",
+          "hook": "If you can't measure it, you can't get the budget — or keep it",
+          "concept": "ROI frameworks, productivity metrics, quality metrics, cost-benefit analysis.",
+          "application": "Executive-ready AI business cases that get approved and funded",
+          "exercise": "Build a complete 3-year ROI model for a specific AI deployment.",
+          "duration": "45 min"
+        },
+        {
+          "id": "enterprise-ai-architecture",
+          "moduleId": 11,
+          "number": "11.5",
+          "title": "Enterprise AI Architecture",
+          "hook": "How Fortune 500s structure AI — and what you can steal",
+          "concept": "AI platform design, data governance, security, vendor selection, build vs. buy.",
+          "application": "Enterprise AI that scales, complies, and actually gets used",
+          "exercise": "Design the complete AI infrastructure for a 500-person company.",
+          "duration": "60 min"
+        }
+      ],
+      "project": {
+        "title": "AI Transformation Blueprint",
+        "description": "Complete AI transformation strategy: readiness audit, 3-year roadmap, technology selection, change plan, and ROI projection.",
+        "deliverable": "A consultant-grade strategy document ready for C-suite presentation."
+      },
+      "tools": [
+        "Miro",
+        "Notion",
+        "Airtable",
+        "Tableau",
+        "Power BI",
+        "Microsoft Copilot"
+      ],
+      "skills": [
+        "Strategic planning",
+        "Change management",
+        "ROI analysis",
+        "Enterprise architecture"
+      ],
+      "keyTakeaways": [
+        "AI readiness is about data and process quality, not enthusiasm",
+        "Change management determines adoption more than technology selection",
+        "The ROI case is often stronger than executives expect"
+      ],
+      "commonMistakes": [
+        "Underestimating change management",
+        "Choosing technology before defining problems",
+        "Ignoring data quality issues"
+      ]
+    },
+    {
+      "id": 12,
+      "phase": "advanced",
+      "icon": "12",
+      "title": "AI Research & Analysis",
+      "subtitle": "10× the depth and speed of any research process",
+      "duration": "10 hrs",
+      "difficulty": "Advanced",
+      "lessonCount": 14,
+      "objectives": [
+        "Conduct deep AI-assisted research at expert level",
+        "Build systematic literature review pipelines",
+        "Create competitive intelligence systems",
+        "Analyze complex data with natural language"
+      ],
+      "lessons": [
+        {
+          "id": "deep-research-architecture",
+          "moduleId": 12,
+          "number": "12.1",
+          "title": "Deep Research Architecture",
+          "hook": "Research like a PhD in 2 hours, not 2 months",
+          "concept": "Research frameworks, source triangulation, synthesis hierarchies, verification.",
+          "application": "World-class research reports rapidly for any purpose",
+          "exercise": "Conduct a complete market research project from scratch with AI.",
+          "duration": "60 min"
+        },
+        {
+          "id": "scientific-literature-with-ai",
+          "moduleId": 12,
+          "number": "12.2",
+          "title": "Scientific Literature with AI",
+          "hook": "Read 100 papers. Understand a field. In a day.",
+          "concept": "PubMed + AI, arXiv, citation graphs, systematic review protocols.",
+          "application": "Academic research, grant writing, medical literature review",
+          "exercise": "Review 20 papers in a field. Synthesize findings into a structured report.",
+          "duration": "75 min"
+        },
+        {
+          "id": "competitive-intelligence-systems",
+          "moduleId": 12,
+          "number": "12.3",
+          "title": "Competitive Intelligence Systems",
+          "hook": "Know exactly what every competitor is doing — automatically",
+          "concept": "Web scraping + AI, news monitoring, social listening, patent analysis.",
+          "application": "Always-on competitive intelligence at zero manual effort",
+          "exercise": "Build a competitive monitoring system for a real industry.",
+          "duration": "60 min"
+        },
+        {
+          "id": "data-analysis-with-natural-language",
+          "moduleId": 12,
+          "number": "12.4",
+          "title": "Data Analysis with Natural Language",
+          "hook": "Ask your data anything in plain English",
+          "concept": "Code Interpreter, Julius AI, Pandas AI, SQL + LLM, AI visualization.",
+          "application": "Deep analysis of complex datasets without SQL",
+          "exercise": "Analyze a real 10,000-row dataset using only natural language queries.",
+          "duration": "55 min"
+        }
+      ],
+      "project": {
+        "title": "Autonomous Research Engine",
+        "description": "Build an AI system that monitors a domain, synthesizes developments, and delivers weekly intelligence briefings automatically.",
+        "deliverable": "A live research intelligence system producing real weekly output."
+      },
+      "tools": [
+        "Perplexity Pro",
+        "Elicit",
+        "Consensus",
+        "Julius AI",
+        "Tavily",
+        "NotebookLM"
+      ],
+      "skills": [
+        "Research methodology",
+        "Data analysis",
+        "Intelligence synthesis",
+        "Literature review"
+      ],
+      "keyTakeaways": [
+        "Source triangulation is non-negotiable for anything that matters",
+        "Competitive intelligence is most valuable when continuous",
+        "Natural language analysis works best with clean data"
+      ],
+      "commonMistakes": [
+        "Relying on one AI source for factual claims",
+        "Not setting up automatic monitoring",
+        "Ignoring data quality before analysis"
+      ]
+    },
+    {
+      "id": 13,
+      "phase": "expert",
+      "icon": "13",
+      "title": "Fine-Tuning & Custom Models",
+      "subtitle": "Build AI that thinks exactly like your domain requires",
+      "duration": "20 hrs",
+      "difficulty": "Expert",
+      "lessonCount": 18,
+      "objectives": [
+        "Fine-tune LLMs for domain-specific tasks",
+        "Create, evaluate, and improve custom models",
+        "Deploy at production scale",
+        "Build dataset pipelines that make fine-tuning work"
+      ],
+      "lessons": [
+        {
+          "id": "when-to-fine-tune-vs-prompt",
+          "moduleId": 13,
+          "number": "13.1",
+          "title": "When to Fine-Tune vs. Prompt",
+          "hook": "Fine-tuning costs $500. Prompting costs $0.50. When does $500 win?",
+          "concept": "Decision framework: consistency, latency, cost at scale, domain depth, data availability.",
+          "application": "Make correct build-vs-configure decisions every time",
+          "exercise": "Evaluate 5 use cases for fine-tuning vs. prompting with a scoring matrix.",
+          "duration": "40 min"
+        },
+        {
+          "id": "dataset-engineering",
+          "moduleId": 13,
+          "number": "13.2",
+          "title": "Dataset Engineering",
+          "hook": "Your model is only as good as your training data",
+          "concept": "Data collection, cleaning, deduplication, formatting, quality scoring, synthetic generation.",
+          "application": "Datasets that produce genuinely capable, reliable models",
+          "exercise": "Prepare a 500-example dataset from raw source documents.",
+          "duration": "90 min"
+        },
+        {
+          "id": "openai-fine-tuning-pipeline",
+          "moduleId": 13,
+          "number": "13.3",
+          "title": "OpenAI Fine-Tuning Pipeline",
+          "hook": "Fine-tune GPT-4o on your data in under 3 hours",
+          "concept": "JSONL format, training runs, hyperparameters, evaluation, cost management.",
+          "application": "Custom models for classification, extraction, and specialized generation",
+          "exercise": "Fine-tune a model for a specific task. Rigorously evaluate against baseline.",
+          "duration": "90 min"
+        },
+        {
+          "id": "open-source-fine-tuning",
+          "moduleId": 13,
+          "number": "13.4",
+          "title": "Open-Source Fine-Tuning",
+          "hook": "Fine-tune Llama, Mistral, Qwen for free — or near-free",
+          "concept": "LoRA, QLoRA, PEFT, Unsloth, Axolotl, Hugging Face Trainer.",
+          "application": "Custom models you own that run anywhere at zero per-call cost",
+          "exercise": "Fine-tune Llama 3.1 8B on a domain task end to end. Evaluate rigorously.",
+          "duration": "120 min"
+        },
+        {
+          "id": "model-evaluation-and-benchmarking",
+          "moduleId": 13,
+          "number": "13.5",
+          "title": "Model Evaluation & Benchmarking",
+          "hook": "How do you actually know your model improved?",
+          "concept": "Eval suite design, LLM-as-judge, benchmarking, regression testing.",
+          "application": "Scientifically validate every model change. Never ship a regression.",
+          "exercise": "Design and run a complete eval suite for a custom model.",
+          "duration": "75 min"
+        },
+        {
+          "id": "deploying-custom-models",
+          "moduleId": 13,
+          "number": "13.6",
+          "title": "Deploying Custom Models",
+          "hook": "A fine-tuned model no one can access is worthless",
+          "concept": "Modal, Replicate, HF Inference, Together AI, vLLM, batching, auto-scaling.",
+          "application": "Production model APIs at competitive cost with real reliability",
+          "exercise": "Deploy a fine-tuned model as a scalable, monitored API endpoint.",
+          "duration": "60 min"
+        }
+      ],
+      "project": {
+        "title": "Domain Expert Model",
+        "description": "Fine-tune an open-source model on a professional domain, evaluate against baseline, and deploy as a production API.",
+        "deliverable": "A running custom model outperforming the base model on your target task."
+      },
+      "tools": [
+        "OpenAI Fine-tuning",
+        "Unsloth",
+        "Axolotl",
+        "Weights & Biases",
+        "Hugging Face",
+        "Modal",
+        "vLLM"
+      ],
+      "skills": [
+        "Model training",
+        "Dataset engineering",
+        "Evaluation",
+        "Deployment",
+        "Cost optimization"
+      ],
+      "keyTakeaways": [
+        "Dataset quality determines 80% of fine-tuning outcome",
+        "Evals must be designed before training begins",
+        "QLoRA made open-source fine-tuning accessible to anyone"
+      ],
+      "commonMistakes": [
+        "Starting without a strong eval suite",
+        "Under-investing in dataset quality",
+        "Not benchmarking against base model before deployment"
+      ]
+    },
+    {
+      "id": 14,
+      "phase": "expert",
+      "icon": "14",
+      "title": "AI Monetization & Entrepreneurship",
+      "subtitle": "Build businesses that generate real income with AI",
+      "duration": "16 hrs",
+      "difficulty": "Expert",
+      "lessonCount": 20,
+      "objectives": [
+        "Identify and validate AI business opportunities",
+        "Build and launch AI products with paying customers",
+        "Create profitable AI service businesses",
+        "Scale multiple AI revenue streams"
+      ],
+      "lessons": [
+        {
+          "id": "the-ai-business-opportunity-map",
+          "moduleId": 14,
+          "number": "14.1",
+          "title": "The AI Business Opportunity Map",
+          "hook": "12 categories of AI businesses you could start this month",
+          "concept": "AI products, services, agencies, courses, SaaS — full taxonomy and selection criteria.",
+          "application": "Pick the right AI business model for your skills and situation",
+          "exercise": "Score 5 AI business ideas against a structured opportunity framework.",
+          "duration": "50 min"
+        },
+        {
+          "id": "ai-saas-blueprint",
+          "moduleId": 14,
+          "number": "14.2",
+          "title": "AI SaaS Blueprint",
+          "hook": "Build an AI SaaS without funding or a technical co-founder",
+          "concept": "Problem selection, AI core design, distribution, pricing logic, growth loops.",
+          "application": "A validated AI SaaS ready to build and launch within 30 days",
+          "exercise": "Complete a business model canvas for a specific AI SaaS opportunity.",
+          "duration": "60 min"
+        },
+        {
+          "id": "ai-agency-model",
+          "moduleId": 14,
+          "number": "14.3",
+          "title": "AI Agency Model",
+          "hook": "The fastest path to $10K/month with AI skills",
+          "concept": "Service productization, client acquisition, delivery systematization, scaling.",
+          "application": "A running AI agency with paying clients within 60 days",
+          "exercise": "Design your complete offer, pricing, and first 20 targeted outreach messages.",
+          "duration": "55 min"
+        },
+        {
+          "id": "ai-consulting-practice",
+          "moduleId": 14,
+          "number": "14.4",
+          "title": "AI Consulting Practice",
+          "hook": "Companies pay $500/hour for AI strategy. Here's how to deliver it.",
+          "concept": "Expert positioning, frameworks, deliverable design, premium pricing.",
+          "application": "A consulting practice that commands and justifies premium rates",
+          "exercise": "Build a complete AI consulting offer with a real case study.",
+          "duration": "50 min"
+        },
+        {
+          "id": "building-ai-powered-products",
+          "moduleId": 14,
+          "number": "14.5",
+          "title": "Building AI-Powered Products",
+          "hook": "From idea to paying customers in 30 days flat",
+          "concept": "No-code and low-code AI product development, MVP, launch strategy.",
+          "application": "A live AI product generating real revenue from real customers",
+          "exercise": "Build and launch an AI micro-product in a single sprint.",
+          "duration": "120 min"
+        },
+        {
+          "id": "pricing-and-packaging",
+          "moduleId": 14,
+          "number": "14.6",
+          "title": "Pricing & Packaging",
+          "hook": "Most AI businesses leave 50% of revenue on the table",
+          "concept": "Value-based pricing, tier packaging, retainers, performance fees.",
+          "application": "Dramatically higher revenue from the exact same work",
+          "exercise": "Redesign the pricing architecture for a real or fictional AI service.",
+          "duration": "40 min"
+        },
+        {
+          "id": "scaling-ai-operations",
+          "moduleId": 14,
+          "number": "14.7",
+          "title": "Scaling AI Operations",
+          "hook": "What gets you to $10K/month won't get you to $100K/month",
+          "concept": "Delivery systematization, hiring AI talent, operational playbooks.",
+          "application": "An AI business that scales revenue without scaling founder hours",
+          "exercise": "Design the operational playbook for an AI business at 10× current scale.",
+          "duration": "45 min"
+        }
+      ],
+      "project": {
+        "title": "AI Business Launch",
+        "description": "From validated idea to first dollar: build, launch, and acquire your first paying customer.",
+        "deliverable": "A live AI business with at least one paying customer and documented acquisition path."
+      },
+      "tools": [
+        "Stripe",
+        "Framer",
+        "Lemon Squeezy",
+        "Apollo",
+        "Typeform",
+        "Beehiiv",
+        "Cal.com"
+      ],
+      "skills": [
+        "Business strategy",
+        "Product development",
+        "Client acquisition",
+        "Revenue operations",
+        "Scaling"
+      ],
+      "keyTakeaways": [
+        "First paying customer teaches more than 1,000 hours of planning",
+        "Service businesses fund SaaS businesses — use that sequencing",
+        "Pricing is a positioning decision, not a cost calculation"
+      ],
+      "commonMistakes": [
+        "Building before validating customer and problem",
+        "Under-pricing to win clients",
+        "Trying to scale before systematizing delivery"
+      ]
+    },
+    {
+      "id": 15,
+      "phase": "expert",
+      "icon": "15",
+      "title": "Open-Source & Local AI",
+      "subtitle": "Own your entire stack. Pay nothing per inference.",
+      "duration": "18 hrs",
+      "difficulty": "Expert",
+      "lessonCount": 16,
+      "objectives": [
+        "Run production-grade AI locally and privately",
+        "Master the open-source model ecosystem",
+        "Build fully private AI systems",
+        "Deploy self-hosted infrastructure at any scale"
+      ],
+      "lessons": [
+        {
+          "id": "open-source-ai-landscape",
+          "moduleId": 15,
+          "number": "15.1",
+          "title": "Open-Source AI Landscape",
+          "hook": "Meta, Mistral, and Alibaba made frontier AI free. Here's what that means.",
+          "concept": "Llama, Mistral, Qwen, Gemma, Phi — capabilities, benchmarks, use-case fit.",
+          "application": "Make informed open vs. closed source decisions for every use case",
+          "exercise": "Benchmark 3 open-source models vs. GPT-4o on your specific use case.",
+          "duration": "60 min"
+        },
+        {
+          "id": "running-models-with-ollama",
+          "moduleId": 15,
+          "number": "15.2",
+          "title": "Running Models with Ollama",
+          "hook": "ChatGPT-level AI on your laptop. Free. Private. Offline.",
+          "concept": "Ollama setup, model pulling, API endpoint, selection, quantization levels.",
+          "application": "Private AI for sensitive data — nothing leaves your machine",
+          "exercise": "Set up 5 local models. Compare quality, speed, and memory use.",
+          "duration": "45 min"
+        },
+        {
+          "id": "open-webui-and-local-interfaces",
+          "moduleId": 15,
+          "number": "15.3",
+          "title": "Open WebUI & Local Interfaces",
+          "hook": "Build your own fully-featured ChatGPT with complete control",
+          "concept": "Open WebUI, LM Studio, Jan — setup, configuration, team access.",
+          "application": "Professional local AI for any individual or team of any size",
+          "exercise": "Deploy Open WebUI with 3 models and custom system prompts.",
+          "duration": "50 min"
+        },
+        {
+          "id": "cloud-gpu-deployment",
+          "moduleId": 15,
+          "number": "15.4",
+          "title": "Cloud GPU Deployment",
+          "hook": "Self-host AI at 10% of OpenAI's cost with full control",
+          "concept": "RunPod, vast.ai, Lambda Labs — provisioning, vLLM, cost optimization.",
+          "application": "Production APIs at dramatically lower cost with complete data control",
+          "exercise": "Deploy a production Llama inference server on RunPod with monitoring.",
+          "duration": "75 min"
+        },
+        {
+          "id": "private-ai-for-enterprise",
+          "moduleId": 15,
+          "number": "15.5",
+          "title": "Private AI for Enterprise",
+          "hook": "AI that never sends your data anywhere — certified and sovereign",
+          "concept": "Air-gapped deployments, on-premise inference, data sovereignty, compliance.",
+          "application": "Enterprise AI for regulated industries: finance, healthcare, legal",
+          "exercise": "Design a complete private AI architecture for a regulated industry.",
+          "duration": "60 min"
+        }
+      ],
+      "project": {
+        "title": "Private AI Infrastructure",
+        "description": "Build a complete private system: local model serving, RAG knowledge base, web interface, API — on infrastructure you own.",
+        "deliverable": "A fully self-hosted AI system with zero external data dependencies."
+      },
+      "tools": [
+        "Ollama",
+        "LM Studio",
+        "Open WebUI",
+        "RunPod",
+        "vLLM",
+        "LocalAI",
+        "Hugging Face"
+      ],
+      "skills": [
+        "Infrastructure",
+        "Cost optimization",
+        "Data privacy",
+        "Self-hosting",
+        "Compliance"
+      ],
+      "keyTakeaways": [
+        "Local models are genuinely production-capable for most use cases",
+        "Privacy is a feature you can sell in regulated industries",
+        "Self-hosted AI's TCO is lower than cloud at any meaningful volume"
+      ],
+      "commonMistakes": [
+        "Choosing quantization without testing quality impact",
+        "Not planning model update procedures",
+        "Underestimating hardware requirements"
+      ]
+    },
+    {
+      "id": 16,
+      "phase": "expert",
+      "icon": "16",
+      "title": "AI Ethics & Governance",
+      "subtitle": "Build AI that is powerful, responsible, and trusted",
+      "duration": "8 hrs",
+      "difficulty": "Expert",
+      "lessonCount": 10,
+      "objectives": [
+        "Understand and mitigate real AI risks in production",
+        "Implement responsible AI practices",
+        "Navigate AI regulation and compliance",
+        "Build governance frameworks for organizational AI"
+      ],
+      "lessons": [
+        {
+          "id": "ai-risk-taxonomy",
+          "moduleId": 16,
+          "number": "16.1",
+          "title": "AI Risk Taxonomy",
+          "hook": "The AI failures that cost billions — and the patterns behind them",
+          "concept": "Bias, hallucination, misuse, security vulnerabilities, concentration risks.",
+          "application": "Identify and mitigate risks in any AI system before deployment",
+          "exercise": "Conduct a structured risk audit on a real AI deployment.",
+          "duration": "45 min"
+        },
+        {
+          "id": "bias-fairness-and-representation",
+          "moduleId": 16,
+          "number": "16.2",
+          "title": "Bias, Fairness & Representation",
+          "hook": "Your AI might be discriminating right now. Here's how to find out.",
+          "concept": "Algorithmic bias types, demographic parity, disparate impact testing.",
+          "application": "AI that demonstrably treats all users fairly",
+          "exercise": "Design and run a systematic bias test on a real AI system.",
+          "duration": "40 min"
+        },
+        {
+          "id": "ai-regulation-and-compliance",
+          "moduleId": 16,
+          "number": "16.3",
+          "title": "AI Regulation & Compliance",
+          "hook": "The EU AI Act changes everything for every AI product",
+          "concept": "EU AI Act risk classification, GDPR implications, US orders, sector standards.",
+          "application": "Compliant AI products that enter regulated markets without legal risk",
+          "exercise": "Classify a portfolio of AI applications under the EU AI Act.",
+          "duration": "50 min"
+        },
+        {
+          "id": "ai-safety-engineering",
+          "moduleId": 16,
+          "number": "16.4",
+          "title": "AI Safety Engineering",
+          "hook": "Safety is the feature that makes every other feature more valuable",
+          "concept": "Content filtering, output monitoring, rate limiting, human oversight, red-teaming.",
+          "application": "AI safe enough to deploy to real users at real scale",
+          "exercise": "Design and implement a complete safety layer for an AI application.",
+          "duration": "45 min"
+        }
+      ],
+      "project": {
+        "title": "Responsible AI Framework",
+        "description": "Create a governance framework: risk taxonomy, mitigation, policies, compliance checklist, and audit trail.",
+        "deliverable": "An audit-ready AI governance document meeting global regulatory standards."
+      },
+      "tools": [
+        "Guardrails AI",
+        "Azure AI Content Safety",
+        "Langfuse",
+        "LlamaGuard",
+        "OpenAI Moderation"
+      ],
+      "skills": [
+        "Risk assessment",
+        "Compliance",
+        "Fairness testing",
+        "Governance",
+        "Red-teaming"
+      ],
+      "keyTakeaways": [
+        "Safety is a competitive advantage, not a constraint",
+        "Governance prevents problems that destroy companies overnight",
+        "Bias testing must be systematic and documented, not ad hoc"
+      ],
+      "commonMistakes": [
+        "Treating safety as post-launch",
+        "Not testing for bias before deployment",
+        "Ignoring jurisdiction-specific regulations"
+      ]
+    },
+    {
+      "id": 17,
+      "phase": "expert",
+      "icon": "17",
+      "title": "AI System Design & Architecture",
+      "subtitle": "Design AI-native products that scale to millions",
+      "duration": "20 hrs",
+      "difficulty": "Expert",
+      "lessonCount": 20,
+      "objectives": [
+        "Design scalable AI systems from first principles",
+        "Architect multi-modal AI products",
+        "Build observable, maintainable AI infrastructure",
+        "Lead technical AI strategy at any scale"
+      ],
+      "lessons": [
+        {
+          "id": "ai-system-design-patterns",
+          "moduleId": 17,
+          "number": "17.1",
+          "title": "AI System Design Patterns",
+          "hook": "The patterns behind every AI product that works at scale",
+          "concept": "Gateway pattern, orchestration layer, fallback chains, cache-aside, async processing.",
+          "application": "Design reliable, scalable AI systems from first principles",
+          "exercise": "Design the complete architecture for a real AI product idea.",
+          "duration": "60 min"
+        },
+        {
+          "id": "multi-modal-ai-architecture",
+          "moduleId": 17,
+          "number": "17.2",
+          "title": "Multi-Modal AI Architecture",
+          "hook": "Products that see, hear, speak, and write — how they're built",
+          "concept": "Vision + text pipelines, audio integration, cross-modal routing, fusion.",
+          "application": "AI products using multiple modalities seamlessly",
+          "exercise": "Design a complete multi-modal AI system with data flow diagrams.",
+          "duration": "75 min"
+        },
+        {
+          "id": "ai-observability-and-operations",
+          "moduleId": 17,
+          "number": "17.3",
+          "title": "AI Observability & Operations",
+          "hook": "You can't improve what you can't measure — especially in AI",
+          "concept": "Distributed tracing, structured logging, cost tracking, latency, quality metrics.",
+          "application": "Production AI systems you can debug, improve, and explain",
+          "exercise": "Instrument a real AI application with a full observability stack.",
+          "duration": "60 min"
+        },
+        {
+          "id": "scaling-ai-infrastructure",
+          "moduleId": 17,
+          "number": "17.4",
+          "title": "Scaling AI Infrastructure",
+          "hook": "From 100 to 1,000,000 users without paging you at 3am",
+          "concept": "Load balancing for LLMs, semantic caching, async processing, queue architecture.",
+          "application": "AI products that handle viral growth without degradation",
+          "exercise": "Design a scaling architecture for a specific AI product at 10× load.",
+          "duration": "55 min"
+        }
+      ],
+      "project": {
+        "title": "AI Architecture Document",
+        "description": "Complete system design document: architecture diagrams, data flow, scaling strategy, observability plan, and cost model.",
+        "deliverable": "A technical architecture document any engineering team could execute."
+      },
+      "tools": [
+        "Mermaid",
+        "Lucidchart",
+        "LangSmith",
+        "Helicone",
+        "Datadog",
+        "Redis",
+        "Cloudflare"
+      ],
+      "skills": [
+        "System design",
+        "Architecture",
+        "Observability",
+        "Cost modeling",
+        "Scaling"
+      ],
+      "keyTakeaways": [
+        "Caching is the highest-ROI optimization in any AI system",
+        "Observability must be designed in, not bolted on",
+        "Cost model is as important as the technical architecture"
+      ],
+      "commonMistakes": [
+        "Not planning cache invalidation",
+        "Ignoring P99 latency",
+        "Building without a failure budget"
+      ]
+    },
+    {
+      "id": 18,
+      "phase": "expert",
+      "icon": "18",
+      "title": "The Future of AI",
+      "subtitle": "Position yourself ahead of what's coming",
+      "duration": "8 hrs",
+      "difficulty": "Expert",
+      "lessonCount": 10,
+      "objectives": [
+        "Understand AI's real development trajectory",
+        "Position for emerging opportunities early",
+        "Evaluate frontier capabilities with intellectual honesty",
+        "Build an AI career that compounds over a decade"
+      ],
+      "lessons": [
+        {
+          "id": "ai-capability-trajectories",
+          "moduleId": 18,
+          "number": "18.1",
+          "title": "AI Capability Trajectories",
+          "hook": "AI in 2030 will be as different from today as today is from 2020",
+          "concept": "Scaling laws, capability emergence, reasoning improvements, agentic capability roadmap.",
+          "application": "Career and business decisions based on real trajectory, not media narrative",
+          "exercise": "Create a personal AI capability prediction timeline with confidence levels.",
+          "duration": "45 min"
+        },
+        {
+          "id": "ai-and-the-future-of-work",
+          "moduleId": 18,
+          "number": "18.2",
+          "title": "AI & The Future of Work",
+          "hook": "Which jobs survive? Which thrive? Which disappear entirely?",
+          "concept": "Task decomposition, augmentation vs automation spectrum, new role creation.",
+          "application": "Career planning and workforce strategy that holds up as AI advances",
+          "exercise": "Audit your role for AI impact. Redesign it for resilience and leverage.",
+          "duration": "50 min"
+        },
+        {
+          "id": "emerging-ai-technologies",
+          "moduleId": 18,
+          "number": "18.3",
+          "title": "Emerging AI Technologies",
+          "hook": "Technologies redefining AI in the next 36 months — before they're obvious",
+          "concept": "World models, embodied AI, AI scientists, long context scaling, reasoning models.",
+          "application": "Early mover advantage before everyone else sees it coming",
+          "exercise": "Identify 3 emerging AI opportunities. Build a concrete 90-day action plan.",
+          "duration": "45 min"
+        },
+        {
+          "id": "building-a-compounding-ai-career",
+          "moduleId": 18,
+          "number": "18.4",
+          "title": "Building a Compounding AI Career",
+          "hook": "The highest-paid, fastest-growing skill set on Earth — how to build it",
+          "concept": "AI career paths, skill stack design, personal brand, portfolio, network effects.",
+          "application": "An AI career that compounds in value as technology advances",
+          "exercise": "Write your complete AI career roadmap with 6-month milestones.",
+          "duration": "40 min"
+        }
+      ],
+      "project": {
+        "title": "AI Future Thesis",
+        "description": "Write and publish a personal AI futures document: trajectory view, industry impact, and your strategic response.",
+        "deliverable": "A published thought leadership piece establishing your AI perspective publicly."
+      },
+      "tools": [
+        "Substack",
+        "LinkedIn",
+        "NotebookLM",
+        "Perplexity",
+        "Claude",
+        "Gamma"
+      ],
+      "skills": [
+        "Strategic foresight",
+        "Career design",
+        "Thought leadership",
+        "Trend analysis"
+      ],
+      "keyTakeaways": [
+        "People who shape AI adoption do better than those who just use AI",
+        "Career capital compounds fastest when built in public",
+        "Your AI future thesis is your most important marketing document"
+      ],
+      "commonMistakes": [
+        "Planning for today's AI instead of 3 years from now",
+        "Avoiding public opinions out of fear of being wrong",
+        "Waiting for certainty before acting on trends"
+      ]
+    }
+  ],
+  "promptCategories": [
+    {
+      "id": "all",
+      "label": "All Prompts",
+      "icon": "◈"
+    },
+    {
+      "id": "writing",
+      "label": "Writing",
+      "icon": "✦"
+    },
+    {
+      "id": "business",
+      "label": "Business",
+      "icon": "◆"
+    },
+    {
+      "id": "coding",
+      "label": "Coding & Dev",
+      "icon": "⟨⟩"
+    },
+    {
+      "id": "research",
+      "label": "Research",
+      "icon": "◎"
+    },
+    {
+      "id": "marketing",
+      "label": "Marketing",
+      "icon": "▲"
+    },
+    {
+      "id": "image",
+      "label": "Image Gen",
+      "icon": "◐"
+    },
+    {
+      "id": "productivity",
+      "label": "Productivity",
+      "icon": "◉"
+    },
+    {
+      "id": "creativity",
+      "label": "Creative",
+      "icon": "✧"
+    },
+    {
+      "id": "thinking",
+      "label": "Deep Thinking",
+      "icon": "⬡"
+    },
+    {
+      "id": "automation",
+      "label": "Automation",
+      "icon": "⟳"
+    },
+    {
+      "id": "career",
+      "label": "Career",
+      "icon": "◇"
+    }
+  ],
+  "tools": [
+    {
+      "id": "claude",
+      "label": "Claude",
+      "color": "#E8844A"
+    },
+    {
+      "id": "chatgpt",
+      "label": "ChatGPT",
+      "color": "#10A37F"
+    },
+    {
+      "id": "gemini",
+      "label": "Gemini",
+      "color": "#4285F4"
+    },
+    {
+      "id": "midjourney",
+      "label": "Midjourney",
+      "color": "#FF6B9D"
+    },
+    {
+      "id": "dalle",
+      "label": "DALL·E",
+      "color": "#10A37F"
+    },
+    {
+      "id": "perplexity",
+      "label": "Perplexity",
+      "color": "#20B8CD"
+    },
+    {
+      "id": "cursor",
+      "label": "Cursor",
+      "color": "#9B59B6"
+    },
+    {
+      "id": "runway",
+      "label": "Runway",
+      "color": "#FF4444"
+    },
+    {
+      "id": "suno",
+      "label": "Suno",
+      "color": "#F5A623"
+    },
+    {
+      "id": "elevenlabs",
+      "label": "ElevenLabs",
+      "color": "#7B68EE"
+    },
+    {
+      "id": "stable",
+      "label": "Stable Diff.",
+      "color": "#FF8C42"
+    },
+    {
+      "id": "notebooklm",
+      "label": "NotebookLM",
+      "color": "#4285F4"
+    }
+  ],
+  "prompts": [
+    {
+      "id": 1,
+      "category": "writing",
+      "tier": "POWER",
+      "title": "The Expert Voice Transfer",
+      "task": "Rewrite any content in the authoritative voice of a domain expert",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "You are a world-class [FIELD] expert with 20+ years of experience, known for making complex ideas crystal clear. Rewrite the following content in your expert voice — confident, specific, insight-dense, and completely free of filler words.\n\nReplace generic claims with precise data, trade-specific terminology, and hard-won perspective. The result must feel like it came from someone who has lived this topic, not researched it.\n\nContent to rewrite:\n[PASTE CONTENT HERE]\n\nExpert field: [e.g. behavioral economics / enterprise security / molecular biology]\nAudience: [WHO WILL READ THIS]\nDesired outcome: [WHAT YOU WANT READERS TO THINK OR DO]",
+      "tags": [
+        "rewriting",
+        "voice",
+        "expertise",
+        "authority"
+      ],
+      "tip": "Specify the field precisely. 'Marketing expert' = mediocre. 'B2B SaaS demand generation specialist' = gold."
+    },
+    {
+      "id": 2,
+      "category": "writing",
+      "tier": "POWER",
+      "title": "The Viral Hook Generator",
+      "task": "Generate 20 high-converting hooks using every psychological trigger",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Generate 20 distinct opening hooks for the following topic. Each hook must use a DIFFERENT psychological trigger: curiosity gap, contrarian take, shocking statistic, personal failure, future vision, common misconception, urgent warning, social proof, identity challenge, direct provocation, aspirational promise, paradox, specific number, or taboo topic.\n\nFor each hook:\n- Label the trigger type\n- Write exactly 1–2 sentences\n- Make it impossible not to continue reading\n\nTopic: [YOUR TOPIC]\nTarget audience: [WHO READS THIS]\nDesired emotion: [urgency / curiosity / FOMO / inspiration]\nPlatform: [WHERE THIS WILL BE USED]\n\nAfter all 20, select your top 3 with specific reasoning for why each will perform best for this audience.",
+      "tags": [
+        "hooks",
+        "copywriting",
+        "viral",
+        "content"
+      ],
+      "tip": "Run this before writing any article, email, or video script. Test your top 3 hooks before committing to one."
+    },
+    {
+      "id": 3,
+      "category": "writing",
+      "tier": "ADVANCED",
+      "title": "The Long-Form Article Engine",
+      "task": "Write a complete, publication-ready 2,000–5,000 word article",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Write a comprehensive, publication-ready article on [TOPIC].\n\nStructure:\n- Headline: Specific, curiosity-driven, 8–12 words, no clickbait\n- Subheadline: Expands the promise with mechanism + audience + timeframe\n- Introduction (150–200 words): Scene or counterintuitive claim → problem → specific payoff promise\n- 5–7 H2 sections (250–400 words each): 2 real-world examples, 1 counterargument addressed, 3 actionable takeaways each\n- Conclusion: Synthesis + single clear call-to-action\n\nRules:\n- NEVER use: \"In today's rapidly changing world,\" \"It's important to note,\" \"In conclusion\"\n- Every sentence must earn its place\n- Use specifics: names, numbers, dates, companies — not vague generalities\n\nTone: [authoritative / conversational / provocative]\nAudience: [WHO AND THEIR KNOWLEDGE LEVEL]\nWord count: [NUMBER]\nKey argument: [YOUR THESIS]",
+      "tags": [
+        "long-form",
+        "articles",
+        "SEO",
+        "blog"
+      ],
+      "tip": "Add 'cite real studies with authors and publication years' for research-heavy pieces. Always fact-check citations."
+    },
+    {
+      "id": 4,
+      "category": "writing",
+      "tier": "ESSENTIAL",
+      "title": "The Email That Gets Replies",
+      "task": "Write cold or warm emails with high reply rates",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Write a [cold/warm] email to [RECIPIENT TYPE] with the goal of [OUTCOME: booking a call / getting feedback / closing a deal].\n\nStrict rules:\n- Subject line: Under 8 words, no clickbait, feels personal\n- Opening: Reference something specific about them (not generic flattery)\n- Body: Exactly 3 sentences — [1] their problem, [2] my solution, [3] specific proof\n- CTA: One specific ask, easy to say yes to in under 10 seconds\n- Tone: Human and direct, zero corporate-speak\n- Length: Under 120 words total\n\nContext:\n- About the recipient: [SPECIFIC DETAILS]\n- My value proposition: [ONE SENTENCE]\n- My social proof: [ONE CREDIBLE PROOF POINT]\n- Why right now: [TIMELY REASON]\n\nDeliverables: 3 subject line variations + 2 full email versions (professional and casual).",
+      "tags": [
+        "email",
+        "outreach",
+        "cold email",
+        "sales"
+      ],
+      "tip": "The 3-sentence body rule is non-negotiable. Shorter = dramatically higher response rates."
+    },
+    {
+      "id": 5,
+      "category": "writing",
+      "tier": "POWER",
+      "title": "The Content Repurposing Machine",
+      "task": "Turn one piece of content into 10 platform-optimized pieces",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Transform the following content into 10 distinct pieces, each optimized for the platform's format, algorithm, and audience:\n\n1. Twitter/X thread — 8–12 tweets, hook + layered value + CTA\n2. LinkedIn article — professional, insight-led, 400 words\n3. LinkedIn post — personal story angle, 150 words\n4. Instagram caption — emotional, punchy, 3 hashtag groups\n5. TikTok/Reels script — hook in 3 seconds, 60-second structure\n6. YouTube description — SEO-optimized, timestamps, subscribe CTA\n7. Email newsletter intro — conversational, 200 words\n8. Podcast talking points — 5 structured discussion topics\n9. Meta ad copy — 3 variations with different angles\n10. SMS/push notification — under 160 characters, single action\n\nSource content: [PASTE YOUR CONTENT]\nBrand voice: [bold and direct / warm and educational / witty]\nPrimary goal: [TRAFFIC / LEADS / BRAND / SALES]",
+      "tags": [
+        "repurposing",
+        "social media",
+        "distribution"
+      ],
+      "tip": "Use this immediately after publishing anything significant. One article = 10 pieces of distribution."
+    },
+    {
+      "id": 6,
+      "category": "writing",
+      "tier": "ADVANCED",
+      "title": "The Editing Assassin",
+      "task": "Cut any text by 30% while increasing its power",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "You are a ruthless senior editor. Cut the following text by at least 30% while making it MORE powerful.\n\nRules:\n- Delete every adverb that weakens a verb\n- Replace passive voice with active voice\n- Cut hedging: \"it seems,\" \"perhaps,\" \"might,\" \"could be\"\n- Remove explanations of things already demonstrated\n- Replace abstract nouns with specific, concrete alternatives\n- Ensure every paragraph's first sentence demands attention\n- If a sentence can be removed without loss — remove it\n\nDeliverables:\n1. Fully edited text\n2. Word count reduction and percentage achieved\n3. The 3 most impactful changes and why each strengthens the piece\n4. 2 additional suggestions for the writer to consider\n\nOriginal text: [PASTE TEXT]",
+      "tags": [
+        "editing",
+        "clarity",
+        "conciseness",
+        "polish"
+      ],
+      "tip": "Perfect for anything that feels too long but you can't see where to cut."
+    },
+    {
+      "id": 7,
+      "category": "business",
+      "tier": "POWER",
+      "title": "The Business Model Stress Test",
+      "task": "Find every vulnerability in a business idea before you build",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "You are a skeptical senior venture partner who has evaluated 5,000 pitches and funded 50. Stress-test the following business idea with complete intellectual honesty.\n\nEvaluate across 10 dimensions:\n1. Market size reality — TAM vs. what's addressable in years 1–3\n2. Customer acquisition — exact path to first 100 paying customers\n3. Unit economics — realistic margins, CAC, LTV, payback period\n4. Competitive moat — what prevents a funded competitor copying in 6 months\n5. Founder-market fit — who is uniquely positioned to win here\n6. Regulatory and legal exposure\n7. Technology risk and dependencies\n8. Distribution bottlenecks\n9. Three most likely failure modes in year 1\n10. The single most dangerous assumption\n\nBusiness idea: [DESCRIBE IN DETAIL]\nStage: [IDEA / MVP / EARLY REVENUE]\nTarget market: [DESCRIBE SPECIFICALLY]\n\nClose with: \"The two questions you must answer before spending another dollar.\"",
+      "tags": [
+        "startups",
+        "validation",
+        "strategy",
+        "risk"
+      ],
+      "tip": "Do this before writing a business plan. It's faster and more valuable."
+    },
+    {
+      "id": 8,
+      "category": "business",
+      "tier": "ESSENTIAL",
+      "title": "The Strategic Decision Framework",
+      "task": "Make complex business decisions with structured reasoning",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "I need to make the following decision: [DESCRIBE PRECISELY]\n\nWalk me through with structured reasoning:\n\n1. REFRAME — What is the real decision? (Often different from how it's framed)\n2. CRITERIA — The 5 most important success factors, ranked\n3. OPTIONS — 3–5 distinct options including at least one non-obvious alternative\n4. ANALYSIS — Score each 1–10 on each criterion with one-sentence justification\n5. RISKS — For top 2 options: worst realistic outcome with probability estimate\n6. REVERSIBILITY — Which can be undone? What's the reversal cost?\n7. SECOND-ORDER EFFECTS — What happens 6–12 months downstream?\n8. RECOMMENDATION — Top pick and the 2 conditions that would change it\n\nMy constraints: [TIME / MONEY / RESOURCES]\nOptimizing for: [GROWTH / STABILITY / OPTIONALITY]\nNon-negotiables: [WHAT I WILL NOT SACRIFICE]\nDecision deadline: [WHEN I MUST DECIDE]",
+      "tags": [
+        "decisions",
+        "strategy",
+        "frameworks",
+        "analysis"
+      ],
+      "tip": "Add 'What would the best-informed competitor do?' for competitive scenarios."
+    },
+    {
+      "id": 9,
+      "category": "business",
+      "tier": "POWER",
+      "title": "The Competitor Autopsy",
+      "task": "Comprehensively analyze any competitor's strategy and weaknesses",
+      "tools": [
+        "claude",
+        "perplexity"
+      ],
+      "prompt": "Conduct a strategic analysis of [COMPETITOR NAME] for a board-level competitive intelligence report.\n\nAnalyze across 10 dimensions:\n1. Business model — exactly how do they make money?\n2. Target customer — primary persona with psychographic detail\n3. Core value proposition — the specific job they're hired to do\n4. Pricing strategy and packaging logic\n5. Marketing channels — where they spend most attention\n6. Content and messaging themes\n7. Product strengths — what customers genuinely love\n8. Product weaknesses — consistent complaints signaling unmet needs\n9. Customer acquisition mechanics\n10. Retention mechanism — what keeps customers from leaving\n\nStrategic synthesis:\n- 3 exploitable gaps you could win on\n- 2 things they do well to copy or improve upon\n- The 1 position they fundamentally cannot own (your opening)\n- Their most vulnerable segment and why\n\nCompany: [NAME] | My company: [YOUR CONTEXT]\nMy differentiation: [YOUR ADVANTAGE]",
+      "tags": [
+        "competitive analysis",
+        "positioning",
+        "strategy"
+      ],
+      "tip": "Use Perplexity for recent news and announcements before running this for maximum accuracy."
+    },
+    {
+      "id": 10,
+      "category": "business",
+      "tier": "ADVANCED",
+      "title": "The Investor Pitch Architect",
+      "task": "Build a compelling, fund-ready narrative pitch for any business",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Build a complete investor pitch narrative using the story architecture top-tier VCs respond to.\n\nWrite 12 narrative beats (2–4 sentences each):\n1. The World Before — the status quo that's broken\n2. The Inciting Incident — the moment we discovered the problem\n3. The Problem — specific, visceral, quantified\n4. Who Suffers — the customer in real pain\n5. Why Now — specific timing signals\n6. The Insight — what we understand that others missed\n7. How It Works — product mechanics explained simply\n8. Traction — specific, verifiable evidence we've proven something\n9. Business Model — how a dollar in becomes multiple dollars out\n10. The Market — bottom-up TAM that a skeptic finds credible\n11. The Team — why this specific group for this specific problem\n12. The Ask — exactly what we need and what we'll do with it\n\nCompany: [DESCRIBE]\nStage: [PRE-SEED / SEED / A]\nKey metrics: [YOUR STRONGEST NUMBERS]\nFunding ask: [AMOUNT AND USE]\n\nAfter: write the 3 hardest questions a sharp investor will ask, with the best possible answers.",
+      "tags": [
+        "fundraising",
+        "pitch",
+        "investors",
+        "narrative"
+      ],
+      "tip": "Use this as your verbal pitch script first. Build slides around each beat after."
+    },
+    {
+      "id": 11,
+      "category": "business",
+      "tier": "ESSENTIAL",
+      "title": "The SOPs Generator",
+      "task": "Transform any process into a clear, bulletproof SOP",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Create a detailed, immediately usable Standard Operating Procedure for [PROCESS NAME].\n\nRequired sections:\n- Process Name and Owner\n- Purpose: Why this SOP exists (1 sentence)\n- Trigger: The exact event that starts this process\n- Prerequisites: Everything that must be ready before starting\n- Step-by-Step Procedure: Numbered, with sub-steps and decision points flagged\n- Decision Points: Where judgment is required and criteria to use\n- Common Errors: Top 3 mistakes and specific prevention steps\n- Quality Check: How to verify output meets required standard\n- Escalation Protocol: When and how to escalate\n- Required Tools: With access links and credential notes\n- Time Estimates: Per step and total\n- Review Schedule: When to review and update\n\nProcess to document: [DESCRIBE IN DETAIL]\nIntended users: [WHO WILL FOLLOW THIS]\nSkill level to assume: [KNOWLEDGE LEVEL]",
+      "tags": [
+        "SOPs",
+        "processes",
+        "operations",
+        "documentation"
+      ],
+      "tip": "Describe the process verbally or stream-of-consciousness first, then paste notes into this prompt."
+    },
+    {
+      "id": 12,
+      "category": "coding",
+      "tier": "POWER",
+      "title": "The Application Architect",
+      "task": "Design complete architecture before writing a single line of code",
+      "tools": [
+        "claude",
+        "cursor",
+        "chatgpt"
+      ],
+      "prompt": "You are a principal software architect. Design the complete architecture for this application before any code is written.\n\nDeliver 12 architectural artifacts:\n1. System overview in text/ASCII diagram\n2. Technology stack with specific justification for each choice\n3. Data models — entities, relationships, key fields, constraints\n4. API design — endpoints with HTTP methods and payload shapes\n5. Component breakdown with clear single responsibilities\n6. State management approach\n7. Authentication and authorization strategy\n8. Error handling patterns for each error category\n9. Performance — bottlenecks and mitigation strategies\n10. Testing strategy — unit, integration, e2e, load\n11. Deployment architecture — environments, CI/CD, infrastructure\n12. Top 3 technical decisions that will most define success or failure\n\nApplication: [DESCRIBE WHAT YOU'RE BUILDING]\nScale: [USERS / REQUESTS / DATA VOLUME]\nTeam: [SOLO / SMALL / LARGE] | Timeline: [DEADLINE]\nConstraints: [TECH PREFERENCES / BUDGET / COMPLIANCE]",
+      "tags": [
+        "architecture",
+        "system design",
+        "planning",
+        "backend"
+      ],
+      "tip": "This 30-minute exercise regularly saves 3–4 weeks of rework. Never skip it for any project over 2 days of work."
+    },
+    {
+      "id": 13,
+      "category": "coding",
+      "tier": "ESSENTIAL",
+      "title": "The Systematic Bug Hunter",
+      "task": "Debug any code issue with expert-level systematic reasoning",
+      "tools": [
+        "claude",
+        "cursor",
+        "chatgpt"
+      ],
+      "prompt": "Debug this code issue using systematic diagnostic reasoning.\n\nPROBLEM: [What's happening vs. what should happen]\n\nERROR:\n```\n[PASTE EXACT ERROR MESSAGE]\n```\n\nCODE:\n```[LANGUAGE]\n[PASTE CODE]\n```\n\nDiagnose:\n1. Most likely root cause (with confidence %)\n2. 2–3 alternative causes ranked by probability\n3. Why this bug exists — root cause, not symptom\n4. The fix with clear explanation of why it works\n5. Corrected code in full, ready to use\n6. A test to verify the fix resolved the issue\n7. How to prevent this class of bug in future code\n\nContext: [WHAT THIS CODE DOES]\nAlready tried: [YOUR DEBUGGING ATTEMPTS]\nDependencies/versions: [IF APPLICABLE]",
+      "tags": [
+        "debugging",
+        "bug fixes",
+        "troubleshooting"
+      ],
+      "tip": "Always include what you've already tried — it focuses the debugging and avoids ruling out already-excluded causes."
+    },
+    {
+      "id": 14,
+      "category": "coding",
+      "tier": "POWER",
+      "title": "The Senior Code Review",
+      "task": "Get a rigorous, production-standard code review",
+      "tools": [
+        "claude",
+        "cursor"
+      ],
+      "prompt": "Perform a senior engineer code review. Treat this as a PR at Stripe, Linear, or Notion level.\n\nReview 8 dimensions:\n1. CORRECTNESS — Does it work? Edge cases? Off-by-one errors?\n2. SECURITY — Injection, XSS, auth bypass, secret exposure, input validation\n3. PERFORMANCE — N+1 queries, unnecessary loops, memory leaks, algorithmic complexity\n4. READABILITY — Will a new engineer understand this in 6 months without help?\n5. MAINTAINABILITY — Will this be easy or painful to change?\n6. ERROR HANDLING — What breaks under bad input, network failure, timeout?\n7. TESTING — What coverage is missing or insufficient?\n8. CONVENTIONS — Language/framework idioms and team patterns followed?\n\nFor each issue:\n- Severity: Critical / Major / Minor / Nitpick\n- Specific problem and location\n- Why it matters (concrete consequences)\n- Suggested fix with corrected code\n\n```[LANGUAGE]\n[YOUR CODE]\n```\n\nLanguage/Framework: [SPECIFY] | Context: [WHAT THIS DOES]",
+      "tags": [
+        "code review",
+        "security",
+        "performance",
+        "best practices"
+      ],
+      "tip": "Run on any code touching auth, payments, or data privacy before it ships."
+    },
+    {
+      "id": 15,
+      "category": "coding",
+      "tier": "ADVANCED",
+      "title": "The Complete Feature Builder",
+      "task": "Implement any feature fully from spec to tested code",
+      "tools": [
+        "cursor",
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Implement the following feature completely, from specification to production-ready code.\n\nFEATURE: [DESCRIBE EXACTLY WHAT YOU WANT]\n\nREQUIREMENTS:\n- Must have: [NON-NEGOTIABLE FUNCTIONALITY]\n- Should have: [PREFERRED BEHAVIOR]\n- Won't have: [EXPLICITLY OUT OF SCOPE]\n\nEXISTING CODE:\n```[LANGUAGE]\n[PASTE RELEVANT CODE, SCHEMA, OR PATTERNS]\n```\n\nComplete deliverables:\n1. Full implementation with all affected files\n2. Database migrations or schema changes\n3. Unit tests — happy path and top 3 edge cases\n4. Integration test for the primary user flow\n5. API documentation updates if applicable\n6. Key design decisions explained\n7. Known limitations or technical debt introduced\n\nTech stack: [YOUR STACK]\nConventions: [NAMING, STYLE, PATTERNS TO FOLLOW]",
+      "tags": [
+        "feature development",
+        "full stack",
+        "implementation",
+        "testing"
+      ],
+      "tip": "The more existing code context you provide, the more the output matches your codebase."
+    },
+    {
+      "id": 16,
+      "category": "coding",
+      "tier": "ADVANCED",
+      "title": "The Documentation Engine",
+      "task": "Generate complete developer documentation for any code or system",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Write comprehensive developer documentation for the following code, API, or system.\n\nDocumentation package:\n1. Overview — what this does and why it exists (2 substantive paragraphs)\n2. Quick Start — working in under 5 minutes\n3. Installation & Setup — every prerequisite with version requirements\n4. Core Concepts — 5 key terms and mental models\n5. API/Function Reference — every public interface with:\n   - Parameters: name, type, required/optional, default, description\n   - Return value: type and shape\n   - Errors/exceptions thrown\n   - Code example with real values and expected output\n6. Common Use Cases — 3 worked examples end to end\n7. Configuration Reference — every option in table format\n8. Troubleshooting — top 5 issues with diagnostic steps and solutions\n\nCode/System: [PASTE CODE OR DESCRIBE SYSTEM]\nTarget audience: [SKILL LEVEL AND CONTEXT]",
+      "tags": [
+        "documentation",
+        "README",
+        "API docs",
+        "developer experience"
+      ],
+      "tip": "Include example inputs AND outputs in your context. Documentation quality jumps dramatically."
+    },
+    {
+      "id": 17,
+      "category": "research",
+      "tier": "POWER",
+      "title": "The Deep Research Synthesizer",
+      "task": "Synthesize any complex topic into a structured intelligence report",
+      "tools": [
+        "claude",
+        "perplexity",
+        "notebooklm"
+      ],
+      "prompt": "Produce a comprehensive research synthesis on [TOPIC].\n\nReport structure:\n1. EXECUTIVE SUMMARY — 200 words max, key findings for a decision-maker\n2. BACKGROUND — Why this matters now and current state of the field\n3. KEY FINDINGS — 7–10 insights, each with:\n   - Finding stated precisely\n   - Supporting evidence or data\n   - Source type: established / emerging / contested\n   - Confidence level: high / medium / low with rationale\n4. COMPETING PERSPECTIVES — Where experts genuinely disagree and why\n5. KNOWLEDGE GAPS — What is not yet known and why it matters\n6. PRACTICAL IMPLICATIONS — What this means for [YOUR CONTEXT]\n7. RECOMMENDED ACTIONS — 3 specific, concrete actions to take\n8. FURTHER READING — 5 highest-value sources\n\nDepth: [OVERVIEW / DEEP DIVE / EXPERT]\nUse case: [WHY YOU NEED THIS AND HOW YOU'LL USE IT]\nAudience: [WHO WILL READ THIS]",
+      "tags": [
+        "research",
+        "synthesis",
+        "reports",
+        "intelligence"
+      ],
+      "tip": "Pair with Perplexity for real-time source validation. Never rely on AI synthesis alone for high-stakes research."
+    },
+    {
+      "id": 18,
+      "category": "research",
+      "tier": "ESSENTIAL",
+      "title": "The First Principles Breakdown",
+      "task": "Deconstruct any complex problem to its fundamental truths",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Break down [TOPIC/PROBLEM] using first principles reasoning — the method of Musk, Feynman, and Aristotle.\n\nProcess:\n1. ASSUMPTION INVENTORY — List every assumption being made (aim for 10+, include hidden ones)\n2. TRUTH TEST — For each: actually proven true? Or convention accepted without proof?\n3. VERIFIED FUNDAMENTALS — What can we know with genuine certainty?\n4. RECONSTRUCTION — Starting ONLY from verified fundamentals, rebuild the best understanding\n5. DIVERGENCE POINTS — Where does first-principles thinking disagree with conventional wisdom?\n6. PRACTICAL IMPLICATIONS — How does this reframing change what you should do?\n\nFinal: What would someone think about [TOPIC] with ZERO prior exposure to the conventional narrative?\n\nTopic: [YOUR TOPIC]\nConventional wisdom to challenge: [THE DOMINANT VIEW]\nReason for examination: [WHY THIS MATTERS FOR YOUR DECISION]",
+      "tags": [
+        "first principles",
+        "critical thinking",
+        "reasoning",
+        "problem solving"
+      ],
+      "tip": "Most valuable when the conventional approach feels expensive, slow, or arbitrary."
+    },
+    {
+      "id": 19,
+      "category": "research",
+      "tier": "ADVANCED",
+      "title": "The Data Interpreter",
+      "task": "Extract deep, actionable insights from any dataset",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Perform comprehensive data analysis and extract meaningful, actionable insights.\n\nData: [PASTE DATA IN CSV, TABLE, OR DESCRIPTION FORMAT]\n\nDeliver:\n1. DATA QUALITY — Missing values, outliers, type issues, integrity problems\n2. DESCRIPTIVE STATISTICS — Key summary stats for all numerical columns\n3. TOP 5 PATTERNS — Most interesting and non-obvious trends\n4. ANOMALIES — Significant deviations with hypothesized explanations\n5. CORRELATIONS — Relationships worth investigating further\n6. NATURAL SEGMENTS — Groupings or clusters in the data\n7. BUSINESS IMPLICATIONS — What patterns mean for real decisions\n8. VISUALIZATION RECOMMENDATIONS — The 3 charts that tell this story best\n9. NEXT ANALYTICAL STEPS — Follow-up questions worth investigating\n\nWhat this data represents: [DESCRIBE]\nDecision this should inform: [SPECIFIC DECISION]\nMost important metric: [NORTH STAR]\nKnown data limitations: [CAVEATS]",
+      "tags": [
+        "data analysis",
+        "insights",
+        "statistics",
+        "BI"
+      ],
+      "tip": "Paste actual CSV data directly — Claude handles structured data very well. Include a header row and 20–50 representative rows."
+    },
+    {
+      "id": 20,
+      "category": "research",
+      "tier": "ADVANCED",
+      "title": "The Competitive Intelligence System",
+      "task": "Design an always-on competitive monitoring operation",
+      "tools": [
+        "perplexity",
+        "claude"
+      ],
+      "prompt": "Design a comprehensive competitive intelligence system for [MY COMPANY] in the [INDUSTRY].\n\nCompetitors: [LIST 3–5 KEY COMPETITORS]\n\nFor each competitor, analyze:\n1. Product updates and launches in the last 90 days\n2. Marketing message shifts and new positioning\n3. Pricing model changes or new packaging\n4. Hiring signals — roles and scale indicating strategic direction\n5. Content themes and thought leadership\n6. Customer sentiment changes from reviews, social, forums\n7. Partnership and integration announcements\n\nStrategic synthesis:\n- What coordinated moves are competitors making?\n- What do these signal about industry direction?\n- Where are they vulnerable or overextended?\n- Optimal response for my company?\n\nIntelligence cadence: [WEEKLY / BIWEEKLY / MONTHLY]\nMy current position: [DESCRIBE]\nMonitoring setup recommendations: [WHAT TO WATCH AUTOMATICALLY]",
+      "tags": [
+        "competitive intelligence",
+        "monitoring",
+        "strategy"
+      ],
+      "tip": "Set up automated Google Alerts and Mention.com alerts alongside this prompt for continuous monitoring."
+    },
+    {
+      "id": 21,
+      "category": "marketing",
+      "tier": "POWER",
+      "title": "The Deep Customer Avatar",
+      "task": "Build a frighteningly detailed ICP with full psychology and language",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Build a hyper-detailed Ideal Customer Profile for [PRODUCT/SERVICE].\n\nDEMOGRAPHIC LAYER:\nAge range, gender distribution, geography, income, education, job title, company type, seniority\n\nPSYCHOGRAPHIC LAYER:\n- Core values (what they believe is fundamentally true about the world)\n- How they see themselves vs. how they want to be seen\n- What they're privately proud of | What they're privately ashamed of\n- Their deepest fear | What they tell people they want vs. what they actually want\n- Who they aspire to be | What they believe about successful people like them\n\nBEHAVIORAL LAYER:\n- Hour-by-hour typical workday sketch\n- Specific publications, podcasts, newsletters, and accounts they follow\n- Buying triggers — events causing them to start looking for a solution\n- Real objections — the actual reasons they don't buy (not surface objections)\n- Decision process — who else is involved, what they need to approve\n\nLANGUAGE LAYER:\n- Exact phrases they use to describe their problem\n- Industry jargon that signals belonging | Words that mark outsiders\n- Their internal monologue in the 60 seconds before discovering your solution\n\nProduct: [YOUR PRODUCT] | Best real customer: [DESCRIBE IF KNOWN]",
+      "tags": [
+        "ICP",
+        "customer avatar",
+        "personas",
+        "targeting"
+      ],
+      "tip": "Interview 3 real customers before running this. Paste their exact quotes. The language layer becomes your copywriting."
+    },
+    {
+      "id": 22,
+      "category": "marketing",
+      "tier": "ESSENTIAL",
+      "title": "The High-Converting Landing Page",
+      "task": "Write complete, conversion-optimized landing page copy from scratch",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Write complete, high-converting landing page copy for [PRODUCT/SERVICE].\n\nAll 10 sections required:\n1. HERO: Main headline (<10 words, outcome-focused) + subheadline (mechanism + audience + timeframe) + CTA text\n2. SOCIAL PROOF BAR: 5 specific credibility signals\n3. PROBLEM SECTION: 3 specific pain points, emotionally resonant\n4. SOLUTION REVEAL: The \"aha moment\" — your unique mechanism\n5. FEATURES → BENEFITS: 6 features, each to a specific emotional benefit\n6. HOW IT WORKS: 3-step process, simple enough for anyone\n7. TESTIMONIALS: 3 templates with specific results and before/after (no generic praise)\n8. OBJECTION HANDLING: FAQ for top 5 objections with real answers\n9. PRICING SECTION: Price framing that makes cost feel small vs. value\n10. FINAL CTA: Urgency + risk reversal + specific next action\n\nProduct: [DESCRIBE IN DETAIL] | Ideal buyer: [DESCRIBE]\nPrice: [PRICE] | Primary differentiator: [WHAT MAKES YOU DIFFERENT]\nBiggest objection: [THE #1 REASON PEOPLE DON'T BUY]",
+      "tags": [
+        "landing page",
+        "conversion",
+        "copywriting",
+        "CRO"
+      ],
+      "tip": "Write 3 hero headline variations and test them. Headlines account for 60–80% of conversion rate variance."
+    },
+    {
+      "id": 23,
+      "category": "marketing",
+      "tier": "POWER",
+      "title": "The 20-Angle Ad Creative Matrix",
+      "task": "Generate 20 ad variations across every major psychological angle",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Generate 20 distinct ad copy variations for [PRODUCT] targeting [AUDIENCE] at [PRICE].\n\n2 ads for each of 10 angles:\n1. PROBLEM-AGITATION: The exact pain they feel right now in visceral detail\n2. TRANSFORMATION: Compressed before → after with specific metrics\n3. SOCIAL PROOF: A real, specific result from a real person\n4. FEAR OF MISSING OUT: What they lose by not acting\n5. CURIOSITY GAP: Tease a counterintuitive insight without revealing it\n6. CONTRARIAN TAKE: Challenge something the audience believes\n7. SPECIFICITY HOOK: A hyper-specific number or claim\n8. HOW-TO PROMISE: Lead with genuine value before selling\n9. IDENTITY ALIGNMENT: \"This is for people who [identity marker]...\"\n10. URGENCY/SCARCITY: Time-limited with specific framing\n\nFor each variation:\n- Headline (under 8 words)\n- Primary text (under 125 words)\n- CTA (3–5 words)\n- Best platform: Facebook / Instagram / TikTok / LinkedIn\n\nKey benefit: [MOST IMPORTANT OUTCOME]",
+      "tags": [
+        "advertising",
+        "paid ads",
+        "creative",
+        "Facebook ads"
+      ],
+      "tip": "Run every variation in a controlled test. The winning angle almost never matches your intuition."
+    },
+    {
+      "id": 24,
+      "category": "marketing",
+      "tier": "ADVANCED",
+      "title": "The Sales Script Builder",
+      "task": "Write a complete, objection-proof sales conversation script",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Create a complete sales call script for [PRODUCT] at [PRICE].\n\nScript with exact language:\n1. OPENER (30 sec): Build genuine rapport, reference something specific\n2. AGENDA SETTING: Take control professionally\n3. DISCOVERY (10 questions): Uncover pain, urgency, buying criteria\n4. DIAGNOSIS: Mirror back to build trust and confirm understanding\n5. SOLUTION: Feature → benefit → proof → specific impact on their situation\n6. TRIAL CLOSE: Gauge readiness before commitment pitch\n7. PRICE PRESENTATION: Value anchor before price reveal\n8. OBJECTION HANDLING for each:\n   - \"It's too expensive\"\n   - \"I need to think about it\"\n   - \"Need to talk to my partner/boss\"\n   - \"I use [COMPETITOR]\"\n   - \"Now isn't the right time\"\n9. CLOSING: 3 different approaches for different buyer personalities\n10. NEXT STEPS: Always close with a specific booked next action\n\nProduct: [WHAT YOU SELL] | Price: [AMOUNT]\nDecision maker: [WHO BUYS] | Sales cycle: [ONE CALL / MULTI-TOUCH]\nBiggest competitor: [WHO YOU LOSE TO MOST]",
+      "tags": [
+        "sales",
+        "scripts",
+        "objection handling",
+        "closing"
+      ],
+      "tip": "Record all your sales calls. Run them against this script. Gaps between script and reality are your training program."
+    },
+    {
+      "id": 25,
+      "category": "image",
+      "tier": "POWER",
+      "title": "Commercial Product Photography",
+      "task": "Create commercial-quality product photography with AI",
+      "tools": [
+        "midjourney",
+        "dalle",
+        "stable"
+      ],
+      "prompt": "High-end commercial product photograph. Shot on Hasselblad H6D-100C medium format.\n\nProduct: [DESCRIBE IN DETAIL — materials, colors, size, key features]\nSetting: [STUDIO / LIFESTYLE — describe environment specifically]\nLighting: [DIRECTION and TYPE: e.g. \"soft box from camera left creating subtle shadow,\" \"hard backlight rim lighting,\" \"golden hour window diffusion\"]\nMood: [e.g. \"clinical precision,\" \"warm and inviting,\" \"premium and aspirational\"]\nCamera angle: [e.g. \"straight-on hero shot,\" \"45° showing depth,\" \"overhead flat lay\"]\nBackground: [SPECIFIC COLOR, TEXTURE, OR ENVIRONMENT]\nProps: [COMPLEMENTARY ITEMS if any]\nColor grade: [WARM/COOL/NEUTRAL/DESATURATED]\nReference: [e.g. Apple product photography / Glossier / Patagonia outdoor]\n\n8K, magazine commercial quality --ar 4:5 --style raw --stylize 200 --no text watermark logo",
+      "tags": [
+        "product photography",
+        "commercial",
+        "ecommerce",
+        "brand"
+      ],
+      "tip": "The lighting description is the most important element — it determines 60% of the image feel."
+    },
+    {
+      "id": 26,
+      "category": "image",
+      "tier": "ESSENTIAL",
+      "title": "Brand Identity & Logo Concepts",
+      "task": "Generate cohesive brand visual identity concepts",
+      "tools": [
+        "midjourney",
+        "dalle"
+      ],
+      "prompt": "Minimal modern logo concept and brand identity system for [BRAND NAME] in the [INDUSTRY].\n\nBrand character:\n- Core values: [VALUE 1], [VALUE 2], [VALUE 3]\n- Personality: [e.g. \"precise but warm,\" \"bold and irreverent\"]\n- Target audience: [WHO THEY SERVE]\n- NOT this: [WHAT THE BRAND EXPLICITLY IS NOT]\n\nDesign direction: [geometric / organic / typographic / symbolic / abstract]\nStyle: [e.g. Swiss International / Japanese minimalism / American industrial / Scandinavian functional]\nColor palette: [PRIMARY] with [ACCENT] on [WHITE/BLACK/NEUTRAL]\n\nRequirements: Works at 16px favicon AND full billboard scale. No gradients. Flat design. Scalable vector.\n\nReference brands (aesthetic only): [e.g. Stripe / Notion / Linear / Monzo]\n\nPresent as: logo mark + wordmark + brand colors on white and black backgrounds --ar 16:9 --style raw --stylize 300",
+      "tags": [
+        "logo",
+        "brand identity",
+        "design",
+        "visual identity"
+      ],
+      "tip": "Generate 4–8 variations with different directions. Pick the strongest, then iterate 10 variations before selecting final."
+    },
+    {
+      "id": 27,
+      "category": "image",
+      "tier": "POWER",
+      "title": "Cinematic Editorial Portrait",
+      "task": "Create editorial-quality portrait photography with precise mood control",
+      "tools": [
+        "midjourney",
+        "stable"
+      ],
+      "prompt": "Editorial portrait photograph. [GENDER, AGE RANGE] subject.\n\nSubject: [DETAILED PHYSICAL DESCRIPTION — hair, build, distinctive features]\nExpression: [SPECIFIC EMOTION AND INTENSITY: e.g. \"quiet determination,\" \"fierce confidence\"]\nWardrobe: [DESCRIBE CLOTHING SPECIFICALLY]\n\nLighting: [e.g. \"single large window camera right, golden hour, deep Rembrandt shadow,\" \"ring light straight-on creating catchlights,\" \"neon pink backlight with ambient fill\"]\nEnvironment: [BACKGROUND — in focus / bokeh, what's in it]\n\nCamera: [Leica M11 / Canon 1DX / Fujifilm GFX / 35mm film]\nLens: [50mm f/0.95 / 85mm f/1.2 / 135mm f/1.8]\nFilm grade: [e.g. \"Kodak Portra 400 grain,\" \"high contrast matte,\" \"desaturated cinema\"]\n\nPublished in: [TIME Magazine / Vogue Italia / Rolling Stone]\nStyle of: [Annie Leibovitz / Gregory Crewdson / Platon]\n\n--ar 2:3 --style raw --stylize 250 --no watermark text",
+      "tags": [
+        "portrait",
+        "editorial",
+        "photography",
+        "cinema"
+      ],
+      "tip": "For series consistency, use identical --seed NUMBER across all shots."
+    },
+    {
+      "id": 28,
+      "category": "image",
+      "tier": "ADVANCED",
+      "title": "Architectural Interior Visualization",
+      "task": "Visualize any interior with precise architectural style and mood",
+      "tools": [
+        "midjourney",
+        "dalle",
+        "stable"
+      ],
+      "prompt": "Photorealistic architectural interior visualization.\n\nRoom type: [ROOM AND FUNCTION]\nStyle: [e.g. \"Japanese wabi-sabi minimalism,\" \"Milanese industrial brutalism,\" \"California organic modernism\"]\nSpace: [SIZE/VOLUME: e.g. \"double-height industrial loft,\" \"compact Tokyo apartment\"]\nNatural light: [e.g. \"north-facing afternoon light through floor-to-ceiling glass, diffused and even\"]\n\nMaterials: [LIST PRECISELY: flooring, walls, ceiling, furniture materials]\nFurniture: [SPECIFIC PIECES — style, material, arrangement]\nColor palette: [DOMINANT] + [ACCENT] + [NEUTRAL BASE]\nArtwork/objects: [WHAT'S ON WALLS AND SURFACES]\n\nTime of day: [MORNING / GOLDEN HOUR / NIGHT]\nMood: [3 ADJECTIVES]\n\nPublished in: [Architectural Digest / Wallpaper* / Dezeen]\nShot: [WIDE ANGLE / DETAIL / MEDIUM PERSPECTIVE]\n\nUltra-realistic, material-accurate, professionally staged --ar 16:9 --style raw --stylize 350",
+      "tags": [
+        "interior design",
+        "architecture",
+        "visualization",
+        "real estate"
+      ],
+      "tip": "Use ControlNet depth map in Stable Diffusion to maintain layout of an actual room you're redesigning."
+    },
+    {
+      "id": 29,
+      "category": "image",
+      "tier": "ADVANCED",
+      "title": "Character Consistency System",
+      "task": "Create fully consistent character designs across multiple scenes",
+      "tools": [
+        "midjourney",
+        "stable"
+      ],
+      "prompt": "Complete CHARACTER REFERENCE SHEET for [CHARACTER NAME].\n\nSCENE 1 — Full body reference: neutral stance, plain white background, front-facing\nSCENE 2 — Portrait reference: close-up face, front AND 3/4 view side by side\nSCENE 3 — Character in action: [DESCRIBE SPECIFIC SCENE]\n\nCharacter (exhaustive — every detail matters):\n- Age: [EXACT] | Build: [SPECIFIC] | Height: [RELATIVE TO AVERAGE]\n- Face shape: [SHAPE] | Jawline: [DESCRIPTION] | Cheekbones: [DESCRIPTION]\n- Eye color: [EXACT] | Eye shape: [DESCRIPTION] | Eyebrow style: [DESCRIPTION]\n- Hair: [EXACT COLOR] | [SPECIFIC STYLE AND LENGTH]\n- Distinguishing marks: [SCARS / TATTOOS / MOLES / ACCESSORIES]\n- Signature outfit: [DESCRIBE EVERY PIECE WITH SPECIFIC COLORS AND MATERIALS]\n\nArt style: [Studio Ghibli / Marvel Comics / Pixar / anime / watercolor]\n\n--ar 3:2 --stylize 400 --seed [CHOOSE ONE NUMBER — USE IDENTICALLY FOR ALL SCENES]",
+      "tags": [
+        "character design",
+        "consistency",
+        "illustration",
+        "animation",
+        "game art"
+      ],
+      "tip": "In Midjourney, use --cref [image URL] to lock appearance from a previously generated reference."
+    },
+    {
+      "id": 30,
+      "category": "productivity",
+      "tier": "POWER",
+      "title": "The Comprehensive Life Audit",
+      "task": "Get an honest assessment of your life across all dimensions",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Conduct a comprehensive life audit with me. Be a brilliant, completely honest life strategist — not a cheerleader.\n\nMy current situation:\n- Career/Work: [DESCRIBE HONESTLY]\n- Health/Fitness: [DESCRIBE HONESTLY]\n- Key Relationships: [DESCRIBE HONESTLY]\n- Financial Situation: [DESCRIBE HONESTLY]\n- Personal Growth/Learning: [DESCRIBE HONESTLY]\n- Mental Health/Energy: [DESCRIBE HONESTLY]\n- Recreation/Joy: [DESCRIBE HONESTLY]\n- Living Environment: [DESCRIBE HONESTLY]\n\nFor each area:\n1. Honest assessment: 1–10 with non-sugarcoated reasoning\n2. Single highest-leverage change\n3. Concrete leading indicator to track weekly\n4. Most likely root cause if score is below 7\n\nCross-area synthesis:\n- Which 2 areas create strongest positive cascade for everything else?\n- What patterns appear across multiple low scores?\n- What single change has the broadest positive effect?\n- What am I avoiding that I most need to confront?",
+      "tags": [
+        "life audit",
+        "self-assessment",
+        "goals",
+        "life design"
+      ],
+      "tip": "Do this quarterly. Pattern recognition across all areas simultaneously is the most valuable output."
+    },
+    {
+      "id": 31,
+      "category": "productivity",
+      "tier": "ESSENTIAL",
+      "title": "The Optimal Week Designer",
+      "task": "Design your entire week for maximum output and fulfillment",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Design my optimal week using time-blocking and energy management principles.\n\nMy inputs:\n- Non-negotiable commitments: [LIST WITH SPECIFIC TIMES]\n- Top 3 work priorities this week: [LIST IN ORDER]\n- One personal goal to advance: [SPECIFIC GOAL]\n- Peak mental energy times: [MORNING / MIDDAY / AFTERNOON / EVENING]\n- Energy drains to minimize: [WHAT EXHAUSTS YOU]\n- This week's biggest bottleneck: [WHAT'S BLOCKING PROGRESS]\n\nDesign:\n1. Day-by-day time-blocked schedule with rationale for each major block\n2. A theme for each day (single primary work mode)\n3. Morning routine (30–45 min maximum)\n4. Evening shutdown ritual (15–20 min)\n5. Deep work blocks positioned at peak energy\n6. Buffer for the inevitable unexpected\n7. Three things I will NOT do this week\n8. One investment in next week I'll make this week\n\nWork context: [REMOTE / OFFICE / HYBRID]\nPersonal obligations: [KEY COMMITMENTS]\nWhat genuinely recharges me: [RESTORATION ACTIVITIES]",
+      "tags": [
+        "weekly planning",
+        "time-blocking",
+        "productivity",
+        "scheduling"
+      ],
+      "tip": "Run this Sunday evening. The '3 things I will NOT do' section delivers the most ROI."
+    },
+    {
+      "id": 32,
+      "category": "productivity",
+      "tier": "ADVANCED",
+      "title": "The Negotiation Master Brief",
+      "task": "Prepare completely for any high-stakes negotiation",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Prepare me completely for this negotiation: [DESCRIBE IN FULL DETAIL]\n\nComplete negotiation brief:\n\nMY POSITION:\n- BATNA: My best alternative if this fails completely\n- Reservation point: My absolute walk-away condition\n- Target outcome | Opening position and rationale\n\nTHEIR POSITION:\n- Their likely BATNA and how strong it is\n- Their constraints, pressures, and timeline\n- What they most want | Where they're most flexible\n\nZONE OF POSSIBLE AGREEMENT: Map the realistic overlap\n\nTACTICAL PLANNING:\n1. First offer strategy — anchor approach\n2. First 3 things I will say to open\n3. Concession sequencing — give, in order, linked to what\n4. What I will never concede\n5. Counter-moves for 5 likely pressure tactics\n\nKEY QUESTIONS to ask before making any offer\n\nMy context: [WHAT I'M NEGOTIATING]\nMy leverage: [DESCRIBE] | Timeline: [DEADLINE]",
+      "tags": [
+        "negotiation",
+        "salary",
+        "deals",
+        "persuasion"
+      ],
+      "tip": "The BATNA analysis is the most important section. A strong BATNA gives you genuine power."
+    },
+    {
+      "id": 33,
+      "category": "creativity",
+      "tier": "POWER",
+      "title": "The Story Architecture Engine",
+      "task": "Build complete narrative structure for any story or script",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Design the complete narrative architecture for [STORY TYPE: novel / screenplay / short story / brand film].\n\nCore:\n- Premise: [ONE SENTENCE]\n- Genre: [GENRE] | Tone: [DARK / COMEDIC / LITERARY / THRILLER]\n- Format: [TARGET LENGTH AND MEDIUM]\n- Audience: [WHO AND WHAT THEY WANT FROM THIS STORY]\n\nArchitecture:\n1. LOGLINE — One sentence that sells the whole story to a skeptic\n2. THEME — The central question posed (and tentatively answered)\n3. PROTAGONIST — Name, external goal, internal wound, fatal flaw, desire vs. need\n4. ANTAGONIST — What opposes and why they're justified from their perspective\n5. THREE-ACT STRUCTURE with labeled turning points\n6. 8 ESSENTIAL SCENES — What changes in each and why\n7. THE ENDING — And why it's earned by everything before\n8. THE GOVERNING PRINCIPLE — One storytelling rule this story lives by",
+      "tags": [
+        "storytelling",
+        "screenplay",
+        "novel",
+        "narrative structure"
+      ],
+      "tip": "The 'desire vs. need' gap in character design is the engine of the entire story."
+    },
+    {
+      "id": 34,
+      "category": "creativity",
+      "tier": "ESSENTIAL",
+      "title": "The Worldbuilding Blueprint",
+      "task": "Create a rich, internally consistent fictional world",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Build a complete fictional world for [PROJECT: novel / game / series].\n\nFoundation:\n- Genre/Tone: [FANTASY / SCI-FI / ALT HISTORY / NEAR-FUTURE]\n- Scale: [CITY / REGION / PLANET] | Central conflict: [THE CORE TENSION]\n\nWorld design (7 systems):\n1. PHYSICAL WORLD — Geography, climate, resources, how they shape culture and conflict\n2. HISTORY — 5 specific events that made this world what it is today (with dates)\n3. POWER STRUCTURE — 3–4 major factions with power, beliefs, internal tensions\n4. SYSTEMS OF POWER — Magic/technology/economics: how power is gained and transferred\n5. LIVED EXPERIENCE — Daily life for an ordinary person — what do they eat, fear, celebrate?\n6. CULTURE & LANGUAGE — 5 customs, 3 taboos, unique words, art forms\n7. SECRETS — 3 things almost no one in this world knows\n\nINTERNAL RULES — 5 immutable laws (violate them and reader trust collapses)\nSENSORY PALETTE — What this world smells, sounds, feels like (3 sentences)\nTHE UNIQUE ELEMENT — One thing about this world that exists nowhere else in fiction",
+      "tags": [
+        "worldbuilding",
+        "fantasy",
+        "sci-fi",
+        "game design"
+      ],
+      "tip": "Build the internal rules first. Consistency matters more than complexity or originality."
+    },
+    {
+      "id": 35,
+      "category": "creativity",
+      "tier": "ADVANCED",
+      "title": "The Brand Voice Codifier",
+      "task": "Define and operationalize a brand's unique communication DNA",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Create a comprehensive Brand Voice Guide for [BRAND NAME] — specific enough that any writer could replicate the voice precisely.\n\nContext:\n- What we do: [DESCRIPTION] | Core audience: [DESCRIBE]\n- Market position: [HOW WE'RE DIFFERENT AND FOR WHOM]\n- Brand we admire: [AESTHETIC REFERENCE] | Brand we are NOT: [ANTI-EXAMPLE — be specific]\n\nVoice architecture:\n1. VOICE PILLARS — 4 traits, each documented as:\n   - What this means in practice (3 concrete examples)\n   - What this does NOT mean (the common misinterpretation)\n   - A model sentence that perfectly embodies this trait\n\n2. TONE MATRIX — How voice adapts across contexts:\n   - Responding to a frustrated customer\n   - Speaking to a new potential customer\n   - In-product UI microcopy\n   - Crisis or difficult news\n\n3. VOCABULARY: 15 words we use | 15 we never use (with alternatives)\n\n4. STRUCTURAL RULES: Sentence length | Formality | Pronoun policy | Humor approach\n\n5. BEFORE/AFTER: 5 generic sentences rewritten to perfectly on-brand\n\nIntended users: [CONTENT TEAM / AGENCY / ALL STAFF]",
+      "tags": [
+        "brand voice",
+        "copywriting",
+        "style guide",
+        "brand strategy"
+      ],
+      "tip": "The 'what we are NOT' exercise is almost always more clarifying than positive descriptions."
+    },
+    {
+      "id": 36,
+      "category": "thinking",
+      "tier": "POWER",
+      "title": "The Steel Man Generator",
+      "task": "Build the most powerful possible case for any position",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Construct the strongest possible intellectual argument FOR [POSITION/IDEA/POLICY] as its most brilliant, well-informed, and honest advocate.\n\nBuild a STEELMAN — so strong that smart critics say: \"I disagree, but that's the best case for this position I've encountered.\"\n\nDo NOT hedge. Do NOT add caveats that weaken the case.\n\nStructure:\n1. THE CORE INSIGHT — The fundamental truth that makes this position compelling\n2. THE EMPIRICAL FOUNDATION — Strongest data, studies, and historical examples\n3. THE PHILOSOPHICAL LOGIC — First-principles reasoning that leads here\n4. PREEMPTIVE REBUTTALS — Address 3 strongest counterarguments\n5. THE CONSEQUENTIALIST CASE — Why outcomes are better if this position wins\n6. WHAT CRITICS GET WRONG — The most persistent misunderstanding\n7. WHERE EVEN ADVOCATES SHOULD BE UNCERTAIN — Honest limits\n\nPosition: [THE IDEA OR POLICY]\nMy current view: [WHERE YOU STAND]\nContext: [DEBATE / DECISION / EXPLORATION]\n\nFinal: What evidence would genuinely falsify this position?",
+      "tags": [
+        "steel-manning",
+        "critical thinking",
+        "argumentation",
+        "epistemology"
+      ],
+      "tip": "Run this specifically for positions you STRONGLY DISAGREE with. The fastest path to actually understanding the other side."
+    },
+    {
+      "id": 37,
+      "category": "thinking",
+      "tier": "ADVANCED",
+      "title": "The Premortem Analysis",
+      "task": "Identify every failure mode of a plan before you commit",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Conduct a rigorous premortem. It is 12 months from today and [PROJECT/PLAN] has failed completely. Work backwards and explain exactly how.\n\nPlan: [DESCRIBE IN FULL DETAIL]\nTeam: [WHO'S INVOLVED] | Timeline: [MILESTONES]\n\nFailure analysis:\n1. PRIMARY CAUSE — Single most likely fatal flaw in the current plan\n2. FAILURE PATHS — 5 other realistic routes to failure, ranked by probability\n3. EARLY WARNING SIGNALS — For each path: what's observable in months 1–3?\n4. ENVIRONMENTAL CONTRIBUTORS — External conditions that accelerate failure\n5. INTERNAL BLIND SPOTS — What does the team currently believe that is probably wrong?\n6. THE CRITICAL PATH — Single dependency whose failure brings down everything\n7. CONFIDENCE INFLECTION POINTS — Where will we be most overconfident?\n\nInversion: For each major failure mode, what is the minimum viable change that would neutralize it?\n\nOutput: A \"Failure Prevention Checklist\" — 10 specific verifiable checkpoints to clear before committing fully.",
+      "tags": [
+        "premortem",
+        "risk analysis",
+        "planning",
+        "project management"
+      ],
+      "tip": "The best time to run a premortem is exactly when a plan feels most exciting."
+    },
+    {
+      "id": 38,
+      "category": "thinking",
+      "tier": "POWER",
+      "title": "The Mental Models Engine",
+      "task": "Apply the most relevant mental models to illuminate any problem",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Apply the 5 most relevant mental models to this problem. For each, tell me what it reveals that I'd miss without it.\n\nProblem/Situation: [DESCRIBE YOUR SITUATION OR DECISION]\n\nFor each of the 5 models:\n1. Name the model\n2. Explain it in 2 sentences to a smart non-expert\n3. Apply it specifically and concretely to my problem\n4. What does this reveal that would be invisible without it?\n5. What action does this model suggest?\n\nDraw from (only those genuinely applicable): inversion, second-order thinking, Occam's razor, Hanlon's razor, survivorship bias, base rate neglect, commitment bias, incentive analysis, circle of competence, regret minimization, opportunity cost, via negativa, margin of safety, map vs. territory, Goodhart's Law, availability heuristic, local vs. global optimum.\n\nAfter all 5:\n- Strongest consensus signal across models?\n- Where do models conflict, and what does that tension reveal?",
+      "tags": [
+        "mental models",
+        "decision-making",
+        "frameworks",
+        "thinking"
+      ],
+      "tip": "Inversion alone ('how does this fail?') often clarifies more than 4 other models combined."
+    },
+    {
+      "id": 39,
+      "category": "thinking",
+      "tier": "ADVANCED",
+      "title": "The Scenario Planning Matrix",
+      "task": "Map out futures and build strategies that survive deep uncertainty",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Conduct full scenario planning for [ORGANIZATION / STRATEGY / DECISION].\n\nContext: [DESCRIBE YOUR SITUATION]\nTime horizon: [1 / 3 / 5 / 10 YEARS]\n\nSTEP 1 — DRIVING FORCES:\n8 forces shaping your environment:\n- 4 Predetermined: will happen regardless of choices\n- 4 Critical Uncertainties: could go significantly either way\n\nSTEP 2 — SCENARIO MATRIX:\nSelect the 2 most impactful AND most uncertain forces.\nBuild a 2×2 matrix → 4 named scenarios (names should evoke the scenario vividly).\n\nSTEP 3 — SCENARIO NARRATIVES (150 words each):\nFor each scenario: How did we get here? What does this world look like? Who wins and loses? What is my specific situation?\n\nSTEP 4 — STRATEGIC RESPONSE:\n- Robust strategies: succeed in ALL 4 scenarios\n- Hedging strategies: protect against downside in any scenario\n- Speculative bets: win big in specific scenarios\n- Early indicators: signals that tell me which scenario is unfolding",
+      "tags": [
+        "scenario planning",
+        "strategy",
+        "futures",
+        "uncertainty"
+      ],
+      "tip": "Most valuable when making a 3–5 year commitment that's hard to reverse."
+    },
+    {
+      "id": 40,
+      "category": "automation",
+      "tier": "POWER",
+      "title": "The Automation Opportunity Scanner",
+      "task": "Map every automation opportunity in any business process",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Analyze the following process and identify every automation opportunity with ROI analysis.\n\nProcess (step by step): [DESCRIBE COMPLETELY]\nCurrent tools: [LIST ALL] | Team involved: [NUMBER AND ROLES]\nTime spent per week: [HOURS AND BY WHOM]\n\nFor every opportunity identified:\n1. Specific task being automated\n2. Current weekly time cost\n3. Automation approach: Zapier / Make / n8n / custom code / AI / RPA\n4. Specific implementation — tools + workflow design\n5. Estimated weekly time saved\n6. Implementation difficulty: 1 (easy) to 5 (hard)\n7. ROI: (hours saved × rate) ÷ implementation cost = payback period\n\nPrioritization matrix:\n- QUICK WINS: High impact + low difficulty\n- STRATEGIC PROJECTS: High impact + higher difficulty\n- FILL-INS: Lower impact + easy\n- SKIP: Low impact + difficult\n\nSynthesis: Identify the single highest-ROI automation to build first.\nDeliver: Step-by-step implementation brief for that top automation.",
+      "tags": [
+        "automation",
+        "workflows",
+        "efficiency",
+        "ROI"
+      ],
+      "tip": "The highest-value automations eliminate entire job functions, not just tasks within them."
+    },
+    {
+      "id": 41,
+      "category": "automation",
+      "tier": "ADVANCED",
+      "title": "The AI Agent Design Brief",
+      "task": "Write a complete specification for any autonomous AI agent",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Design a complete, production-ready AI agent specification.\n\nTask: [DESCRIBE WHAT THE AGENT DOES AUTONOMOUSLY]\nRun frequency: [CONTINUOUS / HOURLY / DAILY / TRIGGERED]\nHuman oversight: [FULLY AUTONOMOUS / HUMAN-IN-LOOP / HUMAN APPROVAL BEFORE FINAL ACTION]\n\nComplete specification:\n1. AGENT OBJECTIVE — Single unambiguous goal statement\n2. SUCCESS CRITERIA — Exactly how we know it worked (measurable)\n3. REQUIRED TOOLS:\n   □ Web search (Tavily / Perplexity API)\n   □ Code execution (E2B sandbox)\n   □ Email/calendar\n   □ Database read/write\n   □ Browser control\n   □ Third-party APIs: [LIST]\n4. MEMORY ARCHITECTURE: Working context | Long-term storage\n5. DECISION LOGIC — 5 most important decisions + criteria for each\n6. FAILURE MODES & GUARDRAILS — What goes wrong + prevention\n7. ESCALATION PROTOCOL — When to stop and ask a human\n8. IMPLEMENTATION PATH — LangGraph / CrewAI / AutoGen + rationale\n9. TESTING PLAN — How to validate before production\n10. MONITORING — What to log, alert on, and review regularly",
+      "tags": [
+        "AI agents",
+        "autonomous systems",
+        "LangGraph",
+        "agent design"
+      ],
+      "tip": "The failure modes section is the most important. Agents fail in unexpected ways — design for failure from the start."
+    },
+    {
+      "id": 42,
+      "category": "automation",
+      "tier": "ADVANCED",
+      "title": "The Make.com Scenario Architect",
+      "task": "Design a complete Make.com automation scenario from scratch",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Design a complete, implementation-ready Make.com automation scenario.\n\nI want to automate: [DESCRIBE THE COMPLETE DESIRED OUTCOME]\nTrigger: [WEBHOOK / SCHEDULE / NEW RECORD / EMAIL / FORM SUBMISSION]\nFinal result: [WHAT SHOULD EXIST WHEN DONE]\nApps involved: [LIST EVERY APP]\n\nComplete scenario design:\n\n1. TRIGGER MODULE: App + trigger type + key config + data provided\n\n2. ALL PROCESSING MODULES (in sequence):\n   Each module: Name (App + Action) | Input data | Key config | Output fields\n\n3. ROUTER LOGIC: Branching conditions and path handling\n\n4. FILTERS: Where to add conditions so irrelevant data doesn't flow through\n\n5. ERROR HANDLING: What happens when each module fails + recovery\n\n6. DATA TRANSFORMERS: Text/number/date manipulation needed\n\n7. FINAL MODULES: Where data lands and what it looks like\n\nTEXT FLOW DIAGRAM: [MODULE] → [MODULE] → [MODULE]\n\nMonthly operation estimate: [CALCULATE]\nPotential bottlenecks/API limits: [FLAG]",
+      "tags": [
+        "Make.com",
+        "no-code",
+        "automation",
+        "integration"
+      ],
+      "tip": "Paste this design into Make's AI assistant for step-by-step build guidance."
+    },
+    {
+      "id": 43,
+      "category": "career",
+      "tier": "POWER",
+      "title": "The Resume Overhaul",
+      "task": "Transform any resume for maximum ATS performance and human impact",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Perform a complete, professional-grade resume overhaul optimized for ATS systems and human readers.\n\nREWRITE ALL BULLETS using: STRONG VERB + SPECIFIC TASK + QUANTIFIED METRIC + MEASURABLE IMPACT\nExample: \"Reduced customer churn 23% by redesigning onboarding email sequence, saving $340K in ARR\"\nNever: \"responsible for,\" \"helped with,\" \"assisted in,\" or passive voice.\n\nCOMPLETE DELIVERABLES:\n1. Professional Summary: 3-sentence value proposition — who you are, what you uniquely do, why it matters\n2. All experience bullets rewritten to above standard\n3. Skills section optimized for [TARGET ROLE]\n4. 12 priority keywords to add from job description for ATS\n5. What to cut — flag everything that weakens the document\n6. Red flags to address: gaps, dated technologies, irrelevant content\n7. Format recommendations: length, structure, visual hierarchy\n\nCurrent resume: [PASTE FULL RESUME]\nTarget role: [TITLE AT COMPANY]\nJob description: [PASTE FULL JD]\nSeniority: [ENTRY / MID / SENIOR / EXEC]",
+      "tags": [
+        "resume",
+        "job search",
+        "ATS",
+        "career"
+      ],
+      "tip": "Customize the keywords section for every application. A customized resume with 12 matched keywords dramatically outperforms a perfect generic resume."
+    },
+    {
+      "id": 44,
+      "category": "career",
+      "tier": "ESSENTIAL",
+      "title": "The Interview Dominator",
+      "task": "Prepare completely for any job interview",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Prepare me for a complete, confident interview at [COMPANY] for [POSITION].\n\nPREPARATION PACKAGE:\n\n1. COMPANY INTELLIGENCE BRIEF:\n   - Business model, revenue streams, strategic priorities\n   - Most important news in the last 90 days\n   - Culture signals from Glassdoor, LinkedIn, founder interviews\n   - Problems this role is likely hired to solve\n\n2. 25 PREDICTED QUESTIONS:\n   - 5 behavioral with STAR structure (Situation, Task, Action, Result)\n   - 5 technical/role-specific\n   - 5 cultural fit and values questions\n   - 5 situational judgment questions\n   - 5 designed to stress test or reveal weaknesses\n\n3. MY STORY — Compelling 90-second introduction: memorable, relevant, honest\n\n4. 10 QUESTIONS TO ASK — Demonstrate strategic thinking, not just preparation\n\n5. SALARY NEGOTIATION SCRIPT — When they ask \"What are your expectations?\"\n\n6. TOP 5 MISTAKES for this role/level to avoid\n\n7. THE INSIGHT THAT WINS OFFERS — One non-obvious thing most candidates won't know\n\nMy background: [DESCRIBE YOUR EXPERIENCE]\nJob description: [PASTE FULL JD]",
+      "tags": [
+        "interview prep",
+        "job search",
+        "career",
+        "salary negotiation"
+      ],
+      "tip": "Do a recorded mock interview immediately after this. Say answers out loud, record, ask Claude for critical feedback."
+    },
+    {
+      "id": 45,
+      "category": "career",
+      "tier": "POWER",
+      "title": "The Personal Brand Architect",
+      "task": "Design a complete, monetizable personal brand and thought leadership strategy",
+      "tools": [
+        "claude",
+        "chatgpt"
+      ],
+      "prompt": "Build a comprehensive, actionable personal brand strategy for [YOUR NAME / ROLE].\n\nMy expertise: [SPECIFIC DOMAIN KNOWLEDGE]\nTarget audience: [WHO I WANT TO REACH — specifically]\nBrand objective: [WHAT I WANT TO BE KNOWN FOR AND BY WHOM]\nPrimary platform: [LINKEDIN / TWITTER/X / SUBSTACK / YOUTUBE / SPEAKING]\n\nComplete strategy:\n1. POSITIONING STATEMENT — One sentence defining your unique value\n2. DISTINCTIVE POV — 3 contrarian beliefs about your field\n3. CONTENT PILLARS — 4 topics you'll systematically own (with rationale)\n4. SIGNATURE FRAMEWORK — A named, proprietary model associated with you\n5. CONTENT ARCHITECTURE:\n   - Flagship content (70% of effort) | Distribution content | Engagement content\n   - Posting cadence by platform\n6. 50-PERSON NETWORK STRATEGY — Build relationships with the people who matter\n7. 90-DAY LAUNCH PLAN — Week-by-week for the first 4 weeks\n8. MONETIZATION ROADMAP — Path from audience to income in 12–18 months (3 streams)\n9. VOICE GUIDELINES — 3 adjectives with what they mean in practice\n\nCurrent assets: [ANY EXISTING CONTENT, AUDIENCE, CREDENTIALS]",
+      "tags": [
+        "personal brand",
+        "thought leadership",
+        "LinkedIn",
+        "creator economy"
+      ],
+      "tip": "The 'signature framework' is the single most important element. Name yours before anything else."
+    },
+    {
+      "id": 46,
+      "category": "career",
+      "tier": "ADVANCED",
+      "title": "The Skill Acceleration Blueprint",
+      "task": "Design the fastest path to mastery of any professional skill",
+      "tools": [
+        "claude",
+        "chatgpt",
+        "perplexity"
+      ],
+      "prompt": "Design an aggressive, evidence-based accelerated learning curriculum for [SKILL/FIELD].\n\nStarting point: [COMPLETE BEGINNER / HAVE BASICS / INTERMEDIATE]\nTarget outcome: [SPECIFIC DEFINITION OF COMPETENCE]\nAvailable time: [X HOURS PER WEEK]\nTarget timeline: [3 / 6 / 12 MONTHS]\nLearning mode: [READING / VIDEO / PROJECTS / PRACTICE / COACHING]\nWhy this matters: [YOUR GOAL BEHIND LEARNING THIS]\n\nLearning architecture:\n1. SKILL DECOMPOSITION — Break into 5–8 sub-skills with dependencies\n2. THE 80/20 — Which 20% of this skill delivers 80% of the value? Start here.\n3. CURATED RESOURCES (specific, not generic):\n   - 3 books with specific chapters to prioritize and why\n   - 3 courses/resources with specific modules to focus on\n   - 2 practitioners to study — what specifically to learn from each\n4. THE PROJECT LADDER — 6 progressively harder projects (not just knowledge)\n5. WEEK-BY-WEEK — Detailed plan for the first 4 weeks\n6. MILESTONE CHECKPOINTS — How to verify you've reached each level\n7. PLATEAU ANTICIPATION — Where most learners stall and how to push through\n8. THE ONE HABIT — If you could only do one thing daily for 30 days\n\nField: [SKILL] | Adjacent skills: [RELEVANT BACKGROUND]",
+      "tags": [
+        "learning",
+        "skill development",
+        "accelerated learning",
+        "career"
+      ],
+      "tip": "The project ladder is where real skill is built. Each project should be slightly harder than you think you can handle."
+    }
+  ],
+  "certifications": [
+    {
+      "level": 1,
+      "name": "AI Foundations",
+      "color": "#4ADE80",
+      "modules": "1–3",
+      "requirement": "Modules 1–3 + 50-question exam (75% pass)",
+      "outcome": "Core AI literacy and practical tool proficiency across all major platforms"
+    },
+    {
+      "level": 2,
+      "name": "AI Practitioner",
+      "color": "#FACC15",
+      "modules": "4–7",
+      "requirement": "Modules 4–7 + 2 submitted capstone projects",
+      "outcome": "Proven ability to deploy AI across content, marketing, and automation"
+    },
+    {
+      "level": 3,
+      "name": "AI Engineer",
+      "color": "#F97316",
+      "modules": "8–12",
+      "requirement": "Modules 8–12 + one live deployed production project",
+      "outcome": "Certified to build and ship AI systems, agents, and RAG architectures"
+    },
+    {
+      "level": 4,
+      "name": "AI Architect",
+      "color": "#A78BFA",
+      "modules": "13–18",
+      "requirement": "Modules 13–18 + capstone defense before practitioner panel",
+      "outcome": "Elite credential: system design, fine-tuning, and AI business mastery"
+    }
+  ],
+  "careerPaths": [
+    {
+      "title": "AI Engineer",
+      "salary": "$160K–$350K",
+      "modulePath": "M1,2,8,9,10,13,17",
+      "color": "#4ADE80",
+      "description": "Build AI products, integrate LLMs, deploy agents and RAG systems"
+    },
+    {
+      "title": "AI Product Manager",
+      "salary": "$140K–$280K",
+      "modulePath": "M1,2,6,11,16,17",
+      "color": "#FACC15",
+      "description": "Define and drive AI product strategy, roadmap, and execution"
+    },
+    {
+      "title": "AI Consultant",
+      "salary": "$200–$800/hr",
+      "modulePath": "M1,2,11,12,14,16",
+      "color": "#F97316",
+      "description": "Advise organizations on AI strategy, transformation, and ROI"
+    },
+    {
+      "title": "AI Content Strategist",
+      "salary": "$80K–$180K",
+      "modulePath": "M1,2,3,4,5,7",
+      "color": "#FB7185",
+      "description": "Lead AI-powered content and creative operations for brands"
+    },
+    {
+      "title": "AI Entrepreneur",
+      "salary": "Unlimited",
+      "modulePath": "Full curriculum",
+      "color": "#A78BFA",
+      "description": "Build and scale AI-native businesses, products, and services"
+    },
+    {
+      "title": "AI Automation Specialist",
+      "salary": "$90K–$200K",
+      "modulePath": "M1,2,6,8,9,14",
+      "color": "#38BDF8",
+      "description": "Design and deploy automation systems that replace manual work"
+    }
+  ],
+  "toolStack": [
+    {
+      "cat": "Language Models",
+      "col": "#4ADE80",
+      "items": [
+        "Claude Sonnet/Opus",
+        "GPT-4o",
+        "Gemini Ultra",
+        "Llama 3.1",
+        "Mistral Large",
+        "Qwen 2.5"
+      ]
+    },
+    {
+      "cat": "Image Generation",
+      "col": "#FB7185",
+      "items": [
+        "Midjourney v7",
+        "DALL-E 3",
+        "Stable Diffusion XL",
+        "Flux",
+        "Ideogram 2.0",
+        "Adobe Firefly"
+      ]
+    },
+    {
+      "cat": "Video AI",
+      "col": "#F97316",
+      "items": [
+        "Runway Gen-3",
+        "Sora",
+        "Kling",
+        "Pika 2.0",
+        "HeyGen",
+        "Descript"
+      ]
+    },
+    {
+      "cat": "Audio AI",
+      "col": "#FACC15",
+      "items": [
+        "ElevenLabs",
+        "Suno v4",
+        "Udio",
+        "Whisper Large",
+        "Adobe Podcast",
+        "Mubert"
+      ]
+    },
+    {
+      "cat": "Coding AI",
+      "col": "#A78BFA",
+      "items": [
+        "Cursor",
+        "GitHub Copilot",
+        "Claude Code",
+        "Bolt.new",
+        "Lovable",
+        "v0 by Vercel"
+      ]
+    },
+    {
+      "cat": "Automation",
+      "col": "#38BDF8",
+      "items": [
+        "Make.com",
+        "n8n",
+        "Zapier",
+        "LangGraph",
+        "CrewAI",
+        "Composio"
+      ]
+    },
+    {
+      "cat": "RAG & Vector",
+      "col": "#4ADE80",
+      "items": [
+        "Pinecone",
+        "Qdrant",
+        "Weaviate",
+        "LlamaIndex",
+        "LangChain",
+        "Chroma"
+      ]
+    },
+    {
+      "cat": "Research",
+      "col": "#F97316",
+      "items": [
+        "Perplexity Pro",
+        "Elicit",
+        "Consensus",
+        "NotebookLM",
+        "Julius AI",
+        "Tavily"
+      ]
+    },
+    {
+      "cat": "Agents & Orchestration",
+      "col": "#A78BFA",
+      "items": [
+        "LangGraph",
+        "AutoGen",
+        "CrewAI",
+        "Agents SDK",
+        "E2B",
+        "Browserbase"
+      ]
+    },
+    {
+      "cat": "Observability",
+      "col": "#FACC15",
+      "items": [
+        "LangSmith",
+        "Helicone",
+        "Langfuse",
+        "Weights & Biases",
+        "Datadog",
+        "Arize"
+      ]
+    }
+  ],
+  "capstones": [
+    {
+      "title": "AI Business in 30 Days",
+      "phase": "Intermediate",
+      "col": "#FACC15",
+      "desc": "Build and launch a real AI-powered business and generate your first dollar of revenue.",
+      "deliverable": "Live business with first paying customer and documented acquisition playbook."
+    },
+    {
+      "title": "Enterprise AI Transformation",
+      "phase": "Advanced",
+      "col": "#F97316",
+      "desc": "Design and present a complete AI transformation plan for an organization of 100+ people.",
+      "deliverable": "40-slide board-ready strategy with roadmap, ROI model, and change management plan."
+    },
+    {
+      "title": "Open-Source AI Product",
+      "phase": "Expert",
+      "col": "#A78BFA",
+      "desc": "Build and launch an open-source AI tool on GitHub with real users.",
+      "deliverable": "GitHub repo with 100+ stars, live demo, and Product Hunt launch post-mortem."
+    },
+    {
+      "title": "AI Research Report",
+      "phase": "Expert",
+      "col": "#38BDF8",
+      "desc": "Research and publish a definitive 10,000-word report on an emerging AI application area.",
+      "deliverable": "Published report with original data, expert input, and 1,000+ organic reads."
+    }
+  ]
+}

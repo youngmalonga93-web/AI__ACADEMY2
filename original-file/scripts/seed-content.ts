@@ -73,7 +73,15 @@ async function seedContent() {
     throw lessonsError;
   }
 
-  const { error: projectsError } = await supabase.from("projects").upsert(
+  const moduleIds = modules.map((module) => module.id);
+
+  const { error: deleteProjectsError } = await supabase.from("projects").delete().in("module_id", moduleIds);
+
+  if (deleteProjectsError) {
+    throw deleteProjectsError;
+  }
+
+  const { error: projectsError } = await supabase.from("projects").insert(
     modules.map((module) => ({
       module_id: module.id,
       title: module.project.title,

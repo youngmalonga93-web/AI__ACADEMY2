@@ -4,17 +4,22 @@ import { filterPrompts } from "../lib/prompts";
 
 describe("prompt filters", () => {
   it("filters prompts by category", () => {
-    expect(filterPrompts(prompts, { category: "coding" }).map((prompt) => prompt.title)).toEqual(["Code Review Triage"]);
+    const results = filterPrompts(prompts, { category: "coding" });
+
+    expect(results.length).toBeGreaterThan(1);
+    expect(results.every((prompt) => prompt.category === "coding")).toBe(true);
   });
 
   it("filters prompts by tool", () => {
     const results = filterPrompts(prompts, { tool: "perplexity" });
 
-    expect(results).toHaveLength(1);
-    expect(results[0].title).toBe("Evidence Map");
+    expect(results.length).toBeGreaterThan(1);
+    expect(results.every((prompt) => prompt.tools.includes("perplexity"))).toBe(true);
   });
 
   it("filters prompts by query across tags and text", () => {
-    expect(filterPrompts(prompts, { query: "validation" }).map((prompt) => prompt.title)).toEqual(["Business Model Stress Test"]);
+    const results = filterPrompts(prompts, { query: "business model" });
+
+    expect(results.map((prompt) => prompt.title)).toContain("The Business Model Stress Test");
   });
 });
