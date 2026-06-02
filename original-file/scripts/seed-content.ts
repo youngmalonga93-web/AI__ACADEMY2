@@ -1,5 +1,8 @@
+import dotenv from "dotenv";
 import { createSupabaseAdminClient } from "../lib/supabase/admin";
 import { certifications, modules, promptCategories, prompts, tools } from "../data/content";
+
+dotenv.config({ path: ".env.local" });
 
 async function seedContent() {
   const supabase = createSupabaseAdminClient();
