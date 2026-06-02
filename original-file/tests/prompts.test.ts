@@ -26,7 +26,7 @@ describe("prompt filters", () => {
   it("includes an expanded investor-ready prompt vault", () => {
     const promptIds = new Set(prompts.map((prompt) => prompt.id));
 
-    expect(prompts.length).toBeGreaterThanOrEqual(70);
+    expect(prompts.length).toBeGreaterThanOrEqual(90);
     expect(promptIds.size).toBe(prompts.length);
     expect(prompts.map((prompt) => prompt.title)).toContain("The Investor Demo Script");
     expect(prompts.map((prompt) => prompt.title)).toContain("The RAG System Design Brief");
