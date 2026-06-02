@@ -241,6 +241,111 @@ const moduleOneMaterials: Record<string, LessonMaterial> = {
   },
 };
 
+const modulePlaybooks: Record<number, { expertFrame: string; realWorldCase: string; labFrame: string; riskFrame: string }> = {
+  2: {
+    expertFrame: "Prompt engineering is the management layer between human intent and model behavior. Treat every prompt as a reusable operating procedure with inputs, constraints, examples, and a measurable output standard.",
+    realWorldCase: "A product team can use this skill to turn vague customer feedback into prioritized requirements, acceptance criteria, and release notes without losing the original customer pain.",
+    labFrame: "Build a prompt, test it on weak and strong examples, compare outputs, then improve the instruction until a second person could reuse it and get similar results.",
+    riskFrame: "The failure mode is prompt theater: long instructions that sound sophisticated but do not improve accuracy, consistency, or usefulness.",
+  },
+  3: {
+    expertFrame: "AI productivity is not about doing more random tasks. It is about protecting deep work, compressing shallow work, and designing repeatable workflows that save attention every week.",
+    realWorldCase: "A manager can turn meetings, notes, decisions, and follow-ups into a weekly AI-assisted operating rhythm that keeps the team aligned without adding admin drag.",
+    labFrame: "Choose one recurring workflow, map every step, automate the lowest-risk parts, and keep human review at the decision points.",
+    riskFrame: "The failure mode is speed without judgment: faster drafts, faster summaries, and faster decisions that still point in the wrong direction.",
+  },
+  4: {
+    expertFrame: "An AI content engine is a system, not a pile of posts. Strategy, research, angle selection, production, editing, distribution, and measurement all need defined roles.",
+    realWorldCase: "A founder can turn one customer interview into a newsletter, sales page section, short video script, LinkedIn post, FAQ, and product insight memo.",
+    labFrame: "Start with one source asset, extract the strongest ideas, adapt each piece to a channel, and add a human editorial pass before publishing.",
+    riskFrame: "The failure mode is generic content at scale: more output that weakens trust because it sounds like everybody else.",
+  },
+  5: {
+    expertFrame: "Generative media work requires creative direction. Strong operators control style, composition, pacing, brand fit, and revision loops instead of accepting the first impressive output.",
+    realWorldCase: "A course creator can storyboard a lesson, generate visual metaphors, produce voiceover drafts, and assemble a test video before paying for full production.",
+    labFrame: "Create a creative brief, generate three variants, critique them against the brief, and build a repeatable revision checklist.",
+    riskFrame: "The failure mode is visual novelty without message clarity, rights review, or brand consistency.",
+  },
+  6: {
+    expertFrame: "Automation turns repeatable decisions into systems. The goal is not to remove people; it is to remove copy-paste work and make handoffs reliable.",
+    realWorldCase: "A sales team can route leads, enrich company data, draft follow-ups, update the CRM, and notify the owner while keeping approval before customer-facing messages.",
+    labFrame: "Map trigger, inputs, decision rules, actions, failure alerts, and human approval. Build the smallest safe workflow first.",
+    riskFrame: "The failure mode is invisible automation that silently corrupts data, spams users, or performs actions nobody owns.",
+  },
+  7: {
+    expertFrame: "AI marketing and sales should increase customer understanding before it increases volume. Research, positioning, offers, objections, and proof come before campaign automation.",
+    realWorldCase: "A consultant can analyze a niche, write sharper outreach, generate objection handling, and build a sales call prep brief for each prospect.",
+    labFrame: "Pick one audience, identify the buying trigger, write the offer, test messaging variants, and document what evidence would make the claim believable.",
+    riskFrame: "The failure mode is automated persuasion with weak truth: messages that are personalized but not actually relevant.",
+  },
+  8: {
+    expertFrame: "AI coding assistants are strongest when the human owns architecture, tests, review, and deployment discipline. The model can accelerate implementation but should not become the senior engineer.",
+    realWorldCase: "A solo founder can scaffold features, write tests, debug errors, document APIs, and refactor small modules while using CI as the quality gate.",
+    labFrame: "Write a clear issue, ask AI for a plan, implement in small pieces, run tests, inspect the diff, and document the change.",
+    riskFrame: "The failure mode is code that looks plausible, compiles locally, and breaks under real data, edge cases, or production deployment.",
+  },
+  9: {
+    expertFrame: "Agents are loops that can plan, use tools, observe results, and continue. Useful agents need narrow goals, permissions, memory boundaries, and stop conditions.",
+    realWorldCase: "A research agent can gather sources, extract claims, rank confidence, draft a brief, and hand uncertain items to a human reviewer.",
+    labFrame: "Define the goal, allowed tools, inputs, success criteria, failure states, and approval points before building the loop.",
+    riskFrame: "The failure mode is giving autonomy to a system that lacks context, permissions discipline, or reliable evaluation.",
+  },
+  10: {
+    expertFrame: "RAG systems make AI useful with private or specialized knowledge by retrieving the right context before generation. Retrieval quality usually matters more than model choice.",
+    realWorldCase: "A company can turn policies, docs, FAQs, and sales collateral into a support assistant that answers with citations and escalates uncertainty.",
+    labFrame: "Collect source docs, chunk them, embed them, test retrieval, inspect citations, and improve the knowledge base before improving the model prompt.",
+    riskFrame: "The failure mode is confident answers from weak retrieval: the model sounds grounded even when the wrong documents were retrieved.",
+  },
+  11: {
+    expertFrame: "AI business strategy starts with value chain impact: where AI reduces cost, increases speed, improves quality, creates new products, or changes customer expectations.",
+    realWorldCase: "An executive team can map AI opportunities by function, rank them by ROI and risk, and choose one lighthouse project to prove value.",
+    labFrame: "Create an opportunity map, score each use case, define metrics, and write a pilot plan with a 30-day proof target.",
+    riskFrame: "The failure mode is AI theater: impressive demos with no owner, metric, adoption path, or operating change.",
+  },
+  12: {
+    expertFrame: "AI research work is a disciplined evidence pipeline. Models can search, summarize, compare, and draft, but the professional owns source quality and conclusions.",
+    realWorldCase: "An analyst can turn market reports, earnings calls, reviews, and competitor pages into a cited opportunity brief.",
+    labFrame: "Define the research question, collect sources, extract claims, score confidence, identify gaps, and write a decision-ready memo.",
+    riskFrame: "The failure mode is summary without skepticism: polished synthesis built on weak or outdated sources.",
+  },
+  13: {
+    expertFrame: "Custom models are not the first move. Fine-tuning is useful when you need repeatable style, format, classification, or domain behavior that prompting and RAG cannot solve.",
+    realWorldCase: "A support organization can fine-tune tone and categorization after collecting enough approved examples from real tickets.",
+    labFrame: "Define the target behavior, gather examples, clean the dataset, create an evaluation set, and compare against prompting before training.",
+    riskFrame: "The failure mode is training too early: spending money to bake in messy data, unclear labels, or a problem retrieval could solve.",
+  },
+  14: {
+    expertFrame: "AI monetization comes from painful problems, distribution, trust, and repeatable delivery. The technology is only valuable when it changes a customer's outcome.",
+    realWorldCase: "A creator can package a repeatable AI workflow into a paid template, service, cohort, or micro-SaaS offer.",
+    labFrame: "Choose a niche, identify a costly workflow, design the offer, validate willingness to pay, and build the smallest paid version.",
+    riskFrame: "The failure mode is building a clever AI product before proving that a specific buyer urgently wants it.",
+  },
+  15: {
+    expertFrame: "Open-source and local AI give teams control over privacy, cost, latency, and customization. They also move more responsibility onto the builder.",
+    realWorldCase: "A regulated team can test local models for internal document workflows where public API use is limited.",
+    labFrame: "Compare a hosted frontier model with a local model on the same task, measuring quality, speed, privacy, cost, and maintenance burden.",
+    riskFrame: "The failure mode is choosing local AI for ideology instead of requirements, then underestimating operations and quality tradeoffs.",
+  },
+  16: {
+    expertFrame: "AI governance is how organizations make AI useful without losing trust. It combines policy, risk classification, review, documentation, and accountability.",
+    realWorldCase: "A company can approve low-risk internal summarization while requiring review for customer-facing, legal, HR, financial, or health-related outputs.",
+    labFrame: "Create an AI use policy, classify workflows by risk, define approval steps, and write an incident response checklist.",
+    riskFrame: "The failure mode is either no rules or rules nobody can follow: both create shadow AI and unmanaged risk.",
+  },
+  17: {
+    expertFrame: "AI system design connects product goals to models, data, retrieval, tools, evaluation, observability, cost, latency, and security. Architecture is where demos become products.",
+    realWorldCase: "A SaaS team can design an AI assistant with authenticated data access, cited answers, usage limits, evals, and monitoring before exposing it to users.",
+    labFrame: "Draw the system boundary, data flow, model calls, tool permissions, evaluation checks, and failure fallback.",
+    riskFrame: "The failure mode is demo architecture: a prototype that works once but has no reliability, permissions, cost control, or evaluation loop.",
+  },
+  18: {
+    expertFrame: "The future of AI is not a prediction contest. Serious operators track capabilities, constraints, regulation, economics, and adoption patterns so they can make better bets.",
+    realWorldCase: "A founder can use trend analysis to decide whether to build on agents, multimodal interfaces, vertical AI, infrastructure, education, or services.",
+    labFrame: "Build a signal dashboard, separate hype from durable shifts, and write a 12-month opportunity thesis with risks and trigger points.",
+    riskFrame: "The failure mode is chasing headlines instead of compounding skills, user insight, and distribution.",
+  },
+};
+
 export function buildLessonMaterial(lesson: Lesson, courseModule: CourseModule) {
   const moduleOneMaterial = moduleOneMaterials[lesson.id];
 
@@ -248,41 +353,61 @@ export function buildLessonMaterial(lesson: Lesson, courseModule: CourseModule) 
     return moduleOneMaterial;
   }
 
+  const playbook = modulePlaybooks[courseModule.id] ?? {
+    expertFrame: `This lesson turns ${courseModule.title.toLowerCase()} from theory into a repeatable professional operating skill.`,
+    realWorldCase: `A learner can apply this lesson to a real project by connecting the concept to a business, career, creative, or technical outcome.`,
+    labFrame: "Define the real task, apply the method, compare the before and after result, then document the reusable version.",
+    riskFrame: "The failure mode is using AI as a shortcut without defining quality, ownership, or verification.",
+  };
+
   return {
     explanation: [
       lesson.concept,
-      `In ${courseModule.title}, this matters because learners need to turn the idea into repeatable judgment, not just remember a definition.`,
-      `The practical test is simple: can you use this lesson to make a better decision, produce a stronger artifact, or avoid a common failure mode in real work?`,
+      playbook.expertFrame,
+      playbook.realWorldCase,
+      `For this specific lesson, the operating question is: how does "${lesson.title}" help a learner make a better decision, produce a stronger artifact, reduce risk, or create measurable business value?`,
+      `The professional standard is not whether the output looks impressive on first glance. The standard is whether another person could inspect the inputs, follow the workflow, trust the result, and reuse the method in a similar situation.`,
+      `Use the lesson as a small apprenticeship: first understand the concept, then run it on a real example, then add constraints, then evaluate the output, then save the pattern as a reusable asset.`,
     ],
     workflow: [
-      `Name the job: write down the exact outcome this lesson should help you create.`,
-      `Choose the smallest useful example from your own work, business, study, or creative project.`,
-      `Apply the concept once manually so you understand the moving parts before automating it.`,
-      `Use one AI tool from this module to improve the result, then compare the before and after output.`,
-      `Save the winning version as a reusable checklist, prompt, template, or operating procedure.`,
+      "Define the user, buyer, stakeholder, or audience affected by this work.",
+      `Name the job: write down the exact outcome ${lesson.title.toLowerCase()} should help you create.`,
+      "Collect the minimum useful inputs: source material, constraints, examples, quality bar, and deadline.",
+      "Run the workflow manually once so you understand the moving parts before asking AI to accelerate it.",
+      "Use an AI tool to produce a first draft, analysis, artifact, or plan.",
+      "Critique the result against accuracy, usefulness, originality, risk, and whether it would survive real-world review.",
+      "Revise the prompt or workflow, then run a second pass and compare the improvement.",
+      "Save the final method as a reusable prompt, checklist, worksheet, SOP, or portfolio artifact.",
     ],
     practice: [
       lesson.exercise,
-      `Add one constraint that makes the exercise realistic: a deadline, audience, budget, risk, data source, or quality bar.`,
-      `Review your output against three standards: accuracy, usefulness, and whether a real person would trust it.`,
+      playbook.labFrame,
+      "Add one realistic constraint: budget, deadline, audience, data quality, compliance risk, brand voice, engineering limit, or customer expectation.",
+      "Create one weak version and one strong version of the output so you can explain what quality looks like.",
+      "Ask AI to find failure points, missing assumptions, and edge cases, then decide which critiques are valid.",
+      "Package the best output so it can be shown to a mentor, teammate, client, hiring manager, or investor.",
     ],
     deliverable: `A finished ${lesson.title.toLowerCase()} artifact you could show in a portfolio, client conversation, team meeting, or learning journal.`,
     reflection: [
-      "What did the AI improve?",
-      "Where did human judgment still matter?",
-      "What would break if this were used with real users or real business data?",
+      "What did AI make faster, clearer, or more complete?",
+      "Where did human judgment still decide quality?",
+      "What would break if this were used with real users, real customers, or real business data?",
+      playbook.riskFrame,
+      "What evidence would prove this workflow is valuable enough to repeat?",
       "What would you turn into a reusable template for next time?",
     ],
     videoPlan: [
-      "Cold open: show the real problem this lesson solves.",
-      "Visual model: animate the core concept as a simple flow.",
-      "Tool demo: record the exact workflow in the AI tool.",
-      "Before/after: compare weak and strong outputs.",
-      "Assignment: show the deliverable learners must create.",
+      "Cold open: show the expensive real-world problem this lesson solves.",
+      "Mental model: animate the core concept as a simple decision flow.",
+      "Expert lens: explain how a founder, engineer, operator, or creator would use this skill.",
+      "Tool demo: record the exact workflow in the AI tool with realistic inputs.",
+      "Before/after: compare a weak output with an investor-grade or workplace-ready output.",
+      "Failure mode: show the most likely mistake and how to catch it.",
+      "Assignment: walk through the deliverable learners must create.",
     ],
     worksheet: {
       title: `${lesson.title} Worksheet`,
-      sections: ["Goal", "Input", "AI workflow", "Output", "Quality check", "Next improvement"],
+      sections: ["Goal", "Audience or user", "Inputs", "AI workflow", "Output", "Quality check", "Risk check", "Portfolio proof", "Next improvement"],
     },
   };
 }

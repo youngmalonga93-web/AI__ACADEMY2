@@ -12,6 +12,7 @@ const navItems = [
   { href: "/dashboard", label: "Dashboard" },
   { href: "/courses", label: "Courses" },
   { href: "/prompts", label: "Prompts" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/certifications", label: "Certs" },
   { href: "/careers", label: "Careers" },
   { href: "/login", label: "Login" },

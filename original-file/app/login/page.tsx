@@ -14,7 +14,7 @@ export default function LoginPage() {
       <p className="text-sm text-muted-foreground">
         New here?{" "}
         <Link className="font-medium text-foreground" href="/signup">
-          Create an account
+          Start a 7-day trial
         </Link>
       </p>
     </div>

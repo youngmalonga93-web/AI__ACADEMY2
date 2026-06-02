@@ -18,7 +18,7 @@ describe("lesson material", () => {
     expect(material.worksheet.sections).toContain("Verification source");
   });
 
-  it("keeps generic material available for later modules", () => {
+  it("adds expanded module-specific material for later modules", () => {
     const lesson = getLessonBySlug("anatomy-perfect-prompt");
     const courseModule = getModuleForLesson("anatomy-perfect-prompt");
 
@@ -28,6 +28,8 @@ describe("lesson material", () => {
     const material = buildLessonMaterial(lesson!, courseModule!);
 
     expect(material.worksheet.title).toBe("Anatomy of a Perfect Prompt Worksheet");
-    expect(material.videoPlan.length).toBe(5);
+    expect(material.videoPlan.length).toBeGreaterThanOrEqual(7);
+    expect(material.workflow.length).toBeGreaterThanOrEqual(8);
+    expect(material.worksheet.sections).toContain("Portfolio proof");
   });
 });

@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getCourseModules } from "@/lib/content/repository";
+import { getTrialState } from "@/lib/entitlements";
 import { calculateProgressPercent } from "@/lib/progress";
 import { getNextLesson, summarizeModuleProgress, type CompletedLesson } from "@/lib/progress-summary";
 import Link from "next/link";
@@ -13,6 +14,7 @@ export default async function DashboardPage() {
   let email = "";
   let role = "learner";
   let completedLessons: CompletedLesson[] = [];
+  let trialState = getTrialState(null);
   const modules = await getCourseModules();
   const totalLessons = modules.reduce((sum, module) => sum + module.lessons.length, 0);
 
@@ -27,6 +29,7 @@ export default async function DashboardPage() {
     }
 
     email = user.email ?? "";
+    trialState = getTrialState(user.created_at);
 
     const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
     role = profile?.role ?? "learner";
@@ -89,6 +92,29 @@ export default async function DashboardPage() {
               Log out
             </Button>
           </form>
+        </CardContent>
+      </Card>
+      <Card>
+        <CardHeader>
+          <CardTitle>Trial Access</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          <p className="text-sm leading-6 text-muted-foreground">
+            {trialState.isActive
+              ? `Your 7-day trial is active with ${trialState.daysRemaining} day${trialState.daysRemaining === 1 ? "" : "s"} remaining.`
+              : "Your free trial is not active. Paid plan checkout will be connected through Stripe next."}
+          </p>
+          {trialState.endsAt ? (
+            <p className="text-sm text-muted-foreground">Trial end date: {trialState.endsAt.toLocaleDateString()}</p>
+          ) : null}
+          <div className="flex flex-wrap gap-2">
+            <Button asChild variant="secondary">
+              <Link href="/prompts">Open prompt vault</Link>
+            </Button>
+            <Button asChild>
+              <Link href="/pricing">View pricing plan</Link>
+            </Button>
+          </div>
         </CardContent>
       </Card>
       <Card>

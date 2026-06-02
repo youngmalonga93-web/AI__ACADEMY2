@@ -41,7 +41,7 @@ export function AuthForm({ mode }: AuthFormProps) {
       }
 
       if (mode === "signup") {
-        setMessage("Check your email to confirm your account.");
+        setMessage("Check your email to confirm your account. Your 7-day trial starts now.");
       } else {
         router.push("/dashboard");
         router.refresh();
@@ -98,7 +98,7 @@ export function AuthForm({ mode }: AuthFormProps) {
         />
       </div>
       <Button className="w-full" disabled={isSubmitting} type="submit">
-        {mode === "login" ? "Log in" : "Create account"}
+        {mode === "login" ? "Log in" : "Start 7-day trial"}
       </Button>
       <div className="grid gap-2 sm:grid-cols-2">
         <Button disabled={isSubmitting} type="button" variant="secondary" onClick={() => handleOAuth("github")}>

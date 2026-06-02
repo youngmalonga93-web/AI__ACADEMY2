@@ -38,7 +38,7 @@ export default async function HomePage() {
               <Link href="/courses/1">Open Module 1 demo</Link>
             </Button>
             <Button asChild variant="secondary">
-              <Link href="/dashboard">View learner dashboard</Link>
+              <Link href="/pricing">See pricing plan</Link>
             </Button>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
