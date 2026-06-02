@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getLessonBySlugFromContent, getModuleForLessonFromContent } from "@/lib/content/repository";
+import { buildLessonMaterial } from "@/lib/lesson-material";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { completeLessonAction } from "./actions";
 
@@ -23,6 +24,8 @@ export default async function LessonPage({ params }: LessonPageProps) {
   if (!lesson || !courseModule) {
     notFound();
   }
+
+  const material = buildLessonMaterial(lesson, courseModule);
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -83,6 +86,80 @@ export default async function LessonPage({ params }: LessonPageProps) {
           </CardHeader>
           <CardContent>
             <p className="text-sm leading-6 text-muted-foreground">{lesson.exercise}</p>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
+        <Card>
+          <CardHeader>
+            <CardTitle>Deep Lesson Notes</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-sm leading-6 text-muted-foreground">
+            {material.explanation.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Video Tutorial Blueprint</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3 text-sm leading-6 text-muted-foreground">
+            <p>Use this structure when we produce the video lesson.</p>
+            <ul className="space-y-2">
+              <li>1. Cold open: show the real problem this lesson solves.</li>
+              <li>2. Visual model: animate the core concept as a simple flow.</li>
+              <li>3. Tool demo: record the exact workflow in the AI tool.</li>
+              <li>4. Before/after: compare weak and strong outputs.</li>
+              <li>5. Assignment: show the deliverable learners must create.</li>
+            </ul>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-3">
+        <Card>
+          <CardHeader>
+            <CardTitle>Step-by-Step Workflow</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ol className="space-y-2 text-sm leading-6 text-muted-foreground">
+              {material.workflow.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Practice Lab</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-2 text-sm leading-6 text-muted-foreground">
+              {material.practice.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Portfolio Deliverable</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-sm leading-6 text-muted-foreground">
+            <p>{material.deliverable}</p>
+            <div>
+              <p className="font-medium text-foreground">Reflection prompts</p>
+              <ul className="mt-2 space-y-2">
+                {material.reflection.map((question) => (
+                  <li key={question}>{question}</li>
+                ))}
+              </ul>
+            </div>
           </CardContent>
         </Card>
       </div>

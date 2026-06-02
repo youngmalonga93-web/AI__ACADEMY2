@@ -53,20 +53,22 @@ export default async function HomePage() {
 
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {[
-          { icon: BookOpen, label: "Course engine", body: "Catalog, module detail, and lesson routes are live." },
-          { icon: ClipboardList, label: "Prompt vault", body: "Search and filter over typed prompt templates." },
-          { icon: GraduationCap, label: "Certifications", body: "Credential data is ready for the future exam system." },
-          { icon: Sparkles, label: "Legacy route", body: "The original prototype remains available while migration continues." },
+          { icon: BookOpen, label: "Course engine", body: "Catalog, module detail, and lesson routes are live.", href: "/courses" },
+          { icon: ClipboardList, label: "Prompt vault", body: "Search and filter over typed prompt templates.", href: "/prompts" },
+          { icon: GraduationCap, label: "Certifications", body: "Credential data is ready for the future exam system.", href: "/certifications" },
+          { icon: Sparkles, label: "Legacy route", body: "The original prototype remains available while migration continues.", href: "/legacy-prototype" },
         ].map((item) => (
-          <Card key={item.label}>
-            <CardHeader>
-              <item.icon className="h-5 w-5 text-muted-foreground" />
-              <CardTitle>{item.label}</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-sm leading-6 text-muted-foreground">{item.body}</p>
-            </CardContent>
-          </Card>
+          <Link key={item.label} href={item.href} className="block rounded-lg focus:outline-none focus:ring-2 focus:ring-ring">
+            <Card className="h-full transition-colors hover:bg-muted/40">
+              <CardHeader>
+                <item.icon className="h-5 w-5 text-muted-foreground" />
+                <CardTitle>{item.label}</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm leading-6 text-muted-foreground">{item.body}</p>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </section>
 
@@ -77,13 +79,13 @@ export default async function HomePage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {certifications.map((certification) => (
-              <div key={certification.name} className="rounded-md border p-4">
+              <Link key={certification.name} href="/certifications" className="block rounded-md border p-4 transition-colors hover:bg-muted/40">
                 <div className="flex items-center justify-between gap-3">
                   <h2 className="font-medium">{certification.name}</h2>
                   <Badge>Level {certification.level}</Badge>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">{certification.outcome}</p>
-              </div>
+              </Link>
             ))}
           </CardContent>
         </Card>
@@ -93,13 +95,13 @@ export default async function HomePage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {careerPaths.map((career) => (
-              <div key={career.title} className="rounded-md border p-4">
+              <Link key={career.title} href="/careers" className="block rounded-md border p-4 transition-colors hover:bg-muted/40">
                 <div className="flex items-center justify-between gap-3">
                   <h2 className="font-medium">{career.title}</h2>
                   <span className="text-sm font-semibold">{career.salary}</span>
                 </div>
                 <p className="mt-2 text-sm text-muted-foreground">{career.description}</p>
-              </div>
+              </Link>
             ))}
           </CardContent>
         </Card>
