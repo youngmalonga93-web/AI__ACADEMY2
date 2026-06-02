@@ -18,7 +18,7 @@
 14. [x] Create Supabase migrations for profiles, courses, modules, lessons, projects, prompts, tools, certifications, and user progress.
 15. [x] Add seed scripts that load extracted curriculum and prompt data into Supabase.
 16. [x] Implement Supabase authentication for signup, login, logout, OAuth callback handling, and protected app routes.
-17. [ ] Implement profile creation on first login with role support for learner, mentor, and admin users.
+17. [x] Implement profile creation on first login with role support for learner, mentor, and admin users.
 18. [ ] Implement lesson progress tracking with completion state, percent complete, and dashboard summaries.
 19. [ ] Add unit tests for extracted content utilities, filters, route helpers, and progress calculations.
 20. [ ] Add CI checks for type-checking, linting, tests, and production build.

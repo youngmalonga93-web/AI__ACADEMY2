@@ -83,3 +83,5 @@ export type CareerPath = {
   color: string;
   description: string;
 };
+
+export type UserRole = "learner" | "mentor" | "admin";

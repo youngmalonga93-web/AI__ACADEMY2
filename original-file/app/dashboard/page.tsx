@@ -7,6 +7,7 @@ export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
   let email = "";
+  let role = "learner";
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -19,6 +20,9 @@ export default async function DashboardPage() {
     }
 
     email = user.email ?? "";
+
+    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
+    role = profile?.role ?? "learner";
   } catch {
     redirect("/login");
   }
@@ -27,7 +31,9 @@ export default async function DashboardPage() {
     <div className="space-y-6">
       <div>
         <h1 className="text-3xl font-semibold tracking-tight">Dashboard</h1>
-        <p className="mt-2 text-sm text-muted-foreground">Signed in as {email}</p>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Signed in as {email} with {role} access.
+        </p>
       </div>
       <Card>
         <CardHeader>
