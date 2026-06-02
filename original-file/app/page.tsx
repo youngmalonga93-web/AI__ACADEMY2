@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BookOpen, ClipboardList, GraduationCap, Sparkles } from "lucide-react";
+import { ArrowRight, BookOpen, BrainCircuit, ClipboardList, GraduationCap, ShieldCheck, Sparkles, TrendingUp } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -10,35 +10,54 @@ export const dynamic = "force-dynamic";
 export default async function HomePage() {
   const { careerPaths, certifications, modules, prompts } = await getLandingContent();
   const stats = [
-    { label: "Modules live", value: modules.length },
-    { label: "Lessons live", value: modules.reduce((sum, module) => sum + module.lessons.length, 0) },
-    { label: "Prompts live", value: prompts.length },
-    { label: "Certifications", value: certifications.length },
+    { label: "Live modules", value: modules.length },
+    { label: "Structured lessons", value: modules.reduce((sum, module) => sum + module.lessons.length, 0) },
+    { label: "Prompt templates", value: prompts.length },
+    { label: "Credential tracks", value: certifications.length },
+  ];
+  const demoPath = [
+    { label: "Start", title: "Investor-ready overview", href: "/", body: "Show the platform thesis, live content depth, and career outcomes." },
+    { label: "Learn", title: "Module 1 gold standard", href: "/courses/1", body: "Open the first course and inspect the deeper lesson experience." },
+    { label: "Practice", title: "Prompt vault", href: "/prompts", body: "Show reusable AI workflows learners can copy and apply immediately." },
+    { label: "Outcome", title: "Careers and credentials", href: "/careers", body: "Connect the learning product to jobs, certifications, and monetization." },
   ];
 
   return (
-    <div className="space-y-8">
-      <section className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">
-        <div className="space-y-5">
-          <Badge>Production scaffold</Badge>
-          <div className="space-y-3">
-            <h1 className="max-w-3xl text-4xl font-semibold tracking-tight">AI Academy is moving from prototype to SaaS.</h1>
+    <div className="space-y-10">
+      <section className="grid min-h-[520px] items-center gap-8 rounded-lg border bg-card p-6 md:p-8 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="space-y-6">
+          <Badge>Investor demo build</Badge>
+          <div className="space-y-4">
+            <h1 className="max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">AI Academy trains practical AI operators, builders, and founders.</h1>
             <p className="max-w-2xl text-base leading-7 text-muted-foreground">
-              This shell uses typed content data, production routes, reusable UI primitives, and a preserved legacy prototype route for reference during migration.
+              A production SaaS learning platform with live curriculum, progress tracking, prompt workflows, credential paths, and a clear roadmap toward AI coaching, video lessons, and paid subscriptions.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
-              <Link href="/courses">Browse courses</Link>
+              <Link href="/courses/1">Open Module 1 demo</Link>
             </Button>
             <Button asChild variant="secondary">
-              <Link href="/prompts">Open prompt vault</Link>
+              <Link href="/dashboard">View learner dashboard</Link>
             </Button>
+          </div>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {[
+              { icon: ShieldCheck, label: "Auth + progress", body: "Supabase-backed user accounts and completion state." },
+              { icon: BrainCircuit, label: "AI-native content", body: "Courses, labs, prompts, and video lesson plans." },
+              { icon: TrendingUp, label: "Revenue path", body: "Subscriptions, credentials, coaching, and B2B training." },
+            ].map((item) => (
+              <div key={item.label} className="rounded-md border bg-background p-4">
+                <item.icon className="h-5 w-5 text-muted-foreground" />
+                <p className="mt-3 text-sm font-medium">{item.label}</p>
+                <p className="mt-1 text-xs leading-5 text-muted-foreground">{item.body}</p>
+              </div>
+            ))}
           </div>
         </div>
         <Card>
           <CardHeader>
-            <CardTitle>Readiness Snapshot</CardTitle>
+            <CardTitle>Platform Snapshot</CardTitle>
           </CardHeader>
           <CardContent className="grid gap-3">
             {stats.map((stat) => (
@@ -51,12 +70,42 @@ export default async function HomePage() {
         </Card>
       </section>
 
+      <section className="space-y-4">
+        <div className="flex items-end justify-between gap-4">
+          <div>
+            <Badge>Demo path</Badge>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight">What to show investors first</h2>
+          </div>
+          <Button asChild variant="secondary">
+            <Link href="/signup">Create demo learner</Link>
+          </Button>
+        </div>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {demoPath.map((item) => (
+            <Link key={item.title} href={item.href} className="block rounded-lg focus:outline-none focus:ring-2 focus:ring-ring">
+              <Card className="h-full transition-colors hover:bg-muted/40">
+                <CardHeader>
+                  <Badge>{item.label}</Badge>
+                  <CardTitle>{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                  <p className="text-sm leading-6 text-muted-foreground">{item.body}</p>
+                  <span className="inline-flex items-center gap-2 text-sm font-medium">
+                    Open <ArrowRight className="h-4 w-4" />
+                  </span>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+      </section>
+
       <section className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {[
-          { icon: BookOpen, label: "Course engine", body: "Catalog, module detail, and lesson routes are live.", href: "/courses" },
-          { icon: ClipboardList, label: "Prompt vault", body: "Search and filter over typed prompt templates.", href: "/prompts" },
-          { icon: GraduationCap, label: "Certifications", body: "Credential data is ready for the future exam system.", href: "/certifications" },
-          { icon: Sparkles, label: "Legacy route", body: "The original prototype remains available while migration continues.", href: "/legacy-prototype" },
+          { icon: BookOpen, label: "Course engine", body: "Catalog, Module 1 deep lessons, labs, worksheets, and progress tracking.", href: "/courses" },
+          { icon: ClipboardList, label: "Prompt vault", body: "Copyable workflows for writing, research, automation, coding, and careers.", href: "/prompts" },
+          { icon: GraduationCap, label: "Certifications", body: "Credential tracks ready for exams, capstones, and certificate generation.", href: "/certifications" },
+          { icon: Sparkles, label: "Prototype archive", body: "The original experience remains available for comparison during migration.", href: "/legacy-prototype" },
         ].map((item) => (
           <Link key={item.label} href={item.href} className="block rounded-lg focus:outline-none focus:ring-2 focus:ring-ring">
             <Card className="h-full transition-colors hover:bg-muted/40">
