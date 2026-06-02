@@ -2,17 +2,17 @@
 
 ## Next 20 Implementation Tasks
 
-1. [ ] Create a Next.js 15 application scaffold with TypeScript, App Router, Tailwind CSS, ESLint, Prettier, and Vitest.
-2. [ ] Add shadcn/ui configuration and install baseline UI components for buttons, cards, inputs, tabs, dialogs, badges, and navigation.
-3. [ ] Move the existing prototype into a temporary `legacy-prototype` route so the current experience remains viewable during migration.
-4. [ ] Extract course, module, lesson, project, certification, career, prompt, and tool data from `ai-platform new.jsx` into typed modules under `data/`.
-5. [ ] Remove duplicate prototype constants and make extracted data compile cleanly under TypeScript.
-6. [ ] Define shared TypeScript domain types for courses, modules, lessons, prompts, projects, certifications, tools, careers, users, progress, and subscriptions.
-7. [ ] Build the production app shell with authenticated app layout, primary navigation, responsive sidebar, top bar, and empty route states.
-8. [ ] Implement a course catalog route using extracted course/module data with phase filters and search.
-9. [ ] Implement a course detail route with module overview, objectives, lessons, tools, projects, key takeaways, and common mistakes.
-10. [ ] Implement a lesson player route with lesson metadata, concept, application, exercise, completion action, and next/previous navigation.
-11. [ ] Implement the prompt vault route with category, tier, tool, tag, and text search filters.
+1. [x] Create a Next.js 15 application scaffold with TypeScript, App Router, Tailwind CSS, ESLint, Prettier, and Vitest.
+2. [x] Add shadcn/ui configuration and install baseline UI components for buttons, cards, inputs, tabs, dialogs, badges, and navigation.
+3. [x] Move the existing prototype into a temporary `legacy-prototype` route so the current experience remains viewable during migration.
+4. [x] Extract course, module, lesson, project, certification, career, prompt, and tool data from `ai-platform new.jsx` into typed modules under `data/`.
+5. [x] Remove duplicate prototype constants and make extracted data compile cleanly under TypeScript.
+6. [x] Define shared TypeScript domain types for courses, modules, lessons, prompts, projects, certifications, tools, careers, users, progress, and subscriptions.
+7. [x] Build the production app shell with authenticated app layout, primary navigation, responsive sidebar, top bar, and empty route states.
+8. [x] Implement a course catalog route using extracted course/module data with phase filters and search.
+9. [x] Implement a course detail route with module overview, objectives, lessons, tools, projects, key takeaways, and common mistakes.
+10. [x] Implement a lesson player route with lesson metadata, concept, application, exercise, completion action, and next/previous navigation.
+11. [x] Implement the prompt vault route with category, tier, tool, tag, and text search filters.
 12. [ ] Add prompt detail and copy interactions with accessible feedback and browser clipboard fallback handling.
 13. [ ] Add Supabase client/server helpers, environment variable validation, and local development configuration.
 14. [ ] Create Supabase migrations for profiles, courses, modules, lessons, projects, prompts, tools, certifications, and user progress.
