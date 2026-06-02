@@ -1,11 +1,13 @@
-import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { modules, phases } from "@/data/content";
-import { coursePath } from "@/lib/routes";
+import { getCourseModules } from "@/lib/content/repository";
+import { phases } from "@/data/content";
+import { CourseCatalog } from "./CourseCatalog";
 
-export default function CoursesPage() {
+export const dynamic = "force-dynamic";
+
+export default async function CoursesPage() {
+  const modules = await getCourseModules();
+
   return (
     <div className="space-y-8">
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
@@ -16,47 +18,9 @@ export default function CoursesPage() {
             A practical path from AI literacy to production systems, operator judgment, applied automation, model evaluation, and infrastructure fluency.
           </p>
         </div>
-        <Button asChild variant="secondary">
-          <Link href="/legacy-prototype" prefetch={false}>
-            View legacy prototype
-          </Link>
-        </Button>
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        {phases.map((phase) => (
-          <Badge key={phase.id}>{phase.label}</Badge>
-        ))}
-      </div>
-
-      <div className="grid gap-4 md:grid-cols-2">
-        {modules.map((module) => (
-          <Card key={module.id}>
-            <CardHeader>
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <Badge>Module {module.id}</Badge>
-                  <CardTitle className="mt-3">{module.title}</CardTitle>
-                </div>
-                <span className="rounded-md bg-muted px-3 py-2 text-sm font-semibold">{module.icon}</span>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm leading-6 text-muted-foreground">{module.subtitle}</p>
-              <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                <span>{module.duration}</span>
-                <span>{module.difficulty}</span>
-                <span>{module.lessons.length} lessons</span>
-              </div>
-              <Button asChild>
-                <Link href={coursePath(module.id)} prefetch={false}>
-                  Open module
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
-      </div>
+      <CourseCatalog modules={modules} phases={phases} />
     </div>
   );
 }

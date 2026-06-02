@@ -3,16 +3,19 @@ import { BookOpen, ClipboardList, GraduationCap, Sparkles } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { careerPaths, certifications, modules, prompts } from "@/data/content";
+import { getLandingContent } from "@/lib/content/repository";
 
-const stats = [
-  { label: "Modules seeded", value: modules.length },
-  { label: "Lessons seeded", value: modules.reduce((sum, module) => sum + module.lessons.length, 0) },
-  { label: "Prompts seeded", value: prompts.length },
-  { label: "Certifications", value: certifications.length },
-];
+export const dynamic = "force-dynamic";
 
-export default function DashboardPage() {
+export default async function HomePage() {
+  const { careerPaths, certifications, modules, prompts } = await getLandingContent();
+  const stats = [
+    { label: "Modules live", value: modules.length },
+    { label: "Lessons live", value: modules.reduce((sum, module) => sum + module.lessons.length, 0) },
+    { label: "Prompts live", value: prompts.length },
+    { label: "Certifications", value: certifications.length },
+  ];
+
   return (
     <div className="space-y-8">
       <section className="grid gap-6 lg:grid-cols-[1.5fr_1fr]">

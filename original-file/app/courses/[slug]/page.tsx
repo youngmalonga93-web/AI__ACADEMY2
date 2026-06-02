@@ -3,8 +3,9 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getModuleById } from "@/data/content";
+import { getCourseModuleById } from "@/lib/content/repository";
 import { lessonPath } from "@/lib/routes";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 type CourseDetailPageProps = {
   params: Promise<{
@@ -12,12 +13,39 @@ type CourseDetailPageProps = {
   }>;
 };
 
+export const dynamic = "force-dynamic";
+
 export default async function CourseDetailPage({ params }: CourseDetailPageProps) {
   const { slug } = await params;
-  const courseModule = getModuleById(Number(slug));
+  const courseModule = await getCourseModuleById(Number(slug));
+  const completedLessonSlugs = new Set<string>();
 
   if (!courseModule) {
     notFound();
+  }
+
+  try {
+    const supabase = await createSupabaseServerClient();
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (user) {
+      const { data } = await supabase
+        .from("user_progress")
+        .select("lessons(slug)")
+        .eq("user_id", user.id)
+        .not("completed_at", "is", null);
+
+      data?.forEach((row) => {
+        const lesson = row.lessons as { slug?: string } | null;
+        if (lesson?.slug) {
+          completedLessonSlugs.add(lesson.slug);
+        }
+      });
+    }
+  } catch {
+    // Public module pages still render when auth/session checks are unavailable.
   }
 
   return (
@@ -42,7 +70,10 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
                       <p className="text-sm text-muted-foreground">{lesson.number}</p>
                       <h2 className="font-medium">{lesson.title}</h2>
                     </div>
-                    <span className="text-sm text-muted-foreground">{lesson.duration}</span>
+                    <div className="flex items-center gap-3">
+                      {completedLessonSlugs.has(lesson.id) ? <Badge>Complete</Badge> : null}
+                      <span className="text-sm text-muted-foreground">{lesson.duration}</span>
+                    </div>
                   </div>
                 </Link>
               ))}

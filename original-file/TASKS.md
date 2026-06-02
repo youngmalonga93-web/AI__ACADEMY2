@@ -25,6 +25,10 @@
 
 ## Backlog
 
+- [x] Use Supabase as the runtime content source with local JSON fallback.
+- [x] Upgrade dashboard progress with next lesson, module summaries, and recent completions.
+- [x] Upgrade course detail pages with live content and completion badges.
+- [x] Add course catalog search and filters for phase, difficulty, and tool.
 - [ ] Stripe Checkout integration.
 - [ ] Stripe Customer Portal integration.
 - [ ] Stripe webhook subscription sync.

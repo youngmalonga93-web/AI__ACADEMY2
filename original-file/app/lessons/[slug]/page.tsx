@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getLessonBySlug, getModuleForLesson } from "@/data/content";
+import { getLessonBySlugFromContent, getModuleForLessonFromContent } from "@/lib/content/repository";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { completeLessonAction } from "./actions";
 
@@ -15,8 +15,8 @@ type LessonPageProps = {
 
 export default async function LessonPage({ params }: LessonPageProps) {
   const { slug } = await params;
-  const lesson = getLessonBySlug(slug);
-  const courseModule = getModuleForLesson(slug);
+  const lesson = await getLessonBySlugFromContent(slug);
+  const courseModule = await getModuleForLessonFromContent(slug);
   let isSignedIn = false;
   let isComplete = false;
 
