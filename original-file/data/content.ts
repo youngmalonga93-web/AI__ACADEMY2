@@ -1,8 +1,12 @@
 import fullContent from "./full-content.json";
+import { moduleEnrichments } from "./enrichment";
 import type { CareerPath, Certification, CourseModule, Phase, PromptCategory, PromptTemplate, ToolDefinition } from "./types";
 
 export const phases = fullContent.phases as Phase[];
-export const modules = fullContent.modules as CourseModule[];
+export const modules = fullContent.modules.map((module) => ({
+  ...module,
+  ...moduleEnrichments[module.id],
+})) as CourseModule[];
 export const promptCategories = fullContent.promptCategories as PromptCategory[];
 export const tools = fullContent.tools as ToolDefinition[];
 export const prompts = fullContent.prompts as PromptTemplate[];

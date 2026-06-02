@@ -39,6 +39,21 @@ export type CourseModule = {
   skills: string[];
   keyTakeaways: string[];
   commonMistakes: string[];
+  expertLens?: {
+    founder?: string;
+    systems?: string;
+    infrastructure?: string;
+  };
+  realWorldExamples?: string[];
+  resources?: CourseResource[];
+  masteryChecks?: string[];
+};
+
+export type CourseResource = {
+  title: string;
+  url: string;
+  source: string;
+  note: string;
 };
 
 export type PromptTier = "POWER" | "ADVANCED" | "ESSENTIAL";

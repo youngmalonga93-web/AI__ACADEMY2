@@ -13,7 +13,6 @@ const navItems = [
   { href: "/courses", label: "Courses" },
   { href: "/prompts", label: "Prompts" },
   { href: "/login", label: "Login" },
-  { href: "/legacy-prototype", label: "Legacy Prototype" },
 ];
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -40,6 +39,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </div>
           </header>
           <main className="mx-auto max-w-7xl px-6 py-8">{children}</main>
+          <footer className="mx-auto max-w-7xl px-6 pb-8 text-xs text-muted-foreground">
+            <Link href="/legacy-prototype" prefetch={false} className="hover:text-foreground">
+              Legacy prototype
+            </Link>
+          </footer>
         </div>
       </body>
     </html>

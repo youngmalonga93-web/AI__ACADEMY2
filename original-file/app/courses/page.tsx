@@ -10,14 +10,16 @@ export default function CoursesPage() {
     <div className="space-y-8">
       <div className="flex flex-col justify-between gap-4 md:flex-row md:items-end">
         <div>
-          <Badge>Learning</Badge>
+          <Badge>AI expert track</Badge>
           <h1 className="mt-3 text-3xl font-semibold tracking-tight">Course Catalog</h1>
           <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-            The first production catalog reads from extracted content modules and is ready for search, auth, and progress tracking.
+            A practical path from AI literacy to production systems, operator judgment, applied automation, model evaluation, and infrastructure fluency.
           </p>
         </div>
         <Button asChild variant="secondary">
-          <Link href="/legacy-prototype">View legacy prototype</Link>
+          <Link href="/legacy-prototype" prefetch={false}>
+            View legacy prototype
+          </Link>
         </Button>
       </div>
 
@@ -44,10 +46,12 @@ export default function CoursesPage() {
               <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
                 <span>{module.duration}</span>
                 <span>{module.difficulty}</span>
-                <span>{module.lessonCount} lessons planned</span>
+                <span>{module.lessons.length} lessons</span>
               </div>
               <Button asChild>
-                <Link href={coursePath(module.id)}>Open module</Link>
+                <Link href={coursePath(module.id)} prefetch={false}>
+                  Open module
+                </Link>
               </Button>
             </CardContent>
           </Card>
