@@ -13,7 +13,7 @@
 9. [x] Implement a course detail route with module overview, objectives, lessons, tools, projects, key takeaways, and common mistakes.
 10. [x] Implement a lesson player route with lesson metadata, concept, application, exercise, completion action, and next/previous navigation.
 11. [x] Implement the prompt vault route with category, tier, tool, tag, and text search filters.
-12. [ ] Add prompt detail and copy interactions with accessible feedback and browser clipboard fallback handling.
+12. [x] Add prompt detail and copy interactions with accessible feedback and browser clipboard fallback handling.
 13. [ ] Add Supabase client/server helpers, environment variable validation, and local development configuration.
 14. [ ] Create Supabase migrations for profiles, courses, modules, lessons, projects, prompts, tools, certifications, and user progress.
 15. [ ] Add seed scripts that load extracted curriculum and prompt data into Supabase.
