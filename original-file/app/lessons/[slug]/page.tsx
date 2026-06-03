@@ -98,6 +98,15 @@ export default async function LessonPage({ params }: LessonPageProps) {
     "## Practice Lab",
     ...material.practice.map((step) => `- ${step}`),
     "",
+    "## Working Prompt Example",
+    material.workingPromptExample.prompt,
+    "",
+    "## Established Course References",
+    ...material.establishedCourseReferences.map(
+      (reference) =>
+        `- ${reference.title} (${reference.provider}): ${reference.url}`
+    ),
+    "",
     "## Portfolio Deliverable",
     material.deliverable,
     "",
@@ -209,6 +218,60 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 <li key={step}>{step}</li>
               ))}
             </ul>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[1fr_1fr]">
+        <Card>
+          <CardHeader>
+            <CardTitle>Working Prompt Example</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-sm leading-6 text-muted-foreground">
+            <div>
+              <p className="font-medium text-foreground">
+                {material.workingPromptExample.title}
+              </p>
+              <p className="mt-1">{material.workingPromptExample.useCase}</p>
+            </div>
+            <pre className="max-h-96 overflow-auto rounded-md border bg-muted p-4 text-xs leading-5 text-foreground">
+              <code>{material.workingPromptExample.prompt}</code>
+            </pre>
+            <div>
+              <p className="font-medium text-foreground">Why this works</p>
+              <ul className="mt-2 space-y-2">
+                {material.workingPromptExample.whyItWorks.map((reason) => (
+                  <li key={reason}>{reason}</li>
+                ))}
+              </ul>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Established Course References</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {material.establishedCourseReferences.map((reference) => (
+              <a
+                key={`${reference.provider}-${reference.title}`}
+                href={reference.url}
+                target="_blank"
+                rel="noreferrer"
+                className="block rounded-md border p-4 text-sm transition-colors hover:bg-muted"
+              >
+                <span className="font-medium text-foreground">
+                  {reference.title}
+                </span>
+                <span className="ml-2 text-xs text-muted-foreground">
+                  {reference.provider}
+                </span>
+                <p className="mt-2 leading-6 text-muted-foreground">
+                  {reference.fit}
+                </p>
+              </a>
+            ))}
           </CardContent>
         </Card>
       </div>

@@ -9,6 +9,8 @@ type LessonMaterial = {
   videoPlan: string[];
   recommendedVideos: VideoResource[];
   sourceCredits: SourceCredit[];
+  establishedCourseReferences: CourseReference[];
+  workingPromptExample: WorkingPromptExample;
   quiz: QuizQuestion[];
   rubric: RubricItem[];
   worksheet: {
@@ -28,6 +30,20 @@ export type SourceCredit = {
   name: string;
   url: string;
   note: string;
+};
+
+export type CourseReference = {
+  title: string;
+  provider: string;
+  url: string;
+  fit: string;
+};
+
+export type WorkingPromptExample = {
+  title: string;
+  useCase: string;
+  prompt: string;
+  whyItWorks: string[];
 };
 
 export type QuizQuestion = {
@@ -196,6 +212,216 @@ const approvedVideos = {
   },
 };
 
+const establishedCourses = {
+  aiForEveryone: {
+    title: "AI for Everyone",
+    provider: "DeepLearning.AI",
+    url: "https://www.deeplearning.ai/courses/ai-for-everyone/",
+    fit: "Strong reference for AI literacy, business context, AI project workflow, and what AI can and cannot do.",
+  },
+  promptEngineering: {
+    title: "ChatGPT Prompt Engineering for Developers",
+    provider: "DeepLearning.AI",
+    url: "https://learn.deeplearning.ai/courses/chatgpt-prompt-eng",
+    fit: "Strong reference for practical prompting patterns, iterative refinement, summarization, transformation, and expansion workflows.",
+  },
+  googleMlCrashCourse: {
+    title: "Machine Learning Crash Course",
+    provider: "Google for Developers",
+    url: "https://developers.google.com/machine-learning/crash-course",
+    fit: "Strong reference for machine learning foundations, data framing, model evaluation, and practical ML concepts.",
+  },
+  huggingFaceCourse: {
+    title: "Hugging Face Course",
+    provider: "Hugging Face",
+    url: "https://huggingface.co/learn",
+    fit: "Strong reference for transformers, tokenizers, datasets, model sharing, and open-source AI workflows.",
+  },
+  ibmAiEngineering: {
+    title: "IBM AI Engineering Professional Certificate",
+    provider: "IBM on Coursera",
+    url: "https://www.coursera.org/professional-certificates/ai-engineer",
+    fit: "Strong reference for deeper engineering practice, neural networks, model building, and applied AI engineering.",
+  },
+  cs50Ai: {
+    title: "CS50's Introduction to Artificial Intelligence with Python",
+    provider: "Harvard / edX",
+    url: "https://cs50.harvard.edu/ai/",
+    fit: "Strong reference for search, knowledge, uncertainty, optimization, machine learning, neural networks, and language.",
+  },
+  fastAi: {
+    title: "Practical Deep Learning for Coders",
+    provider: "fast.ai",
+    url: "https://course.fast.ai/",
+    fit: "Strong reference for top-down practical deep learning and project-first model building.",
+  },
+  openAiDocs: {
+    title: "OpenAI Platform Documentation",
+    provider: "OpenAI",
+    url: "https://platform.openai.com/docs",
+    fit: "Strong reference for production API usage, structured outputs, tool use, safety, and model behavior.",
+  },
+  nvidiaGenerativeAi: {
+    title: "Generative AI Developer Resources",
+    provider: "NVIDIA Developer",
+    url: "https://developer.nvidia.com/generative-ai",
+    fit: "Strong reference for deployment, accelerated inference, generative AI infrastructure, and production performance.",
+  },
+};
+
+const moduleCourseReferenceMap: Record<number, CourseReference[]> = {
+  1: [
+    establishedCourses.aiForEveryone,
+    establishedCourses.googleMlCrashCourse,
+    establishedCourses.cs50Ai,
+  ],
+  2: [
+    establishedCourses.promptEngineering,
+    establishedCourses.openAiDocs,
+    establishedCourses.aiForEveryone,
+  ],
+  3: [
+    establishedCourses.promptEngineering,
+    establishedCourses.aiForEveryone,
+    establishedCourses.openAiDocs,
+  ],
+  4: [
+    establishedCourses.promptEngineering,
+    establishedCourses.aiForEveryone,
+    establishedCourses.openAiDocs,
+  ],
+  5: [
+    establishedCourses.openAiDocs,
+    establishedCourses.huggingFaceCourse,
+    establishedCourses.nvidiaGenerativeAi,
+  ],
+  6: [
+    establishedCourses.openAiDocs,
+    establishedCourses.promptEngineering,
+    establishedCourses.aiForEveryone,
+  ],
+  7: [
+    establishedCourses.aiForEveryone,
+    establishedCourses.promptEngineering,
+    establishedCourses.openAiDocs,
+  ],
+  8: [
+    establishedCourses.cs50Ai,
+    establishedCourses.openAiDocs,
+    establishedCourses.fastAi,
+  ],
+  9: [
+    establishedCourses.openAiDocs,
+    establishedCourses.cs50Ai,
+    establishedCourses.huggingFaceCourse,
+  ],
+  10: [
+    establishedCourses.openAiDocs,
+    establishedCourses.huggingFaceCourse,
+    establishedCourses.nvidiaGenerativeAi,
+  ],
+  11: [
+    establishedCourses.aiForEveryone,
+    establishedCourses.googleMlCrashCourse,
+    establishedCourses.promptEngineering,
+  ],
+  12: [
+    establishedCourses.aiForEveryone,
+    establishedCourses.promptEngineering,
+    establishedCourses.googleMlCrashCourse,
+  ],
+  13: [
+    establishedCourses.huggingFaceCourse,
+    establishedCourses.fastAi,
+    establishedCourses.ibmAiEngineering,
+  ],
+  14: [
+    establishedCourses.aiForEveryone,
+    establishedCourses.promptEngineering,
+    establishedCourses.openAiDocs,
+  ],
+  15: [
+    establishedCourses.huggingFaceCourse,
+    establishedCourses.fastAi,
+    establishedCourses.nvidiaGenerativeAi,
+  ],
+  16: [
+    establishedCourses.aiForEveryone,
+    establishedCourses.openAiDocs,
+    establishedCourses.googleMlCrashCourse,
+  ],
+  17: [
+    establishedCourses.openAiDocs,
+    establishedCourses.nvidiaGenerativeAi,
+    establishedCourses.cs50Ai,
+  ],
+  18: [
+    establishedCourses.aiForEveryone,
+    establishedCourses.openAiDocs,
+    establishedCourses.googleMlCrashCourse,
+  ],
+};
+
+function getEstablishedCourseReferences(courseModule: CourseModule) {
+  return (
+    moduleCourseReferenceMap[courseModule.id] ?? [
+      establishedCourses.aiForEveryone,
+      establishedCourses.promptEngineering,
+      establishedCourses.openAiDocs,
+    ]
+  );
+}
+
+function buildWorkingPromptExample(
+  lesson: Lesson,
+  courseModule: CourseModule,
+  playbook: {
+    expertFrame: string;
+    realWorldCase: string;
+    labFrame: string;
+    riskFrame: string;
+  }
+): WorkingPromptExample {
+  return {
+    title: `${lesson.title} working prompt`,
+    useCase: `Use this when applying ${lesson.title.toLowerCase()} to a real portfolio, business, career, or product workflow.`,
+    prompt: [
+      `You are an expert AI Academy mentor helping me complete the lesson "${lesson.title}" from the module "${courseModule.title}".`,
+      "",
+      "My context:",
+      "- Goal: [describe the business, career, creative, research, or technical outcome]",
+      "- Audience or user: [who will rely on the output]",
+      "- Current inputs: [paste notes, data, draft, link summaries, requirements, or constraints]",
+      "- Quality bar: [what a strong result must include]",
+      "- Risk: [accuracy, privacy, compliance, brand, safety, cost, or user trust concern]",
+      "",
+      "Task:",
+      `1. Explain how this lesson applies to my context using this expert frame: ${playbook.expertFrame}`,
+      `2. Build a practical workflow inspired by this real-world case: ${playbook.realWorldCase}`,
+      `3. Produce the first version of the artifact: ${lesson.exercise}`,
+      "4. Critique the artifact against accuracy, usefulness, originality, risk, and whether a real person would trust it.",
+      `5. Improve the artifact using this lab frame: ${playbook.labFrame}`,
+      `6. Identify this likely failure mode and how to prevent it: ${playbook.riskFrame}`,
+      "7. Give me a final version, a short checklist, and the next experiment I should run.",
+      "",
+      "Output format:",
+      "- Situation summary",
+      "- Recommended workflow",
+      "- Draft artifact",
+      "- Critique",
+      "- Improved artifact",
+      "- Risk controls",
+      "- Portfolio-ready checklist",
+      "- Next experiment",
+    ].join("\n"),
+    whyItWorks: [
+      "It forces the model to work from the learner's real context instead of generic advice.",
+      "It separates drafting, critique, improvement, and risk review into distinct steps.",
+      "It produces a reusable artifact and checklist instead of a one-off answer.",
+    ],
+  };
+}
+
 const moduleVideoMap: Record<number, VideoResource[]> = {
   1: [
     approvedVideos.googleGenAi,
@@ -248,7 +474,10 @@ function getRecommendedVideos(courseModule: CourseModule) {
 
 const moduleOneMaterials: Record<
   string,
-  Omit<LessonMaterial, "quiz" | "rubric">
+  Omit<
+    LessonMaterial,
+    "quiz" | "rubric" | "establishedCourseReferences" | "workingPromptExample"
+  >
 > = {
   "what-ai-really-is": {
     explanation: [
@@ -742,10 +971,26 @@ export function buildLessonMaterial(
   courseModule: CourseModule
 ) {
   const moduleOneMaterial = moduleOneMaterials[lesson.id];
+  const defaultModuleOnePlaybook = {
+    expertFrame:
+      "AI literacy starts with understanding capabilities, limits, tool routing, verification, and responsible use.",
+    realWorldCase:
+      "A learner can use AI more safely by matching each task to the right tool and adding a verification step before trusting output.",
+    labFrame:
+      "Test a real workflow with and without AI, compare the output, then document the verification method.",
+    riskFrame:
+      "The failure mode is trusting fluent AI output without checking whether the task needs sources, calculation, current facts, or human approval.",
+  };
 
   if (courseModule.id === 1 && moduleOneMaterial) {
     return {
       ...moduleOneMaterial,
+      establishedCourseReferences: getEstablishedCourseReferences(courseModule),
+      workingPromptExample: buildWorkingPromptExample(
+        lesson,
+        courseModule,
+        defaultModuleOnePlaybook
+      ),
       quiz: buildQuiz(
         lesson,
         courseModule,
@@ -813,6 +1058,12 @@ export function buildLessonMaterial(
     ],
     recommendedVideos: getRecommendedVideos(courseModule),
     sourceCredits: coreCredits,
+    establishedCourseReferences: getEstablishedCourseReferences(courseModule),
+    workingPromptExample: buildWorkingPromptExample(
+      lesson,
+      courseModule,
+      playbook
+    ),
     quiz: buildQuiz(lesson, courseModule, riskFrame),
     rubric: buildRubric(lesson),
     worksheet: {

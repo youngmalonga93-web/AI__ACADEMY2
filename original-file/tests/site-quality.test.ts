@@ -13,6 +13,18 @@ const approvedResourceHosts = [
   "developer.nvidia.com",
 ];
 
+const approvedCourseReferenceHosts = [
+  "www.deeplearning.ai",
+  "learn.deeplearning.ai",
+  "developers.google.com",
+  "huggingface.co",
+  "www.coursera.org",
+  "cs50.harvard.edu",
+  "course.fast.ai",
+  "platform.openai.com",
+  "developer.nvidia.com",
+];
+
 describe("site quality guardrails", () => {
   it("keeps every course and lesson route internally resolvable", () => {
     const moduleIds = new Set(modules.map((module) => module.id));
@@ -38,6 +50,16 @@ describe("site quality guardrails", () => {
 
         expect(material.recommendedVideos.length).toBeGreaterThanOrEqual(2);
         expect(material.sourceCredits.length).toBeGreaterThanOrEqual(2);
+        expect(
+          material.establishedCourseReferences.length
+        ).toBeGreaterThanOrEqual(3);
+        expect(material.workingPromptExample.prompt).toContain("My context:");
+        expect(material.workingPromptExample.prompt).toContain(
+          "Output format:"
+        );
+        expect(
+          material.workingPromptExample.whyItWorks.length
+        ).toBeGreaterThanOrEqual(3);
         expect(material.quiz.length).toBeGreaterThanOrEqual(3);
         expect(material.rubric.length).toBeGreaterThanOrEqual(4);
 
@@ -46,6 +68,12 @@ describe("site quality guardrails", () => {
           expect(approvedResourceHosts).toContain(host);
           expect(video.channel.length).toBeGreaterThan(2);
           expect(video.fit.length).toBeGreaterThan(20);
+        }
+
+        for (const reference of material.establishedCourseReferences) {
+          const host = new URL(reference.url).host;
+          expect(approvedCourseReferenceHosts).toContain(host);
+          expect(reference.fit.length).toBeGreaterThan(30);
         }
       }
     }
