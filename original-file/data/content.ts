@@ -1,5 +1,6 @@
 import fullContent from "./full-content.json";
 import { additionalPrompts } from "./additional-prompts";
+import { launchPrompts } from "./launch-prompts";
 import { moduleEnrichments } from "./enrichment";
 import { expandedPrompts } from "./prompt-expansion";
 import type {
@@ -24,6 +25,7 @@ export const prompts = [
   ...(fullContent.prompts as PromptTemplate[]),
   ...additionalPrompts,
   ...expandedPrompts,
+  ...launchPrompts,
 ];
 export const certifications = fullContent.certifications as Certification[];
 export const careerPaths = fullContent.careerPaths as CareerPath[];

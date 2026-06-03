@@ -30,7 +30,7 @@ describe("prompt filters", () => {
   it("includes an expanded investor-ready prompt vault", () => {
     const promptIds = new Set(prompts.map((prompt) => prompt.id));
 
-    expect(prompts.length).toBeGreaterThanOrEqual(90);
+    expect(prompts.length).toBeGreaterThanOrEqual(100);
     expect(promptIds.size).toBe(prompts.length);
     expect(prompts.map((prompt) => prompt.title)).toContain(
       "The Investor Demo Script"
@@ -40,6 +40,12 @@ describe("prompt filters", () => {
     );
     expect(prompts.map((prompt) => prompt.title)).toContain(
       "The Video Lesson Storyboard"
+    );
+    expect(prompts.map((prompt) => prompt.title)).toContain(
+      "The Investor Readiness Audit"
+    );
+    expect(prompts.map((prompt) => prompt.title)).toContain(
+      "The Enterprise Pilot Plan"
     );
   });
 });

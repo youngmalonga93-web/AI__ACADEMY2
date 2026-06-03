@@ -38,6 +38,8 @@ describe("site quality guardrails", () => {
 
         expect(material.recommendedVideos.length).toBeGreaterThanOrEqual(2);
         expect(material.sourceCredits.length).toBeGreaterThanOrEqual(2);
+        expect(material.quiz.length).toBeGreaterThanOrEqual(3);
+        expect(material.rubric.length).toBeGreaterThanOrEqual(4);
 
         for (const video of material.recommendedVideos) {
           const host = new URL(video.url).host;

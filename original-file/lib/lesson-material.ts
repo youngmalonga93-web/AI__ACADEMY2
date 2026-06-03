@@ -9,6 +9,8 @@ type LessonMaterial = {
   videoPlan: string[];
   recommendedVideos: VideoResource[];
   sourceCredits: SourceCredit[];
+  quiz: QuizQuestion[];
+  rubric: RubricItem[];
   worksheet: {
     title: string;
     sections: string[];
@@ -27,6 +29,96 @@ export type SourceCredit = {
   url: string;
   note: string;
 };
+
+export type QuizQuestion = {
+  question: string;
+  options: string[];
+  answer: string;
+  explanation: string;
+};
+
+export type RubricItem = {
+  criterion: string;
+  excellent: string;
+  needsWork: string;
+};
+
+function buildQuiz(
+  lesson: Lesson,
+  courseModule: CourseModule,
+  riskFrame: string
+): QuizQuestion[] {
+  return [
+    {
+      question: `What is the main professional outcome of "${lesson.title}"?`,
+      options: [
+        "Produce a reusable artifact or decision improvement",
+        "Memorize every tool name in the module",
+        "Replace human review entirely",
+        "Use the longest possible prompt",
+      ],
+      answer: "Produce a reusable artifact or decision improvement",
+      explanation: `${courseModule.title} is designed around practical operating skill: learners should leave with an artifact, workflow, or decision they can reuse.`,
+    },
+    {
+      question:
+        "Which review step should happen before using AI-assisted work with real users or business data?",
+      options: [
+        "Check accuracy, usefulness, risk, and human trust",
+        "Publish the first draft immediately",
+        "Remove all constraints from the prompt",
+        "Ignore source quality if the writing sounds confident",
+      ],
+      answer: "Check accuracy, usefulness, risk, and human trust",
+      explanation:
+        "AI output becomes professional only after verification, risk review, and context-aware judgment.",
+    },
+    {
+      question: "What is the likely failure mode to watch for in this lesson?",
+      options: [
+        riskFrame,
+        "Too much verified evidence",
+        "Too many human approval points",
+        "Over-documenting the final artifact",
+      ],
+      answer: riskFrame,
+      explanation:
+        "Every AI workflow needs an explicit failure mode so learners know what to inspect before trusting the output.",
+    },
+  ];
+}
+
+function buildRubric(lesson: Lesson): RubricItem[] {
+  return [
+    {
+      criterion: "Clarity of goal",
+      excellent: `The ${lesson.title.toLowerCase()} artifact names the user, outcome, constraints, and success criteria.`,
+      needsWork:
+        "The goal is vague, tool-centered, or missing a real user outcome.",
+    },
+    {
+      criterion: "Quality of AI workflow",
+      excellent:
+        "The workflow uses clear inputs, structured prompting, iteration, and review instead of a one-shot answer.",
+      needsWork:
+        "The workflow depends on a single generic prompt with no evaluation loop.",
+    },
+    {
+      criterion: "Verification and risk control",
+      excellent:
+        "The learner identifies assumptions, failure modes, source checks, and where human approval is required.",
+      needsWork:
+        "The output is accepted because it sounds good, without testing or source review.",
+    },
+    {
+      criterion: "Portfolio readiness",
+      excellent:
+        "The final artifact is clean enough to show to a mentor, employer, client, teammate, or investor.",
+      needsWork:
+        "The artifact reads like private notes rather than a finished professional deliverable.",
+    },
+  ];
+}
 
 const coreCredits: SourceCredit[] = [
   {
@@ -154,7 +246,10 @@ function getRecommendedVideos(courseModule: CourseModule) {
   );
 }
 
-const moduleOneMaterials: Record<string, LessonMaterial> = {
+const moduleOneMaterials: Record<
+  string,
+  Omit<LessonMaterial, "quiz" | "rubric">
+> = {
   "what-ai-really-is": {
     explanation: [
       "AI systems do not think like people. Modern language models predict useful next tokens from patterns learned across huge datasets. They can produce expert-looking answers because they have learned the shape of expert language, not because they verify every claim against reality.",
@@ -649,7 +744,15 @@ export function buildLessonMaterial(
   const moduleOneMaterial = moduleOneMaterials[lesson.id];
 
   if (courseModule.id === 1 && moduleOneMaterial) {
-    return moduleOneMaterial;
+    return {
+      ...moduleOneMaterial,
+      quiz: buildQuiz(
+        lesson,
+        courseModule,
+        "Skipping verification turns polished AI output into operational risk"
+      ),
+      rubric: buildRubric(lesson),
+    };
   }
 
   const playbook = modulePlaybooks[courseModule.id] ?? {
@@ -660,6 +763,8 @@ export function buildLessonMaterial(
     riskFrame:
       "The failure mode is using AI as a shortcut without defining quality, ownership, or verification.",
   };
+
+  const riskFrame = playbook.riskFrame;
 
   return {
     explanation: [
@@ -708,6 +813,8 @@ export function buildLessonMaterial(
     ],
     recommendedVideos: getRecommendedVideos(courseModule),
     sourceCredits: coreCredits,
+    quiz: buildQuiz(lesson, courseModule, riskFrame),
+    rubric: buildRubric(lesson),
     worksheet: {
       title: `${lesson.title} Worksheet`,
       sections: [

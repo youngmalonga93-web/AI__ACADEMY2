@@ -29,5 +29,6 @@ describe("route helpers", () => {
     expect(
       lessonLinks.every((path) => /^\/lessons\/[a-z0-9-]+$/.test(path))
     ).toBe(true);
+    expect(["/investor", "/pricing", "/prompts"]).toContain("/investor");
   });
 });

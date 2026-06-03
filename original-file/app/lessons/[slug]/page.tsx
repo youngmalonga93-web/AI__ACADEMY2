@@ -38,6 +38,28 @@ export default async function LessonPage({ params }: LessonPageProps) {
     lessonIndex >= 0 && lessonIndex < courseModule.lessons.length - 1
       ? courseModule.lessons[lessonIndex + 1]
       : null;
+  const worksheetMarkdown = [
+    `# ${material.worksheet.title}`,
+    "",
+    `Lesson: ${lesson.title}`,
+    `Module: ${courseModule.title}`,
+    "",
+    "## Sections",
+    ...material.worksheet.sections.map((section) => `- ${section}`),
+    "",
+    "## Workflow",
+    ...material.workflow.map((step, index) => `${index + 1}. ${step}`),
+    "",
+    "## Practice Lab",
+    ...material.practice.map((step) => `- ${step}`),
+    "",
+    "## Portfolio Deliverable",
+    material.deliverable,
+    "",
+    "## Reflection",
+    ...material.reflection.map((question) => `- ${question}`),
+  ].join("\n");
+  const worksheetDownloadHref = `data:text/markdown;charset=utf-8,${encodeURIComponent(worksheetMarkdown)}`;
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -241,6 +263,14 @@ export default async function LessonPage({ params }: LessonPageProps) {
                   <li key={section}>{section}</li>
                 ))}
               </ul>
+              <Button asChild className="mt-4" variant="secondary">
+                <a
+                  download={`${lesson.id}-worksheet.md`}
+                  href={worksheetDownloadHref}
+                >
+                  Download worksheet
+                </a>
+              </Button>
             </div>
             <div>
               <p className="font-medium text-foreground">Reflection prompts</p>
@@ -250,6 +280,58 @@ export default async function LessonPage({ params }: LessonPageProps) {
                 ))}
               </ul>
             </div>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[1fr_1fr]">
+        <Card>
+          <CardHeader>
+            <CardTitle>Knowledge Check</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4">
+            {material.quiz.map((question, index) => (
+              <div key={question.question} className="rounded-md border p-4">
+                <p className="text-sm font-medium">
+                  {index + 1}. {question.question}
+                </p>
+                <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+                  {question.options.map((option) => (
+                    <li key={option}>{option}</li>
+                  ))}
+                </ul>
+                <div className="mt-3 rounded-md bg-muted p-3 text-sm leading-6 text-muted-foreground">
+                  <span className="font-medium text-foreground">Answer: </span>
+                  {question.answer}
+                  <p className="mt-1">{question.explanation}</p>
+                </div>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Rubric</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {material.rubric.map((item) => (
+              <div key={item.criterion} className="rounded-md border p-4">
+                <p className="text-sm font-medium">{item.criterion}</p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <span className="font-medium text-foreground">
+                    Excellent:{" "}
+                  </span>
+                  {item.excellent}
+                </p>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  <span className="font-medium text-foreground">
+                    Needs work:{" "}
+                  </span>
+                  {item.needsWork}
+                </p>
+              </div>
+            ))}
           </CardContent>
         </Card>
       </div>

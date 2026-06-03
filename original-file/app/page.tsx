@@ -53,6 +53,12 @@ export default async function HomePage() {
       href: "/careers",
       body: "Connect the learning product to jobs, certifications, and monetization.",
     },
+    {
+      label: "Proof",
+      title: "Investor snapshot",
+      href: "/investor",
+      body: "Show live platform metrics, business model, risk posture, and next milestones.",
+    },
   ];
 
   return (
@@ -76,6 +82,9 @@ export default async function HomePage() {
             </Button>
             <Button asChild variant="secondary">
               <Link href="/pricing">See pricing plan</Link>
+            </Button>
+            <Button asChild variant="secondary">
+              <Link href="/investor">Investor snapshot</Link>
             </Button>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
@@ -141,7 +150,7 @@ export default async function HomePage() {
             <Link href="/signup">Create demo learner</Link>
           </Button>
         </div>
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {demoPath.map((item) => (
             <Link
               key={item.title}

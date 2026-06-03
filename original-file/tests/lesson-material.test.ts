@@ -17,6 +17,8 @@ describe("lesson material", () => {
     expect(material.videoPlan.length).toBeGreaterThanOrEqual(5);
     expect(material.recommendedVideos.length).toBeGreaterThanOrEqual(2);
     expect(material.sourceCredits.length).toBeGreaterThanOrEqual(2);
+    expect(material.quiz.length).toBeGreaterThanOrEqual(3);
+    expect(material.rubric.length).toBeGreaterThanOrEqual(4);
     expect(material.worksheet.sections).toContain("Verification source");
   });
 
@@ -40,6 +42,12 @@ describe("lesson material", () => {
         video.url.startsWith("https://")
       )
     ).toBe(true);
+    expect(material.quiz.map((question) => question.answer)).toContain(
+      "Produce a reusable artifact or decision improvement"
+    );
+    expect(material.rubric.map((item) => item.criterion)).toContain(
+      "Portfolio readiness"
+    );
     expect(material.worksheet.sections).toContain("Portfolio proof");
   });
 });

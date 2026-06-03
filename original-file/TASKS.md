@@ -30,14 +30,14 @@
 - [x] Upgrade course detail pages with live content and completion badges.
 - [x] Add course catalog search and filters for phase, difficulty, and tool.
 - [x] Complete all modules to gold-standard lesson depth before Stripe.
-- [ ] Add lesson quizzes, rubrics, downloadable worksheets, and video placeholders.
-- [ ] Expand prompt vault to 100+ practical, career/business-ready prompts.
-- [ ] Add site-wide production QA pass for all links, empty states, and auth flows.
+- [x] Add lesson quizzes, rubrics, downloadable worksheets, and video placeholders.
+- [x] Expand prompt vault to 100+ practical, career/business-ready prompts.
+- [x] Add site-wide production QA pass for all links, empty states, and auth flows.
 - [x] Add 7-day trial messaging, free prompt access, and Stripe-ready pricing plan.
 - [x] Link lessons to approved third-party teaching resources with attribution.
 - [x] Document free production hosting path that avoids the Vercel root-directory issue.
 - [x] Add production hardening pass for security headers, safe redirects, error fallbacks, formatting, health checks, and chunk stability verification.
-- [ ] Add investor demo metrics and admin snapshot page.
+- [x] Add investor demo metrics and admin snapshot page.
 - [ ] Stripe Checkout integration.
 - [ ] Stripe Customer Portal integration.
 - [ ] Stripe webhook subscription sync.
