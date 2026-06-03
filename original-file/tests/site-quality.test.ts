@@ -1,4 +1,5 @@
 import { describe, expect, it } from "vitest";
+import { readFileSync } from "node:fs";
 import { modules } from "../data/content";
 import { moduleEnrichments } from "../data/enrichment";
 import { buildLessonMaterial } from "../lib/lesson-material";
@@ -99,6 +100,21 @@ describe("site quality guardrails", () => {
     );
     expect(moduleEnrichments[15].realWorldExamples?.join(" ")).toContain(
       "local models"
+    );
+  });
+
+  it("shows a clear coming-soon disclosure for original video lessons", () => {
+    const lessonPageSource = readFileSync(
+      "app/lessons/[slug]/page.tsx",
+      "utf8"
+    );
+
+    expect(lessonPageSource).toContain("Videos coming soon");
+    expect(lessonPageSource).toContain(
+      "Original AI Academy video lessons are in production."
+    );
+    expect(lessonPageSource).toContain(
+      "written lesson, applied lab, worksheet, working prompt"
     );
   });
 });

@@ -215,9 +215,23 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
         <Card>
           <CardHeader>
-            <CardTitle>Video Tutorial Blueprint</CardTitle>
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <CardTitle>Video Tutorial Blueprint</CardTitle>
+              <Badge>Videos coming soon</Badge>
+            </div>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-6 text-muted-foreground">
+            <div className="rounded-md border bg-muted/40 p-3">
+              <p className="font-medium text-foreground">
+                Original AI Academy video lessons are in production.
+              </p>
+              <p className="mt-1">
+                The written lesson, applied lab, worksheet, working prompt,
+                quizzes, rubrics, and approved third-party references are
+                available now. The original video version of this lesson will be
+                added soon.
+              </p>
+            </div>
             <p>
               Use this structure when we produce the original AI Academy video
               lesson.
