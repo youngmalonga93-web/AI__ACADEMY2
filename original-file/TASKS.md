@@ -46,8 +46,8 @@
 - [x] Curate high-value training prompts from supplied workbook into the prompt vault.
 - [x] Remove the investor-only page from the production navigation and QA path.
 - [x] Add production runbook and smoother local/live server scripts.
-- [ ] AI Coach API using OpenAI and Anthropic adapters.
-- [ ] RAG retrieval over course, lesson, project, and prompt content.
+- [x] AI Coach API using OpenAI and Anthropic adapters.
+- [x] RAG retrieval over course, lesson, project, and prompt content.
 - [ ] AI Project Reviewer.
 - [ ] AI Career Advisor.
 - [ ] Certification exams.

@@ -61,4 +61,20 @@ describe("environment validation", () => {
       STRIPE_BUILDER_PRICE_ID: "price_builder",
     });
   });
+
+  it("accepts optional AI provider configuration", () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "publishable-key";
+    process.env.OPENAI_API_KEY = "openai-key";
+    process.env.OPENAI_MODEL = "openai-model";
+    process.env.ANTHROPIC_API_KEY = "anthropic-key";
+    process.env.ANTHROPIC_MODEL = "anthropic-model";
+
+    expect(getServerEnv()).toMatchObject({
+      OPENAI_API_KEY: "openai-key",
+      OPENAI_MODEL: "openai-model",
+      ANTHROPIC_API_KEY: "anthropic-key",
+      ANTHROPIC_MODEL: "anthropic-model",
+    });
+  });
 });

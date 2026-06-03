@@ -43,9 +43,9 @@ export default async function HomePage() {
     },
     {
       label: "Practice",
-      title: "Prompt vault",
-      href: "/prompts",
-      body: "Show reusable AI workflows learners can copy and apply immediately.",
+      title: "Prompt vault and AI Coach",
+      href: "/coach",
+      body: "Use guided coaching plus reusable AI workflows learners can apply immediately.",
     },
     {
       label: "Outcome",
@@ -97,8 +97,8 @@ export default async function HomePage() {
               },
               {
                 icon: BrainCircuit,
-                label: "AI-native content",
-                body: "Courses, labs, prompts, and video lesson plans.",
+                label: "AI-native learning",
+                body: "Courses, labs, prompts, coaching, and video lesson plans.",
               },
               {
                 icon: TrendingUp,

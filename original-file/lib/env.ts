@@ -12,6 +12,10 @@ const serverEnvSchema = clientEnvSchema.extend({
   STRIPE_WEBHOOK_SECRET: z.string().min(1).optional(),
   STRIPE_PRO_PRICE_ID: z.string().min(1).optional(),
   STRIPE_BUILDER_PRICE_ID: z.string().min(1).optional(),
+  OPENAI_API_KEY: z.string().min(1).optional(),
+  OPENAI_MODEL: z.string().min(1).optional(),
+  ANTHROPIC_API_KEY: z.string().min(1).optional(),
+  ANTHROPIC_MODEL: z.string().min(1).optional(),
 });
 
 function emptyToUndefined(value: string | undefined) {
@@ -43,5 +47,9 @@ export function getServerEnv() {
     STRIPE_BUILDER_PRICE_ID: emptyToUndefined(
       process.env.STRIPE_BUILDER_PRICE_ID
     ),
+    OPENAI_API_KEY: emptyToUndefined(process.env.OPENAI_API_KEY),
+    OPENAI_MODEL: emptyToUndefined(process.env.OPENAI_MODEL),
+    ANTHROPIC_API_KEY: emptyToUndefined(process.env.ANTHROPIC_API_KEY),
+    ANTHROPIC_MODEL: emptyToUndefined(process.env.ANTHROPIC_MODEL),
   });
 }

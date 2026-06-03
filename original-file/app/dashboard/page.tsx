@@ -157,6 +157,9 @@ export default async function DashboardPage() {
             <Button asChild variant="secondary">
               <Link href="/prompts">Open prompt vault</Link>
             </Button>
+            <Button asChild variant="secondary">
+              <Link href="/coach">Ask AI Coach</Link>
+            </Button>
             <Button asChild>
               <Link href="/pricing">View pricing plan</Link>
             </Button>

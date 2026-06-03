@@ -32,6 +32,10 @@ Set these in Vercel Project Settings, not in committed files:
 - `STRIPE_PRICE_PRO_YEARLY`
 - `STRIPE_PRICE_TEAM_YEARLY`
 - `SUPABASE_SERVICE_ROLE_KEY`
+- `OPENAI_API_KEY`
+- `OPENAI_MODEL`
+- `ANTHROPIC_API_KEY`
+- `ANTHROPIC_MODEL`
 
 ## Launch Checklist
 
@@ -44,6 +48,7 @@ Set these in Vercel Project Settings, not in committed files:
    `/signup` on the production URL.
 6. Test email signup, Google signup, GitHub signup, trial messaging, free prompt
    access, premium module gates, and billing buttons.
+7. Add at least one AI provider key, then test `/coach` with a signed-in account.
 
 ## Animation Plan
 

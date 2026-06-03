@@ -4,6 +4,7 @@ const routes = [
   "/api/health",
   "/auth/client-callback",
   "/",
+  "/coach",
   "/courses",
   "/courses/1",
   "/lessons/what-ai-really-is",
