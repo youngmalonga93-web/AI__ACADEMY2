@@ -2,6 +2,8 @@ import type { PromptTemplate } from "@/data/types";
 
 export const TRIAL_DAYS = 7;
 export const FREE_PROMPT_IDS = [47, 48, 54, 65];
+export const FREE_MODULE_IDS = [1];
+export const FREE_CERTIFICATION_LEVELS = [1];
 
 const DAY_IN_MS = 24 * 60 * 60 * 1000;
 
@@ -76,6 +78,14 @@ export function isFreePrompt(promptId: PromptTemplate["id"]) {
   return FREE_PROMPT_IDS.includes(promptId);
 }
 
+export function isFreeModule(moduleId: number) {
+  return FREE_MODULE_IDS.includes(moduleId);
+}
+
+export function isFreeCertification(level: number) {
+  return FREE_CERTIFICATION_LEVELS.includes(level);
+}
+
 export function canAccessPrompt(
   prompt: PromptTemplate,
   isSignedIn: boolean,
@@ -122,5 +132,29 @@ export function canAccessPremium(
 ) {
   return (
     isSignedIn && (trialState.isActive || hasActiveSubscription(subscription))
+  );
+}
+
+export function canAccessModule(
+  moduleId: number,
+  isSignedIn: boolean,
+  trialState: TrialState,
+  subscription: SubscriptionState
+) {
+  return (
+    isFreeModule(moduleId) ||
+    canAccessPremium(isSignedIn, trialState, subscription)
+  );
+}
+
+export function canAccessCertification(
+  level: number,
+  isSignedIn: boolean,
+  trialState: TrialState,
+  subscription: SubscriptionState
+) {
+  return (
+    isFreeCertification(level) ||
+    canAccessPremium(isSignedIn, trialState, subscription)
   );
 }

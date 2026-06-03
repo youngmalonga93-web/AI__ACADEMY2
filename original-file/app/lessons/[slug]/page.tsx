@@ -7,6 +7,7 @@ import {
   getLessonBySlugFromContent,
   getModuleForLessonFromContent,
 } from "@/lib/content/repository";
+import { getViewerAccess } from "@/lib/access";
 import { buildLessonMaterial } from "@/lib/lesson-material";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { completeLessonAction } from "./actions";
@@ -26,6 +27,50 @@ export default async function LessonPage({ params }: LessonPageProps) {
 
   if (!lesson || !courseModule) {
     notFound();
+  }
+
+  const viewerAccess = await getViewerAccess();
+  const canOpenLesson = viewerAccess.canAccessModule(courseModule.id);
+
+  if (!canOpenLesson) {
+    return (
+      <div className="space-y-6">
+        <div className="space-y-3">
+          <Badge>
+            {lesson.number} in {courseModule.title}
+          </Badge>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            {lesson.title}
+          </h1>
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+            {lesson.hook}
+          </p>
+        </div>
+        <Card>
+          <CardHeader>
+            <CardTitle>Premium lesson locked</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-4 text-sm leading-6 text-muted-foreground">
+            <p>
+              This lesson is part of the premium AI Academy track. Start the
+              7-day trial to unlock the full lesson notes, worksheets, quizzes,
+              rubrics, and approved video resources.
+            </p>
+            <div className="flex flex-wrap gap-2">
+              <Button asChild>
+                <Link href="/signup">Start 7-day trial</Link>
+              </Button>
+              <Button asChild variant="secondary">
+                <Link href="/pricing">View pricing</Link>
+              </Button>
+              <Button asChild variant="secondary">
+                <Link href={`/courses/${courseModule.id}`}>Back to module</Link>
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+      </div>
+    );
   }
 
   const material = buildLessonMaterial(lesson, courseModule);

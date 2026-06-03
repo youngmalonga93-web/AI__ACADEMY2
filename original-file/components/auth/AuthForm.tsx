@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,26 @@ export function AuthForm({ mode }: AuthFormProps) {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
+  useEffect(() => {
+    setMessage(
+      new URLSearchParams(window.location.search).get("message") ?? ""
+    );
+  }, []);
+
+  function getNextPath() {
+    const next = new URLSearchParams(window.location.search).get("next");
+    return next && next.startsWith("/") && !next.startsWith("//")
+      ? next
+      : "/dashboard";
+  }
+
+  function getAuthCallbackUrl() {
+    const callbackUrl = new URL("/auth/callback", window.location.origin);
+    callbackUrl.searchParams.set("next", getNextPath());
+    callbackUrl.searchParams.set("mode", mode);
+    return callbackUrl.toString();
+  }
+
   async function handleEmailAuth(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIsSubmitting(true);
@@ -31,7 +51,7 @@ export function AuthForm({ mode }: AuthFormProps) {
               email,
               password,
               options: {
-                emailRedirectTo: `${window.location.origin}/auth/callback`,
+                emailRedirectTo: getAuthCallbackUrl(),
               },
             });
 
@@ -45,7 +65,7 @@ export function AuthForm({ mode }: AuthFormProps) {
           "Check your email to confirm your account. Your 7-day trial starts now."
         );
       } else {
-        router.push("/dashboard");
+        router.push(getNextPath());
         router.refresh();
       }
     } catch {
@@ -66,7 +86,14 @@ export function AuthForm({ mode }: AuthFormProps) {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/auth/callback`,
+          redirectTo: getAuthCallbackUrl(),
+          queryParams:
+            provider === "google"
+              ? {
+                  access_type: "offline",
+                  prompt: "consent",
+                }
+              : undefined,
         },
       });
 

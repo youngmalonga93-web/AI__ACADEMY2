@@ -1,10 +1,14 @@
 import { describe, expect, it } from "vitest";
 import {
+  canAccessCertification,
+  canAccessModule,
   canAccessPrompt,
   canAccessPremium,
   getSubscriptionState,
   getTrialState,
   hasActiveSubscription,
+  isFreeCertification,
+  isFreeModule,
   isFreePrompt,
 } from "../lib/entitlements";
 import type { PromptTemplate } from "../data/types";
@@ -98,5 +102,39 @@ describe("entitlements", () => {
       hasActiveSubscription(subscription, new Date("2026-06-10T12:00:00.000Z"))
     ).toBe(false);
     expect(canAccessPremium(true, expiredTrial, subscription)).toBe(false);
+  });
+
+  it("keeps module one free and gates advanced modules behind trial or subscription", () => {
+    const noTrial = getTrialState(null);
+    const noSubscription = getSubscriptionState(null);
+    const activeTrial = getTrialState(
+      "2026-06-01T12:00:00.000Z",
+      new Date("2026-06-02T12:00:00.000Z")
+    );
+
+    expect(isFreeModule(1)).toBe(true);
+    expect(canAccessModule(1, false, noTrial, noSubscription)).toBe(true);
+    expect(canAccessModule(2, false, noTrial, noSubscription)).toBe(false);
+    expect(canAccessModule(2, true, activeTrial, noSubscription)).toBe(true);
+  });
+
+  it("keeps level one certification free and gates advanced credentials", () => {
+    const noTrial = getTrialState(null);
+    const noSubscription = getSubscriptionState(null);
+    const subscription = getSubscriptionState({
+      plan: "builder",
+      status: "trialing",
+      current_period_end: "2026-07-01T12:00:00.000Z",
+      trial_end: "2026-06-08T12:00:00.000Z",
+    });
+
+    expect(isFreeCertification(1)).toBe(true);
+    expect(canAccessCertification(1, false, noTrial, noSubscription)).toBe(
+      true
+    );
+    expect(canAccessCertification(2, false, noTrial, noSubscription)).toBe(
+      false
+    );
+    expect(canAccessCertification(2, true, noTrial, subscription)).toBe(true);
   });
 });

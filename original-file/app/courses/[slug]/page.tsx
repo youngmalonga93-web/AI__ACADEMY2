@@ -4,6 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCourseModuleById } from "@/lib/content/repository";
+import { getViewerAccess } from "@/lib/access";
+import { isFreeModule } from "@/lib/entitlements";
 import { lessonPath } from "@/lib/routes";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -25,6 +27,10 @@ export default async function CourseDetailPage({
   if (!courseModule) {
     notFound();
   }
+
+  const viewerAccess = await getViewerAccess();
+  const canOpenLessons = viewerAccess.canAccessModule(courseModule.id);
+  const moduleIsFree = isFreeModule(courseModule.id);
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -66,13 +72,35 @@ export default async function CourseDetailPage({
         <div className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Lessons</CardTitle>
+              <div className="flex items-center justify-between gap-3">
+                <CardTitle>Lessons</CardTitle>
+                <Badge>{moduleIsFree ? "Free preview" : "Premium"}</Badge>
+              </div>
             </CardHeader>
             <CardContent className="space-y-3">
+              {!canOpenLessons ? (
+                <div className="rounded-md border bg-muted/40 p-4 text-sm leading-6 text-muted-foreground">
+                  <p className="font-medium text-foreground">
+                    Start the 7-day trial to open this module.
+                  </p>
+                  <p className="mt-1">
+                    You can still review the module outcomes, capstone,
+                    examples, and resources before upgrading.
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    <Button asChild className="h-9 px-3">
+                      <Link href="/signup">Start trial</Link>
+                    </Button>
+                    <Button asChild className="h-9 px-3" variant="secondary">
+                      <Link href="/pricing">View pricing</Link>
+                    </Button>
+                  </div>
+                </div>
+              ) : null}
               {courseModule.lessons.map((lesson) => (
                 <Link
                   key={lesson.id}
-                  href={lessonPath(lesson)}
+                  href={canOpenLessons ? lessonPath(lesson) : "/signup"}
                   prefetch={false}
                   className="block rounded-md border p-4 hover:bg-muted"
                 >
@@ -87,6 +115,7 @@ export default async function CourseDetailPage({
                       {completedLessonSlugs.has(lesson.id) ? (
                         <Badge>Complete</Badge>
                       ) : null}
+                      {!canOpenLessons ? <Badge>Locked</Badge> : null}
                       <span className="text-sm text-muted-foreground">
                         {lesson.duration}
                       </span>

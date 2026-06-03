@@ -41,7 +41,7 @@
 - [x] Stripe Checkout integration.
 - [x] Stripe Customer Portal integration.
 - [x] Stripe webhook subscription sync.
-- [ ] Entitlement checks for premium courses and certifications.
+- [x] Entitlement checks for premium courses and certifications.
 - [ ] AI Coach API using OpenAI and Anthropic adapters.
 - [ ] RAG retrieval over course, lesson, project, and prompt content.
 - [ ] AI Project Reviewer.
