@@ -3,6 +3,7 @@ import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { CheckoutButton } from "@/app/pricing/BillingActions";
 
 const plans = [
   {
@@ -20,6 +21,7 @@ const plans = [
     cta: "Start free",
     href: "/prompts",
     badge: "Free prompts",
+    planId: null,
   },
   {
     name: "Pro",
@@ -38,6 +40,7 @@ const plans = [
     cta: "Start 7-day trial",
     href: "/signup",
     badge: "Recommended",
+    planId: "pro",
   },
   {
     name: "Builder",
@@ -55,6 +58,7 @@ const plans = [
     cta: "Start trial",
     href: "/signup",
     badge: "High intent",
+    planId: "builder",
   },
   {
     name: "Team",
@@ -72,8 +76,9 @@ const plans = [
     cta: "Prepare team plan",
     href: "/careers",
     badge: "B2B",
+    planId: null,
   },
-];
+] as const;
 
 export default function PricingPage() {
   return (
@@ -117,13 +122,17 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              <Button
-                asChild
-                className="w-full"
-                variant={plan.name === "Pro" ? "default" : "secondary"}
-              >
-                <Link href={plan.href}>{plan.cta}</Link>
-              </Button>
+              {plan.planId ? (
+                <CheckoutButton
+                  plan={plan.planId}
+                  label={plan.cta}
+                  variant={plan.name === "Pro" ? "default" : "secondary"}
+                />
+              ) : (
+                <Button asChild className="w-full" variant="secondary">
+                  <Link href={plan.href}>{plan.cta}</Link>
+                </Button>
+              )}
             </CardContent>
           </Card>
         ))}

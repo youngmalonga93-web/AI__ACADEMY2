@@ -1,9 +1,14 @@
 import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { BillingPortalButton } from "@/app/dashboard/BillingPortalButton";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getCourseModules } from "@/lib/content/repository";
-import { getTrialState } from "@/lib/entitlements";
+import {
+  getSubscriptionState,
+  getTrialState,
+  hasActiveSubscription,
+} from "@/lib/entitlements";
 import { calculateProgressPercent } from "@/lib/progress";
 import {
   getNextLesson,
@@ -19,6 +24,7 @@ export default async function DashboardPage() {
   let role = "learner";
   let completedLessons: CompletedLesson[] = [];
   let trialState = getTrialState(null);
+  let subscriptionState = getSubscriptionState(null);
   const modules = await getCourseModules();
   const totalLessons = modules.reduce(
     (sum, module) => sum + module.lessons.length,
@@ -44,6 +50,15 @@ export default async function DashboardPage() {
       .eq("id", user.id)
       .maybeSingle();
     role = profile?.role ?? "learner";
+
+    const { data: subscription } = await supabase
+      .from("subscriptions")
+      .select("plan,status,current_period_end,trial_end")
+      .eq("user_id", user.id)
+      .order("updated_at", { ascending: false })
+      .limit(1)
+      .maybeSingle();
+    subscriptionState = getSubscriptionState(subscription);
 
     const { data: progressRows } = await supabase
       .from("user_progress")
@@ -82,6 +97,7 @@ export default async function DashboardPage() {
     completedLessons.length,
     totalLessons
   );
+  const hasPaidAccess = hasActiveSubscription(subscriptionState);
   const moduleProgress = summarizeModuleProgress(modules, completedLessons);
   const nextLesson = getNextLesson(modules, completedLessons);
 
@@ -120,10 +136,18 @@ export default async function DashboardPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-sm leading-6 text-muted-foreground">
-            {trialState.isActive
-              ? `Your 7-day trial is active with ${trialState.daysRemaining} day${trialState.daysRemaining === 1 ? "" : "s"} remaining.`
-              : "Your free trial is not active. Paid plan checkout will be connected through Stripe next."}
+            {hasPaidAccess
+              ? `Your ${subscriptionState.plan ?? "paid"} plan is ${subscriptionState.status}.`
+              : trialState.isActive
+                ? `Your 7-day trial is active with ${trialState.daysRemaining} day${trialState.daysRemaining === 1 ? "" : "s"} remaining.`
+                : "Your free trial is not active. Start a paid plan from pricing when you are ready."}
           </p>
+          {subscriptionState.currentPeriodEnd ? (
+            <p className="text-sm text-muted-foreground">
+              Current billing period ends:{" "}
+              {subscriptionState.currentPeriodEnd.toLocaleDateString()}
+            </p>
+          ) : null}
           {trialState.endsAt ? (
             <p className="text-sm text-muted-foreground">
               Trial end date: {trialState.endsAt.toLocaleDateString()}
@@ -136,6 +160,7 @@ export default async function DashboardPage() {
             <Button asChild>
               <Link href="/pricing">View pricing plan</Link>
             </Button>
+            {hasPaidAccess ? <BillingPortalButton /> : null}
           </div>
         </CardContent>
       </Card>

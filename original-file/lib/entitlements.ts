@@ -12,6 +12,28 @@ export type TrialState = {
   isActive: boolean;
 };
 
+export type SubscriptionState = {
+  plan: string | null;
+  status: string | null;
+  currentPeriodEnd: Date | null;
+  trialEnd: Date | null;
+};
+
+const ACTIVE_SUBSCRIPTION_STATUSES = new Set([
+  "active",
+  "trialing",
+  "past_due",
+]);
+
+function parseDate(value?: string | null) {
+  if (!value) {
+    return null;
+  }
+
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
 export function getTrialState(
   createdAt?: string | null,
   now = new Date()
@@ -60,4 +82,45 @@ export function canAccessPrompt(
   trialState: TrialState
 ) {
   return isFreePrompt(prompt.id) || (isSignedIn && trialState.isActive);
+}
+
+export function getSubscriptionState(
+  row?: {
+    plan?: string | null;
+    status?: string | null;
+    current_period_end?: string | null;
+    trial_end?: string | null;
+  } | null
+): SubscriptionState {
+  return {
+    plan: row?.plan ?? null,
+    status: row?.status ?? null,
+    currentPeriodEnd: parseDate(row?.current_period_end),
+    trialEnd: parseDate(row?.trial_end),
+  };
+}
+
+export function hasActiveSubscription(
+  subscription: SubscriptionState,
+  now = new Date()
+) {
+  if (
+    !subscription.status ||
+    !ACTIVE_SUBSCRIPTION_STATUSES.has(subscription.status)
+  ) {
+    return false;
+  }
+
+  const accessEnd = subscription.currentPeriodEnd ?? subscription.trialEnd;
+  return accessEnd ? accessEnd.getTime() > now.getTime() : true;
+}
+
+export function canAccessPremium(
+  isSignedIn: boolean,
+  trialState: TrialState,
+  subscription: SubscriptionState
+) {
+  return (
+    isSignedIn && (trialState.isActive || hasActiveSubscription(subscription))
+  );
 }

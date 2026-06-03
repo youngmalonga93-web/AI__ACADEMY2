@@ -38,9 +38,9 @@
 - [x] Document free production hosting path that avoids the Vercel root-directory issue.
 - [x] Add production hardening pass for security headers, safe redirects, error fallbacks, formatting, health checks, and chunk stability verification.
 - [x] Add investor demo metrics and admin snapshot page.
-- [ ] Stripe Checkout integration.
-- [ ] Stripe Customer Portal integration.
-- [ ] Stripe webhook subscription sync.
+- [x] Stripe Checkout integration.
+- [x] Stripe Customer Portal integration.
+- [x] Stripe webhook subscription sync.
 - [ ] Entitlement checks for premium courses and certifications.
 - [ ] AI Coach API using OpenAI and Anthropic adapters.
 - [ ] RAG retrieval over course, lesson, project, and prompt content.
