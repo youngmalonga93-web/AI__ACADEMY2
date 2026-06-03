@@ -31,9 +31,9 @@ export default async function HomePage() {
   const demoPath = [
     {
       label: "Start",
-      title: "Investor-ready overview",
+      title: "Production overview",
       href: "/",
-      body: "Show the platform thesis, live content depth, and career outcomes.",
+      body: "See the platform thesis, live content depth, and career outcomes.",
     },
     {
       label: "Learn",
@@ -55,9 +55,9 @@ export default async function HomePage() {
     },
     {
       label: "Proof",
-      title: "Investor snapshot",
-      href: "/investor",
-      body: "Show live platform metrics, business model, risk posture, and next milestones.",
+      title: "Pricing and trial",
+      href: "/pricing",
+      body: "Review the 7-day trial, free prompt access, and subscription plan.",
     },
   ];
 
@@ -65,7 +65,7 @@ export default async function HomePage() {
     <div className="space-y-10">
       <section className="grid min-h-[520px] items-center gap-8 rounded-lg border bg-card p-6 md:p-8 lg:grid-cols-[1.15fr_0.85fr]">
         <div className="space-y-6">
-          <Badge>Investor demo build</Badge>
+          <Badge>Production build</Badge>
           <div className="space-y-4">
             <h1 className="max-w-4xl text-4xl font-semibold tracking-tight md:text-5xl">
               AI Academy trains practical AI operators, builders, and founders.
@@ -73,7 +73,8 @@ export default async function HomePage() {
             <p className="max-w-2xl text-base leading-7 text-muted-foreground">
               A production SaaS learning platform with live curriculum, progress
               tracking, prompt workflows, credential paths, and a clear roadmap
-              toward AI coaching, video lessons, and paid subscriptions.
+              toward AI coaching, original video lessons, and paid
+              subscriptions.
             </p>
           </div>
           <div className="flex flex-wrap gap-3">
@@ -84,7 +85,7 @@ export default async function HomePage() {
               <Link href="/pricing">See pricing plan</Link>
             </Button>
             <Button asChild variant="secondary">
-              <Link href="/investor">Investor snapshot</Link>
+              <Link href="/prompts">Open prompt vault</Link>
             </Button>
           </div>
           <div className="grid gap-3 sm:grid-cols-3">
@@ -143,7 +144,7 @@ export default async function HomePage() {
           <div>
             <Badge>Demo path</Badge>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight">
-              What to show investors first
+              What to explore first
             </h2>
           </div>
           <Button asChild variant="secondary">

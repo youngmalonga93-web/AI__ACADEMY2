@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -9,6 +10,7 @@ import {
 } from "@/lib/content/repository";
 import { getViewerAccess } from "@/lib/access";
 import { buildLessonMaterial } from "@/lib/lesson-material";
+import { getModuleAnimation } from "@/lib/module-animations";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { completeLessonAction } from "./actions";
 
@@ -74,6 +76,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
   }
 
   const material = buildLessonMaterial(lesson, courseModule);
+  const animation = getModuleAnimation(courseModule.id, courseModule.title);
   const lessonIndex = courseModule.lessons.findIndex(
     (item) => item.id === lesson.id
   );
@@ -221,6 +224,16 @@ export default async function LessonPage({ params }: LessonPageProps) {
             </div>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-6 text-muted-foreground">
+            <div className="relative aspect-video w-full overflow-hidden rounded-md border bg-background">
+              <Image
+                alt={animation.alt}
+                className="object-cover"
+                fill
+                sizes="(min-width: 1024px) 40vw, 100vw"
+                src={animation.src}
+                unoptimized
+              />
+            </div>
             <div className="rounded-md border bg-muted/40 p-3">
               <p className="font-medium text-foreground">
                 Original AI Academy video lessons are in production.

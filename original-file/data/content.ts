@@ -1,5 +1,6 @@
 import fullContent from "./full-content.json";
 import { additionalPrompts } from "./additional-prompts";
+import { curatedTrainingPrompts } from "./curated-training-prompts";
 import { launchPrompts } from "./launch-prompts";
 import { moduleEnrichments } from "./enrichment";
 import { expandedPrompts } from "./prompt-expansion";
@@ -26,6 +27,7 @@ export const prompts = [
   ...additionalPrompts,
   ...expandedPrompts,
   ...launchPrompts,
+  ...curatedTrainingPrompts,
 ];
 export const certifications = fullContent.certifications as Certification[];
 export const careerPaths = fullContent.careerPaths as CareerPath[];

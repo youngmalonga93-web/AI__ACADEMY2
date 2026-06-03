@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useMemo, useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import type { CourseModule, Phase } from "@/data/types";
 import { filterCourses } from "@/lib/courses";
+import { getModuleAnimation } from "@/lib/module-animations";
 import { coursePath } from "@/lib/routes";
 
 type CourseCatalogProps = {
@@ -91,41 +93,56 @@ export function CourseCatalog({ modules, phases }: CourseCatalogProps) {
       </p>
 
       <div className="grid gap-4 md:grid-cols-2">
-        {filteredModules.map((module) => (
-          <Card key={module.id}>
-            <CardHeader>
-              <div className="flex items-start justify-between gap-3">
-                <div>
-                  <Badge>Module {module.id}</Badge>
-                  <CardTitle className="mt-3">{module.title}</CardTitle>
+        {filteredModules.map((module) => {
+          const animation = getModuleAnimation(module.id, module.title);
+
+          return (
+            <Card key={module.id} className="overflow-hidden">
+              <div className="relative h-44 border-b bg-muted/30">
+                <Image
+                  alt={animation.alt}
+                  className="object-cover"
+                  fill
+                  loading="lazy"
+                  sizes="(min-width: 768px) 50vw, 100vw"
+                  src={animation.src}
+                  unoptimized
+                />
+              </div>
+              <CardHeader>
+                <div className="flex items-start justify-between gap-3">
+                  <div>
+                    <Badge>Module {module.id}</Badge>
+                    <CardTitle className="mt-3">{module.title}</CardTitle>
+                  </div>
+                  <span className="rounded-md bg-muted px-3 py-2 text-sm font-semibold">
+                    {module.icon}
+                  </span>
                 </div>
-                <span className="rounded-md bg-muted px-3 py-2 text-sm font-semibold">
-                  {module.icon}
-                </span>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <p className="text-sm leading-6 text-muted-foreground">
-                {module.subtitle}
-              </p>
-              <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
-                <span>{module.duration}</span>
-                <span>{module.difficulty}</span>
-                <span>{module.lessons.length} lessons</span>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {module.tools.slice(0, 5).map((item) => (
-                  <Badge key={item}>{item}</Badge>
-                ))}
-              </div>
-              <Button asChild>
-                <Link href={coursePath(module.id)} prefetch={false}>
-                  Open module
-                </Link>
-              </Button>
-            </CardContent>
-          </Card>
-        ))}
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p className="text-sm leading-6 text-muted-foreground">
+                  {module.subtitle}
+                </p>
+                <div className="flex flex-wrap gap-2 text-xs text-muted-foreground">
+                  <span>{module.duration}</span>
+                  <span>{module.difficulty}</span>
+                  <span>{module.lessons.length} lessons</span>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  {module.tools.slice(0, 5).map((item) => (
+                    <Badge key={item}>{item}</Badge>
+                  ))}
+                </div>
+                <Button asChild>
+                  <Link href={coursePath(module.id)} prefetch={false}>
+                    Open module
+                  </Link>
+                </Button>
+              </CardContent>
+            </Card>
+          );
+        })}
       </div>
     </div>
   );

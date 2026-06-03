@@ -42,6 +42,10 @@
 - [x] Stripe Customer Portal integration.
 - [x] Stripe webhook subscription sync.
 - [x] Entitlement checks for premium courses and certifications.
+- [x] Add module animation visuals and video-coming-soon plates from supplied SVG pack.
+- [x] Curate high-value training prompts from supplied workbook into the prompt vault.
+- [x] Remove the investor-only page from the production navigation and QA path.
+- [x] Add production runbook and smoother local/live server scripts.
 - [ ] AI Coach API using OpenAI and Anthropic adapters.
 - [ ] RAG retrieval over course, lesson, project, and prompt content.
 - [ ] AI Project Reviewer.

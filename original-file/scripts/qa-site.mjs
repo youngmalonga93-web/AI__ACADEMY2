@@ -10,7 +10,6 @@ const routes = [
   "/lessons/anatomy-perfect-prompt",
   "/prompts",
   "/pricing",
-  "/investor",
   "/careers",
   "/certifications",
   "/login",

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "dev:local": "next dev -p 3001",
     "clean": "node scripts/clean.mjs",
     "clean:next": "node scripts/clean-next.mjs",
     "prebuild": "npm run clean:next",
@@ -11,6 +12,9 @@
     "build:clean": "npm run clean:next && next build",
     "postbuild": "node scripts/verify-chunks.mjs && node scripts/verify-chunk-stability.mjs",
     "start": "next start",
+    "start:local": "next start -p 3001",
+    "preview:prod": "npm run build && npm run start:local",
+    "deploy:prod": "vercel --prod",
     "lint": "next lint",
     "format": "prettier --write .",
     "format:check": "prettier --check .",

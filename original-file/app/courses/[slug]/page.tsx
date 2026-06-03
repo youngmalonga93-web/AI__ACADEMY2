@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -6,6 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getCourseModuleById } from "@/lib/content/repository";
 import { getViewerAccess } from "@/lib/access";
 import { isFreeModule } from "@/lib/entitlements";
+import { getModuleAnimation } from "@/lib/module-animations";
 import { lessonPath } from "@/lib/routes";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -31,6 +33,7 @@ export default async function CourseDetailPage({
   const viewerAccess = await getViewerAccess();
   const canOpenLessons = viewerAccess.canAccessModule(courseModule.id);
   const moduleIsFree = isFreeModule(courseModule.id);
+  const animation = getModuleAnimation(courseModule.id, courseModule.title);
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -58,14 +61,27 @@ export default async function CourseDetailPage({
 
   return (
     <div className="space-y-8">
-      <div className="space-y-3">
-        <Badge>Module {courseModule.id}</Badge>
-        <h1 className="text-3xl font-semibold tracking-tight">
-          {courseModule.title}
-        </h1>
-        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-          {courseModule.subtitle}
-        </p>
+      <div className="grid items-center gap-6 rounded-lg border bg-card p-4 md:grid-cols-[1fr_0.8fr] md:p-6">
+        <div className="space-y-3">
+          <Badge>Module {courseModule.id}</Badge>
+          <h1 className="text-3xl font-semibold tracking-tight">
+            {courseModule.title}
+          </h1>
+          <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+            {courseModule.subtitle}
+          </p>
+        </div>
+        <div className="relative aspect-video w-full overflow-hidden rounded-md border bg-muted">
+          <Image
+            alt={animation.alt}
+            className="object-cover"
+            fill
+            priority
+            sizes="(min-width: 768px) 40vw, 100vw"
+            src={animation.src}
+            unoptimized
+          />
+        </div>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-[1.3fr_0.7fr]">

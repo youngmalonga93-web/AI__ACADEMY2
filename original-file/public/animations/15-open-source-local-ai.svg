@@ -1,0 +1,42 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+<title id="title">Open-Source and Local AI animated SVG</title>
+<desc id="desc">Lightweight animated educational SaaS scene for AI Academy module 15: Open-Source and Local AI.</desc>
+<style>
+:root { --accent: #06B6D4; --bg:#0b1020; --panel:#172033; --line:#7c8aa5; --good:#35d6a6; --soft:#bfd7ff; }
+.bg { fill: var(--bg); } .grid { stroke:#26324d; stroke-width:1; opacity:.35; }
+.panel { fill:var(--panel); stroke:#344461; stroke-width:2; opacity:.92; }
+.glow { filter:url(#glow); } .titlebar { fill:var(--accent); opacity:.23; }
+.card rect { fill:#111a2e; stroke:var(--soft); stroke-width:2; opacity:.9; } .card circle { fill:var(--accent); opacity:.9; } .card path { stroke:#dce8ff; stroke-width:6; stroke-linecap:round; opacity:.75; }
+.card { animation: float 4s ease-in-out infinite; transform-box:fill-box; transform-origin:center; } .c1{animation-delay:.25s} .c2{animation-delay:.5s} .c3{animation-delay:.75s} .c4{animation-delay:1s}
+.node { fill:var(--accent); opacity:.85; animation:pulse 1.8s ease-in-out infinite; } .n1{animation-delay:.25s} .n2{animation-delay:.5s} .n3{animation-delay:.75s} .n4{animation-delay:1s}
+.link { stroke:var(--line); stroke-width:4; stroke-linecap:round; opacity:.65; }
+.particle { fill:#fff; opacity:0; animation: flow 3.2s linear infinite; } .p1{animation-delay:.45s} .p2{animation-delay:.9s} .p3{animation-delay:1.35s} .p4{animation-delay:1.8s} .p5{animation-delay:2.25s}
+.bar { fill:var(--good); transform-origin:bottom; animation: grow 2.4s ease-in-out infinite; opacity:.88; } .b1{animation-delay:.2s} .b2{animation-delay:.4s} .b3{animation-delay:.6s} .b4{animation-delay:.8s}
+.scan { stroke:var(--good); stroke-width:4; stroke-linecap:round; animation: scan 2.8s ease-in-out infinite; opacity:.9; }
+.orbit { fill:none; stroke:var(--soft); stroke-width:3; stroke-dasharray:10 12; animation: dash 8s linear infinite; opacity:.55; }
+.smalltext { font: 700 24px system-ui,Segoe UI,sans-serif; fill:#eaf2ff; letter-spacing:.03em; } .num { font: 800 72px system-ui,Segoe UI,sans-serif; fill:#fff; opacity:.12; }
+@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
+@keyframes pulse { 0%,100%{r:18;opacity:.65} 50%{r:24;opacity:1} }
+@keyframes flow { 0%{transform:translate(0,0);opacity:0} 15%{opacity:1} 85%{opacity:1} 100%{transform:translate(760px,155px);opacity:0} }
+@keyframes grow { 0%,100%{transform:scaleY(.45)} 50%{transform:scaleY(1)} }
+@keyframes scan { 0%,100%{transform:translateX(0);opacity:.25} 50%{transform:translateX(310px);opacity:1} }
+@keyframes dash { to{stroke-dashoffset:-220} }
+@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+</style>
+<defs><filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+<rect class="bg" width="1280" height="720" rx="0"/>
+<path class="grid" d="M0 120H1280M0 240H1280M0 360H1280M0 480H1280M0 600H1280M160 0V720M320 0V720M480 0V720M640 0V720M800 0V720M960 0V720M1120 0V720"/>
+<text class="num" x="58" y="118">15</text>
+<text class="smalltext" x="62" y="168">Open-Source and Local AI</text>
+<rect class="panel" x="225" y="125" width="830" height="390" rx="30"/>
+<rect class="titlebar" x="255" y="150" width="360" height="34" rx="17"/>
+<path class="orbit" d="M304 352C420 145 756 125 930 305C1035 415 954 540 730 548C492 556 230 489 304 352Z"/>
+<g class="card c0" transform="translate(270,220)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g><g class="card c1" transform="translate(440,300)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g><g class="card c2" transform="translate(610,220)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g><g class="card c3" transform="translate(780,300)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g><g class="card c4" transform="translate(950,220)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g>
+<circle class="particle p0" cx="245" cy="260" r="7"/><circle class="particle p1" cx="245" cy="260" r="7"/><circle class="particle p2" cx="245" cy="260" r="7"/><circle class="particle p3" cx="245" cy="260" r="7"/><circle class="particle p4" cx="245" cy="260" r="7"/><circle class="particle p5" cx="245" cy="260" r="7"/>
+<circle class="node n0" cx="320" cy="415" r="18"/><path class="link" d="M338 415 H 435"/><circle class="node n1" cx="455" cy="415" r="18"/><path class="link" d="M473 415 H 570"/><circle class="node n2" cx="590" cy="415" r="18"/><path class="link" d="M608 415 H 705"/><circle class="node n3" cx="725" cy="415" r="18"/><path class="link" d="M743 415 H 840"/><circle class="node n4" cx="860" cy="415" r="18"/>
+<rect class="bar b0" x="820" y="160" width="24" height="50" rx="8"/><rect class="bar b1" x="858" y="148" width="24" height="68" rx="8"/><rect class="bar b2" x="896" y="136" width="24" height="86" rx="8"/><rect class="bar b3" x="934" y="124" width="24" height="104" rx="8"/><rect class="bar b4" x="972" y="112" width="24" height="122" rx="8"/>
+<path class="scan" d="M340 560h185"/>
+<path class="scan" style="animation-delay:.6s" d="M665 560h185"/>
+<circle class="glow" cx="225" cy="260" r="26" fill="#06B6D4" opacity=".9"/>
+<circle class="glow" cx="1015" cy="418" r="28" fill="#35d6a6" opacity=".9"/>
+</svg>

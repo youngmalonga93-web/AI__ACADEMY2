@@ -48,4 +48,14 @@ describe("prompt filters", () => {
       "The Enterprise Pilot Plan"
     );
   });
+
+  it("includes curated training-session prompts for production learners", () => {
+    const titles = prompts.map((prompt) => prompt.title);
+
+    expect(prompts.length).toBeGreaterThanOrEqual(125);
+    expect(titles).toContain("The SWOT-to-Execution Sprint");
+    expect(titles).toContain("The Web Performance Triage");
+    expect(titles).toContain("The Custom Assistant Instruction Builder");
+    expect(titles).toContain("The Spec-Ad Production Blueprint");
+  });
 });
