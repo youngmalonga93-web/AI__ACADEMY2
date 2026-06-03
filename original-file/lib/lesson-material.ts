@@ -11,6 +11,7 @@ type LessonMaterial = {
   sourceCredits: SourceCredit[];
   establishedCourseReferences: CourseReference[];
   workingPromptExample: WorkingPromptExample;
+  appliedTrainingLab: AppliedTrainingLab;
   quiz: QuizQuestion[];
   rubric: RubricItem[];
   worksheet: {
@@ -44,6 +45,14 @@ export type WorkingPromptExample = {
   useCase: string;
   prompt: string;
   whyItWorks: string[];
+};
+
+export type AppliedTrainingLab = {
+  title: string;
+  sourceInspiration: string;
+  scenario: string;
+  steps: string[];
+  promptStarter: string;
 };
 
 export type QuizQuestion = {
@@ -422,6 +431,280 @@ function buildWorkingPromptExample(
   };
 }
 
+const trainingLabMap: Record<
+  number,
+  Omit<AppliedTrainingLab, "promptStarter">
+> = {
+  1: {
+    title: "AI Tool Reliability Drill",
+    sourceInspiration:
+      "Inspired by the training session's hands-on approach to testing AI tools before using them in real workflows.",
+    scenario:
+      "Choose one everyday task, run it through two AI tools, and compare quality, speed, hallucination risk, and ease of revision.",
+    steps: [
+      "Pick a small task you already understand well.",
+      "Run the task in two AI tools with the same inputs.",
+      "Score each output for accuracy, usefulness, clarity, and risk.",
+      "Write a rule for which tool you would use next time and why.",
+    ],
+  },
+  2: {
+    title: "Role-Based Prompt Upgrade Lab",
+    sourceInspiration:
+      "Inspired by the prompt-library spreadsheet categories for founders, marketers, product managers, designers, analysts, sales, support, and HR.",
+    scenario:
+      "Turn a weak one-line prompt into a role-specific operating prompt that includes context, constraints, examples, output format, and review criteria.",
+    steps: [
+      "Select one role: founder, marketer, product manager, designer, analyst, sales, support, or HR.",
+      "Write a weak version of the prompt in one sentence.",
+      "Rewrite it with role, task, business context, audience, quality bar, and output format.",
+      "Run both prompts and document the difference in usefulness.",
+    ],
+  },
+  3: {
+    title: "Personal Productivity Assistant Lab",
+    sourceInspiration:
+      "Inspired by the training session's custom assistant activity, adapted into a broader personal operating system workflow.",
+    scenario:
+      "Design a reusable assistant that turns messy notes, tasks, and goals into a weekly execution plan.",
+    steps: [
+      "Define the assistant's job and the decisions it is allowed to support.",
+      "List the inputs it needs: goals, meetings, deadlines, notes, and constraints.",
+      "Create an output format for priorities, schedule blocks, follow-ups, and risks.",
+      "Test it with a real week and revise the instructions.",
+    ],
+  },
+  4: {
+    title: "Content Campaign Factory Lab",
+    sourceInspiration:
+      "Inspired by the training session's creative production workflow, transformed into an original AI Academy content system.",
+    scenario:
+      "Build a campaign pipeline that turns one strategic idea into a blog outline, short video script, email, and social post.",
+    steps: [
+      "Define the audience, offer, channel, and desired action.",
+      "Generate three campaign angles and choose the strongest.",
+      "Create channel-specific assets from the same core message.",
+      "Add a quality-control pass for accuracy, tone, and conversion clarity.",
+    ],
+  },
+  5: {
+    title: "AI Spec Video Pipeline Lab",
+    sourceInspiration:
+      "Inspired by the training session's image, voice, music, and editing workflow, rewritten for legal original brand-safe tutorial production.",
+    scenario:
+      "Create a short concept video for a fictional product, moving from brief to script, visual prompts, voice direction, music direction, and edit plan.",
+    steps: [
+      "Write a fictional creative brief with audience, emotion, message, and format.",
+      "Generate three concepts and choose one.",
+      "Break the concept into shot list, image prompts, voiceover, music mood, and edit notes.",
+      "Create a rights-safe production checklist before publishing.",
+    ],
+  },
+  6: {
+    title: "Internal Workflow Automation Lab",
+    sourceInspiration:
+      "Inspired by the training session's practical build-and-share activities, adapted for repeatable business automation.",
+    scenario:
+      "Turn a manual internal process into an AI-assisted workflow with trigger, inputs, AI step, human approval, and output.",
+    steps: [
+      "Pick a repetitive workflow such as intake, reporting, support triage, or follow-up.",
+      "Map the trigger, required data, AI task, approval point, and destination system.",
+      "Write the prompt that performs the AI step.",
+      "Define what must be reviewed before the automation can run unattended.",
+    ],
+  },
+  7: {
+    title: "Buyer Persona and Outreach Lab",
+    sourceInspiration:
+      "Inspired by the marketing and sales prompt categories in the training prompt library.",
+    scenario:
+      "Build a customer profile, value proposition, campaign message, and follow-up sequence for a real or fictional offer.",
+    steps: [
+      "Define the product, buyer, pain, desired outcome, and objections.",
+      "Generate buyer personas and rank them by urgency and buying power.",
+      "Write a campaign message for the best persona.",
+      "Create a follow-up sequence and review it for trust, relevance, and clarity.",
+    ],
+  },
+  8: {
+    title: "AI-Built Web App Prototype Lab",
+    sourceInspiration:
+      "Inspired by the training session's web application build activity, upgraded with AI Academy engineering standards.",
+    scenario:
+      "Use AI to scope, prototype, test, and harden a small web app such as a quiz, planner, tracker, calculator, or internal tool.",
+    steps: [
+      "Define the app purpose, users, core features, data, and success criteria.",
+      "Ask AI to produce a small implementation plan and first prototype.",
+      "Test the app for broken states, accessibility, validation, and mobile layout.",
+      "Write a production-readiness checklist before sharing it.",
+    ],
+  },
+  9: {
+    title: "Custom Assistant Builder Lab",
+    sourceInspiration:
+      "Inspired by the training session's custom GPT/Gem activity, rewritten as a platform-neutral assistant design workflow.",
+    scenario:
+      "Design an assistant for one repeatable job: LinkedIn drafting, research triage, sales prep, lesson coaching, support response, or product feedback analysis.",
+    steps: [
+      "Define the assistant's mission, target user, allowed inputs, and forbidden outputs.",
+      "Write system-style instructions with tone, workflow, examples, and guardrails.",
+      "Test the assistant on three real tasks.",
+      "Revise the assistant based on failure modes and user feedback.",
+    ],
+  },
+  10: {
+    title: "Knowledge Base Answering Lab",
+    sourceInspiration:
+      "Inspired by the training session's practical document-to-output pattern, adapted for grounded retrieval workflows.",
+    scenario:
+      "Turn a small set of notes or documents into a cited answer workflow that separates source facts from model reasoning.",
+    steps: [
+      "Collect three to five source documents or notes.",
+      "Extract key facts, unknowns, and conflicting claims.",
+      "Ask AI to answer only from the provided sources.",
+      "Add citation checks and unresolved-question notes.",
+    ],
+  },
+  11: {
+    title: "AI Transformation Opportunity Map",
+    sourceInspiration:
+      "Inspired by the prompt library's founder and business-planning categories, transformed into a strategic AI audit.",
+    scenario:
+      "Map where AI can improve revenue, cost, speed, quality, risk, or customer experience inside an organization.",
+    steps: [
+      "List five business workflows and the pain in each workflow.",
+      "Score each workflow by impact, feasibility, risk, and data availability.",
+      "Choose one pilot and define success metrics.",
+      "Write a simple executive recommendation.",
+    ],
+  },
+  12: {
+    title: "Research Report Sprint",
+    sourceInspiration:
+      "Inspired by the training prompt library's data analysis and reporting categories, upgraded with source-quality review.",
+    scenario:
+      "Create a research brief from messy inputs while separating evidence, assumptions, gaps, and recommendations.",
+    steps: [
+      "Define the research question and audience.",
+      "Collect source notes and mark source quality.",
+      "Cluster findings into themes, contradictions, and open questions.",
+      "Produce a decision-ready brief with confidence levels.",
+    ],
+  },
+  13: {
+    title: "Domain Behavior Customization Lab",
+    sourceInspiration:
+      "Inspired by the custom-assistant workflow, extended toward model behavior specification and evaluation.",
+    scenario:
+      "Write a behavior specification for a domain assistant and design examples that show the desired output style.",
+    steps: [
+      "Define the domain, task, user, and expert standard.",
+      "Create five good examples and five bad examples.",
+      "Write evaluation criteria for the model's responses.",
+      "Decide whether prompting, retrieval, fine-tuning, or a custom assistant is the right level of customization.",
+    ],
+  },
+  14: {
+    title: "AI Offer and Landing Page Lab",
+    sourceInspiration:
+      "Inspired by the training session's portfolio/landing-page activity and founder prompt categories.",
+    scenario:
+      "Turn an AI skill into a clear paid offer with audience, problem, outcome, proof, pricing hypothesis, and landing-page copy.",
+    steps: [
+      "Choose a customer and one expensive problem.",
+      "Define the service or product outcome in plain language.",
+      "Draft the landing-page sections: hero, problem, solution, proof, offer, FAQ, and CTA.",
+      "Review the offer for credibility, differentiation, and delivery risk.",
+    ],
+  },
+  15: {
+    title: "Private AI Stack Decision Lab",
+    sourceInspiration:
+      "Inspired by the practical tool-substitution principle in the training session: workflow matters more than a single platform.",
+    scenario:
+      "Compare hosted and local AI options for a private workflow and decide what belongs on each side.",
+    steps: [
+      "Pick a workflow involving sensitive or proprietary data.",
+      "List privacy, quality, cost, latency, and maintenance requirements.",
+      "Compare hosted model, local model, and hybrid workflow.",
+      "Write a decision memo with tradeoffs and next test.",
+    ],
+  },
+  16: {
+    title: "Responsible Publishing Review Lab",
+    sourceInspiration:
+      "Inspired by the training session's production mindset, adapted for safety, rights, and trust review.",
+    scenario:
+      "Review an AI-generated asset before publishing: website copy, outreach email, spec video, support reply, or internal assistant.",
+    steps: [
+      "Identify the audience and potential harm if the output is wrong.",
+      "Check factual claims, rights, privacy, bias, and misleading impressions.",
+      "Add human approval and escalation rules.",
+      "Write a short release checklist.",
+    ],
+  },
+  17: {
+    title: "Prototype-to-Production Architecture Lab",
+    sourceInspiration:
+      "Inspired by the training session's quick prototype activities, upgraded into production architecture thinking.",
+    scenario:
+      "Take a fast AI-built prototype and design the production system around it: auth, data, billing, monitoring, error handling, and content updates.",
+    steps: [
+      "Describe what the prototype does and who depends on it.",
+      "Map required services: UI, auth, database, AI calls, files, payments, analytics, and admin.",
+      "Add failure handling, logging, rate limits, and security boundaries.",
+      "Prioritize the next three hardening tasks.",
+    ],
+  },
+  18: {
+    title: "AI Career and Opportunity Thesis",
+    sourceInspiration:
+      "Inspired by the training session's career/business orientation, transformed into a durable opportunity-planning lab.",
+    scenario:
+      "Use the course portfolio to choose a 12-month AI skill path, market wedge, and proof project.",
+    steps: [
+      "List the AI capabilities you can demonstrate today.",
+      "Choose one market, role, or business opportunity.",
+      "Define a portfolio project that proves the skill.",
+      "Write a 12-month learning, building, publishing, and monetization plan.",
+    ],
+  },
+};
+
+function buildAppliedTrainingLab(
+  lesson: Lesson,
+  courseModule: CourseModule,
+  playbook: {
+    expertFrame: string;
+    realWorldCase: string;
+    labFrame: string;
+    riskFrame: string;
+  }
+): AppliedTrainingLab {
+  const lab = trainingLabMap[courseModule.id] ?? trainingLabMap[1];
+
+  return {
+    ...lab,
+    promptStarter: [
+      `Help me complete the AI Academy applied lab "${lab.title}" for the lesson "${lesson.title}".`,
+      "",
+      "My real context:",
+      "- Project or workflow: [describe it]",
+      "- Audience or user: [describe who benefits]",
+      "- Current materials: [paste notes, data, links, rough ideas, or constraints]",
+      "- Tool stack: [tools available]",
+      "- Definition of done: [what finished looks like]",
+      "",
+      "Use this structure:",
+      `1. Translate the lesson into my context using this frame: ${playbook.expertFrame}`,
+      `2. Apply this scenario: ${lab.scenario}`,
+      "3. Walk me through the lab steps one by one.",
+      `4. Use this risk lens: ${playbook.riskFrame}`,
+      "5. Produce the final artifact, a review checklist, and the next improvement.",
+    ].join("\n"),
+  };
+}
+
 const moduleVideoMap: Record<number, VideoResource[]> = {
   1: [
     approvedVideos.googleGenAi,
@@ -476,7 +759,11 @@ const moduleOneMaterials: Record<
   string,
   Omit<
     LessonMaterial,
-    "quiz" | "rubric" | "establishedCourseReferences" | "workingPromptExample"
+    | "quiz"
+    | "rubric"
+    | "establishedCourseReferences"
+    | "workingPromptExample"
+    | "appliedTrainingLab"
   >
 > = {
   "what-ai-really-is": {
@@ -991,6 +1278,11 @@ export function buildLessonMaterial(
         courseModule,
         defaultModuleOnePlaybook
       ),
+      appliedTrainingLab: buildAppliedTrainingLab(
+        lesson,
+        courseModule,
+        defaultModuleOnePlaybook
+      ),
       quiz: buildQuiz(
         lesson,
         courseModule,
@@ -1064,6 +1356,7 @@ export function buildLessonMaterial(
       courseModule,
       playbook
     ),
+    appliedTrainingLab: buildAppliedTrainingLab(lesson, courseModule, playbook),
     quiz: buildQuiz(lesson, courseModule, riskFrame),
     rubric: buildRubric(lesson),
     worksheet: {

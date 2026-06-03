@@ -60,6 +60,14 @@ describe("site quality guardrails", () => {
         expect(
           material.workingPromptExample.whyItWorks.length
         ).toBeGreaterThanOrEqual(3);
+        expect(material.appliedTrainingLab.title.length).toBeGreaterThan(10);
+        expect(material.appliedTrainingLab.scenario.length).toBeGreaterThan(40);
+        expect(material.appliedTrainingLab.steps.length).toBeGreaterThanOrEqual(
+          4
+        );
+        expect(material.appliedTrainingLab.promptStarter).toContain(
+          "My real context:"
+        );
         expect(material.quiz.length).toBeGreaterThanOrEqual(3);
         expect(material.rubric.length).toBeGreaterThanOrEqual(4);
 

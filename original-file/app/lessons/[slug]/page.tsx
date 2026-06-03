@@ -101,6 +101,15 @@ export default async function LessonPage({ params }: LessonPageProps) {
     "## Working Prompt Example",
     material.workingPromptExample.prompt,
     "",
+    "## Applied Training Lab",
+    material.appliedTrainingLab.title,
+    material.appliedTrainingLab.scenario,
+    "",
+    ...material.appliedTrainingLab.steps.map((step) => `- ${step}`),
+    "",
+    "### Lab Prompt Starter",
+    material.appliedTrainingLab.promptStarter,
+    "",
     "## Established Course References",
     ...material.establishedCourseReferences.map(
       (reference) =>
@@ -275,6 +284,41 @@ export default async function LessonPage({ params }: LessonPageProps) {
           </CardContent>
         </Card>
       </div>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Applied Training Lab</CardTitle>
+        </CardHeader>
+        <CardContent className="grid gap-5 text-sm leading-6 text-muted-foreground lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="space-y-4">
+            <div>
+              <p className="font-medium text-foreground">
+                {material.appliedTrainingLab.title}
+              </p>
+              <p className="mt-1">{material.appliedTrainingLab.scenario}</p>
+            </div>
+            <div className="rounded-md border bg-muted/40 p-3">
+              <p className="font-medium text-foreground">Source inspiration</p>
+              <p className="mt-1">
+                {material.appliedTrainingLab.sourceInspiration}
+              </p>
+            </div>
+            <ol className="space-y-2">
+              {material.appliedTrainingLab.steps.map((step) => (
+                <li key={step}>{step}</li>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <p className="mb-2 font-medium text-foreground">
+              Lab prompt starter
+            </p>
+            <pre className="max-h-96 overflow-auto rounded-md border bg-muted p-4 text-xs leading-5 text-foreground">
+              <code>{material.appliedTrainingLab.promptStarter}</code>
+            </pre>
+          </div>
+        </CardContent>
+      </Card>
 
       <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
         <Card>
