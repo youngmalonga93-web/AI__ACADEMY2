@@ -9,11 +9,16 @@ export type CompletedLesson = {
   completedAt: string;
 };
 
-export function summarizeModuleProgress(modules: CourseModule[], completedLessons: CompletedLesson[]) {
+export function summarizeModuleProgress(
+  modules: CourseModule[],
+  completedLessons: CompletedLesson[]
+) {
   const completedSlugs = new Set(completedLessons.map((lesson) => lesson.slug));
 
   return modules.map((module) => {
-    const completedCount = module.lessons.filter((lesson) => completedSlugs.has(lesson.id)).length;
+    const completedCount = module.lessons.filter((lesson) =>
+      completedSlugs.has(lesson.id)
+    ).length;
 
     return {
       moduleId: module.id,
@@ -25,8 +30,13 @@ export function summarizeModuleProgress(modules: CourseModule[], completedLesson
   });
 }
 
-export function getNextLesson(modules: CourseModule[], completedLessons: CompletedLesson[]) {
+export function getNextLesson(
+  modules: CourseModule[],
+  completedLessons: CompletedLesson[]
+) {
   const completedSlugs = new Set(completedLessons.map((lesson) => lesson.slug));
 
-  return modules.flatMap((module) => module.lessons).find((lesson) => !completedSlugs.has(lesson.id));
+  return modules
+    .flatMap((module) => module.lessons)
+    .find((lesson) => !completedSlugs.has(lesson.id));
 }

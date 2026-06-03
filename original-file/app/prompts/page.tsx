@@ -27,9 +27,12 @@ export default async function PromptsPage() {
     <div className="space-y-8">
       <div>
         <Badge>Prompt vault</Badge>
-        <h1 className="mt-3 text-3xl font-semibold tracking-tight">Production Prompt Vault</h1>
+        <h1 className="mt-3 text-3xl font-semibold tracking-tight">
+          Production Prompt Vault
+        </h1>
         <p className="mt-2 max-w-2xl text-sm leading-6 text-muted-foreground">
-          Copy a free starter set now, or create an account to unlock every production-grade prompt during the 7-day trial.
+          Copy a free starter set now, or create an account to unlock every
+          production-grade prompt during the 7-day trial.
         </p>
       </div>
 

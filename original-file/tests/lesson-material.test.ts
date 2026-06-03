@@ -15,6 +15,8 @@ describe("lesson material", () => {
     expect(material.explanation.length).toBeGreaterThanOrEqual(4);
     expect(material.workflow.length).toBeGreaterThanOrEqual(6);
     expect(material.videoPlan.length).toBeGreaterThanOrEqual(5);
+    expect(material.recommendedVideos.length).toBeGreaterThanOrEqual(2);
+    expect(material.sourceCredits.length).toBeGreaterThanOrEqual(2);
     expect(material.worksheet.sections).toContain("Verification source");
   });
 
@@ -27,9 +29,17 @@ describe("lesson material", () => {
 
     const material = buildLessonMaterial(lesson!, courseModule!);
 
-    expect(material.worksheet.title).toBe("Anatomy of a Perfect Prompt Worksheet");
+    expect(material.worksheet.title).toBe(
+      "Anatomy of a Perfect Prompt Worksheet"
+    );
     expect(material.videoPlan.length).toBeGreaterThanOrEqual(7);
     expect(material.workflow.length).toBeGreaterThanOrEqual(8);
+    expect(material.recommendedVideos.length).toBeGreaterThanOrEqual(2);
+    expect(
+      material.recommendedVideos.every((video) =>
+        video.url.startsWith("https://")
+      )
+    ).toBe(true);
     expect(material.worksheet.sections).toContain("Portfolio proof");
   });
 });

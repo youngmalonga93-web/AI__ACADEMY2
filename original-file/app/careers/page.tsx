@@ -10,9 +10,12 @@ export default function CareersPage() {
     <div className="space-y-8">
       <div className="space-y-3">
         <Badge>Career outcomes</Badge>
-        <h1 className="text-3xl font-semibold tracking-tight">AI Career Paths</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          AI Career Paths
+        </h1>
         <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-          Use these paths to decide which modules, projects, and portfolio artifacts matter most for your goal.
+          Use these paths to decide which modules, projects, and portfolio
+          artifacts matter most for your goal.
         </p>
       </div>
 

@@ -1,6 +1,9 @@
 import type { CourseModule } from "./types";
 
-type ModuleEnrichment = Pick<CourseModule, "expertLens" | "realWorldExamples" | "resources" | "masteryChecks">;
+type ModuleEnrichment = Pick<
+  CourseModule,
+  "expertLens" | "realWorldExamples" | "resources" | "masteryChecks"
+>;
 
 const builderResources = [
   {
@@ -39,9 +42,12 @@ const infrastructureResources = [
 ];
 
 const operatorLens = {
-  founder: "Think like a founder: what user pain, distribution channel, pricing, and retention loop does this AI capability unlock?",
-  systems: "Think like a first-principles systems builder: separate demos from durable products, and measure the bottleneck the model actually removes.",
-  infrastructure: "Think like an AI infrastructure leader: account for data, latency, cost, reliability, evaluation, and deployment constraints before scaling.",
+  founder:
+    "Think like a founder: what user pain, distribution channel, pricing, and retention loop does this AI capability unlock?",
+  systems:
+    "Think like a first-principles systems builder: separate demos from durable products, and measure the bottleneck the model actually removes.",
+  infrastructure:
+    "Think like an AI infrastructure leader: account for data, latency, cost, reliability, evaluation, and deployment constraints before scaling.",
 };
 
 function enrichment(overrides: Partial<ModuleEnrichment>): ModuleEnrichment {
@@ -105,14 +111,16 @@ export const moduleEnrichments: Record<number, ModuleEnrichment> = {
   }),
   6: enrichment({
     realWorldExamples: [
-      "Use AI to generate landing page variants, then judge them against real conversion data.",
-      "Build a sales-assist workflow that drafts account research and outreach while preserving human relationship context.",
+      "Ship a no-code lead qualification assistant before investing in custom infrastructure.",
+      "Automate internal reporting with Zapier/Make first, then replace brittle steps with code once usage proves value.",
+      "Route support requests, enrich records, draft responses, and keep human approval before customer-facing actions.",
     ],
   }),
   7: enrichment({
     realWorldExamples: [
-      "Ship a no-code lead qualification assistant before investing in custom infrastructure.",
-      "Automate internal reporting with Zapier/Make first, then replace brittle steps with code once usage proves value.",
+      "Use AI to generate landing page variants, then judge them against real conversion data.",
+      "Build a sales-assist workflow that drafts account research and outreach while preserving human relationship context.",
+      "Turn customer objections into better sales scripts, onboarding copy, and product positioning.",
     ],
   }),
   8: enrichment({
@@ -128,38 +136,55 @@ export const moduleEnrichments: Record<number, ModuleEnrichment> = {
   }),
   9: enrichment({
     resources: [...builderResources, ...infrastructureResources],
+    realWorldExamples: [
+      "Create a coding agent that can inspect a repo, propose a change, run tests, and produce a reviewable diff.",
+      "Define tool permissions so the agent can help without silently taking destructive actions.",
+      "Build a research agent with source collection, uncertainty labels, and human approval before publishing.",
+    ],
+  }),
+  10: enrichment({
+    resources: [...builderResources, ...infrastructureResources],
     masteryChecks: [
       "Build a small retrieval system with source attribution.",
       "Test hallucination, missing-context, conflicting-source, and stale-document cases.",
       "Explain chunking, embeddings, ranking, citations, and access control tradeoffs.",
     ],
-  }),
-  10: enrichment({
-    resources: [...builderResources, ...infrastructureResources],
     realWorldExamples: [
-      "Create a coding agent that can inspect a repo, propose a change, run tests, and produce a reviewable diff.",
-      "Define tool permissions so the agent can help without silently taking destructive actions.",
+      "Create an internal knowledge assistant that cites policy, docs, and support material instead of guessing.",
+      "Compare naive retrieval, reranking, citations, and access-control filters before exposing answers to users.",
     ],
   }),
   11: enrichment({
     realWorldExamples: [
-      "Evaluate an AI feature with a golden dataset before launch.",
-      "Track regressions when prompts, models, retrieval data, or product requirements change.",
+      "Map AI opportunities by department and prioritize the ones with a measurable owner, metric, and adoption path.",
+      "Build a 30-day pilot plan that proves cost reduction, revenue lift, speed improvement, or quality gains.",
+      "Separate flashy demos from strategic systems that can become durable company advantages.",
     ],
   }),
   12: enrichment({
-    resources: infrastructureResources,
+    resources: builderResources,
     masteryChecks: [
-      "Estimate inference cost at 100, 1,000, and 100,000 users.",
-      "Identify when to use hosted APIs, open models, batching, caching, or smaller specialized models.",
+      "Produce a cited research memo with source quality notes.",
+      "Separate confirmed facts, assumptions, competing interpretations, and open questions.",
+      "Use AI for synthesis while preserving human responsibility for the conclusion.",
     ],
   }),
-  13: enrichment({ resources: [...builderResources, ...infrastructureResources] }),
-  14: enrichment({ resources: infrastructureResources }),
-  15: enrichment({
+  13: enrichment({
+    resources: [...builderResources, ...infrastructureResources],
+  }),
+  14: enrichment({
     realWorldExamples: [
-      "Map where AI changes a department's operating rhythm, incentives, hiring plan, and software stack.",
-      "Build executive-ready ROI models with realistic adoption and risk assumptions.",
+      "Package a repeatable AI workflow into a paid template, service, cohort, or micro-SaaS offer.",
+      "Validate willingness to pay before building the complete product.",
+      "Use AI to lower delivery cost while increasing buyer-specific outcomes.",
+    ],
+  }),
+  15: enrichment({
+    resources: [...builderResources, ...infrastructureResources],
+    realWorldExamples: [
+      "Compare hosted APIs with local models for privacy-sensitive workflows.",
+      "Run a local model test and document quality, latency, hardware, and maintenance tradeoffs.",
+      "Decide when open-source control beats frontier-model convenience.",
     ],
   }),
   16: enrichment({
@@ -172,8 +197,9 @@ export const moduleEnrichments: Record<number, ModuleEnrichment> = {
   17: enrichment({
     resources: [...builderResources, ...infrastructureResources],
     realWorldExamples: [
-      "Choose between fine-tuning, RAG, prompt engineering, and workflow redesign before touching model training.",
-      "Document model cards, evaluation data, and deployment assumptions for every serious model decision.",
+      "Design an AI assistant with authentication, retrieval, tool permissions, evals, monitoring, and fallback paths.",
+      "Choose between fine-tuning, RAG, prompt engineering, workflow automation, and human review before building.",
+      "Document model calls, data flow, access rules, evaluation data, and deployment assumptions.",
     ],
   }),
   18: enrichment({

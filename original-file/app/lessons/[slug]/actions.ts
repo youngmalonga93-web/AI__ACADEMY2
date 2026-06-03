@@ -20,7 +20,11 @@ export async function completeLessonAction(formData: FormData) {
     redirect("/login");
   }
 
-  const { data: lesson, error: lessonError } = await supabase.from("lessons").select("id").eq("slug", slug).single();
+  const { data: lesson, error: lessonError } = await supabase
+    .from("lessons")
+    .select("id")
+    .eq("slug", slug)
+    .single();
 
   if (lessonError || !lesson) {
     throw lessonError ?? new Error("Lesson not found.");

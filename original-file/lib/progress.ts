@@ -1,4 +1,7 @@
-export function calculateProgressPercent(completedLessons: number, totalLessons: number) {
+export function calculateProgressPercent(
+  completedLessons: number,
+  totalLessons: number
+) {
   if (totalLessons <= 0) {
     return 0;
   }

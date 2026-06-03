@@ -18,7 +18,9 @@ const navItems = [
   { href: "/login", label: "Login" },
 ];
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({
+  children,
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
       <body>
@@ -43,7 +45,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </header>
           <main className="mx-auto max-w-7xl px-6 py-8">{children}</main>
           <footer className="mx-auto max-w-7xl px-6 pb-8 text-xs text-muted-foreground">
-            <Link href="/legacy-prototype" prefetch={false} className="hover:text-foreground">
+            <Link
+              href="/legacy-prototype"
+              prefetch={false}
+              className="hover:text-foreground"
+            >
               Legacy prototype
             </Link>
           </footer>

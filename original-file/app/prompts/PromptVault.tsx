@@ -7,8 +7,16 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import type { PromptCategory, PromptTemplate, ToolDefinition } from "@/data/types";
-import { FREE_PROMPT_IDS, canAccessPrompt, isFreePrompt } from "@/lib/entitlements";
+import type {
+  PromptCategory,
+  PromptTemplate,
+  ToolDefinition,
+} from "@/data/types";
+import {
+  FREE_PROMPT_IDS,
+  canAccessPrompt,
+  isFreePrompt,
+} from "@/lib/entitlements";
 import { filterPrompts } from "@/lib/prompts";
 
 type PromptVaultProps = {
@@ -21,14 +29,24 @@ type PromptVaultProps = {
   trialIsActive: boolean;
 };
 
-export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysRemaining, trialEndsAt, trialIsActive }: PromptVaultProps) {
+export function PromptVault({
+  categories,
+  isSignedIn,
+  prompts,
+  tools,
+  trialDaysRemaining,
+  trialEndsAt,
+  trialIsActive,
+}: PromptVaultProps) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("all");
   const [tool, setTool] = useState("all");
   const [selectedPromptId, setSelectedPromptId] = useState<number | null>(null);
   const [copyStatus, setCopyStatus] = useState("");
 
-  const selectedPrompt = prompts.find((prompt) => prompt.id === selectedPromptId);
+  const selectedPrompt = prompts.find(
+    (prompt) => prompt.id === selectedPromptId
+  );
   const trialState = useMemo(
     () => ({
       startsAt: null,
@@ -38,8 +56,12 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
     }),
     [trialDaysRemaining, trialEndsAt, trialIsActive]
   );
-  const freePromptCount = prompts.filter((prompt) => isFreePrompt(prompt.id)).length;
-  const selectedPromptIsAccessible = selectedPrompt ? canAccessPrompt(selectedPrompt, isSignedIn, trialState) : false;
+  const freePromptCount = prompts.filter((prompt) =>
+    isFreePrompt(prompt.id)
+  ).length;
+  const selectedPromptIsAccessible = selectedPrompt
+    ? canAccessPrompt(selectedPrompt, isSignedIn, trialState)
+    : false;
 
   const filteredPrompts = useMemo(() => {
     return filterPrompts(prompts, { category, query, tool });
@@ -85,7 +107,9 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
 
       setCopyStatus(`Copied ${prompt.title}`);
     } catch {
-      setCopyStatus("Copy failed. Select the prompt text and copy it manually.");
+      setCopyStatus(
+        "Copy failed. Select the prompt text and copy it manually."
+      );
     }
   }
 
@@ -102,7 +126,8 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
                   : `Start free with ${freePromptCount} powerful prompts.`}
             </p>
             <p className="mt-1 text-sm leading-6 text-muted-foreground">
-              Free prompts are open to everyone. A new account unlocks the full vault for 7 days before paid plans begin.
+              Free prompts are open to everyone. A new account unlocks the full
+              vault for 7 days before paid plans begin.
             </p>
           </div>
           <div className="flex flex-wrap gap-2">
@@ -119,15 +144,27 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
       </Card>
 
       <div className="grid gap-3 md:grid-cols-[1fr_auto_auto]">
-        <Input placeholder="Search prompts, tasks, and tags" value={query} onChange={(event) => setQuery(event.target.value)} />
-        <select className="h-10 rounded-md border bg-card px-3 text-sm" value={category} onChange={(event) => setCategory(event.target.value)}>
+        <Input
+          placeholder="Search prompts, tasks, and tags"
+          value={query}
+          onChange={(event) => setQuery(event.target.value)}
+        />
+        <select
+          className="h-10 rounded-md border bg-card px-3 text-sm"
+          value={category}
+          onChange={(event) => setCategory(event.target.value)}
+        >
           {categories.map((item) => (
             <option key={item.id} value={item.id}>
               {item.label}
             </option>
           ))}
         </select>
-        <select className="h-10 rounded-md border bg-card px-3 text-sm" value={tool} onChange={(event) => setTool(event.target.value)}>
+        <select
+          className="h-10 rounded-md border bg-card px-3 text-sm"
+          value={tool}
+          onChange={(event) => setTool(event.target.value)}
+        >
           <option value="all">All tools</option>
           {tools.map((item) => (
             <option key={item.id} value={item.id}>
@@ -137,7 +174,9 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
         </select>
       </div>
 
-      <p className="text-sm text-muted-foreground">{filteredPrompts.length} prompts match the current filters.</p>
+      <p className="text-sm text-muted-foreground">
+        {filteredPrompts.length} prompts match the current filters.
+      </p>
       <p className="sr-only" role="status" aria-live="polite">
         {copyStatus}
       </p>
@@ -148,7 +187,10 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
           const isFree = FREE_PROMPT_IDS.includes(prompt.id);
 
           return (
-            <Card key={prompt.id} className={!isAccessible ? "border-dashed" : undefined}>
+            <Card
+              key={prompt.id}
+              className={!isAccessible ? "border-dashed" : undefined}
+            >
               <CardHeader>
                 <div className="flex items-start justify-between gap-3">
                   <div>
@@ -157,32 +199,51 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
                   </div>
                   <div className="flex flex-col items-end gap-2">
                     <Badge>{prompt.category}</Badge>
-                    <Badge>{isAccessible ? (isFree ? "Free" : "Trial") : "Locked"}</Badge>
+                    <Badge>
+                      {isAccessible ? (isFree ? "Free" : "Trial") : "Locked"}
+                    </Badge>
                   </div>
                 </div>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm leading-6 text-muted-foreground">{prompt.task}</p>
+                <p className="text-sm leading-6 text-muted-foreground">
+                  {prompt.task}
+                </p>
                 <div className="rounded-md bg-muted p-3 text-sm leading-6 text-muted-foreground">
-                  {isAccessible ? prompt.prompt : "Locked prompt. Start the 7-day trial to view and copy the full workflow."}
+                  {isAccessible
+                    ? prompt.prompt
+                    : "Locked prompt. Start the 7-day trial to view and copy the full workflow."}
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {prompt.tools.map((toolId) => {
                     const promptTool = tools.find((item) => item.id === toolId);
-                    return <Badge key={toolId}>{promptTool?.label ?? toolId}</Badge>;
+                    return (
+                      <Badge key={toolId}>{promptTool?.label ?? toolId}</Badge>
+                    );
                   })}
                 </div>
                 <div className="flex flex-wrap gap-2">
-                  <Button disabled={!isAccessible} type="button" onClick={() => setSelectedPromptId(prompt.id)} variant="secondary">
+                  <Button
+                    disabled={!isAccessible}
+                    type="button"
+                    onClick={() => setSelectedPromptId(prompt.id)}
+                    variant="secondary"
+                  >
                     View details
                   </Button>
                   {isAccessible ? (
-                    <Button type="button" onClick={() => copyPrompt(prompt)} aria-label={`Copy ${prompt.title} prompt`}>
+                    <Button
+                      type="button"
+                      onClick={() => copyPrompt(prompt)}
+                      aria-label={`Copy ${prompt.title} prompt`}
+                    >
                       Copy prompt
                     </Button>
                   ) : (
                     <Button asChild>
-                      <Link href={isSignedIn ? "/pricing" : "/signup"}>{isSignedIn ? "Upgrade soon" : "Start trial"}</Link>
+                      <Link href={isSignedIn ? "/pricing" : "/signup"}>
+                        {isSignedIn ? "Upgrade soon" : "Start trial"}
+                      </Link>
                     </Button>
                   )}
                 </div>
@@ -194,21 +255,36 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
 
       <Dialog open={selectedPrompt !== undefined && selectedPromptIsAccessible}>
         {selectedPrompt ? (
-          <DialogContent role="dialog" aria-modal="true" aria-labelledby="prompt-detail-title">
+          <DialogContent
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="prompt-detail-title"
+          >
             <div className="space-y-5">
               <div className="flex items-start justify-between gap-4">
                 <div className="space-y-2">
                   <Badge>{selectedPrompt.tier}</Badge>
-                  <DialogTitle id="prompt-detail-title">{selectedPrompt.title}</DialogTitle>
+                  <DialogTitle id="prompt-detail-title">
+                    {selectedPrompt.title}
+                  </DialogTitle>
                 </div>
-                <Button type="button" variant="ghost" onClick={() => setSelectedPromptId(null)} aria-label="Close prompt details">
+                <Button
+                  type="button"
+                  variant="ghost"
+                  onClick={() => setSelectedPromptId(null)}
+                  aria-label="Close prompt details"
+                >
                   Close
                 </Button>
               </div>
 
-              <p className="text-sm leading-6 text-muted-foreground">{selectedPrompt.task}</p>
+              <p className="text-sm leading-6 text-muted-foreground">
+                {selectedPrompt.task}
+              </p>
 
-              <div className="rounded-md bg-muted p-4 text-sm leading-6 text-muted-foreground">{selectedPrompt.prompt}</div>
+              <div className="rounded-md bg-muted p-4 text-sm leading-6 text-muted-foreground">
+                {selectedPrompt.prompt}
+              </div>
 
               {selectedPrompt.tip ? (
                 <div className="rounded-md border p-3 text-sm leading-6 text-muted-foreground">
@@ -224,10 +300,18 @@ export function PromptVault({ categories, isSignedIn, prompts, tools, trialDaysR
               </div>
 
               <div className="flex flex-wrap gap-2">
-                <Button type="button" onClick={() => copyPrompt(selectedPrompt)} aria-label={`Copy ${selectedPrompt.title} prompt from details`}>
+                <Button
+                  type="button"
+                  onClick={() => copyPrompt(selectedPrompt)}
+                  aria-label={`Copy ${selectedPrompt.title} prompt from details`}
+                >
                   Copy prompt
                 </Button>
-                <Button type="button" variant="secondary" onClick={() => setSelectedPromptId(null)}>
+                <Button
+                  type="button"
+                  variant="secondary"
+                  onClick={() => setSelectedPromptId(null)}
+                >
                   Done
                 </Button>
               </div>

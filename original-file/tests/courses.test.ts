@@ -1,7 +1,11 @@
 import { describe, expect, it } from "vitest";
 import type { CourseModule } from "../data/types";
 import { filterCourses } from "../lib/courses";
-import { getNextLesson, summarizeModuleProgress, type CompletedLesson } from "../lib/progress-summary";
+import {
+  getNextLesson,
+  summarizeModuleProgress,
+  type CompletedLesson,
+} from "../lib/progress-summary";
 
 const modules: CourseModule[] = [
   {
@@ -85,13 +89,23 @@ const modules: CourseModule[] = [
 
 describe("course filters", () => {
   it("filters by query, phase, difficulty, and tool", () => {
-    expect(filterCourses(modules, { query: "agent" }).map((module) => module.id)).toEqual([2]);
-    expect(filterCourses(modules, { phase: "foundation" }).map((module) => module.id)).toEqual([1]);
-    expect(filterCourses(modules, { difficulty: "Advanced", tool: "Claude" }).map((module) => module.id)).toEqual([2]);
+    expect(
+      filterCourses(modules, { query: "agent" }).map((module) => module.id)
+    ).toEqual([2]);
+    expect(
+      filterCourses(modules, { phase: "foundation" }).map((module) => module.id)
+    ).toEqual([1]);
+    expect(
+      filterCourses(modules, { difficulty: "Advanced", tool: "Claude" }).map(
+        (module) => module.id
+      )
+    ).toEqual([2]);
   });
 
   it("returns every module when no filters are active", () => {
-    expect(filterCourses(modules, {}).map((module) => module.id)).toEqual([1, 2]);
+    expect(filterCourses(modules, {}).map((module) => module.id)).toEqual([
+      1, 2,
+    ]);
   });
 });
 

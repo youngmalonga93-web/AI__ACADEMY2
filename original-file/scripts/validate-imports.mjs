@@ -3,7 +3,15 @@ import { extname, dirname, join, relative, resolve } from "node:path";
 
 const root = resolve(import.meta.dirname, "..");
 const sourceDirs = ["app", "components", "data", "lib", "scripts", "tests"];
-const sourceExtensions = [".ts", ".tsx", ".js", ".jsx", ".mjs", ".cjs", ".json"];
+const sourceExtensions = [
+  ".ts",
+  ".tsx",
+  ".js",
+  ".jsx",
+  ".mjs",
+  ".cjs",
+  ".json",
+];
 const importPattern =
   /(?:import\s+(?:type\s+)?(?:[^'"()]*?\s+from\s+)?|export\s+(?:type\s+)?[^'"()]*?\s+from\s+|require\s*\(\s*|import\s*\(\s*)(["'])([^"']+)\1/g;
 
@@ -39,9 +47,13 @@ function hasExactCase(path) {
       continue;
     }
 
-    const entries = readdirSync(current || ".", { withFileTypes: true }).map((entry) => entry.name);
+    const entries = readdirSync(current || ".", { withFileTypes: true }).map(
+      (entry) => entry.name
+    );
     if (!entries.includes(segment)) {
-      const match = entries.find((entry) => entry.toLowerCase() === segment.toLowerCase());
+      const match = entries.find(
+        (entry) => entry.toLowerCase() === segment.toLowerCase()
+      );
       return match ? false : existsSync(absolute);
     }
 
@@ -73,7 +85,11 @@ function candidatesFor(specifier, importer) {
 }
 
 for (const file of sourceDirs.flatMap((dir) => walk(resolve(root, dir)))) {
-  const text = readdirSync(dirname(file)).includes(file.split(/[\\/]/).at(-1) ?? "") ? await import("node:fs/promises").then((fs) => fs.readFile(file, "utf8")) : "";
+  const text = readdirSync(dirname(file)).includes(
+    file.split(/[\\/]/).at(-1) ?? ""
+  )
+    ? await import("node:fs/promises").then((fs) => fs.readFile(file, "utf8"))
+    : "";
   const relativeFile = relative(root, file);
   let match;
 
@@ -87,20 +103,28 @@ for (const file of sourceDirs.flatMap((dir) => walk(resolve(root, dir)))) {
     }
 
     if (isDynamicImport && specifier.startsWith(".") && !extname(specifier)) {
-      errors.push(`${relativeFile}: dynamic import "${specifier}" must include a file extension`);
+      errors.push(
+        `${relativeFile}: dynamic import "${specifier}" must include a file extension`
+      );
       continue;
     }
 
     const candidates = candidatesFor(specifier, file);
-    const resolved = candidates.find((candidate) => existsSync(candidate) && statSync(candidate).isFile());
+    const resolved = candidates.find(
+      (candidate) => existsSync(candidate) && statSync(candidate).isFile()
+    );
 
     if (!resolved) {
-      errors.push(`${relativeFile}: import "${specifier}" does not resolve to a file`);
+      errors.push(
+        `${relativeFile}: import "${specifier}" does not resolve to a file`
+      );
       continue;
     }
 
     if (!hasExactCase(resolved)) {
-      errors.push(`${relativeFile}: import "${specifier}" casing does not match ${relative(root, resolved)}`);
+      errors.push(
+        `${relativeFile}: import "${specifier}" casing does not match ${relative(root, resolved)}`
+      );
     }
   }
 }

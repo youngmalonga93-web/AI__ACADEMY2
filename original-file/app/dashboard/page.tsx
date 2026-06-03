@@ -5,7 +5,11 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getCourseModules } from "@/lib/content/repository";
 import { getTrialState } from "@/lib/entitlements";
 import { calculateProgressPercent } from "@/lib/progress";
-import { getNextLesson, summarizeModuleProgress, type CompletedLesson } from "@/lib/progress-summary";
+import {
+  getNextLesson,
+  summarizeModuleProgress,
+  type CompletedLesson,
+} from "@/lib/progress-summary";
 import Link from "next/link";
 
 export const dynamic = "force-dynamic";
@@ -16,7 +20,10 @@ export default async function DashboardPage() {
   let completedLessons: CompletedLesson[] = [];
   let trialState = getTrialState(null);
   const modules = await getCourseModules();
-  const totalLessons = modules.reduce((sum, module) => sum + module.lessons.length, 0);
+  const totalLessons = modules.reduce(
+    (sum, module) => sum + module.lessons.length,
+    0
+  );
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -31,7 +38,11 @@ export default async function DashboardPage() {
     email = user.email ?? "";
     trialState = getTrialState(user.created_at);
 
-    const { data: profile } = await supabase.from("profiles").select("role").eq("id", user.id).maybeSingle();
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("id", user.id)
+      .maybeSingle();
     role = profile?.role ?? "learner";
 
     const { data: progressRows } = await supabase
@@ -43,7 +54,12 @@ export default async function DashboardPage() {
 
     completedLessons =
       progressRows?.flatMap((row) => {
-        const lesson = row.lessons as { slug?: string; title?: string; lesson_number?: string; module_id?: number } | null;
+        const lesson = row.lessons as {
+          slug?: string;
+          title?: string;
+          lesson_number?: string;
+          module_id?: number;
+        } | null;
         if (!lesson?.slug || !row.completed_at) {
           return [];
         }
@@ -62,7 +78,10 @@ export default async function DashboardPage() {
     redirect("/login");
   }
 
-  const progressPercent = calculateProgressPercent(completedLessons.length, totalLessons);
+  const progressPercent = calculateProgressPercent(
+    completedLessons.length,
+    totalLessons
+  );
   const moduleProgress = summarizeModuleProgress(modules, completedLessons);
   const nextLesson = getNextLesson(modules, completedLessons);
 
@@ -80,7 +99,8 @@ export default async function DashboardPage() {
         </CardHeader>
         <CardContent className="space-y-4">
           <p className="text-sm leading-6 text-muted-foreground">
-            This route is protected by Supabase auth and now summarizes your live lesson progress.
+            This route is protected by Supabase auth and now summarizes your
+            live lesson progress.
           </p>
           {nextLesson ? (
             <Button asChild>
@@ -105,7 +125,9 @@ export default async function DashboardPage() {
               : "Your free trial is not active. Paid plan checkout will be connected through Stripe next."}
           </p>
           {trialState.endsAt ? (
-            <p className="text-sm text-muted-foreground">Trial end date: {trialState.endsAt.toLocaleDateString()}</p>
+            <p className="text-sm text-muted-foreground">
+              Trial end date: {trialState.endsAt.toLocaleDateString()}
+            </p>
           ) : null}
           <div className="flex flex-wrap gap-2">
             <Button asChild variant="secondary">
@@ -123,10 +145,14 @@ export default async function DashboardPage() {
         </CardHeader>
         <CardContent className="space-y-3">
           <div className="h-3 overflow-hidden rounded-full bg-muted">
-            <div className="h-full bg-foreground" style={{ width: `${progressPercent}%` }} />
+            <div
+              className="h-full bg-foreground"
+              style={{ width: `${progressPercent}%` }}
+            />
           </div>
           <p className="text-sm text-muted-foreground">
-            {completedLessons.length} of {totalLessons} lessons complete. {progressPercent}% complete.
+            {completedLessons.length} of {totalLessons} lessons complete.{" "}
+            {progressPercent}% complete.
           </p>
         </CardContent>
       </Card>
@@ -137,7 +163,10 @@ export default async function DashboardPage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {moduleProgress.map((module) => (
-              <div key={module.moduleId} className="space-y-2 rounded-md border p-3">
+              <div
+                key={module.moduleId}
+                className="space-y-2 rounded-md border p-3"
+              >
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-sm font-medium">{module.title}</span>
                   <span className="text-xs text-muted-foreground">
@@ -145,7 +174,10 @@ export default async function DashboardPage() {
                   </span>
                 </div>
                 <div className="h-2 overflow-hidden rounded-full bg-muted">
-                  <div className="h-full bg-foreground" style={{ width: `${module.percent}%` }} />
+                  <div
+                    className="h-full bg-foreground"
+                    style={{ width: `${module.percent}%` }}
+                  />
                 </div>
               </div>
             ))}
@@ -157,12 +189,22 @@ export default async function DashboardPage() {
           </CardHeader>
           <CardContent className="space-y-3">
             {completedLessons.length === 0 ? (
-              <p className="text-sm text-muted-foreground">No completed lessons yet.</p>
+              <p className="text-sm text-muted-foreground">
+                No completed lessons yet.
+              </p>
             ) : (
               completedLessons.slice(0, 8).map((lesson) => (
-                <Link key={`${lesson.slug}-${lesson.completedAt}`} href={`/lessons/${lesson.slug}`} className="block rounded-md border p-3 text-sm hover:bg-muted">
-                  <span className="font-medium">{lesson.lessonNumber} {lesson.title}</span>
-                  <p className="mt-1 text-xs text-muted-foreground">{new Date(lesson.completedAt).toLocaleString()}</p>
+                <Link
+                  key={`${lesson.slug}-${lesson.completedAt}`}
+                  href={`/lessons/${lesson.slug}`}
+                  className="block rounded-md border p-3 text-sm hover:bg-muted"
+                >
+                  <span className="font-medium">
+                    {lesson.lessonNumber} {lesson.title}
+                  </span>
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    {new Date(lesson.completedAt).toLocaleString()}
+                  </p>
                 </Link>
               ))
             )}

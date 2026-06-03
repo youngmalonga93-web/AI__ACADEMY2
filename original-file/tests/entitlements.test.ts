@@ -1,5 +1,9 @@
 import { describe, expect, it } from "vitest";
-import { canAccessPrompt, getTrialState, isFreePrompt } from "../lib/entitlements";
+import {
+  canAccessPrompt,
+  getTrialState,
+  isFreePrompt,
+} from "../lib/entitlements";
 import type { PromptTemplate } from "../data/types";
 
 const lockedPrompt: PromptTemplate = {
@@ -21,7 +25,10 @@ const freePrompt: PromptTemplate = {
 
 describe("entitlements", () => {
   it("keeps a 7-day signup trial active until the end date", () => {
-    const trial = getTrialState("2026-06-01T12:00:00.000Z", new Date("2026-06-03T12:00:00.000Z"));
+    const trial = getTrialState(
+      "2026-06-01T12:00:00.000Z",
+      new Date("2026-06-03T12:00:00.000Z")
+    );
 
     expect(trial.isActive).toBe(true);
     expect(trial.daysRemaining).toBe(5);
@@ -29,15 +36,24 @@ describe("entitlements", () => {
   });
 
   it("expires the trial after seven days", () => {
-    const trial = getTrialState("2026-06-01T12:00:00.000Z", new Date("2026-06-09T12:00:00.000Z"));
+    const trial = getTrialState(
+      "2026-06-01T12:00:00.000Z",
+      new Date("2026-06-09T12:00:00.000Z")
+    );
 
     expect(trial.isActive).toBe(false);
     expect(trial.daysRemaining).toBe(0);
   });
 
   it("allows free prompts without signup and trial prompts during trial", () => {
-    const activeTrial = getTrialState("2026-06-01T12:00:00.000Z", new Date("2026-06-02T12:00:00.000Z"));
-    const expiredTrial = getTrialState("2026-06-01T12:00:00.000Z", new Date("2026-06-10T12:00:00.000Z"));
+    const activeTrial = getTrialState(
+      "2026-06-01T12:00:00.000Z",
+      new Date("2026-06-02T12:00:00.000Z")
+    );
+    const expiredTrial = getTrialState(
+      "2026-06-01T12:00:00.000Z",
+      new Date("2026-06-10T12:00:00.000Z")
+    );
 
     expect(isFreePrompt(freePrompt.id)).toBe(true);
     expect(canAccessPrompt(freePrompt, false, expiredTrial)).toBe(true);

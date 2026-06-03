@@ -1,5 +1,11 @@
 import { describe, expect, it } from "vitest";
-import { getLessonBySlug, getModuleById, getModuleForLesson, modules, prompts } from "../data/content";
+import {
+  getLessonBySlug,
+  getModuleById,
+  getModuleForLesson,
+  modules,
+  prompts,
+} from "../data/content";
 
 describe("content data utilities", () => {
   it("finds modules by numeric id", () => {

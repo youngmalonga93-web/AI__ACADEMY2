@@ -34,6 +34,9 @@
 - [ ] Expand prompt vault to 100+ practical, career/business-ready prompts.
 - [ ] Add site-wide production QA pass for all links, empty states, and auth flows.
 - [x] Add 7-day trial messaging, free prompt access, and Stripe-ready pricing plan.
+- [x] Link lessons to approved third-party teaching resources with attribution.
+- [x] Document free production hosting path that avoids the Vercel root-directory issue.
+- [x] Add production hardening pass for security headers, safe redirects, error fallbacks, formatting, health checks, and chunk stability verification.
 - [ ] Add investor demo metrics and admin snapshot page.
 - [ ] Stripe Checkout integration.
 - [ ] Stripe Customer Portal integration.

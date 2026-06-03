@@ -12,7 +12,13 @@ const variants = {
   ghost: "hover:bg-muted text-foreground",
 };
 
-export function Button({ asChild = false, className, variant = "default", children, ...props }: ButtonProps) {
+export function Button({
+  asChild = false,
+  className,
+  variant = "default",
+  children,
+  ...props
+}: ButtonProps) {
   const classes = cn(
     "inline-flex h-10 items-center justify-center rounded-md px-4 text-sm font-medium transition-colors disabled:pointer-events-none disabled:opacity-50",
     variants[variant],
@@ -26,10 +32,7 @@ export function Button({ asChild = false, className, variant = "default", childr
   }
 
   return (
-    <button
-      className={classes}
-      {...props}
-    >
+    <button className={classes} {...props}>
       {children}
     </button>
   );

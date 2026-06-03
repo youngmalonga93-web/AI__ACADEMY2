@@ -10,9 +10,12 @@ export default function CertificationsPage() {
     <div className="space-y-8">
       <div className="space-y-3">
         <Badge>Credentials</Badge>
-        <h1 className="text-3xl font-semibold tracking-tight">AI Academy Certification Tracks</h1>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          AI Academy Certification Tracks
+        </h1>
         <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
-          These are the credential paths learners will unlock as exams, capstones, and certificate generation come online.
+          These are the credential paths learners will unlock as exams,
+          capstones, and certificate generation come online.
         </p>
       </div>
 
@@ -47,7 +50,10 @@ export default function CertificationsPage() {
           <CardTitle>What Comes Next</CardTitle>
         </CardHeader>
         <CardContent className="space-y-3 text-sm leading-6 text-muted-foreground">
-          <p>Next implementation step: add graded exams, capstone submission, reviewer feedback, and generated certificates.</p>
+          <p>
+            Next implementation step: add graded exams, capstone submission,
+            reviewer feedback, and generated certificates.
+          </p>
           <Button asChild>
             <Link href="/courses">Start with the course track</Link>
           </Button>

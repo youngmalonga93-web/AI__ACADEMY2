@@ -12,7 +12,10 @@ export type TrialState = {
   isActive: boolean;
 };
 
-export function getTrialState(createdAt?: string | null, now = new Date()): TrialState {
+export function getTrialState(
+  createdAt?: string | null,
+  now = new Date()
+): TrialState {
   if (!createdAt) {
     return {
       startsAt: null,
@@ -40,7 +43,9 @@ export function getTrialState(createdAt?: string | null, now = new Date()): Tria
   return {
     startsAt,
     endsAt,
-    daysRemaining: isActive ? Math.max(1, Math.ceil(remainingMs / DAY_IN_MS)) : 0,
+    daysRemaining: isActive
+      ? Math.max(1, Math.ceil(remainingMs / DAY_IN_MS))
+      : 0,
     isActive,
   };
 }
@@ -49,6 +54,10 @@ export function isFreePrompt(promptId: PromptTemplate["id"]) {
   return FREE_PROMPT_IDS.includes(promptId);
 }
 
-export function canAccessPrompt(prompt: PromptTemplate, isSignedIn: boolean, trialState: TrialState) {
+export function canAccessPrompt(
+  prompt: PromptTemplate,
+  isSignedIn: boolean,
+  trialState: TrialState
+) {
   return isFreePrompt(prompt.id) || (isSignedIn && trialState.isActive);
 }

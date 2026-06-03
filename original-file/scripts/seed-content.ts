@@ -1,6 +1,12 @@
 import dotenv from "dotenv";
 import { createSupabaseAdminClient } from "../lib/supabase/admin";
-import { certifications, modules, promptCategories, prompts, tools } from "../data/content";
+import {
+  certifications,
+  modules,
+  promptCategories,
+  prompts,
+  tools,
+} from "../data/content";
 
 dotenv.config({ path: ".env.local" });
 
@@ -13,8 +19,10 @@ async function seedContent() {
       {
         slug: "ai-mastery-academy",
         title: "AI Mastery Academy",
-        subtitle: "Practical AI education for builders, operators, and professionals.",
-        description: "A production curriculum covering AI foundations, prompting, productivity, content systems, and applied AI workflows.",
+        subtitle:
+          "Practical AI education for builders, operators, and professionals.",
+        description:
+          "A production curriculum covering AI foundations, prompting, productivity, content systems, and applied AI workflows.",
       },
       { onConflict: "slug" }
     )
@@ -75,7 +83,10 @@ async function seedContent() {
 
   const moduleIds = modules.map((module) => module.id);
 
-  const { error: deleteProjectsError } = await supabase.from("projects").delete().in("module_id", moduleIds);
+  const { error: deleteProjectsError } = await supabase
+    .from("projects")
+    .delete()
+    .in("module_id", moduleIds);
 
   if (deleteProjectsError) {
     throw deleteProjectsError;
@@ -94,15 +105,17 @@ async function seedContent() {
     throw projectsError;
   }
 
-  const { error: categoriesError } = await supabase.from("prompt_categories").upsert(
-    promptCategories
-      .filter((category) => category.id !== "all")
-      .map((category) => ({
-        id: category.id,
-        label: category.label,
-        icon: category.icon,
-      }))
-  );
+  const { error: categoriesError } = await supabase
+    .from("prompt_categories")
+    .upsert(
+      promptCategories
+        .filter((category) => category.id !== "all")
+        .map((category) => ({
+          id: category.id,
+          label: category.label,
+          icon: category.icon,
+        }))
+    );
 
   if (categoriesError) {
     throw categoriesError;
@@ -120,47 +133,53 @@ async function seedContent() {
     throw toolsError;
   }
 
-  const { error: promptsError } = await supabase.from("prompt_templates").upsert(
-    prompts.map((prompt) => ({
-      id: prompt.id,
-      category_id: prompt.category,
-      tier: prompt.tier,
-      title: prompt.title,
-      task: prompt.task,
-      prompt: prompt.prompt,
-      tags: prompt.tags,
-      tip: prompt.tip,
-    }))
-  );
+  const { error: promptsError } = await supabase
+    .from("prompt_templates")
+    .upsert(
+      prompts.map((prompt) => ({
+        id: prompt.id,
+        category_id: prompt.category,
+        tier: prompt.tier,
+        title: prompt.title,
+        task: prompt.task,
+        prompt: prompt.prompt,
+        tags: prompt.tags,
+        tip: prompt.tip,
+      }))
+    );
 
   if (promptsError) {
     throw promptsError;
   }
 
-  const { error: promptToolsError } = await supabase.from("prompt_template_tools").upsert(
-    prompts.flatMap((prompt) =>
-      prompt.tools.map((toolId) => ({
-        prompt_template_id: prompt.id,
-        prompt_tool_id: toolId,
-      }))
-    )
-  );
+  const { error: promptToolsError } = await supabase
+    .from("prompt_template_tools")
+    .upsert(
+      prompts.flatMap((prompt) =>
+        prompt.tools.map((toolId) => ({
+          prompt_template_id: prompt.id,
+          prompt_tool_id: toolId,
+        }))
+      )
+    );
 
   if (promptToolsError) {
     throw promptToolsError;
   }
 
-  const { error: certificationsError } = await supabase.from("certifications").upsert(
-    certifications.map((certification) => ({
-      level: certification.level,
-      name: certification.name,
-      color: certification.color,
-      modules: certification.modules,
-      requirement: certification.requirement,
-      outcome: certification.outcome,
-    })),
-    { onConflict: "level" }
-  );
+  const { error: certificationsError } = await supabase
+    .from("certifications")
+    .upsert(
+      certifications.map((certification) => ({
+        level: certification.level,
+        name: certification.name,
+        color: certification.color,
+        modules: certification.modules,
+        requirement: certification.requirement,
+        outcome: certification.outcome,
+      })),
+      { onConflict: "level" }
+    );
 
   if (certificationsError) {
     throw certificationsError;

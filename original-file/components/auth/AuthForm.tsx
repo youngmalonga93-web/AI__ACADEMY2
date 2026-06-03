@@ -41,13 +41,17 @@ export function AuthForm({ mode }: AuthFormProps) {
       }
 
       if (mode === "signup") {
-        setMessage("Check your email to confirm your account. Your 7-day trial starts now.");
+        setMessage(
+          "Check your email to confirm your account. Your 7-day trial starts now."
+        );
       } else {
         router.push("/dashboard");
         router.refresh();
       }
     } catch {
-      setMessage("Supabase is not configured yet. Add the environment variables and try again.");
+      setMessage(
+        "Supabase is not configured yet. Add the environment variables and try again."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -70,18 +74,30 @@ export function AuthForm({ mode }: AuthFormProps) {
         setMessage(error.message);
       }
     } catch {
-      setMessage("Supabase is not configured yet. Add the environment variables and try again.");
+      setMessage(
+        "Supabase is not configured yet. Add the environment variables and try again."
+      );
       setIsSubmitting(false);
     }
   }
 
   return (
-    <form className="space-y-4 rounded-lg border bg-card p-5" onSubmit={handleEmailAuth}>
+    <form
+      className="space-y-4 rounded-lg border bg-card p-5"
+      onSubmit={handleEmailAuth}
+    >
       <div className="space-y-2">
         <label className="text-sm font-medium" htmlFor="email">
           Email
         </label>
-        <Input id="email" type="email" autoComplete="email" required value={email} onChange={(event) => setEmail(event.target.value)} />
+        <Input
+          id="email"
+          type="email"
+          autoComplete="email"
+          required
+          value={email}
+          onChange={(event) => setEmail(event.target.value)}
+        />
       </div>
       <div className="space-y-2">
         <label className="text-sm font-medium" htmlFor="password">
@@ -101,14 +117,28 @@ export function AuthForm({ mode }: AuthFormProps) {
         {mode === "login" ? "Log in" : "Start 7-day trial"}
       </Button>
       <div className="grid gap-2 sm:grid-cols-2">
-        <Button disabled={isSubmitting} type="button" variant="secondary" onClick={() => handleOAuth("github")}>
+        <Button
+          disabled={isSubmitting}
+          type="button"
+          variant="secondary"
+          onClick={() => handleOAuth("github")}
+        >
           GitHub
         </Button>
-        <Button disabled={isSubmitting} type="button" variant="secondary" onClick={() => handleOAuth("google")}>
+        <Button
+          disabled={isSubmitting}
+          type="button"
+          variant="secondary"
+          onClick={() => handleOAuth("google")}
+        >
           Google
         </Button>
       </div>
-      <p className="min-h-5 text-sm text-muted-foreground" role="status" aria-live="polite">
+      <p
+        className="min-h-5 text-sm text-muted-foreground"
+        role="status"
+        aria-live="polite"
+      >
         {message}
       </p>
     </form>

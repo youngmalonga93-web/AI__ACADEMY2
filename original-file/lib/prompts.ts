@@ -6,7 +6,10 @@ export type PromptFilters = {
   tool?: string;
 };
 
-export function filterPrompts(prompts: PromptTemplate[], filters: PromptFilters) {
+export function filterPrompts(
+  prompts: PromptTemplate[],
+  filters: PromptFilters
+) {
   const normalizedQuery = filters.query?.trim().toLowerCase() ?? "";
   const category = filters.category ?? "all";
   const tool = filters.tool ?? "all";
@@ -16,7 +19,10 @@ export function filterPrompts(prompts: PromptTemplate[], filters: PromptFilters)
     const matchesTool = tool === "all" || prompt.tools.includes(tool);
     const matchesQuery =
       normalizedQuery.length === 0 ||
-      [prompt.title, prompt.task, prompt.prompt, ...prompt.tags].join(" ").toLowerCase().includes(normalizedQuery);
+      [prompt.title, prompt.task, prompt.prompt, ...prompt.tags]
+        .join(" ")
+        .toLowerCase()
+        .includes(normalizedQuery);
 
     return matchesCategory && matchesTool && matchesQuery;
   });

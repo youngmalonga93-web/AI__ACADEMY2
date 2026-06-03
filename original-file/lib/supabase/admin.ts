@@ -5,13 +5,19 @@ export function createSupabaseAdminClient() {
   const env = getServerEnv();
 
   if (!env.SUPABASE_SERVICE_ROLE_KEY) {
-    throw new Error("SUPABASE_SERVICE_ROLE_KEY is required for admin Supabase operations.");
+    throw new Error(
+      "SUPABASE_SERVICE_ROLE_KEY is required for admin Supabase operations."
+    );
   }
 
-  return createClient(env.NEXT_PUBLIC_SUPABASE_URL, env.SUPABASE_SERVICE_ROLE_KEY, {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
-  });
+  return createClient(
+    env.NEXT_PUBLIC_SUPABASE_URL,
+    env.SUPABASE_SERVICE_ROLE_KEY,
+    {
+      auth: {
+        autoRefreshToken: false,
+        persistSession: false,
+      },
+    }
+  );
 }

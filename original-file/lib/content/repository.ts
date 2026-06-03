@@ -9,7 +9,13 @@ import {
   tools as localTools,
 } from "@/data/content";
 import { moduleEnrichments } from "@/data/enrichment";
-import type { CourseModule, Lesson, PromptCategory, PromptTemplate, ToolDefinition } from "@/data/types";
+import type {
+  CourseModule,
+  Lesson,
+  PromptCategory,
+  PromptTemplate,
+  ToolDefinition,
+} from "@/data/types";
 
 type ModuleRow = {
   id: number;
@@ -64,7 +70,9 @@ type PromptTemplateToolRow = {
 
 function createPublicContentClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ?? process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const supabaseKey =
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY ??
+    process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
   if (!supabaseUrl || !supabaseKey) {
     return null;
@@ -78,7 +86,11 @@ function createPublicContentClient() {
   });
 }
 
-function mapModules(moduleRows: ModuleRow[], lessonRows: LessonRow[], projectRows: ProjectRow[]): CourseModule[] {
+function mapModules(
+  moduleRows: ModuleRow[],
+  lessonRows: LessonRow[],
+  projectRows: ProjectRow[]
+): CourseModule[] {
   return moduleRows
     .sort((a, b) => a.display_order - b.display_order)
     .map((module) => {
@@ -157,11 +169,15 @@ export async function getCourseModuleById(id: number) {
 }
 
 export async function getLessonBySlugFromContent(slug: string) {
-  return (await getCourseModules()).flatMap((module) => module.lessons).find((lesson) => lesson.id === slug);
+  return (await getCourseModules())
+    .flatMap((module) => module.lessons)
+    .find((lesson) => lesson.id === slug);
 }
 
 export async function getModuleForLessonFromContent(slug: string) {
-  return (await getCourseModules()).find((module) => module.lessons.some((lesson) => lesson.id === slug));
+  return (await getCourseModules()).find((module) =>
+    module.lessons.some((lesson) => lesson.id === slug)
+  );
 }
 
 export async function getPromptVaultContent(): Promise<{
@@ -172,38 +188,71 @@ export async function getPromptVaultContent(): Promise<{
   const supabase = createPublicContentClient();
 
   if (!supabase) {
-    return { categories: localPromptCategories, prompts: localPrompts, tools: localTools };
+    return {
+      categories: localPromptCategories,
+      prompts: localPrompts,
+      tools: localTools,
+    };
   }
 
   try {
-    const [categoriesResult, toolsResult, promptsResult, promptToolsResult] = await Promise.all([
-      supabase.from("prompt_categories").select("*"),
-      supabase.from("prompt_tools").select("*"),
-      supabase.from("prompt_templates").select("*").order("id"),
-      supabase.from("prompt_template_tools").select("*"),
-    ]);
+    const [categoriesResult, toolsResult, promptsResult, promptToolsResult] =
+      await Promise.all([
+        supabase.from("prompt_categories").select("*"),
+        supabase.from("prompt_tools").select("*"),
+        supabase.from("prompt_templates").select("*").order("id"),
+        supabase.from("prompt_template_tools").select("*"),
+      ]);
 
-    if (categoriesResult.error || toolsResult.error || promptsResult.error || promptToolsResult.error) {
-      return { categories: localPromptCategories, prompts: localPrompts, tools: localTools };
+    if (
+      categoriesResult.error ||
+      toolsResult.error ||
+      promptsResult.error ||
+      promptToolsResult.error
+    ) {
+      return {
+        categories: localPromptCategories,
+        prompts: localPrompts,
+        tools: localTools,
+      };
     }
 
     const categories: PromptCategory[] = [
-      localPromptCategories.find((category) => category.id === "all") ?? { id: "all", label: "All Prompts", icon: "all" },
-      ...((categoriesResult.data ?? []) as Array<{ id: string; label: string; icon: string | null }>).map((category) => ({
+      localPromptCategories.find((category) => category.id === "all") ?? {
+        id: "all",
+        label: "All Prompts",
+        icon: "all",
+      },
+      ...(
+        (categoriesResult.data ?? []) as Array<{
+          id: string;
+          label: string;
+          icon: string | null;
+        }>
+      ).map((category) => ({
         id: category.id,
         label: category.label,
         icon: category.icon ?? category.id,
       })),
     ];
 
-    const tools: ToolDefinition[] = ((toolsResult.data ?? []) as Array<{ id: string; label: string; color: string | null }>).map((tool) => ({
+    const tools: ToolDefinition[] = (
+      (toolsResult.data ?? []) as Array<{
+        id: string;
+        label: string;
+        color: string | null;
+      }>
+    ).map((tool) => ({
       id: tool.id,
       label: tool.label,
       color: tool.color ?? "#525252",
     }));
 
-    const promptTools = (promptToolsResult.data ?? []) as PromptTemplateToolRow[];
-    const prompts: PromptTemplate[] = ((promptsResult.data ?? []) as PromptTemplateRow[]).map((prompt) => ({
+    const promptTools = (promptToolsResult.data ??
+      []) as PromptTemplateToolRow[];
+    const prompts: PromptTemplate[] = (
+      (promptsResult.data ?? []) as PromptTemplateRow[]
+    ).map((prompt) => ({
       id: prompt.id,
       category: prompt.category_id,
       tier: prompt.tier,
@@ -212,15 +261,24 @@ export async function getPromptVaultContent(): Promise<{
       prompt: prompt.prompt,
       tags: prompt.tags ?? [],
       tip: prompt.tip ?? undefined,
-      tools: promptTools.filter((item) => item.prompt_template_id === prompt.id).map((item) => item.prompt_tool_id),
+      tools: promptTools
+        .filter((item) => item.prompt_template_id === prompt.id)
+        .map((item) => item.prompt_tool_id),
     }));
 
     const promptIds = new Set(prompts.map((prompt) => prompt.id));
-    const mergedPrompts = [...prompts, ...localPrompts.filter((prompt) => !promptIds.has(prompt.id))];
+    const mergedPrompts = [
+      ...prompts,
+      ...localPrompts.filter((prompt) => !promptIds.has(prompt.id)),
+    ];
 
     return { categories, prompts: mergedPrompts, tools };
   } catch {
-    return { categories: localPromptCategories, prompts: localPrompts, tools: localTools };
+    return {
+      categories: localPromptCategories,
+      prompts: localPrompts,
+      tools: localTools,
+    };
   }
 }
 

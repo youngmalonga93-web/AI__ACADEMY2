@@ -23,7 +23,9 @@ describe("environment validation", () => {
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY = "anon-key";
     delete process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY;
 
-    expect(getClientEnv().NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY).toBe("anon-key");
+    expect(getClientEnv().NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY).toBe(
+      "anon-key"
+    );
   });
 
   it("rejects missing public Supabase configuration", () => {

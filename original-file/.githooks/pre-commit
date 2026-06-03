@@ -8,5 +8,6 @@ fi
 
 cd original-file
 
+npm run format:check
 npm run typecheck
 npm run validate:imports

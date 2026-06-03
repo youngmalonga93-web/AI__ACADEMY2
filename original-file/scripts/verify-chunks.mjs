@@ -12,7 +12,11 @@ function walk(dir) {
 
   return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const fullPath = join(dir, entry.name);
-    return entry.isDirectory() ? walk(fullPath) : entry.name.endsWith(".js") ? [fullPath] : [];
+    return entry.isDirectory()
+      ? walk(fullPath)
+      : entry.name.endsWith(".js")
+        ? [fullPath]
+        : [];
   });
 }
 
@@ -24,7 +28,9 @@ for (const file of walk(serverDir)) {
   while ((match = requirePattern.exec(source))) {
     const target = resolve(dirname(file), match[1]);
     if (!existsSync(target)) {
-      errors.push(`${relative(root, file)} references missing chunk ${relative(root, target)}`);
+      errors.push(
+        `${relative(root, file)} references missing chunk ${relative(root, target)}`
+      );
     }
   }
 }

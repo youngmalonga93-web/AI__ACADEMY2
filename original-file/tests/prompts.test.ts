@@ -14,13 +14,17 @@ describe("prompt filters", () => {
     const results = filterPrompts(prompts, { tool: "perplexity" });
 
     expect(results.length).toBeGreaterThan(1);
-    expect(results.every((prompt) => prompt.tools.includes("perplexity"))).toBe(true);
+    expect(results.every((prompt) => prompt.tools.includes("perplexity"))).toBe(
+      true
+    );
   });
 
   it("filters prompts by query across tags and text", () => {
     const results = filterPrompts(prompts, { query: "business model" });
 
-    expect(results.map((prompt) => prompt.title)).toContain("The Business Model Stress Test");
+    expect(results.map((prompt) => prompt.title)).toContain(
+      "The Business Model Stress Test"
+    );
   });
 
   it("includes an expanded investor-ready prompt vault", () => {
@@ -28,8 +32,14 @@ describe("prompt filters", () => {
 
     expect(prompts.length).toBeGreaterThanOrEqual(90);
     expect(promptIds.size).toBe(prompts.length);
-    expect(prompts.map((prompt) => prompt.title)).toContain("The Investor Demo Script");
-    expect(prompts.map((prompt) => prompt.title)).toContain("The RAG System Design Brief");
-    expect(prompts.map((prompt) => prompt.title)).toContain("The Video Lesson Storyboard");
+    expect(prompts.map((prompt) => prompt.title)).toContain(
+      "The Investor Demo Script"
+    );
+    expect(prompts.map((prompt) => prompt.title)).toContain(
+      "The RAG System Design Brief"
+    );
+    expect(prompts.map((prompt) => prompt.title)).toContain(
+      "The Video Lesson Storyboard"
+    );
   });
 });

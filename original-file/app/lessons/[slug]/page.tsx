@@ -3,7 +3,10 @@ import { notFound } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { getLessonBySlugFromContent, getModuleForLessonFromContent } from "@/lib/content/repository";
+import {
+  getLessonBySlugFromContent,
+  getModuleForLessonFromContent,
+} from "@/lib/content/repository";
 import { buildLessonMaterial } from "@/lib/lesson-material";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { completeLessonAction } from "./actions";
@@ -26,9 +29,15 @@ export default async function LessonPage({ params }: LessonPageProps) {
   }
 
   const material = buildLessonMaterial(lesson, courseModule);
-  const lessonIndex = courseModule.lessons.findIndex((item) => item.id === lesson.id);
-  const previousLesson = lessonIndex > 0 ? courseModule.lessons[lessonIndex - 1] : null;
-  const nextLesson = lessonIndex >= 0 && lessonIndex < courseModule.lessons.length - 1 ? courseModule.lessons[lessonIndex + 1] : null;
+  const lessonIndex = courseModule.lessons.findIndex(
+    (item) => item.id === lesson.id
+  );
+  const previousLesson =
+    lessonIndex > 0 ? courseModule.lessons[lessonIndex - 1] : null;
+  const nextLesson =
+    lessonIndex >= 0 && lessonIndex < courseModule.lessons.length - 1
+      ? courseModule.lessons[lessonIndex + 1]
+      : null;
 
   try {
     const supabase = await createSupabaseServerClient();
@@ -39,7 +48,11 @@ export default async function LessonPage({ params }: LessonPageProps) {
     isSignedIn = user !== null;
 
     if (user) {
-      const { data: persistedLesson } = await supabase.from("lessons").select("id").eq("slug", slug).maybeSingle();
+      const { data: persistedLesson } = await supabase
+        .from("lessons")
+        .select("id")
+        .eq("slug", slug)
+        .maybeSingle();
 
       if (persistedLesson) {
         const { data: progress } = await supabase
@@ -62,8 +75,12 @@ export default async function LessonPage({ params }: LessonPageProps) {
         <Badge>
           {lesson.number} in {courseModule.title}
         </Badge>
-        <h1 className="text-3xl font-semibold tracking-tight">{lesson.title}</h1>
-        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{lesson.hook}</p>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          {lesson.title}
+        </h1>
+        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+          {lesson.hook}
+        </p>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-3">
@@ -72,7 +89,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
             <CardTitle>Concept</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm leading-6 text-muted-foreground">{lesson.concept}</p>
+            <p className="text-sm leading-6 text-muted-foreground">
+              {lesson.concept}
+            </p>
           </CardContent>
         </Card>
         <Card>
@@ -80,7 +99,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
             <CardTitle>Application</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm leading-6 text-muted-foreground">{lesson.application}</p>
+            <p className="text-sm leading-6 text-muted-foreground">
+              {lesson.application}
+            </p>
           </CardContent>
         </Card>
         <Card>
@@ -88,7 +109,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
             <CardTitle>Exercise</CardTitle>
           </CardHeader>
           <CardContent>
-            <p className="text-sm leading-6 text-muted-foreground">{lesson.exercise}</p>
+            <p className="text-sm leading-6 text-muted-foreground">
+              {lesson.exercise}
+            </p>
           </CardContent>
         </Card>
       </div>
@@ -110,12 +133,68 @@ export default async function LessonPage({ params }: LessonPageProps) {
             <CardTitle>Video Tutorial Blueprint</CardTitle>
           </CardHeader>
           <CardContent className="space-y-3 text-sm leading-6 text-muted-foreground">
-            <p>Use this structure when we produce the video lesson.</p>
+            <p>
+              Use this structure when we produce the original AI Academy video
+              lesson.
+            </p>
             <ul className="space-y-2">
               {material.videoPlan.map((step) => (
                 <li key={step}>{step}</li>
               ))}
             </ul>
+          </CardContent>
+        </Card>
+      </div>
+
+      <div className="grid gap-4 lg:grid-cols-[1.1fr_0.9fr]">
+        <Card>
+          <CardHeader>
+            <CardTitle>Approved YouTube Teachings</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {material.recommendedVideos.map((video) => (
+              <a
+                key={video.url}
+                href={video.url}
+                target="_blank"
+                rel="noreferrer"
+                className="block rounded-md border p-4 text-sm transition-colors hover:bg-muted"
+              >
+                <span className="font-medium text-foreground">
+                  {video.title}
+                </span>
+                <span className="ml-2 text-xs text-muted-foreground">
+                  {video.channel}
+                </span>
+                <p className="mt-2 leading-6 text-muted-foreground">
+                  {video.fit}
+                </p>
+              </a>
+            ))}
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader>
+            <CardTitle>Third-Party Shout Outs</CardTitle>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            {material.sourceCredits.map((credit) => (
+              <a
+                key={credit.name}
+                href={credit.url}
+                target="_blank"
+                rel="noreferrer"
+                className="block rounded-md border p-4 text-sm transition-colors hover:bg-muted"
+              >
+                <span className="font-medium text-foreground">
+                  {credit.name}
+                </span>
+                <p className="mt-2 leading-6 text-muted-foreground">
+                  {credit.note}
+                </p>
+              </a>
+            ))}
           </CardContent>
         </Card>
       </div>
@@ -154,7 +233,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
           <CardContent className="space-y-4 text-sm leading-6 text-muted-foreground">
             <p>{material.deliverable}</p>
             <div className="rounded-md border p-3">
-              <p className="font-medium text-foreground">{material.worksheet.title}</p>
+              <p className="font-medium text-foreground">
+                {material.worksheet.title}
+              </p>
               <ul className="mt-2 space-y-2">
                 {material.worksheet.sections.map((section) => (
                   <li key={section}>{section}</li>
@@ -194,7 +275,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
       <div className="grid gap-3 border-t pt-6 md:grid-cols-2">
         {previousLesson ? (
           <Button asChild variant="secondary">
-            <Link href={`/lessons/${previousLesson.id}`}>Previous: {previousLesson.title}</Link>
+            <Link href={`/lessons/${previousLesson.id}`}>
+              Previous: {previousLesson.title}
+            </Link>
           </Button>
         ) : (
           <Button asChild variant="secondary">
@@ -203,7 +286,9 @@ export default async function LessonPage({ params }: LessonPageProps) {
         )}
         {nextLesson ? (
           <Button asChild>
-            <Link href={`/lessons/${nextLesson.id}`}>Next: {nextLesson.title}</Link>
+            <Link href={`/lessons/${nextLesson.id}`}>
+              Next: {nextLesson.title}
+            </Link>
           </Button>
         ) : (
           <Button asChild>

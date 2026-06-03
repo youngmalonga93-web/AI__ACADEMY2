@@ -15,7 +15,9 @@ type CourseDetailPageProps = {
 
 export const dynamic = "force-dynamic";
 
-export default async function CourseDetailPage({ params }: CourseDetailPageProps) {
+export default async function CourseDetailPage({
+  params,
+}: CourseDetailPageProps) {
   const { slug } = await params;
   const courseModule = await getCourseModuleById(Number(slug));
   const completedLessonSlugs = new Set<string>();
@@ -52,8 +54,12 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
     <div className="space-y-8">
       <div className="space-y-3">
         <Badge>Module {courseModule.id}</Badge>
-        <h1 className="text-3xl font-semibold tracking-tight">{courseModule.title}</h1>
-        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">{courseModule.subtitle}</p>
+        <h1 className="text-3xl font-semibold tracking-tight">
+          {courseModule.title}
+        </h1>
+        <p className="max-w-2xl text-sm leading-6 text-muted-foreground">
+          {courseModule.subtitle}
+        </p>
       </div>
 
       <div className="grid gap-4 lg:grid-cols-[1.3fr_0.7fr]">
@@ -64,15 +70,26 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
             </CardHeader>
             <CardContent className="space-y-3">
               {courseModule.lessons.map((lesson) => (
-                <Link key={lesson.id} href={lessonPath(lesson)} prefetch={false} className="block rounded-md border p-4 hover:bg-muted">
+                <Link
+                  key={lesson.id}
+                  href={lessonPath(lesson)}
+                  prefetch={false}
+                  className="block rounded-md border p-4 hover:bg-muted"
+                >
                   <div className="flex items-center justify-between gap-4">
                     <div>
-                      <p className="text-sm text-muted-foreground">{lesson.number}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {lesson.number}
+                      </p>
                       <h2 className="font-medium">{lesson.title}</h2>
                     </div>
                     <div className="flex items-center gap-3">
-                      {completedLessonSlugs.has(lesson.id) ? <Badge>Complete</Badge> : null}
-                      <span className="text-sm text-muted-foreground">{lesson.duration}</span>
+                      {completedLessonSlugs.has(lesson.id) ? (
+                        <Badge>Complete</Badge>
+                      ) : null}
+                      <span className="text-sm text-muted-foreground">
+                        {lesson.duration}
+                      </span>
                     </div>
                   </div>
                 </Link>
@@ -100,7 +117,9 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
                 ) : null}
                 {courseModule.expertLens.infrastructure ? (
                   <div>
-                    <p className="font-medium text-foreground">Infrastructure</p>
+                    <p className="font-medium text-foreground">
+                      Infrastructure
+                    </p>
                     <p>{courseModule.expertLens.infrastructure}</p>
                   </div>
                 ) : null}
@@ -127,7 +146,9 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
               <CardTitle>Capstone</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted-foreground">
-              <p className="font-medium text-foreground">{courseModule.project.title}</p>
+              <p className="font-medium text-foreground">
+                {courseModule.project.title}
+              </p>
               <p>{courseModule.project.description}</p>
               <p>{courseModule.project.deliverable}</p>
             </CardContent>
@@ -174,9 +195,15 @@ export default async function CourseDetailPage({ params }: CourseDetailPageProps
                     rel="noreferrer"
                     className="block rounded-md border p-3 text-sm hover:bg-muted"
                   >
-                    <span className="font-medium text-foreground">{resource.title}</span>
-                    <span className="ml-2 text-xs text-muted-foreground">{resource.source}</span>
-                    <p className="mt-1 text-muted-foreground">{resource.note}</p>
+                    <span className="font-medium text-foreground">
+                      {resource.title}
+                    </span>
+                    <span className="ml-2 text-xs text-muted-foreground">
+                      {resource.source}
+                    </span>
+                    <p className="mt-1 text-muted-foreground">
+                      {resource.note}
+                    </p>
                   </a>
                 ))}
               </CardContent>
