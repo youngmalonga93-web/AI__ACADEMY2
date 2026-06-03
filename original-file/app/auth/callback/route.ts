@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { getOAuthProviderLabel } from "@/lib/auth-providers";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getSafeRedirectPath } from "@/lib/security";
 
@@ -8,6 +9,9 @@ export async function GET(request: NextRequest) {
   const next = getSafeRedirectPath(requestUrl.searchParams.get("next"));
   const mode =
     requestUrl.searchParams.get("mode") === "signup" ? "signup" : "login";
+  const providerLabel = getOAuthProviderLabel(
+    requestUrl.searchParams.get("provider")
+  );
   const authError =
     requestUrl.searchParams.get("error_description") ??
     requestUrl.searchParams.get("error");
@@ -16,7 +20,7 @@ export async function GET(request: NextRequest) {
     const destination = new URL(`/${mode}`, requestUrl.origin);
     destination.searchParams.set(
       "message",
-      "Provider sign-in failed. Check that Google or GitHub is enabled in Supabase."
+      `${providerLabel} sign-in failed. Check that the provider is enabled in Supabase and that redirect URLs match.`
     );
     return NextResponse.redirect(destination);
   }
@@ -27,7 +31,10 @@ export async function GET(request: NextRequest) {
 
     if (error) {
       const destination = new URL(`/${mode}`, requestUrl.origin);
-      destination.searchParams.set("message", error.message);
+      destination.searchParams.set(
+        "message",
+        `${providerLabel} sign-in failed: ${error.message}`
+      );
       return NextResponse.redirect(destination);
     }
   }

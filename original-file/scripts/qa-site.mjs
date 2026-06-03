@@ -2,6 +2,7 @@ const baseUrl = process.env.QA_BASE_URL ?? "http://127.0.0.1:3000";
 
 const routes = [
   "/api/health",
+  "/auth/client-callback",
   "/",
   "/courses",
   "/courses/1",

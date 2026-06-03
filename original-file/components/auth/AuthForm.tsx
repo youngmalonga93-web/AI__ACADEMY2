@@ -1,9 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { oauthProviders, type OAuthProviderId } from "@/lib/auth-providers";
 import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 
 type AuthFormProps = {
@@ -16,25 +18,42 @@ export function AuthForm({ mode }: AuthFormProps) {
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [nextPath, setNextPath] = useState("/dashboard");
 
   useEffect(() => {
+    const next = new URLSearchParams(window.location.search).get("next");
+    setNextPath(
+      next && next.startsWith("/") && !next.startsWith("//")
+        ? next
+        : "/dashboard"
+    );
     setMessage(
       new URLSearchParams(window.location.search).get("message") ?? ""
     );
   }, []);
 
-  function getNextPath() {
-    const next = new URLSearchParams(window.location.search).get("next");
-    return next && next.startsWith("/") && !next.startsWith("//")
-      ? next
-      : "/dashboard";
+  function getAuthCallbackUrl(provider?: OAuthProviderId) {
+    const callbackUrl = new URL(
+      provider ? "/auth/client-callback" : "/auth/callback",
+      window.location.origin
+    );
+    callbackUrl.searchParams.set("next", nextPath);
+    callbackUrl.searchParams.set("mode", mode);
+
+    if (provider) {
+      callbackUrl.searchParams.set("provider", provider);
+    }
+
+    return callbackUrl.toString();
   }
 
-  function getAuthCallbackUrl() {
-    const callbackUrl = new URL("/auth/callback", window.location.origin);
-    callbackUrl.searchParams.set("next", getNextPath());
-    callbackUrl.searchParams.set("mode", mode);
-    return callbackUrl.toString();
+  function getProviderStartPath(provider: OAuthProviderId) {
+    const params = new URLSearchParams({
+      mode,
+      next: nextPath,
+    });
+
+    return `/auth/start/${provider}?${params.toString()}`;
   }
 
   async function handleEmailAuth(event: React.FormEvent<HTMLFormElement>) {
@@ -65,7 +84,7 @@ export function AuthForm({ mode }: AuthFormProps) {
           "Check your email to confirm your account. Your 7-day trial starts now."
         );
       } else {
-        router.push(getNextPath());
+        router.push(nextPath);
         router.refresh();
       }
     } catch {
@@ -73,37 +92,6 @@ export function AuthForm({ mode }: AuthFormProps) {
         "Supabase is not configured yet. Add the environment variables and try again."
       );
     } finally {
-      setIsSubmitting(false);
-    }
-  }
-
-  async function handleOAuth(provider: "github" | "google") {
-    setIsSubmitting(true);
-    setMessage("");
-
-    try {
-      const supabase = createSupabaseBrowserClient();
-      const { error } = await supabase.auth.signInWithOAuth({
-        provider,
-        options: {
-          redirectTo: getAuthCallbackUrl(),
-          queryParams:
-            provider === "google"
-              ? {
-                  access_type: "offline",
-                  prompt: "consent",
-                }
-              : undefined,
-        },
-      });
-
-      if (error) {
-        setMessage(error.message);
-      }
-    } catch {
-      setMessage(
-        "Supabase is not configured yet. Add the environment variables and try again."
-      );
       setIsSubmitting(false);
     }
   }
@@ -143,23 +131,27 @@ export function AuthForm({ mode }: AuthFormProps) {
       <Button className="w-full" disabled={isSubmitting} type="submit">
         {mode === "login" ? "Log in" : "Start 7-day trial"}
       </Button>
-      <div className="grid gap-2 sm:grid-cols-2">
-        <Button
-          disabled={isSubmitting}
-          type="button"
-          variant="secondary"
-          onClick={() => handleOAuth("github")}
-        >
-          GitHub
-        </Button>
-        <Button
-          disabled={isSubmitting}
-          type="button"
-          variant="secondary"
-          onClick={() => handleOAuth("google")}
-        >
-          Google
-        </Button>
+      <div className="space-y-2" aria-label="Third-party sign in options">
+        <div className="grid gap-2 sm:grid-cols-2">
+          {oauthProviders.map((provider) => (
+            <Button
+              key={provider.id}
+              asChild
+              aria-label={`Continue with ${provider.label}`}
+              disabled={isSubmitting}
+              variant="secondary"
+            >
+              <Link href={getProviderStartPath(provider.id)}>
+                Continue with {provider.label}
+              </Link>
+            </Button>
+          ))}
+        </div>
+        <p className="text-xs leading-5 text-muted-foreground">
+          Social login requires the matching OAuth provider to be enabled in
+          Supabase. Email signup remains available while provider credentials
+          are being connected.
+        </p>
       </div>
       <p
         className="min-h-5 text-sm text-muted-foreground"

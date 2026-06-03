@@ -117,4 +117,18 @@ describe("site quality guardrails", () => {
       "written lesson, applied lab, worksheet, working prompt"
     );
   });
+
+  it("routes social logins through the client callback for accessible errors", () => {
+    const authFormSource = readFileSync("components/auth/AuthForm.tsx", "utf8");
+    const clientCallbackSource = readFileSync(
+      "app/auth/client-callback/page.tsx",
+      "utf8"
+    );
+
+    expect(authFormSource).toContain("/auth/start");
+    expect(clientCallbackSource).toContain("/auth/callback");
+    expect(authFormSource).toContain("Continue with");
+    expect(clientCallbackSource).toContain("window.location.hash");
+    expect(clientCallbackSource).toContain("email signup");
+  });
 });
