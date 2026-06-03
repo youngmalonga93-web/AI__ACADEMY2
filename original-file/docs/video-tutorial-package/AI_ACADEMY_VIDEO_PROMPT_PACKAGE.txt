@@ -1,0 +1,782 @@
+﻿# AI Academy Video Tutorial Prompt Package
+
+Use this package with free AI video generation tools that accept image/SVG references, such as Pika, Luma Dream Machine free tier, Kling free credits, Haiper, or CapCut AI video. Upload the matching SVG for the module, then paste that module prompt.
+
+Recommended settings: 16:9 widescreen, 60-90 seconds, smooth motion, tutorial/explainer style, readable text only, subtle music, professional educational voiceover.
+
+## Modules
+
+### Module 01 - The AI Operating System
+
+SVG: modules/01-the-ai-operating-system/animation.svg
+Prompt: modules/01-the-ai-operating-system/video-generation-prompt.txt
+
+```text
+MODULE 01: The AI Operating System
+Corresponding SVG: modules/01-the-ai-operating-system/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "The AI Operating System" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "The AI Operating System".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a cinematic 16:9 educational hero image for a lesson called "The AI Operating System." Show a learner standing in a calm command-center workspace surrounded by transparent AI interface layers: model selector, research panel, writing panel, coding panel, automation panel, and verification checklist. The visual should explain that AI is not one magic app but a stack of specialized tools working together. Include subtle animated-ready data flows connecting reasoning, research, creation, automation, and review. Mood: foundational, empowering, clear. Leave space on the left for lesson title text. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 02 - Prompt Engineering Mastery
+
+SVG: modules/02-prompt-engineering-mastery/animation.svg
+Prompt: modules/02-prompt-engineering-mastery/video-generation-prompt.txt
+
+```text
+MODULE 02: Prompt Engineering Mastery
+Corresponding SVG: modules/02-prompt-engineering-mastery/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "Prompt Engineering Mastery" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "Prompt Engineering Mastery".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a cinematic 16:9 visual for "Prompt Engineering Mastery." Show a professional prompt architect at a desk arranging five glowing cards labeled only with simple symbols for role, context, instruction, format, and constraints. In the midground, weak messy output transforms into polished structured output through a clean prompt pipeline. Include a visible before-and-after contrast: vague request on one side, precise deliverable on the other. Motion-ready elements: cards sliding into place, output quality bar rising, checklist lights turning on. Mood: precision, craft, leverage. Leave clean space for captions. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 03 - AI Productivity & Deep Work
+
+SVG: modules/03-ai-productivity-deep-work/animation.svg
+Prompt: modules/03-ai-productivity-deep-work/video-generation-prompt.txt
+
+```text
+MODULE 03: AI Productivity & Deep Work
+Corresponding SVG: modules/03-ai-productivity-deep-work/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Productivity & Deep Work" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Productivity & Deep Work".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 tutorial image for "AI Productivity and Deep Work." Show a focused professional in a peaceful workspace while AI assistants quietly sort email, calendar tasks, research notes, meeting summaries, and personal knowledge cards around them. The central metaphor is reclaiming time: a clock dissolving into organized task blocks and deep-work focus zones. Include a second-brain knowledge graph in the background, with documents becoming linked insights. Motion-ready elements: inbox items moving into folders, notes connecting into a graph, calendar blocks aligning. Mood: calm control, mental clarity, time regained. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 04 - AI Content Engine
+
+SVG: modules/04-ai-content-engine/animation.svg
+Prompt: modules/04-ai-content-engine/video-generation-prompt.txt
+
+```text
+MODULE 04: AI Content Engine
+Corresponding SVG: modules/04-ai-content-engine/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Content Engine" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Content Engine".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 cinematic image for "AI Content Engine." Show a content studio pipeline where one strategic idea enters on the left and becomes scripts, articles, social posts, newsletters, thumbnails, and analytics on the right. Include a creator operating a central dashboard while automated content cards flow through stages: research, outline, draft, edit, publish, measure. Motion-ready elements: conveyor-like content cards, channel-specific panels lighting up, performance graph rising. The message is ethical industrial-scale content production with quality control. Mood: energetic, systematic, professional. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 05 - AI Image, Video & Audio
+
+SVG: modules/05-ai-image-video-audio/animation.svg
+Prompt: modules/05-ai-image-video-audio/video-generation-prompt.txt
+
+```text
+MODULE 05: AI Image, Video & Audio
+Corresponding SVG: modules/05-ai-image-video-audio/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Image, Video & Audio" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Image, Video & Audio".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 visual for "AI Image, Video and Audio." Show a modern creative production room split into three coordinated zones: image storyboard wall, video timeline monitor, and audio waveform booth. A creative director reviews a cinematic scene while AI-generated frames, camera paths, voice tracks, and music stems assemble into one polished tutorial video. Motion-ready elements: storyboard frames becoming moving shots, waveform pulsing, timeline clips snapping into place. The image should feel commercial, not fantasy. Mood: creative power, production discipline, multimedia mastery. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 06 - AI Automation & No-Code
+
+SVG: modules/06-ai-automation-no-code/animation.svg
+Prompt: modules/06-ai-automation-no-code/video-generation-prompt.txt
+
+```text
+MODULE 06: AI Automation & No-Code
+Corresponding SVG: modules/06-ai-automation-no-code/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Automation & No-Code" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Automation & No-Code".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 educational visual for "AI Automation and No-Code." Show a clean workflow map floating above a laptop: trigger, AI decision, app action, human approval, database update, notification. A business operator connects modular blocks without writing code. Include subtle icons for email, forms, CRM, spreadsheet, chat, and database as generic shapes. Motion-ready elements: glowing lines moving through blocks, failed path turning red then resolving, approval checkpoint opening a gate. The message is building systems that create value while you sleep. Mood: practical, reliable, efficient. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 07 - AI Marketing & Sales
+
+SVG: modules/07-ai-marketing-sales/animation.svg
+Prompt: modules/07-ai-marketing-sales/video-generation-prompt.txt
+
+```text
+MODULE 07: AI Marketing & Sales
+Corresponding SVG: modules/07-ai-marketing-sales/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Marketing & Sales" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Marketing & Sales".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 image for "AI Marketing and Sales." Show a revenue command center where audience research, campaign personalization, lead scoring, outreach, sales calls, and follow-up sequences connect into one ethical growth engine. A marketer studies customer segments while personalized message cards travel toward different buyer profiles. Include a funnel that is not cheesy: use clean analytics panels, conversion paths, and trust signals. Motion-ready elements: segments splitting, messages adapting, pipeline stages filling, ROI meter increasing. Mood: strategic, revenue-focused, customer-aware. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 08 - AI Coding & Development
+
+SVG: modules/08-ai-coding-development/animation.svg
+Prompt: modules/08-ai-coding-development/video-generation-prompt.txt
+
+```text
+MODULE 08: AI Coding & Development
+Corresponding SVG: modules/08-ai-coding-development/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Coding & Development" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Coding & Development".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 tutorial image for "AI Coding and Development." Show a developer collaborating with an AI engineering copilot across a complete product build: requirements, code editor, tests, security review, deployment, monitoring. The main screen shows clean abstract code blocks and green test indicators without readable proprietary text. In the background, a product interface launches from blueprint to live app. Motion-ready elements: code blocks assembling, tests passing, deployment rocket line moving to production, monitoring graph stabilizing. Mood: disciplined engineering speed, not reckless hacking. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 09 - AI Agents & Autonomous Systems
+
+SVG: modules/09-ai-agents-autonomous-systems/animation.svg
+Prompt: modules/09-ai-agents-autonomous-systems/video-generation-prompt.txt
+
+```text
+MODULE 09: AI Agents & Autonomous Systems
+Corresponding SVG: modules/09-ai-agents-autonomous-systems/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Agents & Autonomous Systems" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Agents & Autonomous Systems".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 cinematic explainer image for "AI Agents and Autonomous Systems." Show a central human supervisor overseeing a team of AI agents represented as clean task nodes: planner, researcher, executor, verifier, reporter. The agents pass work through a loop with memory, tools, guardrails, and human approval. Include a clear boundary between autonomous execution and safety checks. Motion-ready elements: agent nodes lighting in sequence, task packets moving between nodes, approval gate pausing and releasing. Mood: powerful, controlled, enterprise-ready. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 10 - RAG & Knowledge Systems
+
+SVG: modules/10-rag-knowledge-systems/animation.svg
+Prompt: modules/10-rag-knowledge-systems/video-generation-prompt.txt
+
+```text
+MODULE 10: RAG & Knowledge Systems
+Corresponding SVG: modules/10-rag-knowledge-systems/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "RAG & Knowledge Systems" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "RAG & Knowledge Systems".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 visual for "RAG and Knowledge Systems." Show a secure knowledge vault where documents, transcripts, policies, and notes are chunked, embedded, retrieved, and cited by an AI assistant. The center should show a clean retrieval pipeline: source documents, vector index, relevant passages, grounded answer with citations. Include a professional user asking a question and receiving a trustworthy answer with highlighted source references. Motion-ready elements: document pages breaking into chunks, vectors forming a map, relevant chunks flying into an answer panel, citation markers appearing. Mood: trustworthy, accurate, enterprise knowledge. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 11 - AI Business Strategy
+
+SVG: modules/11-ai-business-strategy/animation.svg
+Prompt: modules/11-ai-business-strategy/video-generation-prompt.txt
+
+```text
+MODULE 11: AI Business Strategy
+Corresponding SVG: modules/11-ai-business-strategy/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Business Strategy" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Business Strategy".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 executive strategy image for "AI Business Strategy." Show a leadership team around a digital transformation map with business functions connected to AI opportunities: operations, support, sales, finance, product, HR, risk. Include a roadmap from audit to pilot to rollout to ROI measurement. Motion-ready elements: opportunity cards ranking by impact and effort, roadmap milestones activating, ROI dashboard updating. The visual should communicate business judgment, not hype. Mood: boardroom clarity, disciplined transformation, strategic confidence. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 12 - AI Research & Analysis
+
+SVG: modules/12-ai-research-analysis/animation.svg
+Prompt: modules/12-ai-research-analysis/video-generation-prompt.txt
+
+```text
+MODULE 12: AI Research & Analysis
+Corresponding SVG: modules/12-ai-research-analysis/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Research & Analysis" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Research & Analysis".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 visual for "AI Research and Analysis." Show an analyst using AI to turn scattered sources into a rigorous research brief. Include source collection, credibility scoring, evidence clustering, contradiction detection, summary synthesis, and final recommendation. The background should show papers, charts, competitor cards, and citations becoming an organized insight map. Motion-ready elements: sources sorting into clusters, weak evidence fading, strong evidence highlighting, final report assembling. Mood: analytical depth, speed, intellectual honesty. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 13 - Fine-Tuning & Custom Models
+
+SVG: modules/13-fine-tuning-custom-models/animation.svg
+Prompt: modules/13-fine-tuning-custom-models/video-generation-prompt.txt
+
+```text
+MODULE 13: Fine-Tuning & Custom Models
+Corresponding SVG: modules/13-fine-tuning-custom-models/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "Fine-Tuning & Custom Models" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "Fine-Tuning & Custom Models".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 image for "Fine-Tuning and Custom Models." Show a machine learning workspace where high-quality domain examples are cleaned, labeled, evaluated, and used to shape a specialized model. Include a before-and-after model behavior comparison: generic response becoming domain-expert response. Add evaluation dashboards, dataset quality checks, and deployment guardrails. Motion-ready elements: training examples entering a model chamber, evaluation scores updating, model output becoming more precise. Mood: technical mastery, careful customization, production readiness. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 14 - AI Monetization & Entrepreneurship
+
+SVG: modules/14-ai-monetization-entrepreneurship/animation.svg
+Prompt: modules/14-ai-monetization-entrepreneurship/video-generation-prompt.txt
+
+```text
+MODULE 14: AI Monetization & Entrepreneurship
+Corresponding SVG: modules/14-ai-monetization-entrepreneurship/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Monetization & Entrepreneurship" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Monetization & Entrepreneurship".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 founder-focused image for "AI Monetization and Entrepreneurship." Show a founder turning AI skill into a real business system: problem validation, offer design, prototype, pricing, checkout, delivery, retention, testimonials, and analytics. Include a clear path from idea to paying customer, with no get-rich-quick energy. Motion-ready elements: customer pain points becoming product features, pricing tiers sliding into place, first payment notification, retention loop glowing. Mood: ambitious, practical, credible, investor-ready. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 15 - Open-Source & Local AI
+
+SVG: modules/15-open-source-local-ai/animation.svg
+Prompt: modules/15-open-source-local-ai/video-generation-prompt.txt
+
+```text
+MODULE 15: Open-Source & Local AI
+Corresponding SVG: modules/15-open-source-local-ai/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "Open-Source & Local AI" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "Open-Source & Local AI".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 technical visual for "Open-Source and Local AI." Show a private AI workstation running local models with data staying inside a secure environment. Include model cards, local inference dashboard, hardware monitor, privacy shield, and offline knowledge base. Contrast cloud dependency in the distance with a strong private local stack in the foreground. Motion-ready elements: data packets staying inside a boundary, model loading, inference tokens streaming, privacy shield pulsing. Mood: independence, privacy, technical control. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 16 - AI Ethics & Governance
+
+SVG: modules/16-ai-ethics-governance/animation.svg
+Prompt: modules/16-ai-ethics-governance/video-generation-prompt.txt
+
+```text
+MODULE 16: AI Ethics & Governance
+Corresponding SVG: modules/16-ai-ethics-governance/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Ethics & Governance" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Ethics & Governance".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 governance image for "AI Ethics and Governance." Show a responsible AI review board evaluating an AI system through transparent panels: privacy, bias, safety, explainability, audit logs, human oversight, compliance. The central metaphor is a powerful AI system inside a clear control framework, not a cage. Motion-ready elements: risk flags appearing, mitigation checkmarks activating, audit trail scrolling, approval seal forming. Mood: trust, responsibility, seriousness, public confidence. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 17 - AI System Design & Architecture
+
+SVG: modules/17-ai-system-design-architecture/animation.svg
+Prompt: modules/17-ai-system-design-architecture/video-generation-prompt.txt
+
+```text
+MODULE 17: AI System Design & Architecture
+Corresponding SVG: modules/17-ai-system-design-architecture/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI System Design & Architecture" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI System Design & Architecture".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 architecture visual for "AI System Design and Architecture." Show a scalable AI-native product blueprint with layers: user interface, API gateway, model orchestration, retrieval, tools, evals, billing, monitoring, security, and feedback loops. A systems architect reviews the design while simulated traffic flows through resilient services. Motion-ready elements: request path lighting up, fallback route activating, monitoring alerts resolving, architecture layers stacking into place. Mood: scalable, serious, reliable, designed for millions. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+
+### Module 18 - The Future of AI
+
+SVG: modules/18-the-future-of-ai/animation.svg
+Prompt: modules/18-the-future-of-ai/video-generation-prompt.txt
+
+```text
+MODULE 18: The Future of AI
+Corresponding SVG: modules/18-the-future-of-ai/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "The Future of AI" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "The Future of AI".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 closing-module image for "The Future of AI." Show a learner standing at the edge of a strategic horizon, looking at emerging AI capabilities represented as realistic product roadmaps, frontier research signals, new work roles, regulation markers, and opportunity windows. Avoid sci-fi fantasy; make it feel like disciplined foresight. Include a timeline from today to near-future, with uncertainty bands and decision checkpoints. Motion-ready elements: future milestones appearing, opportunity windows opening, risk markers balancing optimism. Mood: grounded optimism, strategic preparation, long-term advantage. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
+```
+

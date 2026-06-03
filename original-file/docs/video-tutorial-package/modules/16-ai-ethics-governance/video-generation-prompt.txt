@@ -1,0 +1,35 @@
+﻿MODULE 16: AI Ethics & Governance
+Corresponding SVG: modules/16-ai-ethics-governance/animation.svg
+
+COPY/PASTE VIDEO GENERATION PROMPT
+Create a polished 16:9 AI Academy video tutorial for the lesson "AI Ethics & Governance" using the uploaded SVG as the primary visual reference.
+
+Preserve the SVG's composition, colors, icons, layout, and topic. Animate the SVG with smooth educational motion: layered parallax, gentle camera movement, glowing data paths, UI panels appearing in sequence, concept callouts, highlight rings, and clean transitions. Keep the design premium, modern, and professional, like a high-quality SaaS education course.
+
+Tutorial structure:
+1. Opening title card: "AI Ethics & Governance".
+2. Brief concept setup that explains why the topic matters.
+3. Three step-by-step teaching beats using animated callouts from the SVG.
+4. Practical workflow or mental model the learner can apply immediately.
+5. Closing takeaway screen with one concise action step.
+
+Voiceover style:
+Clear, confident, beginner-friendly, professional, and encouraging. Explain the lesson as if teaching a practical AI Academy module to ambitious learners and business users.
+
+Visual style:
+Premium educational SaaS, cinematic but clean, realistic interfaces, crisp readable shapes, restrained high-trust color palette, soft light, smooth motion, no clutter.
+
+On-screen text rules:
+Use only short readable labels, 2 to 5 words each. Keep text large and clean. Do not use paragraphs, tiny UI text, fake logos, or brand names.
+
+Motion guidance:
+Use calm motion rather than chaotic effects. Animate important concepts one at a time. Use subtle glow, line tracing, node activation, zoom-ins, and parallax depth. Avoid flashing, warped shapes, distorted people, surreal faces, extra limbs, or unrelated stock footage.
+
+Audio guidance:
+Add subtle futuristic background music at low volume. Include a clear instructor voiceover if the tool supports narration.
+
+Duration:
+60 to 90 seconds.
+
+REFERENCE IMAGE INTENT FROM ORIGINAL SVG PROMPT
+Create a 16:9 governance image for "AI Ethics and Governance." Show a responsible AI review board evaluating an AI system through transparent panels: privacy, bias, safety, explainability, audit logs, human oversight, compliance. The central metaphor is a powerful AI system inside a clear control framework, not a cage. Motion-ready elements: risk flags appearing, mitigation checkmarks activating, audit trail scrolling, approval seal forming. Mood: trust, responsibility, seriousness, public confidence. Visual style: premium educational SaaS, cinematic but clean, realistic people and interfaces, high-trust investor-ready look, modern AI lab meets professional workspace, rich but restrained color palette, crisp readable shapes, soft volumetric light, no fake brand logos, no tiny unreadable UI text, no clutter, no distorted hands, no extra limbs, no surreal faces, 16:9 widescreen, designed for later animation with separate foreground, midground, and background depth.
