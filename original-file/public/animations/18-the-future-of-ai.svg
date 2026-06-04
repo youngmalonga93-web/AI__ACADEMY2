@@ -1,42 +1,88 @@
-<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
-<title id="title">The Future of AI animated SVG</title>
-<desc id="desc">Lightweight animated educational SaaS scene for AI Academy module 18: The Future of AI.</desc>
-<style>
-:root { --accent: #EAB308; --bg:#0b1020; --panel:#172033; --line:#7c8aa5; --good:#35d6a6; --soft:#bfd7ff; }
-.bg { fill: var(--bg); } .grid { stroke:#26324d; stroke-width:1; opacity:.35; }
-.panel { fill:var(--panel); stroke:#344461; stroke-width:2; opacity:.92; }
-.glow { filter:url(#glow); } .titlebar { fill:var(--accent); opacity:.23; }
-.card rect { fill:#111a2e; stroke:var(--soft); stroke-width:2; opacity:.9; } .card circle { fill:var(--accent); opacity:.9; } .card path { stroke:#dce8ff; stroke-width:6; stroke-linecap:round; opacity:.75; }
-.card { animation: float 4s ease-in-out infinite; transform-box:fill-box; transform-origin:center; } .c1{animation-delay:.25s} .c2{animation-delay:.5s} .c3{animation-delay:.75s} .c4{animation-delay:1s}
-.node { fill:var(--accent); opacity:.85; animation:pulse 1.8s ease-in-out infinite; } .n1{animation-delay:.25s} .n2{animation-delay:.5s} .n3{animation-delay:.75s} .n4{animation-delay:1s}
-.link { stroke:var(--line); stroke-width:4; stroke-linecap:round; opacity:.65; }
-.particle { fill:#fff; opacity:0; animation: flow 3.2s linear infinite; } .p1{animation-delay:.45s} .p2{animation-delay:.9s} .p3{animation-delay:1.35s} .p4{animation-delay:1.8s} .p5{animation-delay:2.25s}
-.bar { fill:var(--good); transform-origin:bottom; animation: grow 2.4s ease-in-out infinite; opacity:.88; } .b1{animation-delay:.2s} .b2{animation-delay:.4s} .b3{animation-delay:.6s} .b4{animation-delay:.8s}
-.scan { stroke:var(--good); stroke-width:4; stroke-linecap:round; animation: scan 2.8s ease-in-out infinite; opacity:.9; }
-.orbit { fill:none; stroke:var(--soft); stroke-width:3; stroke-dasharray:10 12; animation: dash 8s linear infinite; opacity:.55; }
-.smalltext { font: 700 24px system-ui,Segoe UI,sans-serif; fill:#eaf2ff; letter-spacing:.03em; } .num { font: 800 72px system-ui,Segoe UI,sans-serif; fill:#fff; opacity:.12; }
-@keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-14px)} }
-@keyframes pulse { 0%,100%{r:18;opacity:.65} 50%{r:24;opacity:1} }
-@keyframes flow { 0%{transform:translate(0,0);opacity:0} 15%{opacity:1} 85%{opacity:1} 100%{transform:translate(760px,155px);opacity:0} }
-@keyframes grow { 0%,100%{transform:scaleY(.45)} 50%{transform:scaleY(1)} }
-@keyframes scan { 0%,100%{transform:translateX(0);opacity:.25} 50%{transform:translateX(310px);opacity:1} }
-@keyframes dash { to{stroke-dashoffset:-220} }
-@media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
-</style>
-<defs><filter id="glow"><feGaussianBlur stdDeviation="6" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-<rect class="bg" width="1280" height="720" rx="0"/>
-<path class="grid" d="M0 120H1280M0 240H1280M0 360H1280M0 480H1280M0 600H1280M160 0V720M320 0V720M480 0V720M640 0V720M800 0V720M960 0V720M1120 0V720"/>
-<text class="num" x="58" y="118">18</text>
-<text class="smalltext" x="62" y="168">The Future of AI</text>
-<rect class="panel" x="225" y="125" width="830" height="390" rx="30"/>
-<rect class="titlebar" x="255" y="150" width="360" height="34" rx="17"/>
-<path class="orbit" d="M304 352C420 145 756 125 930 305C1035 415 954 540 730 548C492 556 230 489 304 352Z"/>
-<g class="card c0" transform="translate(270,220)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g><g class="card c1" transform="translate(440,300)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g><g class="card c2" transform="translate(610,220)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g><g class="card c3" transform="translate(780,300)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g><g class="card c4" transform="translate(950,220)"><rect width="120" height="70" rx="16"/><circle cx="30" cy="35" r="12"/><path d="M55 28h42M55 42h30"/></g>
-<circle class="particle p0" cx="245" cy="260" r="7"/><circle class="particle p1" cx="245" cy="260" r="7"/><circle class="particle p2" cx="245" cy="260" r="7"/><circle class="particle p3" cx="245" cy="260" r="7"/><circle class="particle p4" cx="245" cy="260" r="7"/><circle class="particle p5" cx="245" cy="260" r="7"/>
-<circle class="node n0" cx="320" cy="415" r="18"/><path class="link" d="M338 415 H 435"/><circle class="node n1" cx="455" cy="415" r="18"/><path class="link" d="M473 415 H 570"/><circle class="node n2" cx="590" cy="415" r="18"/><path class="link" d="M608 415 H 705"/><circle class="node n3" cx="725" cy="415" r="18"/><path class="link" d="M743 415 H 840"/><circle class="node n4" cx="860" cy="415" r="18"/>
-<rect class="bar b0" x="820" y="160" width="24" height="50" rx="8"/><rect class="bar b1" x="858" y="148" width="24" height="68" rx="8"/><rect class="bar b2" x="896" y="136" width="24" height="86" rx="8"/><rect class="bar b3" x="934" y="124" width="24" height="104" rx="8"/><rect class="bar b4" x="972" y="112" width="24" height="122" rx="8"/>
-<path class="scan" d="M340 560h185"/>
-<path class="scan" style="animation-delay:.6s" d="M665 560h185"/>
-<circle class="glow" cx="225" cy="260" r="26" fill="#EAB308" opacity=".9"/>
-<circle class="glow" cx="1015" cy="418" r="28" fill="#35d6a6" opacity=".9"/>
+<svg width="100%" viewBox="0 0 680 382" role="img" xmlns="http://www.w3.org/2000/svg">
+<title style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">Module 18 – The Future of AI</title>
+<desc style="fill:rgb(0, 0, 0);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto">A learner stands at the strategic horizon looking at emerging AI capabilities: product roadmaps, frontier signals, new work roles, regulation markers, and opportunity windows on a timeline.</desc>
+<defs>
+<marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs>
+
+<rect width="680" height="382" style="fill:rgb(6, 7, 10);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="0" y="0" width="3" height="382" fill="#818cf8" opacity="0.8" style="fill:rgb(129, 140, 248);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Background gradient horizon glow -->
+<rect x="0" y="200" width="680" height="182" fill="#080a0e" style="fill:rgb(8, 10, 14);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="0" y="195" width="680" height="10" fill="#0d1525" opacity="0.8" style="fill:rgb(13, 21, 37);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Title -->
+<text x="24" y="40" style="fill:rgb(58, 68, 85);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:10px;font-weight:500;text-anchor:start;dominant-baseline:auto">Module 18</text>
+<text x="24" y="72" style="fill:rgb(232, 240, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:22px;font-weight:600;text-anchor:start;dominant-baseline:auto">The Future</text>
+<text x="24" y="96" style="fill:rgb(232, 240, 255);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:22px;font-weight:600;text-anchor:start;dominant-baseline:auto">of AI</text>
+<text x="24" y="118" style="fill:rgb(58, 68, 85);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:11px;font-weight:400;text-anchor:start;dominant-baseline:auto">Grounded optimism. Strategic foresight.</text>
+
+<!-- Timeline axis -->
+<line x1="140" y1="290" x2="640" y2="290" stroke="#1d3a5e" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(29, 58, 94);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<line x1="640" y1="290" x2="650" y2="290" stroke="#3b82f6" stroke-width="1" marker-end="url(#arr)" style="fill:rgb(0, 0, 0);stroke:rgb(59, 130, 246);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Timeline markers -->
+<line x1="180" y1="286" x2="180" y2="294" stroke="#3a4455" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(58, 68, 85);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="180" y="308" fill="#3a4455" text-anchor="middle" font-size="8" style="fill:rgb(58, 68, 85);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">now</text>
+
+<line x1="300" y1="286" x2="300" y2="294" stroke="#3a4455" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(58, 68, 85);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="300" y="308" fill="#3a4455" text-anchor="middle" font-size="8" style="fill:rgb(58, 68, 85);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">6 months</text>
+
+<line x1="420" y1="286" x2="420" y2="294" stroke="#3a4455" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(58, 68, 85);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="420" y="308" fill="#3a4455" text-anchor="middle" font-size="8" style="fill:rgb(58, 68, 85);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">1 year</text>
+
+<line x1="560" y1="286" x2="560" y2="294" stroke="#3a4455" stroke-width="1" style="fill:rgb(0, 0, 0);stroke:rgb(58, 68, 85);color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="560" y="308" fill="#3a4455" text-anchor="middle" font-size="8" style="fill:rgb(58, 68, 85);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">2–3 years</text>
+
+<!-- Uncertainty band (shaded region widening toward future) -->
+<polygon points="180,268 640,228 640,252 180,272" fill="#0d1525" opacity="0.5" style="fill:rgb(13, 21, 37);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Opportunity windows -->
+<rect x="170" y="230" width="80" height="38" rx="3" style="fill:rgb(10, 31, 18);stroke:rgb(34, 197, 94);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="210" y="246" fill="#4ade80" text-anchor="middle" style="fill:rgb(74, 222, 128);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Agents</text>
+<text x="210" y="258" fill="#86efac" text-anchor="middle" style="fill:rgb(134, 239, 172);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">proliferate</text>
+<text x="210" y="266" fill="#4ade80" text-anchor="middle" style="fill:rgb(74, 222, 128);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">open now</text>
+
+<rect x="270" y="218" width="90" height="38" rx="3" style="fill:rgb(10, 31, 18);stroke:rgb(34, 197, 94);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="315" y="234" fill="#4ade80" text-anchor="middle" style="fill:rgb(74, 222, 128);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">New roles</text>
+<text x="315" y="246" fill="#86efac" text-anchor="middle" style="fill:rgb(134, 239, 172);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">AI operator</text>
+<text x="315" y="258" fill="#86efac" text-anchor="middle" style="fill:rgb(134, 239, 172);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">AI architect</text>
+
+<rect x="384" y="208" width="90" height="38" rx="3" style="fill:rgb(10, 31, 18);stroke:rgb(34, 197, 94);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="429" y="224" fill="#4ade80" text-anchor="middle" style="fill:rgb(74, 222, 128);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Multimodal</text>
+<text x="429" y="236" fill="#86efac" text-anchor="middle" style="fill:rgb(134, 239, 172);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">reasoning</text>
+<text x="429" y="248" fill="#4ade80" text-anchor="middle" style="fill:rgb(74, 222, 128);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">emerging</text>
+
+<rect x="498" y="196" width="90" height="38" rx="3" opacity="0.7" style="fill:rgb(10, 16, 32);stroke:rgb(29, 58, 94);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="543" y="212" fill="#818cf8" text-anchor="middle" style="fill:rgb(129, 140, 248);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Frontier</text>
+<text x="543" y="224" fill="#a5b4fc" text-anchor="middle" style="fill:rgb(165, 180, 252);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">models next</text>
+<text x="543" y="236" fill="#818cf8" text-anchor="middle" style="fill:rgb(129, 140, 248);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">gen — unclear</text>
+
+<!-- Risk markers -->
+<rect x="290" y="318" width="76" height="26" rx="2" opacity="0.7" style="fill:rgb(42, 13, 13);stroke:rgb(239, 68, 68);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.7;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="328" y="331" fill="#f87171" text-anchor="middle" style="fill:rgb(248, 113, 113);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Regulation</text>
+<text x="328" y="341" fill="#fca5a5" text-anchor="middle" style="fill:rgb(252, 165, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">EU AI Act</text>
+
+<rect x="400" y="318" width="76" height="26" rx="2" opacity="0.5" style="fill:rgb(42, 13, 13);stroke:rgb(239, 68, 68);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="438" y="331" fill="#f87171" text-anchor="middle" style="fill:rgb(248, 113, 113);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">Labor shift</text>
+<text x="438" y="341" fill="#fca5a5" text-anchor="middle" style="fill:rgb(252, 165, 165);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:400;text-anchor:middle;dominant-baseline:auto">reskilling</text>
+
+<!-- Decision checkpoints -->
+<circle cx="180" cy="290" r="5" fill="#3b82f6" stroke="#0ea5e9" stroke-width="0.5" style="fill:rgb(59, 130, 246);stroke:rgb(14, 165, 233);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="300" cy="290" r="4" fill="#6366f1" stroke="#818cf8" stroke-width="0.5" style="fill:rgb(99, 102, 241);stroke:rgb(129, 140, 248);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="420" cy="290" r="4" fill="#8b5cf6" stroke="#a855f7" stroke-width="0.5" opacity="0.8" style="fill:rgb(139, 92, 246);stroke:rgb(168, 85, 247);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.8;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<circle cx="560" cy="290" r="3" fill="#7c3aed" stroke="#9333ea" stroke-width="0.5" opacity="0.5" style="fill:rgb(124, 58, 237);stroke:rgb(147, 51, 234);color:rgb(255, 255, 255);stroke-width:0.5px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Learner figure (standing at horizon) -->
+<ellipse cx="148" cy="277" rx="7" ry="7" fill="#c9d1d9" style="fill:rgb(201, 209, 217);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<rect x="140" y="286" width="16" height="20" rx="2" fill="#21262d" stroke="#30363d" stroke-width="0.3" style="fill:rgb(33, 38, 45);stroke:rgb(48, 54, 61);color:rgb(255, 255, 255);stroke-width:0.3px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+<text x="148" y="324" fill="#3b82f6" text-anchor="middle" font-size="8" style="fill:rgb(59, 130, 246);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:9px;font-weight:700;text-anchor:middle;dominant-baseline:auto">you</text>
+<line x1="155" y1="282" x2="170" y2="270" stroke="#3b82f6" stroke-width="0.8" stroke-dasharray="3,2" opacity="0.5" style="fill:rgb(0, 0, 0);stroke:rgb(59, 130, 246);color:rgb(255, 255, 255);stroke-width:0.8px;stroke-dasharray:3px, 2px;stroke-linecap:butt;stroke-linejoin:miter;opacity:0.5;font-family:&quot;Anthropic Sans&quot;, -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;font-size:16px;font-weight:400;text-anchor:start;dominant-baseline:auto"/>
+
+<!-- Bottom -->
+<text x="24" y="366" style="fill:rgb(58, 68, 85);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:10px;font-weight:500;text-anchor:start;dominant-baseline:auto">AI Academy · Module 18</text>
+<text x="656" y="366" text-anchor="end" fill="#3a4455" style="fill:rgb(58, 68, 85);stroke:none;color:rgb(255, 255, 255);stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;opacity:1;font-family:system-ui, sans-serif;font-size:10px;font-weight:500;text-anchor:end;dominant-baseline:auto">futureofai</text>
 </svg>
