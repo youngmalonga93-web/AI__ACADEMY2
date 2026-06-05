@@ -50,7 +50,7 @@
 - [x] AI Coach API using OpenAI and Anthropic adapters.
 - [x] RAG retrieval over course, lesson, project, and prompt content.
 - [x] AI Project Reviewer.
-- [ ] AI Career Advisor.
+- [x] AI Career Advisor.
 - [ ] Certification exams.
 - [ ] Certificate PDF generation.
 - [ ] Community posts and comments.

@@ -17,6 +17,7 @@ const navItems = [
   { href: "/pricing", label: "Pricing" },
   { href: "/certifications", label: "Certs" },
   { href: "/careers", label: "Careers" },
+  { href: "/advisor", label: "Advisor" },
   { href: "/login", label: "Login" },
 ];
 

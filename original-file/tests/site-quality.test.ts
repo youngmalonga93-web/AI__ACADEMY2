@@ -150,8 +150,10 @@ describe("site quality guardrails", () => {
     const qaSource = readFileSync("scripts/qa-site.mjs", "utf8");
 
     expect(layoutSource).toContain("/coach");
+    expect(layoutSource).toContain("/advisor");
     expect(layoutSource).toContain("/reviewer");
     expect(qaSource).toContain("/coach");
+    expect(qaSource).toContain("/advisor");
     expect(qaSource).toContain("/reviewer");
   });
 });

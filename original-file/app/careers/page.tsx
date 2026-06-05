@@ -17,6 +17,9 @@ export default function CareersPage() {
           Use these paths to decide which modules, projects, and portfolio
           artifacts matter most for your goal.
         </p>
+        <Button asChild>
+          <Link href="/advisor">Build my AI career roadmap</Link>
+        </Button>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2">
