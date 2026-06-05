@@ -28,7 +28,7 @@ export async function GET(request: NextRequest, props: AuthStartRouteProps) {
     const destination = new URL(`/${mode}`, requestUrl.origin);
     destination.searchParams.set(
       "message",
-      "That sign-in provider is not available yet. Use Google, GitHub, or email signup."
+      "That sign-in provider is not available yet. Use Google or email signup."
     );
     return NextResponse.redirect(destination);
   }

@@ -39,15 +39,15 @@ Set these in Vercel Project Settings, not in committed files:
 
 ## Launch Checklist
 
-1. Confirm Google and GitHub OAuth redirect URLs in Supabase include the Vercel
-   production URL and local development URL.
+1. Confirm Google OAuth redirect URLs in Supabase include the Vercel production
+   URL and local development URL.
 2. Add Stripe products, prices, and webhook signing secret.
 3. Run `npm run ci`.
 4. Run `npm run deploy:prod`.
 5. Open `/api/health`, `/courses`, `/prompts`, `/pricing`, `/login`, and
    `/signup` on the production URL.
-6. Test email signup, Google signup, GitHub signup, trial messaging, free prompt
-   access, premium module gates, and billing buttons.
+6. Test email signup, Google signup, trial messaging, free prompt access,
+   premium module gates, and pricing page CTAs.
 7. Add at least one AI provider key, then test `/coach` with a signed-in account.
 
 ## Animation Plan

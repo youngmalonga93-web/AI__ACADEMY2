@@ -3,7 +3,6 @@ import { Check } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { CheckoutButton } from "@/app/pricing/BillingActions";
 
 const plans = [
   {
@@ -33,6 +32,7 @@ const plans = [
       "7-day free trial",
       "Full course library",
       "Full prompt vault",
+      "AI Coach access",
       "Progress tracking",
       "Worksheets and portfolio labs",
       "Certificates when exams launch",
@@ -51,7 +51,7 @@ const plans = [
     features: [
       "Everything in Pro",
       "Advanced system design modules",
-      "Investor demo templates",
+      "Founder and product build templates",
       "RAG and agent build paths",
       "Priority AI coach roadmap access",
     ],
@@ -86,11 +86,12 @@ export default function PricingPage() {
       <div className="max-w-3xl">
         <Badge>Pricing</Badge>
         <h1 className="mt-3 text-3xl font-semibold tracking-tight">
-          Simple pricing for the Stripe launch.
+          Simple pricing before paid checkout opens.
         </h1>
         <p className="mt-2 text-sm leading-6 text-muted-foreground">
-          Start with a free prompt taste and a 7-day Pro trial. Stripe Checkout
-          will connect these plans after the course library is investor-ready.
+          Start with a free prompt taste and a 7-day Pro trial experience.
+          Checkout is intentionally paused while testers review the complete
+          learning product.
         </p>
       </div>
 
@@ -122,17 +123,13 @@ export default function PricingPage() {
                   </li>
                 ))}
               </ul>
-              {plan.planId ? (
-                <CheckoutButton
-                  plan={plan.planId}
-                  label={plan.cta}
-                  variant={plan.name === "Pro" ? "default" : "secondary"}
-                />
-              ) : (
-                <Button asChild className="w-full" variant="secondary">
-                  <Link href={plan.href}>{plan.cta}</Link>
-                </Button>
-              )}
+              <Button
+                asChild
+                className="w-full"
+                variant={plan.name === "Pro" ? "default" : "secondary"}
+              >
+                <Link href={plan.href}>{plan.cta}</Link>
+              </Button>
             </CardContent>
           </Card>
         ))}
@@ -140,20 +137,20 @@ export default function PricingPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Stripe Implementation Notes</CardTitle>
+          <CardTitle>Paid Access Status</CardTitle>
         </CardHeader>
         <CardContent className="grid gap-4 text-sm leading-6 text-muted-foreground md:grid-cols-3">
           <p>
-            Use Stripe Checkout for Pro and Builder subscriptions with a 7-day
-            trial configured on the recurring price.
+            Stripe code is prepared, but checkout is paused until the tester QA
+            pass confirms navigation, auth, lessons, prompts, and AI Coach.
           </p>
           <p>
-            Add a Customer Portal link so users can update cards, cancel, and
-            switch plans without custom billing UI.
+            Test users can create accounts, use the curriculum, save progress,
+            open the prompt vault, and try Google login before payment setup.
           </p>
           <p>
-            Sync Stripe webhooks into Supabase subscriptions, then use
-            entitlement checks to unlock premium courses after trial.
+            When Stripe is enabled, the Pro and Builder buttons can switch back
+            to Checkout with a 7-day trial and customer portal.
           </p>
         </CardContent>
       </Card>

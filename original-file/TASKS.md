@@ -46,6 +46,7 @@
 - [x] Curate high-value training prompts from supplied workbook into the prompt vault.
 - [x] Remove the investor-only page from the production navigation and QA path.
 - [x] Add production runbook and smoother local/live server scripts.
+- [x] Remove stale demo CTAs, hide disabled GitHub login, and re-run launch navigation QA before Stripe.
 - [x] AI Coach API using OpenAI and Anthropic adapters.
 - [x] RAG retrieval over course, lesson, project, and prompt content.
 - [ ] AI Project Reviewer.

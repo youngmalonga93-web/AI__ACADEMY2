@@ -148,9 +148,8 @@ export function AuthForm({ mode }: AuthFormProps) {
           ))}
         </div>
         <p className="text-xs leading-5 text-muted-foreground">
-          Social login requires the matching OAuth provider to be enabled in
-          Supabase. Email signup remains available while provider credentials
-          are being connected.
+          Google login is available for faster access. Email signup remains
+          available for every tester.
         </p>
       </div>
       <p

@@ -28,7 +28,7 @@ export default async function HomePage() {
     { label: "Prompt templates", value: prompts.length },
     { label: "Credential tracks", value: certifications.length },
   ];
-  const demoPath = [
+  const learnerPath = [
     {
       label: "Start",
       title: "Production overview",
@@ -37,9 +37,9 @@ export default async function HomePage() {
     },
     {
       label: "Learn",
-      title: "Module 1 gold standard",
+      title: "Module 1 foundation",
       href: "/courses/1",
-      body: "Open the first course and inspect the deeper lesson experience.",
+      body: "Start the first course and complete a practical foundation lesson.",
     },
     {
       label: "Practice",
@@ -79,7 +79,7 @@ export default async function HomePage() {
           </div>
           <div className="flex flex-wrap gap-3">
             <Button asChild>
-              <Link href="/courses/1">Open Module 1 demo</Link>
+              <Link href="/courses/1">Start Module 1</Link>
             </Button>
             <Button asChild variant="secondary">
               <Link href="/pricing">See pricing plan</Link>
@@ -142,17 +142,17 @@ export default async function HomePage() {
       <section className="space-y-4">
         <div className="flex items-end justify-between gap-4">
           <div>
-            <Badge>Demo path</Badge>
+            <Badge>Learner path</Badge>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight">
               What to explore first
             </h2>
           </div>
           <Button asChild variant="secondary">
-            <Link href="/signup">Create demo learner</Link>
+            <Link href="/signup">Create learner account</Link>
           </Button>
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          {demoPath.map((item) => (
+          {learnerPath.map((item) => (
             <Link
               key={item.title}
               href={item.href}

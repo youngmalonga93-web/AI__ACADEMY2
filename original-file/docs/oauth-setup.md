@@ -1,9 +1,8 @@
 # Third-Party Login Setup
 
-Google and GitHub signup require both app code and Supabase provider settings.
-The app renders Google and GitHub because those are the best launch providers
-for AI Academy: Google is familiar for most learners, and GitHub is useful for
-technical learners, builders, and investors reviewing the product.
+Google signup requires both app code and Supabase provider settings. The launch
+app renders Google because it is familiar for most learners. GitHub can be added
+later after the Supabase provider is enabled and tested.
 
 ## Supabase settings
 
@@ -27,26 +26,23 @@ Then enable providers:
 
 1. Authentication > Providers > Google.
 2. Add Google Client ID and Client Secret.
-3. Authentication > Providers > GitHub.
-4. Add GitHub Client ID and Client Secret.
-5. Keep email/password enabled as the fallback signup path.
+3. Keep email/password enabled as the fallback signup path.
 
 ## Provider callback URLs
 
-Use the Supabase callback URL inside Google Cloud Console and GitHub OAuth App:
+Use the Supabase callback URL inside Google Cloud Console:
 
 `https://pemwiimosecgutoksfyi.supabase.co/auth/v1/callback`
 
-Do not use the app's `/auth/callback` URL inside Google or GitHub. Google and
-GitHub should return to Supabase first. Supabase then redirects users back to AI
-Academy through `/auth/client-callback`.
+Do not use the app's `/auth/callback` URL inside Google. Google should return
+to Supabase first. Supabase then redirects users back to AI Academy through
+`/auth/client-callback`.
 
 ## App-side flow
 
 AI Academy starts social login through server routes:
 
 - `/auth/start/google`
-- `/auth/start/github`
 
 Those routes ask Supabase to create the provider authorization URL. After the
 provider finishes, Supabase sends the browser to `/auth/client-callback`, which
@@ -70,5 +66,5 @@ Do not commit provider secrets or service role keys.
 Supabase also supports providers such as Apple, Azure/Microsoft, GitLab,
 Discord, LinkedIn, Slack, Twitter/X, WorkOS, and Zoom. Do not add buttons for
 them until the matching provider is enabled in Supabase and the provider app has
-approved redirect URLs. For launch, Google plus GitHub gives the cleanest
+approved redirect URLs. For launch, Google plus email gives the cleanest
 coverage without overwhelming users.

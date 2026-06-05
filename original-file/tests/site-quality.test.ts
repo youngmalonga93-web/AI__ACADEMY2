@@ -130,5 +130,18 @@ describe("site quality guardrails", () => {
     expect(authFormSource).toContain("Continue with");
     expect(clientCallbackSource).toContain("window.location.hash");
     expect(clientCallbackSource).toContain("email signup");
+    expect(authFormSource).toContain("Continue with {provider.label}");
+    expect(authFormSource).not.toContain("Continue with GitHub");
+  });
+
+  it("keeps public launch pages free of stale demo and disabled-provider CTAs", () => {
+    const homepageSource = readFileSync("app/page.tsx", "utf8");
+    const pricingSource = readFileSync("app/pricing/page.tsx", "utf8");
+
+    expect(homepageSource).not.toContain("Open Module 1 demo");
+    expect(homepageSource).not.toContain("Create demo learner");
+    expect(homepageSource).not.toContain("Demo path");
+    expect(pricingSource).not.toContain("Investor demo templates");
+    expect(pricingSource).not.toContain("CheckoutButton");
   });
 });

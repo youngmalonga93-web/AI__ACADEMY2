@@ -4,11 +4,6 @@ export const oauthProviders = [
     label: "Google",
     setupName: "Google Cloud OAuth client",
   },
-  {
-    id: "github",
-    label: "GitHub",
-    setupName: "GitHub OAuth App",
-  },
 ] as const;
 
 export type OAuthProviderId = (typeof oauthProviders)[number]["id"];

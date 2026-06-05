@@ -3,12 +3,8 @@ import { getOAuthProviderLabel, oauthProviders } from "../lib/auth-providers";
 
 describe("auth providers", () => {
   it("keeps launch social login providers explicit and labeled", () => {
-    expect(oauthProviders.map((provider) => provider.id)).toEqual([
-      "google",
-      "github",
-    ]);
+    expect(oauthProviders.map((provider) => provider.id)).toEqual(["google"]);
     expect(getOAuthProviderLabel("google")).toBe("Google");
-    expect(getOAuthProviderLabel("github")).toBe("GitHub");
   });
 
   it("uses a safe fallback label for unknown providers", () => {
