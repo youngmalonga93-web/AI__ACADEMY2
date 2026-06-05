@@ -4,6 +4,7 @@ import {
   oauthProviders,
   type OAuthProviderId,
 } from "@/lib/auth-providers";
+import { getConfiguredAppUrl } from "@/lib/app-url";
 import { reportServerError } from "@/lib/error-reporting";
 import { getSafeRedirectPath } from "@/lib/security";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
@@ -34,7 +35,7 @@ export async function GET(request: NextRequest, props: AuthStartRouteProps) {
     return NextResponse.redirect(destination);
   }
 
-  const appUrl = process.env.NEXT_PUBLIC_APP_URL ?? requestUrl.origin;
+  const appUrl = getConfiguredAppUrl(requestUrl.origin);
   const callbackUrl = new URL("/auth/client-callback", appUrl);
   callbackUrl.searchParams.set("next", next);
   callbackUrl.searchParams.set("mode", mode);

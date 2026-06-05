@@ -47,14 +47,14 @@ describe("environment validation", () => {
   it("accepts optional Stripe billing configuration", () => {
     process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
     process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "publishable-key";
-    process.env.NEXT_PUBLIC_APP_URL = "https://ai-academy.example.com";
+    process.env.NEXT_PUBLIC_APP_URL = "ai-academy.example.com";
     process.env.STRIPE_SECRET_KEY = "sk_test_example";
     process.env.STRIPE_WEBHOOK_SECRET = "whsec_example";
     process.env.STRIPE_PRO_PRICE_ID = "price_pro";
     process.env.STRIPE_BUILDER_PRICE_ID = "price_builder";
 
     expect(getServerEnv()).toMatchObject({
-      NEXT_PUBLIC_APP_URL: "https://ai-academy.example.com",
+      NEXT_PUBLIC_APP_URL: "ai-academy.example.com",
       STRIPE_SECRET_KEY: "sk_test_example",
       STRIPE_WEBHOOK_SECRET: "whsec_example",
       STRIPE_PRO_PRICE_ID: "price_pro",

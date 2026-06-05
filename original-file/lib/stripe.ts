@@ -1,4 +1,5 @@
 import Stripe from "stripe";
+import { getConfiguredAppUrl } from "@/lib/app-url";
 
 export type BillingPlanId = "pro" | "builder";
 
@@ -20,18 +21,7 @@ export const billingPlans: Record<
 };
 
 export function getAppUrl() {
-  const configuredUrl =
-    process.env.NEXT_PUBLIC_APP_URL ||
-    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
-    process.env.VERCEL_URL;
-
-  if (!configuredUrl) {
-    return "http://localhost:3000";
-  }
-
-  return configuredUrl.startsWith("http")
-    ? configuredUrl
-    : `https://${configuredUrl}`;
+  return getConfiguredAppUrl("http://localhost:3000");
 }
 
 export function getStripeClient() {
