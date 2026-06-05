@@ -1,6 +1,10 @@
 import Link from "next/link";
-import { AuthForm } from "@/components/auth/AuthForm";
+import dynamic from "next/dynamic";
 import { Badge } from "@/components/ui/badge";
+
+const AuthForm = dynamic(() =>
+  import("@/components/auth/AuthForm").then((module) => module.AuthForm)
+);
 
 export default function LoginPage() {
   return (

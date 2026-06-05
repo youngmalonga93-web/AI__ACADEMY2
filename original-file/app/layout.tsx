@@ -21,6 +21,10 @@ const navItems = [
   { href: "/login", label: "Login" },
 ];
 
+const showLegacyPrototype =
+  process.env.NODE_ENV !== "production" ||
+  process.env.ENABLE_LEGACY_PROTOTYPE === "true";
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
@@ -47,15 +51,17 @@ export default function RootLayout({
             </div>
           </header>
           <main className="mx-auto max-w-7xl px-6 py-8">{children}</main>
-          <footer className="mx-auto max-w-7xl px-6 pb-8 text-xs text-muted-foreground">
-            <Link
-              href="/legacy-prototype"
-              prefetch={false}
-              className="hover:text-foreground"
-            >
-              Legacy prototype
-            </Link>
-          </footer>
+          {showLegacyPrototype ? (
+            <footer className="mx-auto max-w-7xl px-6 pb-8 text-xs text-muted-foreground">
+              <Link
+                href="/legacy-prototype"
+                prefetch={false}
+                className="hover:text-foreground"
+              >
+                Legacy prototype
+              </Link>
+            </footer>
+          ) : null}
         </div>
       </body>
     </html>

@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { oauthProviders, type OAuthProviderId } from "@/lib/auth-providers";
-import { createSupabaseBrowserClient } from "@/lib/supabase/browser";
 
 type AuthFormProps = {
   mode: "login" | "signup";
@@ -32,21 +31,6 @@ export function AuthForm({ mode }: AuthFormProps) {
     );
   }, []);
 
-  function getAuthCallbackUrl(provider?: OAuthProviderId) {
-    const callbackUrl = new URL(
-      provider ? "/auth/client-callback" : "/auth/callback",
-      window.location.origin
-    );
-    callbackUrl.searchParams.set("next", nextPath);
-    callbackUrl.searchParams.set("mode", mode);
-
-    if (provider) {
-      callbackUrl.searchParams.set("provider", provider);
-    }
-
-    return callbackUrl.toString();
-  }
-
   function getProviderStartPath(provider: OAuthProviderId) {
     const params = new URLSearchParams({
       mode,
@@ -62,29 +46,34 @@ export function AuthForm({ mode }: AuthFormProps) {
     setMessage("");
 
     try {
-      const supabase = createSupabaseBrowserClient();
-      const response =
-        mode === "login"
-          ? await supabase.auth.signInWithPassword({ email, password })
-          : await supabase.auth.signUp({
-              email,
-              password,
-              options: {
-                emailRedirectTo: getAuthCallbackUrl(),
-              },
-            });
+      const response = await fetch("/api/auth/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          mode,
+          email,
+          password,
+          next: nextPath,
+        }),
+      });
+      const payload = (await response.json()) as {
+        error?: string;
+        message?: string;
+        next?: string;
+      };
 
-      if (response.error) {
-        setMessage(response.error.message);
+      if (!response.ok) {
+        setMessage(payload.error ?? "Email authentication failed.");
         return;
       }
 
       if (mode === "signup") {
         setMessage(
-          "Check your email to confirm your account. Your 7-day trial starts now."
+          payload.message ??
+            "Check your email to confirm your account. Your 7-day trial starts now."
         );
       } else {
-        router.push(nextPath);
+        router.push(payload.next ?? nextPath);
         router.refresh();
       }
     } catch {

@@ -20,11 +20,18 @@ export const billingPlans: Record<
 };
 
 export function getAppUrl() {
-  return (
-    process.env.NEXT_PUBLIC_APP_URL ??
-    process.env.VERCEL_PROJECT_PRODUCTION_URL?.replace(/^/, "https://") ??
-    "http://localhost:3000"
-  );
+  const configuredUrl =
+    process.env.NEXT_PUBLIC_APP_URL ||
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ||
+    process.env.VERCEL_URL;
+
+  if (!configuredUrl) {
+    return "http://localhost:3000";
+  }
+
+  return configuredUrl.startsWith("http")
+    ? configuredUrl
+    : `https://${configuredUrl}`;
 }
 
 export function getStripeClient() {
