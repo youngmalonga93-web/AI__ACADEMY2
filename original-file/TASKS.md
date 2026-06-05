@@ -49,7 +49,7 @@
 - [x] Remove stale demo CTAs, hide disabled GitHub login, and re-run launch navigation QA before Stripe.
 - [x] AI Coach API using OpenAI and Anthropic adapters.
 - [x] RAG retrieval over course, lesson, project, and prompt content.
-- [ ] AI Project Reviewer.
+- [x] AI Project Reviewer.
 - [ ] AI Career Advisor.
 - [ ] Certification exams.
 - [ ] Certificate PDF generation.

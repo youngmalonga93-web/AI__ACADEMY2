@@ -144,4 +144,14 @@ describe("site quality guardrails", () => {
     expect(pricingSource).not.toContain("Investor demo templates");
     expect(pricingSource).not.toContain("CheckoutButton");
   });
+
+  it("keeps protected AI workflows visible in navigation and QA", () => {
+    const layoutSource = readFileSync("app/layout.tsx", "utf8");
+    const qaSource = readFileSync("scripts/qa-site.mjs", "utf8");
+
+    expect(layoutSource).toContain("/coach");
+    expect(layoutSource).toContain("/reviewer");
+    expect(qaSource).toContain("/coach");
+    expect(qaSource).toContain("/reviewer");
+  });
 });
