@@ -77,4 +77,18 @@ describe("environment validation", () => {
       ANTHROPIC_MODEL: "anthropic-model",
     });
   });
+
+  it("accepts optional private error alert email configuration", () => {
+    process.env.NEXT_PUBLIC_SUPABASE_URL = "https://example.supabase.co";
+    process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY = "publishable-key";
+    process.env.RESEND_API_KEY = "resend-key";
+    process.env.ERROR_ALERT_EMAIL = "alerts@example.com";
+    process.env.ERROR_ALERT_FROM = "AI Academy <alerts@example.com>";
+
+    expect(getServerEnv()).toMatchObject({
+      RESEND_API_KEY: "resend-key",
+      ERROR_ALERT_EMAIL: "alerts@example.com",
+      ERROR_ALERT_FROM: "AI Academy <alerts@example.com>",
+    });
+  });
 });

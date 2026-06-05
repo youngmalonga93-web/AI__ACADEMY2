@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ErrorMessage } from "@/components/ui/error-message";
 
 export default function ErrorPage({
   error,
@@ -17,6 +18,17 @@ export default function ErrorPage({
       message: error.message,
       digest: error.digest,
     });
+
+    void fetch("/api/errors/client", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        source: "route-boundary",
+        message: error.message,
+        digest: error.digest,
+        path: window.location.pathname,
+      }),
+    }).catch(() => undefined);
   }, [error]);
 
   return (
@@ -26,10 +38,15 @@ export default function ErrorPage({
           <CardTitle>Something went wrong</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
-          <p className="text-sm leading-6 text-muted-foreground">
-            The app hit an unexpected error. You can retry the page or return to
-            the course catalog.
-          </p>
+          <ErrorMessage
+            message="This page could not load correctly. Try again, or return to the course catalog."
+            title="Application error"
+          />
+          {error.digest ? (
+            <p className="text-xs leading-5 text-muted-foreground">
+              Error code: {error.digest}
+            </p>
+          ) : null}
           <div className="flex flex-wrap gap-2">
             <Button type="button" onClick={reset}>
               Try again

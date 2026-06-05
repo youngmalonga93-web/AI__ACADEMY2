@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ErrorMessage } from "@/components/ui/error-message";
 
 export function BillingPortalButton() {
   const [message, setMessage] = useState<string | null>(null);
@@ -32,7 +33,7 @@ export function BillingPortalButton() {
         {isPending ? "Opening..." : "Manage billing"}
       </Button>
       {message ? (
-        <p className="text-xs leading-5 text-muted-foreground">{message}</p>
+        <ErrorMessage message={message} title="Billing error" />
       ) : null}
     </div>
   );

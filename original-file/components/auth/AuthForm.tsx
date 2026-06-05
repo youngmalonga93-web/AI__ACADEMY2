@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
+import { ErrorMessage } from "@/components/ui/error-message";
 import { Input } from "@/components/ui/input";
 import { oauthProviders, type OAuthProviderId } from "@/lib/auth-providers";
 
@@ -16,6 +17,7 @@ export function AuthForm({ mode }: AuthFormProps) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
+  const [messageKind, setMessageKind] = useState<"error" | "notice">("notice");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [nextPath, setNextPath] = useState("/dashboard");
 
@@ -29,6 +31,7 @@ export function AuthForm({ mode }: AuthFormProps) {
     setMessage(
       new URLSearchParams(window.location.search).get("message") ?? ""
     );
+    setMessageKind("error");
   }, []);
 
   function getProviderStartPath(provider: OAuthProviderId) {
@@ -44,6 +47,7 @@ export function AuthForm({ mode }: AuthFormProps) {
     event.preventDefault();
     setIsSubmitting(true);
     setMessage("");
+    setMessageKind("notice");
 
     try {
       const response = await fetch("/api/auth/email", {
@@ -63,11 +67,13 @@ export function AuthForm({ mode }: AuthFormProps) {
       };
 
       if (!response.ok) {
+        setMessageKind("error");
         setMessage(payload.error ?? "Email authentication failed.");
         return;
       }
 
       if (mode === "signup") {
+        setMessageKind("notice");
         setMessage(
           payload.message ??
             "Check your email to confirm your account. Your 7-day trial starts now."
@@ -77,8 +83,9 @@ export function AuthForm({ mode }: AuthFormProps) {
         router.refresh();
       }
     } catch {
+      setMessageKind("error");
       setMessage(
-        "Supabase is not configured yet. Add the environment variables and try again."
+        "Authentication is temporarily unavailable. Check your connection and try again."
       );
     } finally {
       setIsSubmitting(false);
@@ -141,13 +148,17 @@ export function AuthForm({ mode }: AuthFormProps) {
           available for every tester.
         </p>
       </div>
-      <p
-        className="min-h-5 text-sm text-muted-foreground"
-        role="status"
-        aria-live="polite"
-      >
-        {message}
-      </p>
+      {message && messageKind === "error" ? (
+        <ErrorMessage message={message} title="Authentication error" />
+      ) : null}
+      {message && messageKind === "notice" ? (
+        <p
+          className="rounded-md border bg-muted/40 p-3 text-sm leading-6 text-muted-foreground"
+          role="status"
+        >
+          {message}
+        </p>
+      ) : null}
     </form>
   );
 }

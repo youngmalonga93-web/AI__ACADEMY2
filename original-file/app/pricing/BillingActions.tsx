@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { ErrorMessage } from "@/components/ui/error-message";
 import type { BillingPlanId } from "@/lib/stripe";
 
 type BillingActionsProps = {
@@ -52,7 +53,7 @@ export function CheckoutButton({
         {isPending ? "Starting..." : label}
       </Button>
       {message ? (
-        <p className="text-xs leading-5 text-muted-foreground">{message}</p>
+        <ErrorMessage message={message} title="Checkout error" />
       ) : null}
     </div>
   );

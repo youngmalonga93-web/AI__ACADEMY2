@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getOAuthProviderLabel } from "@/lib/auth-providers";
+import { reportServerError } from "@/lib/error-reporting";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { getSafeRedirectPath } from "@/lib/security";
 
@@ -30,10 +31,16 @@ export async function GET(request: NextRequest) {
     const { error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (error) {
+      await reportServerError({
+        context: "auth-callback.exchange-code",
+        error,
+        metadata: { providerLabel, mode },
+      });
+
       const destination = new URL(`/${mode}`, requestUrl.origin);
       destination.searchParams.set(
         "message",
-        `${providerLabel} sign-in failed: ${error.message}`
+        `${providerLabel} sign-in could not finish. Try again or use email login.`
       );
       return NextResponse.redirect(destination);
     }

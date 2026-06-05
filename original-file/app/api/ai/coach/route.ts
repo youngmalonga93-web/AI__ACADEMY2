@@ -6,6 +6,7 @@ import {
   checkRateLimit,
   getClientIp,
 } from "@/lib/security";
+import { reportServerError } from "@/lib/error-reporting";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 const coachRequestSchema = z.object({
@@ -44,9 +45,18 @@ export async function POST(request: NextRequest) {
         )
       );
     }
-  } catch {
+  } catch (error) {
+    await reportServerError({
+      context: "ai-coach.auth-check",
+      error,
+      metadata: { ip },
+    });
+
     return applySecurityHeaders(
-      NextResponse.json({ error: "Unable to verify session." }, { status: 401 })
+      NextResponse.json(
+        { error: "We could not verify your session. Please log in again." },
+        { status: 401 }
+      )
     );
   }
 
@@ -71,7 +81,24 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const response = await generateCoachResponse(parsed.data, request.signal);
+  let response;
+
+  try {
+    response = await generateCoachResponse(parsed.data, request.signal);
+  } catch (error) {
+    await reportServerError({
+      context: "ai-coach.generate-response",
+      error,
+      metadata: { ip },
+    });
+
+    return applySecurityHeaders(
+      NextResponse.json(
+        { error: "AI Coach is temporarily unavailable. Try again soon." },
+        { status: 503 }
+      )
+    );
+  }
 
   return applySecurityHeaders(
     NextResponse.json(response, {

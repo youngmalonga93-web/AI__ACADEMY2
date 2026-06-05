@@ -4,6 +4,7 @@ import {
   oauthProviders,
   type OAuthProviderId,
 } from "@/lib/auth-providers";
+import { reportServerError } from "@/lib/error-reporting";
 import { getSafeRedirectPath } from "@/lib/security";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -56,6 +57,12 @@ export async function GET(request: NextRequest, props: AuthStartRouteProps) {
     });
 
     if (error || !data.url) {
+      await reportServerError({
+        context: "auth-start.oauth-url",
+        error: error ?? "Supabase did not return an OAuth URL.",
+        metadata: { provider: providerConfig.id, mode },
+      });
+
       const destination = new URL(`/${mode}`, requestUrl.origin);
       destination.searchParams.set(
         "message",
@@ -65,7 +72,13 @@ export async function GET(request: NextRequest, props: AuthStartRouteProps) {
     }
 
     return NextResponse.redirect(data.url);
-  } catch {
+  } catch (error) {
+    await reportServerError({
+      context: "auth-start.unhandled",
+      error,
+      metadata: { provider: providerConfig.id, mode },
+    });
+
     const destination = new URL(`/${mode}`, requestUrl.origin);
     destination.searchParams.set(
       "message",

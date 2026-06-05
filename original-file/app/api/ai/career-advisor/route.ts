@@ -6,6 +6,7 @@ import {
   checkRateLimit,
   getClientIp,
 } from "@/lib/security";
+import { reportServerError } from "@/lib/error-reporting";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 const careerAdvisorRequestSchema = z.object({
@@ -43,9 +44,18 @@ export async function POST(request: NextRequest) {
         )
       );
     }
-  } catch {
+  } catch (error) {
+    await reportServerError({
+      context: "career-advisor.auth-check",
+      error,
+      metadata: { ip },
+    });
+
     return applySecurityHeaders(
-      NextResponse.json({ error: "Unable to verify session." }, { status: 401 })
+      NextResponse.json(
+        { error: "We could not verify your session. Please log in again." },
+        { status: 401 }
+      )
     );
   }
 
@@ -73,8 +83,29 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  let response;
+
+  try {
+    response = generateCareerAdvice(parsed.data);
+  } catch (error) {
+    await reportServerError({
+      context: "career-advisor.generate-advice",
+      error,
+      metadata: { ip },
+    });
+
+    return applySecurityHeaders(
+      NextResponse.json(
+        {
+          error: "Career Advisor is temporarily unavailable. Try again soon.",
+        },
+        { status: 503 }
+      )
+    );
+  }
+
   return applySecurityHeaders(
-    NextResponse.json(generateCareerAdvice(parsed.data), {
+    NextResponse.json(response, {
       headers: {
         "X-RateLimit-Remaining": String(rateLimit.remaining),
         "X-RateLimit-Reset": new Date(rateLimit.resetAt).toISOString(),

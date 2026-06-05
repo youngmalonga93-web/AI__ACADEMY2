@@ -6,6 +6,7 @@ import {
   checkRateLimit,
   getClientIp,
 } from "@/lib/security";
+import { reportServerError } from "@/lib/error-reporting";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 const projectReviewRequestSchema = z.object({
@@ -46,9 +47,18 @@ export async function POST(request: NextRequest) {
         )
       );
     }
-  } catch {
+  } catch (error) {
+    await reportServerError({
+      context: "project-reviewer.auth-check",
+      error,
+      metadata: { ip },
+    });
+
     return applySecurityHeaders(
-      NextResponse.json({ error: "Unable to verify session." }, { status: 401 })
+      NextResponse.json(
+        { error: "We could not verify your session. Please log in again." },
+        { status: 401 }
+      )
     );
   }
 
@@ -76,7 +86,26 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const response = await generateProjectReview(parsed.data, request.signal);
+  let response;
+
+  try {
+    response = await generateProjectReview(parsed.data, request.signal);
+  } catch (error) {
+    await reportServerError({
+      context: "project-reviewer.generate-review",
+      error,
+      metadata: { ip },
+    });
+
+    return applySecurityHeaders(
+      NextResponse.json(
+        {
+          error: "Project Reviewer is temporarily unavailable. Try again soon.",
+        },
+        { status: 503 }
+      )
+    );
+  }
 
   return applySecurityHeaders(
     NextResponse.json(response, {

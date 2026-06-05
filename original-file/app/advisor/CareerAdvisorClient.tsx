@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ErrorMessage } from "@/components/ui/error-message";
 import { Input } from "@/components/ui/input";
 
 type CareerAdvisorResponse = {
@@ -128,11 +129,7 @@ export function CareerAdvisorClient() {
               value={constraints}
             />
           </div>
-          {error ? (
-            <p className="rounded-md border border-destructive/30 bg-muted p-3 text-sm text-muted-foreground">
-              {error}
-            </p>
-          ) : null}
+          <ErrorMessage message={error} title="Career Advisor error" />
           <Button
             disabled={isLoading || !canSubmit}
             onClick={submitCareerAdvisor}

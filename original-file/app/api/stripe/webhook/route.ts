@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
+import { reportServerError } from "@/lib/error-reporting";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { getStripeClient } from "@/lib/stripe";
 
@@ -57,8 +58,14 @@ export async function POST(request: Request) {
   const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET;
 
   if (!stripe || !webhookSecret) {
+    await reportServerError({
+      context: "stripe-webhook.not-configured",
+      error: "Missing Stripe client or webhook secret.",
+      metadata: { hasStripeClient: Boolean(stripe) },
+    });
+
     return NextResponse.json(
-      { error: "Stripe webhook is not configured." },
+      { error: "Webhook endpoint is not available." },
       { status: 503 }
     );
   }
@@ -76,7 +83,12 @@ export async function POST(request: Request) {
 
   try {
     event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
-  } catch {
+  } catch (error) {
+    await reportServerError({
+      context: "stripe-webhook.invalid-signature",
+      error,
+    });
+
     return NextResponse.json(
       { error: "Invalid Stripe signature." },
       { status: 400 }
@@ -88,7 +100,20 @@ export async function POST(request: Request) {
     event.type === "customer.subscription.updated" ||
     event.type === "customer.subscription.deleted"
   ) {
-    await syncSubscription(event.data.object);
+    try {
+      await syncSubscription(event.data.object);
+    } catch (error) {
+      await reportServerError({
+        context: "stripe-webhook.sync-subscription",
+        error,
+        metadata: { eventType: event.type },
+      });
+
+      return NextResponse.json(
+        { error: "Webhook processing failed." },
+        { status: 500 }
+      );
+    }
   }
 
   return NextResponse.json({ received: true });

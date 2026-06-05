@@ -156,4 +156,22 @@ describe("site quality guardrails", () => {
     expect(qaSource).toContain("/advisor");
     expect(qaSource).toContain("/reviewer");
   });
+
+  it("shows user-facing error messages in page and global fallbacks", () => {
+    const errorPageSource = readFileSync("app/error.tsx", "utf8");
+    const globalErrorSource = readFileSync("app/global-error.tsx", "utf8");
+    const errorMessageSource = readFileSync(
+      "components/ui/error-message.tsx",
+      "utf8"
+    );
+
+    expect(errorPageSource).toContain("<ErrorMessage");
+    expect(errorPageSource).toContain("error.digest");
+    expect(errorPageSource).toContain("/api/errors/client");
+    expect(errorPageSource).not.toContain("message={error.message}");
+    expect(globalErrorSource).toContain('role="alert"');
+    expect(globalErrorSource).toContain("Error code:");
+    expect(globalErrorSource).toContain("/api/errors/client");
+    expect(errorMessageSource).toContain('role="alert"');
+  });
 });
