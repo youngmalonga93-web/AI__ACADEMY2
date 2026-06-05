@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { getPublicAuthErrorMessage } from "@/lib/auth-errors";
 import {
   applySecurityHeaders,
   checkRateLimit,
@@ -7,7 +8,7 @@ import {
   getSafeRedirectPath,
 } from "@/lib/security";
 import { reportServerError } from "@/lib/error-reporting";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { createSupabaseRouteClient } from "@/lib/supabase/route";
 
 const emailAuthSchema = z.object({
   mode: z.enum(["login", "signup"]),
@@ -55,8 +56,9 @@ export async function POST(request: NextRequest) {
 
   const requestUrl = new URL(request.url);
   const next = getSafeRedirectPath(parsed.data.next);
+  const { applyCookies, supabase } = createSupabaseRouteClient(request);
+
   try {
-    const supabase = await createSupabaseServerClient();
     const response =
       parsed.data.mode === "login"
         ? await supabase.auth.signInWithPassword({
@@ -84,10 +86,7 @@ export async function POST(request: NextRequest) {
       return applySecurityHeaders(
         NextResponse.json(
           {
-            error:
-              parsed.data.mode === "login"
-                ? "Invalid email or password."
-                : "Could not create this account. Check your email and password, then try again.",
+            error: getPublicAuthErrorMessage(response.error, parsed.data.mode),
           },
           { status: 400 }
         )
@@ -109,20 +108,22 @@ export async function POST(request: NextRequest) {
   }
 
   return applySecurityHeaders(
-    NextResponse.json(
-      {
-        next,
-        message:
-          parsed.data.mode === "signup"
-            ? "Check your email to confirm your account. Your 7-day trial starts now."
-            : "Logged in.",
-      },
-      {
-        headers: {
-          "X-RateLimit-Remaining": String(rateLimit.remaining),
-          "X-RateLimit-Reset": new Date(rateLimit.resetAt).toISOString(),
+    applyCookies(
+      NextResponse.json(
+        {
+          next,
+          message:
+            parsed.data.mode === "signup"
+              ? "Check your email to confirm your account. Your 7-day trial starts now."
+              : "Logged in.",
         },
-      }
+        {
+          headers: {
+            "X-RateLimit-Remaining": String(rateLimit.remaining),
+            "X-RateLimit-Reset": new Date(rateLimit.resetAt).toISOString(),
+          },
+        }
+      )
     )
   );
 }
