@@ -92,6 +92,52 @@ export function AuthForm({ mode }: AuthFormProps) {
     }
   }
 
+  async function handlePasswordReset() {
+    if (!email) {
+      setMessageKind("error");
+      setMessage("Enter your email first, then request a password reset link.");
+      return;
+    }
+
+    setIsSubmitting(true);
+    setMessage("");
+    setMessageKind("notice");
+
+    try {
+      const response = await fetch("/api/auth/password-reset", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          email,
+          next: nextPath,
+        }),
+      });
+      const payload = (await response.json()) as {
+        error?: string;
+        message?: string;
+      };
+
+      if (!response.ok) {
+        setMessageKind("error");
+        setMessage(payload.error ?? "Password reset could not be started.");
+        return;
+      }
+
+      setMessageKind("notice");
+      setMessage(
+        payload.message ??
+          "If an account exists for that email, a password reset link has been sent."
+      );
+    } catch {
+      setMessageKind("error");
+      setMessage(
+        "Password reset is temporarily unavailable. Check your connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
   return (
     <form
       className="space-y-4 rounded-lg border bg-card p-5"
@@ -127,6 +173,17 @@ export function AuthForm({ mode }: AuthFormProps) {
       <Button className="w-full" disabled={isSubmitting} type="submit">
         {mode === "login" ? "Log in" : "Start 7-day trial"}
       </Button>
+      {mode === "login" ? (
+        <Button
+          className="w-full"
+          disabled={isSubmitting}
+          onClick={handlePasswordReset}
+          type="button"
+          variant="ghost"
+        >
+          Send password reset link
+        </Button>
+      ) : null}
       <div className="space-y-2" aria-label="Third-party sign in options">
         <div className="grid gap-2 sm:grid-cols-2">
           {oauthProviders.map((provider) => (

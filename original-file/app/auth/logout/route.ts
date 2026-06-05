@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { checkRateLimit, getClientIp } from "@/lib/security";
+import { createSupabaseRouteClient } from "@/lib/supabase/route";
 
 export async function POST(request: NextRequest) {
   const limit = checkRateLimit(`logout:${getClientIp(request)}`, 20, 60_000);
@@ -9,8 +9,8 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Too many requests" }, { status: 429 });
   }
 
-  const supabase = await createSupabaseServerClient();
+  const { applyCookies, supabase } = createSupabaseRouteClient(request);
   await supabase.auth.signOut();
 
-  return NextResponse.redirect(new URL("/login", request.url));
+  return applyCookies(NextResponse.redirect(new URL("/login", request.url)));
 }

@@ -23,7 +23,7 @@ export function getPublicAuthErrorMessage(
     message.includes("invalid credentials") ||
     code.includes("invalid_credentials")
   ) {
-    return "Invalid email or password.";
+    return "Invalid email or password. If you used Google first, continue with Google or send a password reset link.";
   }
 
   if (

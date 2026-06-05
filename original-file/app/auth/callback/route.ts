@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { getOAuthProviderLabel } from "@/lib/auth-providers";
 import { reportServerError } from "@/lib/error-reporting";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { createSupabaseRouteClient } from "@/lib/supabase/route";
 import { getSafeRedirectPath } from "@/lib/security";
 
 export async function GET(request: NextRequest) {
@@ -27,7 +27,7 @@ export async function GET(request: NextRequest) {
   }
 
   if (code) {
-    const supabase = await createSupabaseServerClient();
+    const { applyCookies, supabase } = createSupabaseRouteClient(request);
     const { error } = await supabase.auth.exchangeCodeForSession(code);
 
     if (error) {
@@ -44,6 +44,10 @@ export async function GET(request: NextRequest) {
       );
       return NextResponse.redirect(destination);
     }
+
+    return applyCookies(
+      NextResponse.redirect(new URL(next, requestUrl.origin))
+    );
   }
 
   return NextResponse.redirect(new URL(next, requestUrl.origin));

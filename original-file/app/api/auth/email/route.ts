@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
+import { getConfiguredAppUrl } from "@/lib/app-url";
 import { getPublicAuthErrorMessage } from "@/lib/auth-errors";
 import {
   applySecurityHeaders,
@@ -54,7 +55,6 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  const requestUrl = new URL(request.url);
   const next = getSafeRedirectPath(parsed.data.next);
   const { applyCookies, supabase } = createSupabaseRouteClient(request);
 
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
             options: {
               emailRedirectTo: new URL(
                 `/auth/callback?next=${encodeURIComponent(next)}&mode=signup`,
-                requestUrl.origin
+                getConfiguredAppUrl(new URL(request.url).origin)
               ).toString(),
             },
           });

@@ -14,7 +14,7 @@ describe("public auth error messages", () => {
         { message: "Invalid login credentials" },
         "login"
       )
-    ).toBe("Invalid email or password.");
+    ).toContain("Invalid email or password");
   });
 
   it("shows a safe existing account message", () => {
