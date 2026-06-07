@@ -33,6 +33,7 @@
 - [x] Add lesson quizzes, rubrics, downloadable worksheets, and video placeholders.
 - [x] Expand prompt vault to 100+ practical, career/business-ready prompts.
 - [x] Add site-wide production QA pass for all links, empty states, and auth flows.
+- [x] Add Playwright launch QA for auth, protected routes, and internal links.
 - [x] Add 7-day trial messaging, free prompt access, and Stripe-ready pricing plan.
 - [x] Link lessons to approved third-party teaching resources with attribution.
 - [x] Document free production hosting path that avoids the Vercel root-directory issue.

@@ -25,6 +25,10 @@
     "validate:imports": "node scripts/validate-imports.mjs",
     "verify:chunks": "node scripts/verify-chunks.mjs && node scripts/verify-chunk-stability.mjs",
     "qa:site": "node scripts/qa-site.mjs",
+    "qa:launch": "playwright test",
+    "qa:auth": "playwright test tests/e2e/auth.spec.ts",
+    "qa:links": "playwright test tests/e2e/links.spec.ts",
+    "qa:launch:ui": "playwright test --ui",
     "smoke": "node scripts/qa-site.mjs",
     "precommit": "npm run format:check && npm run typecheck && npm run validate:imports",
     "ci": "npm run format:check && npm run typecheck && npm run validate:imports && npm test && npm run lint && npm run build",
@@ -48,6 +52,7 @@
     "zod": "^4.4.3"
   },
   "devDependencies": {
+    "@playwright/test": "^1.60.0",
     "@testing-library/react": "^16.1.0",
     "@types/node": "^22.10.0",
     "@types/react": "^19.0.0",
