@@ -123,7 +123,8 @@ export function paymentReceiptEmail(
         "Your receipt is attached to this email by our payment provider. You can manage your subscription anytime from your dashboard."
       ),
       cta("Go to dashboard", "/dashboard"),
-    ]),
+      ].join("\n")
+    ),
   };
 }
 
