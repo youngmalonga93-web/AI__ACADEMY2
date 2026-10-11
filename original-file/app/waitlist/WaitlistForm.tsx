@@ -46,9 +46,9 @@ export function WaitlistForm() {
       <div className="flex items-start gap-3 rounded-lg border bg-card p-6">
         <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-green-600" />
         <div className="space-y-1">
-          <p className="font-medium">You're on the list.</p>
+          <p className="font-medium">You&rsquo;re on the list.</p>
           <p className="text-sm text-muted-foreground">
-            Watch your inbox — founding member invites go out first.
+            Watch your inbox â founding member invites go out first.
           </p>
         </div>
       </div>
