@@ -1,10 +1,32 @@
 import { Badge } from "@/components/ui/badge";
+import type { PromptTemplate } from "@/data/types";
 import { getPromptVaultContent } from "@/lib/content/repository";
-import { getTrialState } from "@/lib/entitlements";
+import {
+  canAccessPrompt,
+  getTrialState,
+  type TrialState,
+} from "@/lib/entitlements";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { PromptVault } from "./PromptVault";
 
 export const dynamic = "force-dynamic";
+
+// SECURITY: the prompt vault tables are public-read in the database by
+// design, so the paywall boundary must be enforced here on the server.
+// Strip the prompt body (and tip) for anything the viewer cannot access —
+// the client component only ever renders locked cards, so this changes
+// nothing visually, but view-source no longer leaks premium content.
+function toViewerPrompt(
+  prompt: PromptTemplate,
+  isSignedIn: boolean,
+  trialState: TrialState
+): PromptTemplate {
+  if (canAccessPrompt(prompt, isSignedIn, trialState)) {
+    return prompt;
+  }
+
+  return { ...prompt, prompt: "", tip: undefined };
+}
 
 export default async function PromptsPage() {
   const { categories, prompts, tools } = await getPromptVaultContent();
@@ -23,6 +45,10 @@ export default async function PromptsPage() {
     isSignedIn = false;
   }
 
+  const viewerPrompts = prompts.map((prompt) =>
+    toViewerPrompt(prompt, isSignedIn, trialState)
+  );
+
   return (
     <div className="space-y-8">
       <div>
@@ -39,7 +65,7 @@ export default async function PromptsPage() {
       <PromptVault
         categories={categories}
         isSignedIn={isSignedIn}
-        prompts={prompts}
+        prompts={viewerPrompts}
         tools={tools}
         trialDaysRemaining={trialState.daysRemaining}
         trialEndsAt={trialState.endsAt?.toISOString() ?? null}
