@@ -1,11 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 import { generateCareerAdvice } from "@/lib/ai/career-advisor";
-import {
-  applySecurityHeaders,
-  checkRateLimit,
-  getClientIp,
-} from "@/lib/security";
+import { checkAiUsageLimit } from "@/lib/ai/limits";
+import { applySecurityHeaders } from "@/lib/security";
 import { reportServerError } from "@/lib/error-reporting";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -18,20 +15,11 @@ const careerAdvisorRequestSchema = z.object({
 });
 
 export async function POST(request: NextRequest) {
-  const ip = getClientIp(request);
-  const rateLimit = checkRateLimit(`career-advisor:${ip}`, 8, 60_000);
-
-  if (!rateLimit.allowed) {
-    return applySecurityHeaders(
-      NextResponse.json(
-        { error: "Too many career advisor requests. Try again in a minute." },
-        { status: 429 }
-      )
-    );
-  }
+  let supabase: Awaited<ReturnType<typeof createSupabaseServerClient>>;
+  let userId: string;
 
   try {
-    const supabase = await createSupabaseServerClient();
+    supabase = await createSupabaseServerClient();
     const {
       data: { user },
     } = await supabase.auth.getUser();
@@ -44,11 +32,13 @@ export async function POST(request: NextRequest) {
         )
       );
     }
+
+    userId = user.id;
   } catch (error) {
     await reportServerError({
       context: "career-advisor.auth-check",
       error,
-      metadata: { ip },
+      metadata: {},
     });
 
     return applySecurityHeaders(
@@ -56,6 +46,33 @@ export async function POST(request: NextRequest) {
         { error: "We could not verify your session. Please log in again." },
         { status: 401 }
       )
+    );
+  }
+
+  // Per-user, Supabase-backed rate limit. The old in-memory limiter kept
+  // buckets per serverless instance, so limits never actually applied.
+  let usage;
+
+  try {
+    usage = await checkAiUsageLimit(supabase, userId, "career-advisor");
+  } catch (error) {
+    await reportServerError({
+      context: "career-advisor.usage-check",
+      error,
+      metadata: { userId },
+    });
+
+    return applySecurityHeaders(
+      NextResponse.json(
+        { error: "We could not check your usage. Please try again soon." },
+        { status: 503 }
+      )
+    );
+  }
+
+  if (!usage.allowed) {
+    return applySecurityHeaders(
+      NextResponse.json({ error: usage.message }, { status: 429 })
     );
   }
 
@@ -91,7 +108,7 @@ export async function POST(request: NextRequest) {
     await reportServerError({
       context: "career-advisor.generate-advice",
       error,
-      metadata: { ip },
+      metadata: { userId },
     });
 
     return applySecurityHeaders(
@@ -107,8 +124,8 @@ export async function POST(request: NextRequest) {
   return applySecurityHeaders(
     NextResponse.json(response, {
       headers: {
-        "X-RateLimit-Remaining": String(rateLimit.remaining),
-        "X-RateLimit-Reset": new Date(rateLimit.resetAt).toISOString(),
+        "X-RateLimit-Remaining": String(usage.remainingMinute),
+        "X-RateLimit-Reset": usage.resetAt,
       },
     })
   );
