@@ -9,6 +9,7 @@ import {
   getSafeRedirectPath,
 } from "@/lib/security";
 import { reportServerError } from "@/lib/error-reporting";
+import { sendWelcomeEmail } from "@/lib/email/client";
 import { createSupabaseRouteClient } from "@/lib/supabase/route";
 
 const emailAuthSchema = z.object({
@@ -107,6 +108,12 @@ export async function POST(request: NextRequest) {
     );
   }
 
+  if (parsed.data.mode === "signup") {
+    // Fire-and-forget: sendWelcomeEmail never throws or rejects, so a
+    // failed email can never fail the signup itself.
+    void sendWelcomeEmail(parsed.data.email);
+  }
+
   return applySecurityHeaders(
     applyCookies(
       NextResponse.json(
@@ -127,3 +134,4 @@ export async function POST(request: NextRequest) {
     )
   );
 }
+

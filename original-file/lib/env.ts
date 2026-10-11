@@ -17,6 +17,7 @@ const serverEnvSchema = clientEnvSchema.extend({
   ANTHROPIC_API_KEY: z.string().min(1).optional(),
   ANTHROPIC_MODEL: z.string().min(1).optional(),
   RESEND_API_KEY: z.string().min(1).optional(),
+  EMAIL_FROM: z.string().min(1).optional(),
   ERROR_ALERT_EMAIL: z.string().email().optional(),
   ERROR_ALERT_FROM: z.string().min(1).optional(),
 });
@@ -55,7 +56,9 @@ export function getServerEnv() {
     ANTHROPIC_API_KEY: emptyToUndefined(process.env.ANTHROPIC_API_KEY),
     ANTHROPIC_MODEL: emptyToUndefined(process.env.ANTHROPIC_MODEL),
     RESEND_API_KEY: emptyToUndefined(process.env.RESEND_API_KEY),
+    EMAIL_FROM: emptyToUndefined(process.env.EMAIL_FROM),
     ERROR_ALERT_EMAIL: emptyToUndefined(process.env.ERROR_ALERT_EMAIL),
     ERROR_ALERT_FROM: emptyToUndefined(process.env.ERROR_ALERT_FROM),
   });
 }
+
