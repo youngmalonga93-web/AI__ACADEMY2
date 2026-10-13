@@ -17,7 +17,11 @@ export async function createSupabaseServerClient() {
         setAll(cookiesToSet) {
           try {
             cookiesToSet.forEach(({ name, value, options }) => {
-              cookieStore.set(name, value, options);
+              // Force Path=/ : next/headers defaults the cookie path to the
+              // current route (e.g. /auth/start), which scopes the cookie so
+              // narrowly the browser never sends it back on other pages —
+              // silently killing the session on navigation.
+              cookieStore.set(name, value, { ...options, path: "/" });
             });
           } catch {
             // Server Components cannot set cookies. Middleware and Server Actions can.
