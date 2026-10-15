@@ -1,23 +1,11 @@
-import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/auth/require-user";
 import { ProjectReviewerClient } from "./ProjectReviewerClient";
 
 export const dynamic = "force-dynamic";
 
 export default async function ProjectReviewerPage() {
-  try {
-    const supabase = await createSupabaseServerClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (!user) {
-      redirect("/login?next=%2Freviewer");
-    }
-  } catch {
-    redirect("/login?next=%2Freviewer");
-  }
+  await requireUser("/reviewer");
 
   return (
     <div className="space-y-6">
