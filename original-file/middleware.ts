@@ -30,7 +30,9 @@ export async function middleware(request: NextRequest) {
           );
           supabaseResponse = NextResponse.next({ request });
           cookiesToSet.forEach(({ name, value, options }) =>
-            supabaseResponse.cookies.set(name, value, options)
+            // Explicit Path=/ so refreshed session cookies are never scoped
+            // to a single route.
+            supabaseResponse.cookies.set(name, value, { ...options, path: "/" })
           );
         },
       },

@@ -118,18 +118,18 @@ describe("site quality guardrails", () => {
     );
   });
 
-  it("routes social logins through the client callback for accessible errors", () => {
+  it("routes social logins directly through the server callback", () => {
     const authFormSource = readFileSync("components/auth/AuthForm.tsx", "utf8");
-    const clientCallbackSource = readFileSync(
-      "app/auth/client-callback/page.tsx",
+    const startRouteSource = readFileSync(
+      "app/auth/start/[provider]/route.ts",
       "utf8"
     );
+    const callbackSource = readFileSync("app/auth/callback/route.ts", "utf8");
 
     expect(authFormSource).toContain("/auth/start");
-    expect(clientCallbackSource).toContain("/auth/callback");
-    expect(authFormSource).toContain("Continue with");
-    expect(clientCallbackSource).toContain("window.location.hash");
-    expect(clientCallbackSource).toContain("email signup");
+    expect(startRouteSource).toContain('"/auth/callback"');
+    expect(startRouteSource).not.toContain("client-callback");
+    expect(callbackSource).toContain("exchangeCodeForSession");
     expect(authFormSource).toContain("Continue with {provider.label}");
     expect(authFormSource).not.toContain("Continue with GitHub");
   });

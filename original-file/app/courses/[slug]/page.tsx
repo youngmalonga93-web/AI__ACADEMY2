@@ -9,7 +9,7 @@ import { getViewerAccess } from "@/lib/access";
 import { isFreeModule } from "@/lib/entitlements";
 import { getModuleAnimation } from "@/lib/module-animations";
 import { lessonPath } from "@/lib/routes";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/auth/require-user";
 
 type CourseDetailPageProps = {
   params: Promise<{
@@ -36,10 +36,7 @@ export default async function CourseDetailPage({
   const animation = getModuleAnimation(courseModule.id, courseModule.title);
 
   try {
-    const supabase = await createSupabaseServerClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const { user, supabase } = await getCurrentUser();
 
     if (user) {
       const { data } = await supabase

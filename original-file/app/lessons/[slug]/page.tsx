@@ -11,7 +11,7 @@ import {
 import { getViewerAccess } from "@/lib/access";
 import { buildLessonMaterial } from "@/lib/lesson-material";
 import { getModuleAnimation } from "@/lib/module-animations";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/auth/require-user";
 import { completeLessonAction } from "./actions";
 
 type LessonPageProps = {
@@ -128,10 +128,7 @@ export default async function LessonPage({ params }: LessonPageProps) {
   const worksheetDownloadHref = `data:text/markdown;charset=utf-8,${encodeURIComponent(worksheetMarkdown)}`;
 
   try {
-    const supabase = await createSupabaseServerClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const { user, supabase } = await getCurrentUser();
 
     isSignedIn = user !== null;
 

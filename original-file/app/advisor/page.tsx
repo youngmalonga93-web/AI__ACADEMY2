@@ -1,23 +1,11 @@
-import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/auth/require-user";
 import { CareerAdvisorClient } from "./CareerAdvisorClient";
 
 export const dynamic = "force-dynamic";
 
 export default async function CareerAdvisorPage() {
-  try {
-    const supabase = await createSupabaseServerClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (!user) {
-      redirect("/login?next=%2Fadvisor");
-    }
-  } catch {
-    redirect("/login?next=%2Fadvisor");
-  }
+  await requireUser("/advisor");
 
   return (
     <div className="space-y-6">

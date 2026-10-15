@@ -29,7 +29,10 @@ export function createSupabaseRouteClient(request: NextRequest) {
 
   function applyCookies(response: NextResponse) {
     cookiesToSet.forEach(({ name, value, options }) => {
-      response.cookies.set(name, value, options);
+      // Explicit Path=/ : without it, cookies can be scoped to the current
+      // route and the browser will not send them back on other pages,
+      // silently killing the session on navigation.
+      response.cookies.set(name, value, { ...options, path: "/" });
     });
 
     return response;

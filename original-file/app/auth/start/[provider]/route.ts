@@ -36,7 +36,10 @@ export async function GET(request: NextRequest, props: AuthStartRouteProps) {
   }
 
   const appUrl = getConfiguredAppUrl(requestUrl.origin);
-  const callbackUrl = new URL("/auth/client-callback", appUrl);
+  // Direct server-side PKCE callback — no client-side hop. Supabase returns
+  // the authorization code to /auth/callback, which exchanges it for a
+  // session and sets the auth cookies server-side.
+  const callbackUrl = new URL("/auth/callback", appUrl);
   callbackUrl.searchParams.set("next", next);
   callbackUrl.searchParams.set("mode", mode);
   callbackUrl.searchParams.set("provider", providerConfig.id);
