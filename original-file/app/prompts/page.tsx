@@ -1,27 +1,16 @@
 import { Badge } from "@/components/ui/badge";
 import { getPromptVaultContent } from "@/lib/content/repository";
 import { getTrialState } from "@/lib/entitlements";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { getCurrentUser } from "@/lib/auth/require-user";
 import { PromptVault } from "./PromptVault";
 
 export const dynamic = "force-dynamic";
 
 export default async function PromptsPage() {
   const { categories, prompts, tools } = await getPromptVaultContent();
-  let isSignedIn = false;
-  let trialState = getTrialState(null);
-
-  try {
-    const supabase = await createSupabaseServerClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    isSignedIn = Boolean(user);
-    trialState = getTrialState(user?.created_at);
-  } catch {
-    isSignedIn = false;
-  }
+  const { user } = await getCurrentUser();
+  const isSignedIn = user !== null;
+  const trialState = getTrialState(user?.created_at);
 
   return (
     <div className="space-y-8">
