@@ -1,23 +1,11 @@
-import { redirect } from "next/navigation";
 import { Badge } from "@/components/ui/badge";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/auth/require-user";
 import { CoachClient } from "./CoachClient";
 
 export const dynamic = "force-dynamic";
 
 export default async function CoachPage() {
-  try {
-    const supabase = await createSupabaseServerClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (!user) {
-      redirect("/login?next=%2Fcoach");
-    }
-  } catch {
-    redirect("/login?next=%2Fcoach");
-  }
+  await requireUser("/coach");
 
   return (
     <div className="space-y-6">
