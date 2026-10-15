@@ -1,8 +1,7 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/auth/require-user";
 
 export async function completeLessonAction(formData: FormData) {
   const slug = String(formData.get("slug") ?? "");
@@ -11,14 +10,8 @@ export async function completeLessonAction(formData: FormData) {
     throw new Error("Lesson slug is required.");
   }
 
-  const supabase = await createSupabaseServerClient();
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
-
-  if (!user) {
-    redirect("/login");
-  }
+  // Redirects to /login when there is no valid session.
+  const { user, supabase } = await requireUser();
 
   const { data: lesson, error: lessonError } = await supabase
     .from("lessons")
