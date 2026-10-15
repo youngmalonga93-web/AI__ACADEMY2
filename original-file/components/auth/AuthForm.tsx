@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { ErrorMessage } from "@/components/ui/error-message";
 import { Input } from "@/components/ui/input";
@@ -13,7 +12,6 @@ type AuthFormProps = {
 };
 
 export function AuthForm({ mode }: AuthFormProps) {
-  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState("");
@@ -79,8 +77,10 @@ export function AuthForm({ mode }: AuthFormProps) {
             "Check your email to confirm your account. Your 7-day trial starts now."
         );
       } else {
-        router.push(payload.next ?? nextPath);
-        router.refresh();
+        // Full page load (not router.push): the login API just set auth
+        // cookies, and client-side navigation can render with a stale
+        // session. A hard navigation guarantees the next page sees them.
+        window.location.href = payload.next ?? nextPath;
       }
     } catch {
       setMessageKind("error");
