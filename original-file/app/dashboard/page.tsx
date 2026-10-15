@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { BillingPortalButton } from "@/app/dashboard/BillingPortalButton";
-import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { requireUser } from "@/lib/auth/require-user";
 import { getCourseModules } from "@/lib/content/repository";
 import {
   getSubscriptionState,
@@ -20,10 +20,13 @@ import Link from "next/link";
 export const dynamic = "force-dynamic";
 
 export default async function DashboardPage() {
-  let email = "";
+  // Redirects to /login when there is no valid session.
+  const { user, supabase } = await requireUser();
+
+  let email = user.email ?? "";
   let role = "learner";
   let completedLessons: CompletedLesson[] = [];
-  let trialState = getTrialState(null);
+  let trialState = getTrialState(user.created_at);
   let subscriptionState = getSubscriptionState(null);
   const modules = await getCourseModules();
   const totalLessons = modules.reduce(
@@ -32,18 +35,6 @@ export default async function DashboardPage() {
   );
 
   try {
-    const supabase = await createSupabaseServerClient();
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
-
-    if (!user) {
-      redirect("/login");
-    }
-
-    email = user.email ?? "";
-    trialState = getTrialState(user.created_at);
-
     const { data: profile } = await supabase
       .from("profiles")
       .select("role")
